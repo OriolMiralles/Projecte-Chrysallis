@@ -118,12 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-<<<<<<< HEAD
   <data name="NOU LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NOU LOGO.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-=======
-  <data name="NOU_LOGO_SIN_FONDO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NOU_LOGO_SIN_FONDO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
->>>>>>> 0395e6bba496e7be12bf980f989b6651d7fd459c
   </data>
 </root>

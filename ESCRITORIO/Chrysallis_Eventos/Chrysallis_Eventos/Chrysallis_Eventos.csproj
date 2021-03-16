@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormInicial.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormInicial.Designer.cs">
-      <DependentUpon>FormInicial.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormLoggin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,13 +54,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
     <EmbeddedResource Include="FormLoggin.resx">
       <DependentUpon>FormLoggin.cs</DependentUpon>
-=======
-    <EmbeddedResource Include="FormInicial.resx">
-      <DependentUpon>FormInicial.cs</DependentUpon>
->>>>>>> 0395e6bba496e7be12bf980f989b6651d7fd459c
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -92,11 +81,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <None Include="Resources\NOU LOGO.JPG" />
-=======
-    <None Include="Resources\NOU_LOGO_SIN_FONDO.png" />
->>>>>>> 0395e6bba496e7be12bf980f989b6651d7fd459c
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -63,15 +63,9 @@ namespace Chrysallis_Eventos.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-<<<<<<< HEAD
         internal static System.Drawing.Bitmap NOU_LOGO {
             get {
                 object obj = ResourceManager.GetObject("NOU LOGO", resourceCulture);
-=======
-        internal static System.Drawing.Bitmap NOU_LOGO_SIN_FONDO {
-            get {
-                object obj = ResourceManager.GetObject("NOU_LOGO_SIN_FONDO", resourceCulture);
->>>>>>> 0395e6bba496e7be12bf980f989b6651d7fd459c
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
