@@ -29,17 +29,16 @@ namespace Chrysallis_Eventos
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuaris));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonAddUser = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEditUser = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDelUser = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.groupBoxBuscar = new System.Windows.Forms.GroupBox();
-            this.textBoxBuscarUser = new System.Windows.Forms.TextBox();
             this.buttonBuscar = new System.Windows.Forms.Button();
+            this.textBoxBuscarUser = new System.Windows.Forms.TextBox();
             this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
+            this.toolStripButtonAddUser = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.groupBoxBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
@@ -60,19 +59,10 @@ namespace Chrysallis_Eventos
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButtonAddUser
-            // 
-            this.toolStripButtonAddUser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAddUser.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAddUser.Image")));
-            this.toolStripButtonAddUser.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonAddUser.Name = "toolStripButtonAddUser";
-            this.toolStripButtonAddUser.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButtonAddUser.Text = "toolStripButton1";
-            // 
             // toolStripButtonEditUser
             // 
             this.toolStripButtonEditUser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonEditUser.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonEditUser.Image")));
+            this.toolStripButtonEditUser.Image = global::Chrysallis_Eventos.Properties.Resources.edit_file_32px;
             this.toolStripButtonEditUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEditUser.Name = "toolStripButtonEditUser";
             this.toolStripButtonEditUser.Size = new System.Drawing.Size(29, 24);
@@ -81,7 +71,7 @@ namespace Chrysallis_Eventos
             // toolStripButtonDelUser
             // 
             this.toolStripButtonDelUser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonDelUser.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonDelUser.Image")));
+            this.toolStripButtonDelUser.Image = global::Chrysallis_Eventos.Properties.Resources.delete_bin_32px;
             this.toolStripButtonDelUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDelUser.Name = "toolStripButtonDelUser";
             this.toolStripButtonDelUser.Size = new System.Drawing.Size(29, 24);
@@ -95,7 +85,7 @@ namespace Chrysallis_Eventos
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.Image = global::Chrysallis_Eventos.Properties.Resources.exit_32px;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
@@ -114,13 +104,6 @@ namespace Chrysallis_Eventos
             this.groupBoxBuscar.TabStop = false;
             this.groupBoxBuscar.Text = "Buscar";
             // 
-            // textBoxBuscarUser
-            // 
-            this.textBoxBuscarUser.Location = new System.Drawing.Point(16, 24);
-            this.textBoxBuscarUser.Name = "textBoxBuscarUser";
-            this.textBoxBuscarUser.Size = new System.Drawing.Size(602, 23);
-            this.textBoxBuscarUser.TabIndex = 0;
-            // 
             // buttonBuscar
             // 
             this.buttonBuscar.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -135,6 +118,13 @@ namespace Chrysallis_Eventos
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = false;
             // 
+            // textBoxBuscarUser
+            // 
+            this.textBoxBuscarUser.Location = new System.Drawing.Point(16, 24);
+            this.textBoxBuscarUser.Name = "textBoxBuscarUser";
+            this.textBoxBuscarUser.Size = new System.Drawing.Size(602, 23);
+            this.textBoxBuscarUser.TabIndex = 0;
+            // 
             // dataGridViewUsers
             // 
             this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -145,6 +135,15 @@ namespace Chrysallis_Eventos
             this.dataGridViewUsers.Size = new System.Drawing.Size(775, 336);
             this.dataGridViewUsers.TabIndex = 2;
             // 
+            // toolStripButtonAddUser
+            // 
+            this.toolStripButtonAddUser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonAddUser.Image = global::Chrysallis_Eventos.Properties.Resources.add_32px;
+            this.toolStripButtonAddUser.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAddUser.Name = "toolStripButtonAddUser";
+            this.toolStripButtonAddUser.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButtonAddUser.Text = "toolStripButton1";
+            // 
             // FormUsuaris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -153,7 +152,6 @@ namespace Chrysallis_Eventos
             this.Controls.Add(this.dataGridViewUsers);
             this.Controls.Add(this.groupBoxBuscar);
             this.Controls.Add(this.toolStrip1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormUsuaris";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Usuarios Chrysallis";
