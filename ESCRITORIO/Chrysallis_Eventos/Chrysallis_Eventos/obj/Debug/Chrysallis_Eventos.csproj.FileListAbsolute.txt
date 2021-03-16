@@ -8,3 +8,4 @@ C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug
 C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.CoreCompileInputs.cache
 C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.exe
 C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.pdb
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormLoggin.resources
