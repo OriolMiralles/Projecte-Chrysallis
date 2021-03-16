@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Crhysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.exe.config
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Crhysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.exe
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Crhysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.pdb
@@ -8,3 +9,15 @@ D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Crhysallis\ESCRITORIO\Chrysallis_Even
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Crhysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.CoreCompileInputs.cache
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Crhysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.exe
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Crhysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.pdb
+=======
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.exe.config
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.exe
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.pdb
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csprojAssemblyReference.cache
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormInicial.resources
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.Properties.Resources.resources
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.GenerateResource.cache
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.CoreCompileInputs.cache
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.exe
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.pdb
+>>>>>>> 0395e6bba496e7be12bf980f989b6651d7fd459c
