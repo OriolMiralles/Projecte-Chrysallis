@@ -96,6 +96,9 @@
     <EmbeddedResource Include="FormLoggin.resx">
       <DependentUpon>FormLoggin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormUsuaris.resx">
+      <DependentUpon>FormUsuaris.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -121,6 +124,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NOU_LOGO_SIN_FONDO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_32px1.png" />
+    <None Include="Resources\edit_file_32px1.png" />
+    <None Include="Resources\delete_bin_32px1.png" />
+    <None Include="Resources\add_32px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colonias.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\online.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\picnic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quedada.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\taller.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
