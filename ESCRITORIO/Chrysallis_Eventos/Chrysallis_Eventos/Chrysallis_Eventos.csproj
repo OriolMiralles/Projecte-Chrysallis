@@ -96,6 +96,12 @@
     <EmbeddedResource Include="FormInicial.resx">
       <DependentUpon>FormInicial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormInsertarEventos.resx">
+      <DependentUpon>FormInsertarEventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInsertarUsuario.resx">
+      <DependentUpon>FormInsertarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLoggin.resx">
       <DependentUpon>FormLoggin.cs</DependentUpon>
     </EmbeddedResource>
