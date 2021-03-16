@@ -90,6 +90,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormEventos.resx">
+      <DependentUpon>FormEventos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInicial.resx">
       <DependentUpon>FormInicial.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuaris.resx">
       <DependentUpon>FormUsuaris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVerParticipantes.resx">
+      <DependentUpon>FormVerParticipantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
