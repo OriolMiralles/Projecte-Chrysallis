@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormCrearAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCrearAdmin.Designer.cs">
+      <DependentUpon>FormCrearAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEventos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,8 +103,65 @@
     <Compile Include="FormVerParticipantes.Designer.cs">
       <DependentUpon>FormVerParticipantes.cs</DependentUpon>
     </Compile>
+    <Compile Include="MODELOS\assistir.cs">
+      <DependentUpon>Chrysallis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\Chrysallis.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Chrysallis.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\Chrysallis.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Chrysallis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\Chrysallis.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Chrysallis.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\comunitats.cs">
+      <DependentUpon>Chrysallis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\documents.cs">
+      <DependentUpon>Chrysallis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\esdeveniments.cs">
+      <DependentUpon>Chrysallis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\localitats.cs">
+      <DependentUpon>Chrysallis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\menors.cs">
+      <DependentUpon>Chrysallis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\menors_socis.cs">
+      <DependentUpon>Chrysallis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\provincies.cs">
+      <DependentUpon>Chrysallis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\rols.cs">
+      <DependentUpon>Chrysallis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\socis.cs">
+      <DependentUpon>Chrysallis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\tipus_events.cs">
+      <DependentUpon>Chrysallis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\usuaris.cs">
+      <DependentUpon>Chrysallis.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\valoracions.cs">
+      <DependentUpon>Chrysallis.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormCrearAdmin.resx">
+      <DependentUpon>FormCrearAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEventos.resx">
       <DependentUpon>FormEventos.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,6 +193,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="MODELOS\Chrysallis.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Chrysallis.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MODELOS\Chrysallis.edmx.diagram">
+      <DependentUpon>Chrysallis.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -157,6 +237,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\taller.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MODELOS\Chrysallis.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Chrysallis.Context.cs</LastGenOutput>
+      <DependentUpon>Chrysallis.edmx</DependentUpon>
+    </Content>
+    <Content Include="MODELOS\Chrysallis.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Chrysallis.edmx</DependentUpon>
+      <LastGenOutput>Chrysallis.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
