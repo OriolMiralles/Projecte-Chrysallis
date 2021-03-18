@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,14 +37,35 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBoxRol = new System.Windows.Forms.ComboBox();
+            this.bindingSourceRols = new System.Windows.Forms.BindingSource(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxComunidades = new System.Windows.Forms.ComboBox();
+            this.bindingSourceComunitats = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buttonAnadir = new System.Windows.Forms.Button();
+            this.bindingSourceComunitatUser = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contrasenyaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idrolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rolsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comunitatsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRols)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitatUser)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(55, 76);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 17);
+            this.label1.Size = new System.Drawing.Size(70, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Username";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -51,18 +73,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 147);
+            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(55, 138);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 17);
+            this.label2.Size = new System.Drawing.Size(41, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Email";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 207);
+            this.label3.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(55, 193);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 17);
+            this.label3.Size = new System.Drawing.Size(66, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Password";
             // 
@@ -75,14 +99,14 @@
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(169, 147);
+            this.textBoxEmail.Location = new System.Drawing.Point(169, 138);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(383, 22);
             this.textBoxEmail.TabIndex = 4;
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(169, 207);
+            this.textBoxPassword.Location = new System.Drawing.Point(169, 193);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(383, 22);
             this.textBoxPassword.TabIndex = 5;
@@ -90,7 +114,8 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Location = new System.Drawing.Point(305, 307);
+            this.button1.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(302, 603);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 40);
             this.button1.TabIndex = 6;
@@ -100,12 +125,159 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.Location = new System.Drawing.Point(444, 307);
+            this.button2.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(444, 603);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(108, 40);
             this.button2.TabIndex = 7;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(58, 254);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 17);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Rol";
+            // 
+            // comboBoxRol
+            // 
+            this.comboBoxRol.DataSource = this.bindingSourceRols;
+            this.comboBoxRol.DisplayMember = "nom";
+            this.comboBoxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRol.FormattingEnabled = true;
+            this.comboBoxRol.Location = new System.Drawing.Point(169, 245);
+            this.comboBoxRol.Name = "comboBoxRol";
+            this.comboBoxRol.Size = new System.Drawing.Size(383, 24);
+            this.comboBoxRol.TabIndex = 9;
+            this.comboBoxRol.ValueMember = "id";
+            this.comboBoxRol.SelectedIndexChanged += new System.EventHandler(this.comboBoxRol_SelectedIndexChanged);
+            // 
+            // bindingSourceRols
+            // 
+            this.bindingSourceRols.DataSource = typeof(Chrysallis_Eventos.MODELOS.rols);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(58, 315);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(94, 17);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Comunidades";
+            // 
+            // comboBoxComunidades
+            // 
+            this.comboBoxComunidades.DataSource = this.bindingSourceComunitats;
+            this.comboBoxComunidades.DisplayMember = "nom";
+            this.comboBoxComunidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxComunidades.FormattingEnabled = true;
+            this.comboBoxComunidades.Location = new System.Drawing.Point(169, 315);
+            this.comboBoxComunidades.Name = "comboBoxComunidades";
+            this.comboBoxComunidades.Size = new System.Drawing.Size(383, 24);
+            this.comboBoxComunidades.TabIndex = 11;
+            this.comboBoxComunidades.ValueMember = "id";
+            // 
+            // bindingSourceComunitats
+            // 
+            this.bindingSourceComunitats.DataSource = typeof(Chrysallis_Eventos.MODELOS.comunitats);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.contrasenyaDataGridViewTextBoxColumn,
+            this.idrolDataGridViewTextBoxColumn,
+            this.usernameDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.rolsDataGridViewTextBoxColumn,
+            this.comunitatsDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.bindingSourceComunitatUser;
+            this.dataGridView1.Location = new System.Drawing.Point(58, 409);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(494, 188);
+            this.dataGridView1.TabIndex = 12;
+            // 
+            // buttonAnadir
+            // 
+            this.buttonAnadir.Location = new System.Drawing.Point(443, 351);
+            this.buttonAnadir.Name = "buttonAnadir";
+            this.buttonAnadir.Size = new System.Drawing.Size(109, 40);
+            this.buttonAnadir.TabIndex = 13;
+            this.buttonAnadir.Text = "Añadir";
+            this.buttonAnadir.UseVisualStyleBackColor = true;
+            // 
+            // bindingSourceComunitatUser
+            // 
+            this.bindingSourceComunitatUser.DataSource = typeof(Chrysallis_Eventos.MODELOS.usuaris);
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // contrasenyaDataGridViewTextBoxColumn
+            // 
+            this.contrasenyaDataGridViewTextBoxColumn.DataPropertyName = "contrasenya";
+            this.contrasenyaDataGridViewTextBoxColumn.HeaderText = "contrasenya";
+            this.contrasenyaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.contrasenyaDataGridViewTextBoxColumn.Name = "contrasenyaDataGridViewTextBoxColumn";
+            this.contrasenyaDataGridViewTextBoxColumn.Visible = false;
+            this.contrasenyaDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // idrolDataGridViewTextBoxColumn
+            // 
+            this.idrolDataGridViewTextBoxColumn.DataPropertyName = "id_rol";
+            this.idrolDataGridViewTextBoxColumn.HeaderText = "id_rol";
+            this.idrolDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idrolDataGridViewTextBoxColumn.Name = "idrolDataGridViewTextBoxColumn";
+            this.idrolDataGridViewTextBoxColumn.Visible = false;
+            this.idrolDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "username";
+            this.usernameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            this.usernameDataGridViewTextBoxColumn.Visible = false;
+            this.usernameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
+            this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.Visible = false;
+            this.emailDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // rolsDataGridViewTextBoxColumn
+            // 
+            this.rolsDataGridViewTextBoxColumn.DataPropertyName = "rols";
+            this.rolsDataGridViewTextBoxColumn.HeaderText = "rols";
+            this.rolsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.rolsDataGridViewTextBoxColumn.Name = "rolsDataGridViewTextBoxColumn";
+            this.rolsDataGridViewTextBoxColumn.Visible = false;
+            this.rolsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // comunitatsDataGridViewTextBoxColumn
+            // 
+            this.comunitatsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.comunitatsDataGridViewTextBoxColumn.DataPropertyName = "comunitats";
+            this.comunitatsDataGridViewTextBoxColumn.HeaderText = "Comunidades";
+            this.comunitatsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.comunitatsDataGridViewTextBoxColumn.Name = "comunitatsDataGridViewTextBoxColumn";
             // 
             // FormCrearAdmin
             // 
@@ -113,7 +285,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(610, 414);
+            this.ClientSize = new System.Drawing.Size(621, 655);
+            this.Controls.Add(this.buttonAnadir);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.comboBoxComunidades);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.comboBoxRol);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxPassword);
@@ -124,7 +302,12 @@
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.Name = "FormCrearAdmin";
-            this.Text = "FormCrearAdmin";
+            this.Text = "Crear usuaries";
+            this.Load += new System.EventHandler(this.FormCrearAdmin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRols)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitatUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,5 +323,21 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBoxRol;
+        private System.Windows.Forms.BindingSource bindingSourceRols;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBoxComunidades;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource bindingSourceComunitats;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contrasenyaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idrolDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rolsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comunitatsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bindingSourceComunitatUser;
+        private System.Windows.Forms.Button buttonAnadir;
     }
 }

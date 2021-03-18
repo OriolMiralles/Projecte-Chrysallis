@@ -20,3 +20,14 @@ D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Even
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.CoreCompileInputs.cache
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.exe
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.pdb
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormCrearAdmin.resources
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormEventos.resources
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormInsertarEventos.resources
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormInsertarUsuario.resources
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormUsuaris.resources
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormVerParticipantes.resources
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\EntityFramework.dll
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\EntityFramework.SqlServer.dll
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\EntityFramework.xml
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\EntityFramework.SqlServer.xml
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.CopyComplete

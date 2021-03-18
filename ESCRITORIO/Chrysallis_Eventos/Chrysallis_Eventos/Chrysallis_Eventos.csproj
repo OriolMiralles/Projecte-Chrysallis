@@ -103,6 +103,7 @@
     <Compile Include="FormVerParticipantes.Designer.cs">
       <DependentUpon>FormVerParticipantes.cs</DependentUpon>
     </Compile>
+    <Compile Include="MODELOS\AdminOrm.cs" />
     <Compile Include="MODELOS\assistir.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
@@ -124,6 +125,7 @@
     <Compile Include="MODELOS\comunitats.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
+    <Compile Include="MODELOS\ComunitatsOrm.cs" />
     <Compile Include="MODELOS\documents.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
@@ -139,12 +141,14 @@
     <Compile Include="MODELOS\menors_socis.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
+    <Compile Include="MODELOS\Orm.cs" />
     <Compile Include="MODELOS\provincies.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELOS\rols.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
+    <Compile Include="MODELOS\RolsOrm.cs" />
     <Compile Include="MODELOS\socis.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
@@ -201,6 +205,21 @@
       <DependentUpon>Chrysallis.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Chrysallis_Eventos.MODELOS.AdminOrm.datasource" />
+    <None Include="Properties\DataSources\Chrysallis_Eventos.MODELOS.assistir.datasource" />
+    <None Include="Properties\DataSources\Chrysallis_Eventos.MODELOS.comunitats.datasource" />
+    <None Include="Properties\DataSources\Chrysallis_Eventos.MODELOS.documents.datasource" />
+    <None Include="Properties\DataSources\Chrysallis_Eventos.MODELOS.esdeveniments.datasource" />
+    <None Include="Properties\DataSources\Chrysallis_Eventos.MODELOS.localitats.datasource" />
+    <None Include="Properties\DataSources\Chrysallis_Eventos.MODELOS.menors.datasource" />
+    <None Include="Properties\DataSources\Chrysallis_Eventos.MODELOS.menors_socis.datasource" />
+    <None Include="Properties\DataSources\Chrysallis_Eventos.MODELOS.Orm.datasource" />
+    <None Include="Properties\DataSources\Chrysallis_Eventos.MODELOS.provincies.datasource" />
+    <None Include="Properties\DataSources\Chrysallis_Eventos.MODELOS.rols.datasource" />
+    <None Include="Properties\DataSources\Chrysallis_Eventos.MODELOS.socis.datasource" />
+    <None Include="Properties\DataSources\Chrysallis_Eventos.MODELOS.tipus_events.datasource" />
+    <None Include="Properties\DataSources\Chrysallis_Eventos.MODELOS.usuaris.datasource" />
+    <None Include="Properties\DataSources\Chrysallis_Eventos.MODELOS.valoracions.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
