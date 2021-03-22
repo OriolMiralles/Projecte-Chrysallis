@@ -47,7 +47,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxComunidades = new System.Windows.Forms.ComboBox();
             this.bindingSourceComunitats = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewComunidades = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contrasenyaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idrolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +59,7 @@
             this.buttonAnadir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRols)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitats)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComunidades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitatUser)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,6 +128,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Insertar";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -195,13 +196,15 @@
             // 
             this.bindingSourceComunitats.DataSource = typeof(Chrysallis_Eventos.MODELOS.comunitats);
             // 
-            // dataGridView1
+            // dataGridViewComunidades
             // 
+            this.dataGridViewComunidades.AllowUserToAddRows = false;
+            this.dataGridViewComunidades.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewComunidades.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewComunidades.AutoGenerateColumns = false;
+            this.dataGridViewComunidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewComunidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.contrasenyaDataGridViewTextBoxColumn,
             this.idrolDataGridViewTextBoxColumn,
@@ -209,7 +212,7 @@
             this.emailDataGridViewTextBoxColumn,
             this.rolsDataGridViewTextBoxColumn,
             this.comunitatsDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.bindingSourceComunitatUser;
+            this.dataGridViewComunidades.DataSource = this.bindingSourceComunitatUser;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -217,9 +220,10 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(58, 409);
-            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridViewComunidades.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewComunidades.Location = new System.Drawing.Point(58, 409);
+            this.dataGridViewComunidades.Name = "dataGridViewComunidades";
+            this.dataGridViewComunidades.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -227,13 +231,13 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridViewComunidades.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewComunidades.RowHeadersWidth = 51;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(494, 188);
-            this.dataGridView1.TabIndex = 12;
+            this.dataGridViewComunidades.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewComunidades.RowTemplate.Height = 24;
+            this.dataGridViewComunidades.Size = new System.Drawing.Size(494, 188);
+            this.dataGridViewComunidades.TabIndex = 12;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -241,6 +245,7 @@
             this.idDataGridViewTextBoxColumn.HeaderText = "id";
             this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Visible = false;
             this.idDataGridViewTextBoxColumn.Width = 125;
             // 
@@ -250,6 +255,7 @@
             this.contrasenyaDataGridViewTextBoxColumn.HeaderText = "contrasenya";
             this.contrasenyaDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.contrasenyaDataGridViewTextBoxColumn.Name = "contrasenyaDataGridViewTextBoxColumn";
+            this.contrasenyaDataGridViewTextBoxColumn.ReadOnly = true;
             this.contrasenyaDataGridViewTextBoxColumn.Visible = false;
             this.contrasenyaDataGridViewTextBoxColumn.Width = 125;
             // 
@@ -259,6 +265,7 @@
             this.idrolDataGridViewTextBoxColumn.HeaderText = "id_rol";
             this.idrolDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idrolDataGridViewTextBoxColumn.Name = "idrolDataGridViewTextBoxColumn";
+            this.idrolDataGridViewTextBoxColumn.ReadOnly = true;
             this.idrolDataGridViewTextBoxColumn.Visible = false;
             this.idrolDataGridViewTextBoxColumn.Width = 125;
             // 
@@ -268,6 +275,7 @@
             this.usernameDataGridViewTextBoxColumn.HeaderText = "username";
             this.usernameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
             this.usernameDataGridViewTextBoxColumn.Visible = false;
             this.usernameDataGridViewTextBoxColumn.Width = 125;
             // 
@@ -277,6 +285,7 @@
             this.emailDataGridViewTextBoxColumn.HeaderText = "email";
             this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
             this.emailDataGridViewTextBoxColumn.Visible = false;
             this.emailDataGridViewTextBoxColumn.Width = 125;
             // 
@@ -286,6 +295,7 @@
             this.rolsDataGridViewTextBoxColumn.HeaderText = "rols";
             this.rolsDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.rolsDataGridViewTextBoxColumn.Name = "rolsDataGridViewTextBoxColumn";
+            this.rolsDataGridViewTextBoxColumn.ReadOnly = true;
             this.rolsDataGridViewTextBoxColumn.Visible = false;
             this.rolsDataGridViewTextBoxColumn.Width = 125;
             // 
@@ -296,6 +306,7 @@
             this.comunitatsDataGridViewTextBoxColumn.HeaderText = "Comunidades";
             this.comunitatsDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.comunitatsDataGridViewTextBoxColumn.Name = "comunitatsDataGridViewTextBoxColumn";
+            this.comunitatsDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // bindingSourceComunitatUser
             // 
@@ -310,6 +321,7 @@
             this.buttonAnadir.TabIndex = 13;
             this.buttonAnadir.Text = "Añadir";
             this.buttonAnadir.UseVisualStyleBackColor = true;
+            this.buttonAnadir.Click += new System.EventHandler(this.buttonAnadir_Click);
             // 
             // FormCrearAdmin
             // 
@@ -319,7 +331,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(621, 655);
             this.Controls.Add(this.buttonAnadir);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewComunidades);
             this.Controls.Add(this.comboBoxComunidades);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBoxRol);
@@ -338,7 +350,7 @@
             this.Load += new System.EventHandler(this.FormCrearAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRols)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitats)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComunidades)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitatUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -360,7 +372,7 @@
         private System.Windows.Forms.BindingSource bindingSourceRols;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxComunidades;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewComunidades;
         private System.Windows.Forms.BindingSource bindingSourceComunitats;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contrasenyaDataGridViewTextBoxColumn;

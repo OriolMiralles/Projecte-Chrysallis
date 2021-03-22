@@ -20,13 +20,14 @@ namespace Chrysallis_Eventos
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void FormCrearAdmin_Load(object sender, EventArgs e)
         {
             String missatge = "";
             List<rols> rols = RolsOrm.Select(ref missatge);
+            List<comunitats> _comunitats = new List<comunitats>();
             if (missatge.Equals(""))
             {
                 bindingSourceRols.DataSource = rols;
@@ -63,8 +64,93 @@ namespace Chrysallis_Eventos
                 }
 
             }
-            
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (textBoxUserName.Text.Equals(""))
+            {
+                MessageBox.Show("Hay que escribir un nombre");
+                textBoxUserName.Focus();
+            }
+            else
+            {
+                if (textBoxEmail.Text.Equals(""))
+                {
+                    MessageBox.Show("Hay que escribir un email");
+                    textBoxEmail.Focus();
+                }
+                else
+                {
+                    if (comprobarPassword())
+                    {
+                        if(comboBoxRol.SelectedIndex == -1)
+                        {
+                            MessageBox.Show("Seleccionar un rol");
+                        }
+                        else
+                        {
+                            String username = textBoxUserName.Text;
+                            String email = textBoxEmail.Text;
+                            String password = textBoxPassword.Text;
+                            rols rol = (rols)comboBoxRol.SelectedItem;
+                            String passCryp = BCrypt.Net.BCrypt.EnhancedHashPassword(password, BCrypt.Net.HashType.SHA512);
+                            if (rol.nom.Equals("SuperAdministrador")){
+                                usuaris usuari = new usuaris();
+                                usuari.username = username;
+                                usuari.email = email;
+                                usuari.contrasenya = passCryp;
+                                usuari.id_rol = rol.id;
+                                AdminOrm.Insert(usuari);
+                            }
+                            else
+                            {
+                                if (bindingSourceComunitats.Count == 0)
+                                {
+                                    MessageBox.Show("Hay que introducir almenos 1 comunidad");
+                                }
+                                else
+                                {
+                                    usuaris usuari = new usuaris();
+                                    usuari.username = username;
+                                    usuari.email = email;
+                                    usuari.contrasenya = passCryp;
+                                    usuari.id_rol = rol.id;
+                                    List<comunitats> _comunitats = new List<comunitats>();
+                                    foreach (comunitats item in dataGridViewComunidades.Rows)
+                                    {
+                                        _comunitats.Add(item);
+                                    }
+                                    usuari.comunitats = _comunitats;    
+                                    AdminOrm.Insert(usuari);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private bool comprobarPassword()
+        {
+            bool correcto = false;
+            if(textBoxEmail.Text.Length < 8)
+            {
+                MessageBox.Show("Mínimo 8 caracteres");
+
+            }
+            else
+            {
+                correcto = true;
+            }
+
+            return correcto;
+        }
+
+        private void buttonAnadir_Click(object sender, EventArgs e)
+        {
+            
         }
     }
+
 }
