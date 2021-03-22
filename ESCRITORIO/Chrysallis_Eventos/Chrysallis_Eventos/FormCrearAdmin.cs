@@ -29,7 +29,6 @@ namespace Chrysallis_Eventos
             String missatge = "";
             List<rols> rols = RolsOrm.Select(ref missatge);
             _comunitats = new List<comunitats>();
-            dataGridViewComunidades.DataSource = _comunitats;
             if (missatge.Equals(""))
             {
                 bindingSourceRols.DataSource = rols;
@@ -104,6 +103,7 @@ namespace Chrysallis_Eventos
                                 usuari.contrasenya = passCryp;
                                 usuari.id_rol = rol.id;
                                 AdminOrm.Insert(usuari);
+                                this.Close();
                             }
                             else
                             {
@@ -118,13 +118,10 @@ namespace Chrysallis_Eventos
                                     usuari.email = email;
                                     usuari.contrasenya = passCryp;
                                     usuari.id_rol = rol.id;
-                                    List<comunitats> _comunitats = new List<comunitats>();
-                                    foreach (comunitats item in dataGridViewComunidades.Rows)
-                                    {
-                                        _comunitats.Add(item);
-                                    }
                                     usuari.comunitats = _comunitats;    
                                     AdminOrm.Insert(usuari);
+                                    MessageBox.Show("Usuari introduit correctament");
+                                    this.Close();
                                 }
                             }
                         }
@@ -154,6 +151,12 @@ namespace Chrysallis_Eventos
             _comunitats.Add((comunitats)comboBoxComunidades.SelectedItem);
             dataGridViewComunidades.DataSource = null;
             dataGridViewComunidades.DataSource = _comunitats;
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

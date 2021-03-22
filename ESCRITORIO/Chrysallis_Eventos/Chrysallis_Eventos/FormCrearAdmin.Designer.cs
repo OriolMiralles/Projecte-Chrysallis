@@ -48,19 +48,12 @@
             this.comboBoxComunidades = new System.Windows.Forms.ComboBox();
             this.bindingSourceComunitats = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewComunidades = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contrasenyaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idrolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rolsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comunitatsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceComunitatUser = new System.Windows.Forms.BindingSource(this.components);
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonAnadir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRols)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComunidades)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitatUser)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -140,6 +133,7 @@
             this.button2.TabIndex = 7;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label4
             // 
@@ -202,17 +196,10 @@
             this.dataGridViewComunidades.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewComunidades.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewComunidades.AutoGenerateColumns = false;
             this.dataGridViewComunidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewComunidades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.contrasenyaDataGridViewTextBoxColumn,
-            this.idrolDataGridViewTextBoxColumn,
-            this.usernameDataGridViewTextBoxColumn,
-            this.emailDataGridViewTextBoxColumn,
-            this.rolsDataGridViewTextBoxColumn,
-            this.comunitatsDataGridViewTextBoxColumn});
-            this.dataGridViewComunidades.DataSource = this.bindingSourceComunitatUser;
+            this.id,
+            this.nom});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -239,78 +226,24 @@
             this.dataGridViewComunidades.Size = new System.Drawing.Size(494, 188);
             this.dataGridViewComunidades.TabIndex = 12;
             // 
-            // idDataGridViewTextBoxColumn
+            // id
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            this.idDataGridViewTextBoxColumn.Width = 125;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 125;
             // 
-            // contrasenyaDataGridViewTextBoxColumn
+            // nom
             // 
-            this.contrasenyaDataGridViewTextBoxColumn.DataPropertyName = "contrasenya";
-            this.contrasenyaDataGridViewTextBoxColumn.HeaderText = "contrasenya";
-            this.contrasenyaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.contrasenyaDataGridViewTextBoxColumn.Name = "contrasenyaDataGridViewTextBoxColumn";
-            this.contrasenyaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.contrasenyaDataGridViewTextBoxColumn.Visible = false;
-            this.contrasenyaDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // idrolDataGridViewTextBoxColumn
-            // 
-            this.idrolDataGridViewTextBoxColumn.DataPropertyName = "id_rol";
-            this.idrolDataGridViewTextBoxColumn.HeaderText = "id_rol";
-            this.idrolDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.idrolDataGridViewTextBoxColumn.Name = "idrolDataGridViewTextBoxColumn";
-            this.idrolDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idrolDataGridViewTextBoxColumn.Visible = false;
-            this.idrolDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
-            this.usernameDataGridViewTextBoxColumn.HeaderText = "username";
-            this.usernameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            this.usernameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.usernameDataGridViewTextBoxColumn.Visible = false;
-            this.usernameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
-            this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            this.emailDataGridViewTextBoxColumn.Visible = false;
-            this.emailDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // rolsDataGridViewTextBoxColumn
-            // 
-            this.rolsDataGridViewTextBoxColumn.DataPropertyName = "rols";
-            this.rolsDataGridViewTextBoxColumn.HeaderText = "rols";
-            this.rolsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.rolsDataGridViewTextBoxColumn.Name = "rolsDataGridViewTextBoxColumn";
-            this.rolsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.rolsDataGridViewTextBoxColumn.Visible = false;
-            this.rolsDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // comunitatsDataGridViewTextBoxColumn
-            // 
-            this.comunitatsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.comunitatsDataGridViewTextBoxColumn.DataPropertyName = "comunitats";
-            this.comunitatsDataGridViewTextBoxColumn.HeaderText = "Comunidades";
-            this.comunitatsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.comunitatsDataGridViewTextBoxColumn.Name = "comunitatsDataGridViewTextBoxColumn";
-            this.comunitatsDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bindingSourceComunitatUser
-            // 
-            this.bindingSourceComunitatUser.DataSource = typeof(Chrysallis_Eventos.MODELOS.usuaris);
+            this.nom.DataPropertyName = "nom";
+            this.nom.HeaderText = "Nom";
+            this.nom.MinimumWidth = 6;
+            this.nom.Name = "nom";
+            this.nom.ReadOnly = true;
+            this.nom.Width = 125;
             // 
             // buttonAnadir
             // 
@@ -351,7 +284,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRols)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitats)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComunidades)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitatUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,14 +306,8 @@
         private System.Windows.Forms.ComboBox comboBoxComunidades;
         private System.Windows.Forms.DataGridView dataGridViewComunidades;
         private System.Windows.Forms.BindingSource bindingSourceComunitats;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contrasenyaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idrolDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rolsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comunitatsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource bindingSourceComunitatUser;
         private System.Windows.Forms.Button buttonAnadir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nom;
     }
 }
