@@ -71,16 +71,18 @@
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(240, 285);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(265, 22);
+            this.textBox1.Size = new System.Drawing.Size(265, 23);
             this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
+            this.textBox2.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(240, 330);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(265, 22);
+            this.textBox2.Size = new System.Drawing.Size(265, 23);
             this.textBox2.TabIndex = 4;
             // 
             // buttonEntrar
@@ -99,9 +101,10 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.Location = new System.Drawing.Point(244, 455);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(196, 17);
+            this.linkLabel1.Size = new System.Drawing.Size(185, 18);
             this.linkLabel1.TabIndex = 6;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "¿Has olvidado la contraseña?";
