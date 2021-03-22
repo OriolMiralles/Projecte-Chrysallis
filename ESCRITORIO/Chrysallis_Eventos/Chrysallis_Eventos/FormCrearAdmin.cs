@@ -13,6 +13,7 @@ namespace Chrysallis_Eventos
 {
     public partial class FormCrearAdmin : Form
     {
+        List<comunitats> _comunitats;
         public FormCrearAdmin()
         {
             InitializeComponent();
@@ -27,7 +28,8 @@ namespace Chrysallis_Eventos
         {
             String missatge = "";
             List<rols> rols = RolsOrm.Select(ref missatge);
-            List<comunitats> _comunitats = new List<comunitats>();
+            _comunitats = new List<comunitats>();
+            dataGridViewComunidades.DataSource = _comunitats;
             if (missatge.Equals(""))
             {
                 bindingSourceRols.DataSource = rols;
@@ -149,7 +151,9 @@ namespace Chrysallis_Eventos
 
         private void buttonAnadir_Click(object sender, EventArgs e)
         {
-            
+            _comunitats.Add((comunitats)comboBoxComunidades.SelectedItem);
+            dataGridViewComunidades.DataSource = null;
+            dataGridViewComunidades.DataSource = _comunitats;
         }
     }
 
