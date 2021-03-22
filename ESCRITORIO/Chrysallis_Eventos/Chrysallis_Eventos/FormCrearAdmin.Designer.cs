@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,8 +48,6 @@
             this.comboBoxComunidades = new System.Windows.Forms.ComboBox();
             this.bindingSourceComunitats = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonAnadir = new System.Windows.Forms.Button();
-            this.bindingSourceComunitatUser = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contrasenyaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idrolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +55,8 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rolsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comunitatsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceComunitatUser = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonAnadir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRols)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -92,23 +96,26 @@
             // 
             // textBoxUserName
             // 
+            this.textBoxUserName.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUserName.Location = new System.Drawing.Point(169, 76);
             this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(383, 22);
+            this.textBoxUserName.Size = new System.Drawing.Size(383, 23);
             this.textBoxUserName.TabIndex = 3;
             // 
             // textBoxEmail
             // 
+            this.textBoxEmail.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEmail.Location = new System.Drawing.Point(169, 138);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(383, 22);
+            this.textBoxEmail.Size = new System.Drawing.Size(383, 23);
             this.textBoxEmail.TabIndex = 4;
             // 
             // textBoxPassword
             // 
+            this.textBoxPassword.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.Location = new System.Drawing.Point(169, 193);
             this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(383, 22);
+            this.textBoxPassword.Size = new System.Drawing.Size(383, 23);
             this.textBoxPassword.TabIndex = 5;
             // 
             // button1
@@ -136,9 +143,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(58, 254);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 17);
+            this.label4.Size = new System.Drawing.Size(26, 18);
             this.label4.TabIndex = 8;
             this.label4.Text = "Rol";
             // 
@@ -147,10 +155,11 @@
             this.comboBoxRol.DataSource = this.bindingSourceRols;
             this.comboBoxRol.DisplayMember = "nom";
             this.comboBoxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRol.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRol.FormattingEnabled = true;
             this.comboBoxRol.Location = new System.Drawing.Point(169, 245);
             this.comboBoxRol.Name = "comboBoxRol";
-            this.comboBoxRol.Size = new System.Drawing.Size(383, 24);
+            this.comboBoxRol.Size = new System.Drawing.Size(383, 26);
             this.comboBoxRol.TabIndex = 9;
             this.comboBoxRol.ValueMember = "id";
             this.comboBoxRol.SelectedIndexChanged += new System.EventHandler(this.comboBoxRol_SelectedIndexChanged);
@@ -162,9 +171,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(58, 315);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 17);
+            this.label5.Size = new System.Drawing.Size(92, 18);
             this.label5.TabIndex = 10;
             this.label5.Text = "Comunidades";
             // 
@@ -173,10 +183,11 @@
             this.comboBoxComunidades.DataSource = this.bindingSourceComunitats;
             this.comboBoxComunidades.DisplayMember = "nom";
             this.comboBoxComunidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxComunidades.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxComunidades.FormattingEnabled = true;
             this.comboBoxComunidades.Location = new System.Drawing.Point(169, 315);
             this.comboBoxComunidades.Name = "comboBoxComunidades";
-            this.comboBoxComunidades.Size = new System.Drawing.Size(383, 24);
+            this.comboBoxComunidades.Size = new System.Drawing.Size(383, 26);
             this.comboBoxComunidades.TabIndex = 11;
             this.comboBoxComunidades.ValueMember = "id";
             // 
@@ -186,6 +197,8 @@
             // 
             // dataGridView1
             // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -197,25 +210,30 @@
             this.rolsDataGridViewTextBoxColumn,
             this.comunitatsDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.bindingSourceComunitatUser;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(58, 409);
             this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidth = 51;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(494, 188);
             this.dataGridView1.TabIndex = 12;
-            // 
-            // buttonAnadir
-            // 
-            this.buttonAnadir.Location = new System.Drawing.Point(443, 351);
-            this.buttonAnadir.Name = "buttonAnadir";
-            this.buttonAnadir.Size = new System.Drawing.Size(109, 40);
-            this.buttonAnadir.TabIndex = 13;
-            this.buttonAnadir.Text = "Añadir";
-            this.buttonAnadir.UseVisualStyleBackColor = true;
-            // 
-            // bindingSourceComunitatUser
-            // 
-            this.bindingSourceComunitatUser.DataSource = typeof(Chrysallis_Eventos.MODELOS.usuaris);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -278,6 +296,20 @@
             this.comunitatsDataGridViewTextBoxColumn.HeaderText = "Comunidades";
             this.comunitatsDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.comunitatsDataGridViewTextBoxColumn.Name = "comunitatsDataGridViewTextBoxColumn";
+            // 
+            // bindingSourceComunitatUser
+            // 
+            this.bindingSourceComunitatUser.DataSource = typeof(Chrysallis_Eventos.MODELOS.usuaris);
+            // 
+            // buttonAnadir
+            // 
+            this.buttonAnadir.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAnadir.Location = new System.Drawing.Point(443, 351);
+            this.buttonAnadir.Name = "buttonAnadir";
+            this.buttonAnadir.Size = new System.Drawing.Size(109, 40);
+            this.buttonAnadir.TabIndex = 13;
+            this.buttonAnadir.Text = "Añadir";
+            this.buttonAnadir.UseVisualStyleBackColor = true;
             // 
             // FormCrearAdmin
             // 
