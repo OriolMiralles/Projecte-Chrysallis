@@ -17,5 +17,16 @@ namespace Chrysallis_Eventos
             InitializeComponent();
         }
 
+        private void FormInicial_Load(object sender, EventArgs e)
+        {
+            FormLoggin formLoggin = new FormLoggin();
+            formLoggin.ShowDialog();
+        }
+
+        private void buttonEventos_Click(object sender, EventArgs e)
+        {
+            FormEventos formEventos = new FormEventos();
+            formEventos.ShowDialog();
+        }
     }
 }
