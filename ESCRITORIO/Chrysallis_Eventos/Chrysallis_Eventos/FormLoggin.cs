@@ -26,5 +26,10 @@ namespace Chrysallis_Eventos
         {
 
         }
+
+        private void buttonEntrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

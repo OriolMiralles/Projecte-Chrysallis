@@ -97,6 +97,7 @@
             this.buttonEntrar.TabIndex = 5;
             this.buttonEntrar.Text = "ENTRAR";
             this.buttonEntrar.UseVisualStyleBackColor = false;
+            this.buttonEntrar.Click += new System.EventHandler(this.buttonEntrar_Click);
             // 
             // linkLabel1
             // 
