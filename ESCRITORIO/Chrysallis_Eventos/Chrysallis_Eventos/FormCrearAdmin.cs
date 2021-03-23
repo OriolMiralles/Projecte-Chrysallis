@@ -14,9 +14,19 @@ namespace Chrysallis_Eventos
     public partial class FormCrearAdmin : Form
     {
         List<comunitats> _comunitats;
+        usuaris usuari;
+        bool modificar;
         public FormCrearAdmin()
         {
             InitializeComponent();
+            usuari = new usuaris();
+            modificar = false;
+        }
+        public FormCrearAdmin(usuaris ususuari)
+        {
+            InitializeComponent();
+            this.usuari = usuari;
+            modificar = true;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -38,6 +48,14 @@ namespace Chrysallis_Eventos
             {
                 MessageBox.Show(missatge, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            if (modificar)
+            {
+                textBoxUserName.Text = usuari.username;
+                textBoxEmail.Text = usuari.contrasenya;
+                textBoxPassword.Enabled = false;
+                _comunitats = usuari.comunitats.ToList();
+                dataGridViewComunidades.DataSource = _comunitats;
+            }
             
 
         }
@@ -47,8 +65,14 @@ namespace Chrysallis_Eventos
             if(comboBoxRol.SelectedIndex != -1)
             {
                 rols rol = (rols)comboBoxRol.SelectedItem;
-                String tipo = rol.nom.ToString();
-                if (tipo.Equals("Administrador"))
+                if (comboBoxRol.SelectedIndex == 0)
+                {
+                    comboBoxComunidades.SelectedIndex = -1;
+                    bindingSourceComunitats.DataSource = null;
+                    dataGridViewComunidades.DataSource = null;
+                    _comunitats.Clear();
+                }
+                else
                 {
                     String missatge = "";
                     List<comunitats> comunitats = ComunitatsOrm.Select(ref missatge);
@@ -61,9 +85,8 @@ namespace Chrysallis_Eventos
                     {
                         MessageBox.Show(missatge, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
                 }
-
+                
             }
         }
 
@@ -71,14 +94,14 @@ namespace Chrysallis_Eventos
         {
             if (textBoxUserName.Text.Equals(""))
             {
-                MessageBox.Show("Hay que escribir un nombre");
+                MessageBox.Show("Hay que escribir un nombre", "Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBoxUserName.Focus();
             }
             else
             {
                 if (textBoxEmail.Text.Equals(""))
                 {
-                    MessageBox.Show("Hay que escribir un email");
+                    MessageBox.Show("Hay que escribir un email", "Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     textBoxEmail.Focus();
                 }
                 else
@@ -87,7 +110,7 @@ namespace Chrysallis_Eventos
                     {
                         if(comboBoxRol.SelectedIndex == -1)
                         {
-                            MessageBox.Show("Seleccionar un rol");
+                            MessageBox.Show("Seleccionar un rol", "Rol", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
@@ -97,7 +120,6 @@ namespace Chrysallis_Eventos
                             rols rol = (rols)comboBoxRol.SelectedItem;
                             String passCryp = BCrypt.Net.BCrypt.EnhancedHashPassword(password, BCrypt.Net.HashType.SHA512);
                             if (rol.nom.Equals("SuperAdministrador")){
-                                usuaris usuari = new usuaris();
                                 usuari.username = username;
                                 usuari.email = email;
                                 usuari.contrasenya = passCryp;
@@ -133,9 +155,9 @@ namespace Chrysallis_Eventos
         private bool comprobarPassword()
         {
             bool correcto = false;
-            if(textBoxEmail.Text.Length < 8)
+            if(textBoxPassword.Text.Length < 8)
             {
-                MessageBox.Show("Mínimo 8 caracteres");
+                MessageBox.Show("La contraseña tiene que tener un mínimo de 8 caracteres", "Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             else
@@ -148,9 +170,26 @@ namespace Chrysallis_Eventos
 
         private void buttonAnadir_Click(object sender, EventArgs e)
         {
-            _comunitats.Add((comunitats)comboBoxComunidades.SelectedItem);
-            dataGridViewComunidades.DataSource = null;
-            dataGridViewComunidades.DataSource = _comunitats;
+            if (comboBoxComunidades.SelectedIndex != -1)
+            {
+                bool existe = false;
+                comunitats com = (comunitats)comboBoxComunidades.SelectedItem;
+                foreach (comunitats item in _comunitats)
+                {
+                    if (item.Equals(com))
+                    {
+                        existe = true;
+                    }
+                }
+                if (!existe)
+                {
+                    _comunitats.Add((comunitats)comboBoxComunidades.SelectedItem);
+                    dataGridViewComunidades.DataSource = null;
+                    dataGridViewComunidades.DataSource = _comunitats;
+                }
+               
+            }
+            
             
         }
 

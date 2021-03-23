@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.exe.config
 C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.exe
 C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.pdb
@@ -62,3 +63,37 @@ C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multip
 C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.CopyComplete
+=======
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.exe.config
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.exe
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.pdb
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\BCrypt.Net-Next.dll
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\EntityFramework.dll
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\EntityFramework.SqlServer.dll
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Buffers.dll
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Memory.dll
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Numerics.Vectors.dll
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\BCrypt.Net-Next.xml
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\EntityFramework.xml
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\EntityFramework.SqlServer.xml
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Buffers.xml
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Memory.xml
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Numerics.Vectors.xml
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormAdmin.resources
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormCrearAdmin.resources
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormEventos.resources
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormInicial.resources
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormInsertarEventos.resources
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormInsertarUsuario.resources
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormLoggin.resources
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormUsuaris.resources
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormVerParticipantes.resources
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.Properties.Resources.resources
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.GenerateResource.cache
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.CoreCompileInputs.cache
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.CopyComplete
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.exe
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.pdb
+>>>>>>> 52d8bf0a7945f4c850b134ff678db5350af1e9ed

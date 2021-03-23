@@ -43,8 +43,9 @@ namespace Chrysallis_Eventos
                 }
                 else
                 {
+                    String missatge = "";
                     String username = textBoxUserName.Text;
-                    List<usuaris> _user =  AdminOrm.Select(username);
+                    List<usuaris> _user =  AdminOrm.Select(ref missatge, username);
                     
                     if (_user.Count == 1)
                     {
