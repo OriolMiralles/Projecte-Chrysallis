@@ -16,6 +16,13 @@ namespace Chrysallis_Eventos.MODELOS
             missatge = Orm.mySaveChanges();
             return missatge;
         }
+
+        public static List<usuaris> Select(String userName)
+        {
+            List<usuaris> _usuari = Orm.bd.usuaris
+                                    .Where(u => u.username.Equals(userName)).ToList();
+            return _usuari;
+        }
     }
 
 }
