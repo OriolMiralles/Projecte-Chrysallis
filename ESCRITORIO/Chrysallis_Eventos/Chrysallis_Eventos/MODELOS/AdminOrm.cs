@@ -25,6 +25,7 @@ namespace Chrysallis_Eventos.MODELOS
             return _usuari;
         }
 
+<<<<<<< HEAD
         public static List<usuaris> Select(ref String missatge)
         {
             List<usuaris> usuaris = new List<usuaris>();
@@ -42,6 +43,8 @@ namespace Chrysallis_Eventos.MODELOS
             return usuaris;
         }
 
+=======
+>>>>>>> de205f61424069c788f49a9fe4d94e4ef9f7aa7c
         public static List<usuaris> Select(ref String missatge, int id_usuari)
         {
             List<usuaris> usuaris = new List<usuaris>();

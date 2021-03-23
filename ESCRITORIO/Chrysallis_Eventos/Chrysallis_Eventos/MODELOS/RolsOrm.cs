@@ -21,7 +21,6 @@ namespace Chrysallis_Eventos.MODELOS
                 missatge = Orm.missatgeError(ex);
             }
             
-
             return rols;
         }
 

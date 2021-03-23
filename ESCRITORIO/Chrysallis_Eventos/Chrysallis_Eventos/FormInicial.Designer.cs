@@ -63,6 +63,7 @@ namespace Chrysallis_Eventos
             this.buttonUsuarios.TabIndex = 1;
             this.buttonUsuarios.Text = "Usuarios";
             this.buttonUsuarios.UseVisualStyleBackColor = false;
+            this.buttonUsuarios.Click += new System.EventHandler(this.buttonUsuarios_Click);
             // 
             // buttonEventos
             // 
