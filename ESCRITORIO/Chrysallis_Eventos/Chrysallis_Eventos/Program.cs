@@ -16,7 +16,7 @@ namespace Chrysallis_Eventos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormLoggin());
+            Application.Run(new FormCrearAdmin());
         }
     }
 }

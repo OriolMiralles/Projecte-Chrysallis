@@ -16,5 +16,10 @@ namespace Chrysallis_Eventos
         {
             InitializeComponent();
         }
+
+        private void FormInsertarUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
