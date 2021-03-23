@@ -15,15 +15,14 @@ namespace Chrysallis_Eventos.MODELOS
             try
             {
                 comunitats = Orm.bd.comunitats.ToList();
-
             }
             catch (SqlException ex)
             {
                 missatge = Orm.missatgeError(ex);
             }
 
-
             return comunitats;
         }
+
     }
 }

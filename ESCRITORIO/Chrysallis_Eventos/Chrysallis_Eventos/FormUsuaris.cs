@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Chrysallis_Eventos.MODELOS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,45 @@ namespace Chrysallis_Eventos
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void comboBoxComunidades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void FormUsuaris_Load(object sender, EventArgs e)
+        {
+            String missatge = "";
+
+           
+
+            if (User.SuperAdmin)
+            {            
+                comboBoxComunidades.DataSource = ComunitatsOrm.Select(ref missatge);
+                comboBoxComunidades.SelectedIndex = 7;
+            }
+            else
+            {
+                List<usuaris> _usuaris = AdminOrm.Select(ref missatge, User.id);
+
+                comboBoxComunidades.DataSource = _usuaris[0].comunitats.ToList();
+            }
+           
+
+            if (!missatge.Equals(""))
+            {
+                MessageBox.Show(missatge,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+
+        }
+
+        private void toolStripButtonAddUser_Click(object sender, EventArgs e)
+        {
+            FormInsertarUsuario fiu = new FormInsertarUsuario();
+            fiu.ShowDialog();
         }
     }
 }
