@@ -38,7 +38,7 @@ namespace Chrysallis_Eventos
             if (User.SuperAdmin)
             {            
                 comboBoxComunidades.DataSource = ComunitatsOrm.Select(ref missatge);
-                comboBoxComunidades.SelectedIndex = 7;
+                comboBoxComunidades.SelectedIndex = 8;
             }
             else
             {

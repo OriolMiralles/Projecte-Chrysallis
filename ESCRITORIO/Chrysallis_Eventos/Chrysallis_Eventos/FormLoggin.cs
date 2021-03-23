@@ -31,9 +31,6 @@ namespace Chrysallis_Eventos
 
         private void buttonEntrar_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
-
-=======
             if (textBoxUserName.Text.Equals(""))
             {
                 MessageBox.Show("Hay que introducir un nombre de usuario");
@@ -85,7 +82,6 @@ namespace Chrysallis_Eventos
             {
                 Application.Exit();
             }
->>>>>>> a4667850846a6f9af266007fa118176fae016784
         }
 
         private void FormLoggin_Load(object sender, EventArgs e)
