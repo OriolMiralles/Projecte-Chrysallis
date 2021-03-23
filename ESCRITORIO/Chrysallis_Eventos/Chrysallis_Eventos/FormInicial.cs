@@ -28,5 +28,11 @@ namespace Chrysallis_Eventos
             FormEventos formEventos = new FormEventos();
             formEventos.ShowDialog();
         }
+
+        private void buttonUsuarios_Click(object sender, EventArgs e)
+        {
+            FormUsuaris fu = new FormUsuaris();
+            fu.ShowDialog();
+        }
     }
 }
