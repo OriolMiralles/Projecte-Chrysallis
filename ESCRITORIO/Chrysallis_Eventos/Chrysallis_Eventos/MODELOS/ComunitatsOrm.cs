@@ -13,8 +13,26 @@ namespace Chrysallis_Eventos.MODELOS
         {
             List<comunitats> comunitats = new List<comunitats>();
             try
+
             {
                 comunitats = Orm.bd.comunitats.ToList();
+
+            }
+            catch (SqlException ex)
+            {
+                missatge = Orm.missatgeError(ex);
+            }
+
+            return comunitats;
+        }
+        public static List<comunitats> Select(ref String missatge, usuaris user)
+        {
+            List<comunitats> comunitats = new List<comunitats>();
+            try
+
+            {
+                comunitats = Orm.bd.comunitats.ToList();
+
             }
             catch (SqlException ex)
             {

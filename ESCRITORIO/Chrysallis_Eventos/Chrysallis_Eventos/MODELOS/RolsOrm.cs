@@ -23,5 +23,10 @@ namespace Chrysallis_Eventos.MODELOS
             
             return rols;
         }
+
+        public static void Insert(rols rol)
+        {
+            Orm.bd.rols.Add(rol);
+        }
     }
 }
