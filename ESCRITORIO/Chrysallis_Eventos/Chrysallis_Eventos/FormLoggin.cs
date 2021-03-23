@@ -87,5 +87,10 @@ namespace Chrysallis_Eventos
             }
 >>>>>>> a4667850846a6f9af266007fa118176fae016784
         }
+
+        private void FormLoggin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

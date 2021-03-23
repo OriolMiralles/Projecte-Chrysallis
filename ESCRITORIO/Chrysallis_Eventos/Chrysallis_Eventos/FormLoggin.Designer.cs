@@ -128,7 +128,7 @@
             this.Name = "FormLoggin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chrysallis";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormLoggin_FormClosed);
+            this.Load += new System.EventHandler(this.FormLoggin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
