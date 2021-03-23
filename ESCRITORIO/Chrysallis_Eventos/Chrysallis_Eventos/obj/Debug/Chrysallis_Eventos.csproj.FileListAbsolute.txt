@@ -41,3 +41,4 @@ D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Even
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Memory.xml
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Numerics.Vectors.xml
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormAdmin.resources

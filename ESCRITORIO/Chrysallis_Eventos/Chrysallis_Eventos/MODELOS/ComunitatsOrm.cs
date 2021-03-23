@@ -9,13 +9,13 @@ namespace Chrysallis_Eventos.MODELOS
 {
     class ComunitatsOrm
     {
-        public static List<comunitats> Select(ref String missatge)
+        public static List<comunitats> Select(ref String missatge, usuaris user)
         {
             List<comunitats> comunitats = new List<comunitats>();
             try
-            {
-                comunitats = Orm.bd.comunitats.ToList();
-
+            { 
+                // comunitats = Orm.bd.comunitats.ToList();
+                comunitats = Orm.bd.comunitats.Where(c => c.usuaris.Equals(user)).ToList();
             }
             catch (SqlException ex)
             {
