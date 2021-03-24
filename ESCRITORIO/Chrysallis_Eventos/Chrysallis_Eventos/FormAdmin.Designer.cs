@@ -33,9 +33,11 @@
             this.toolStripButtonAnadir = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonModificar = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPass = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonSalir = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonBorrar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonSalir = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewUsuaris = new System.Windows.Forms.DataGridView();
+            this.bindingSourceUsuaris = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contrasenyaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,7 +45,6 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rolsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comunitatsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceUsuaris = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuaris)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuaris)).BeginInit();
@@ -56,11 +57,12 @@
             this.toolStripButtonAnadir,
             this.toolStripButtonModificar,
             this.toolStripButtonPass,
+            this.toolStripButtonBorrar,
             this.toolStripSeparator1,
             this.toolStripButtonSalir});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1129, 31);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -95,6 +97,21 @@
             this.toolStripButtonPass.Text = "Cambiar Password";
             this.toolStripButtonPass.Click += new System.EventHandler(this.toolStripButtonPass_Click);
             // 
+            // toolStripButtonBorrar
+            // 
+            this.toolStripButtonBorrar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonBorrar.Image = global::Chrysallis_Eventos.Properties.Resources.delete_bin_32px;
+            this.toolStripButtonBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonBorrar.Name = "toolStripButtonBorrar";
+            this.toolStripButtonBorrar.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButtonBorrar.Text = "Eliminar usuario";
+            this.toolStripButtonBorrar.Click += new System.EventHandler(this.toolStripButtonBorrar_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            // 
             // toolStripButtonSalir
             // 
             this.toolStripButtonSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -104,11 +121,6 @@
             this.toolStripButtonSalir.Size = new System.Drawing.Size(29, 28);
             this.toolStripButtonSalir.Text = "Salir";
             this.toolStripButtonSalir.Click += new System.EventHandler(this.toolStripButtonSalir_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // dataGridViewUsuaris
             // 
@@ -134,9 +146,13 @@
             this.dataGridViewUsuaris.RowHeadersWidth = 51;
             this.dataGridViewUsuaris.RowTemplate.Height = 24;
             this.dataGridViewUsuaris.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewUsuaris.Size = new System.Drawing.Size(800, 390);
+            this.dataGridViewUsuaris.Size = new System.Drawing.Size(1129, 595);
             this.dataGridViewUsuaris.TabIndex = 1;
             this.dataGridViewUsuaris.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewUsuaris_CellFormatting);
+            // 
+            // bindingSourceUsuaris
+            // 
+            this.bindingSourceUsuaris.DataSource = typeof(Chrysallis_Eventos.MODELOS.usuaris);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -169,21 +185,21 @@
             // 
             // idrolDataGridViewTextBoxColumn
             // 
+            this.idrolDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.idrolDataGridViewTextBoxColumn.DataPropertyName = "id_rol";
             this.idrolDataGridViewTextBoxColumn.HeaderText = "Rol";
             this.idrolDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.idrolDataGridViewTextBoxColumn.Name = "idrolDataGridViewTextBoxColumn";
             this.idrolDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idrolDataGridViewTextBoxColumn.Width = 125;
             // 
             // emailDataGridViewTextBoxColumn
             // 
+            this.emailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
             this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
             this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             this.emailDataGridViewTextBoxColumn.ReadOnly = true;
-            this.emailDataGridViewTextBoxColumn.Width = 125;
             // 
             // rolsDataGridViewTextBoxColumn
             // 
@@ -205,15 +221,12 @@
             this.comunitatsDataGridViewTextBoxColumn.Visible = false;
             this.comunitatsDataGridViewTextBoxColumn.Width = 125;
             // 
-            // bindingSourceUsuaris
-            // 
-            this.bindingSourceUsuaris.DataSource = typeof(Chrysallis_Eventos.MODELOS.usuaris);
-            // 
             // FormAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1129, 655);
             this.Controls.Add(this.dataGridViewUsuaris);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FormAdmin";
@@ -238,6 +251,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonSalir;
         private System.Windows.Forms.DataGridView dataGridViewUsuaris;
         private System.Windows.Forms.BindingSource bindingSourceUsuaris;
+        private System.Windows.Forms.ToolStripButton toolStripButtonBorrar;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contrasenyaDataGridViewTextBoxColumn;

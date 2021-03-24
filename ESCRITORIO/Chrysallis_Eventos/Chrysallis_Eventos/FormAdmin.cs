@@ -32,6 +32,7 @@ namespace Chrysallis_Eventos
                 _usuaris = AdminOrm.Select(ref missatge, User.id);
                 toolStripButtonAnadir.Enabled = false;
                 toolStripButtonModificar.Enabled = false;
+                toolStripButtonBorrar.Enabled = false;
             }
             bindingSourceUsuaris.DataSource = _usuaris.ToList();
         }
@@ -89,6 +90,37 @@ namespace Chrysallis_Eventos
             {
                 FormResetPass fr = new FormResetPass((usuaris)dataGridViewUsuaris.SelectedRows[0].DataBoundItem);
                 fr.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Seleccionar un usuario de la grid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void toolStripButtonBorrar_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewUsuaris.SelectedRows.Count == 1)
+            {
+                String missatge = "";
+                usuaris user = (usuaris)dataGridViewUsuaris.SelectedRows[0].DataBoundItem;
+                if (user.username.Equals("sa"))
+                {
+                    MessageBox.Show("No se puede eliminar el usuario sa", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    DialogResult dg = MessageBox.Show("Estás seguro que quieres borrar el usuario?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (dg == DialogResult.OK)
+                    {
+                        missatge = AdminOrm.Delete((usuaris)dataGridViewUsuaris.SelectedRows[0].DataBoundItem);
+                        if (missatge.Equals(""))
+                        {
+                            MessageBox.Show("Usuario eliminado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            refrescarGrid();
+                        }
+                    }
+                }
+                
             }
             else
             {

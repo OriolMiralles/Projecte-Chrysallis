@@ -21,7 +21,7 @@ namespace Chrysallis_Eventos
 
         private void FormResetPass_Load(object sender, EventArgs e)
         {
-
+            labelNombre.Text = _user.username.ToString();
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
