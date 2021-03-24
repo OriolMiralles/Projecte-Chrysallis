@@ -61,7 +61,7 @@ namespace Chrysallis_Eventos
             this.buttonUsuarios.Name = "buttonUsuarios";
             this.buttonUsuarios.Size = new System.Drawing.Size(240, 46);
             this.buttonUsuarios.TabIndex = 1;
-            this.buttonUsuarios.Text = "Usuarios";
+            this.buttonUsuarios.Text = "Socies";
             this.buttonUsuarios.UseVisualStyleBackColor = false;
             this.buttonUsuarios.Click += new System.EventHandler(this.buttonUsuarios_Click);
             // 
@@ -91,8 +91,9 @@ namespace Chrysallis_Eventos
             this.buttonSocies.Name = "buttonSocies";
             this.buttonSocies.Size = new System.Drawing.Size(240, 46);
             this.buttonSocies.TabIndex = 3;
-            this.buttonSocies.Text = "Socies";
+            this.buttonSocies.Text = "Usuarios";
             this.buttonSocies.UseVisualStyleBackColor = false;
+            this.buttonSocies.Click += new System.EventHandler(this.buttonSocies_Click);
             // 
             // FormInicial
             // 
