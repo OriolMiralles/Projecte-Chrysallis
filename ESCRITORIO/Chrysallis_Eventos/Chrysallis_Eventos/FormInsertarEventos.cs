@@ -109,11 +109,87 @@ namespace Chrysallis_Eventos
         {
             Boolean correcto = false;
 
-            if(textBoxTituloEvento.Text.Length > 0)
+            if (textBoxTituloEvento.Text.Length == 0)
+            { 
+            
+            }
+            else if (comboBoxTipoEvento.SelectedItem == null)
+            { 
+            
+            }
+            else if (comboBoxProvincias.SelectedItem == null)
+            { 
+            
+            }
+            else if (comboBoxCiudadesBuscadas.SelectedItem == null)
+            { 
+            
+            }
+            else if (textBoxDireccionEvento.Text.Length == 0)
+            { 
+            
+            }
+            else if (richTextBoxDescripcionEvento.Text.Length == 0)
+            { 
+            
+            }
+            else if (textBoxMinimoAsistentesEvento.Text.Length == 0)
             {
 
             }
-            
+            else if (textBoxMaximoasistentesEvento.Text.Length == 0)
+            {
+
+            }
+            else
+            {
+                if (checkBoxActividadPagoEvento.Checked)
+                {
+                    if(textBoxPrecioPersonaEvento.Text.Length == 0)
+                    {
+
+                    }
+                    else
+                    {
+                        if (this.modificar)
+                        {
+                            if(textBoxTotalparticipantesEvento.Text.Length == 0)
+                            {
+
+                            }
+                            else
+                            {
+                                correcto = true;
+                            }
+                            
+                        }
+                        else
+                        {
+                            correcto = true;
+                        }
+                    }
+                }
+                else
+                {
+                    if (this.modificar)
+                    {
+                        if (textBoxTotalparticipantesEvento.Text.Length == 0)
+                        {
+
+                        }
+                        else
+                        {
+                            correcto = true;
+                        }
+
+                    }
+                    else
+                    {
+                        correcto = true;
+                    }
+                }
+            }
+
             return correcto;
         }
     }
