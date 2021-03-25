@@ -160,6 +160,7 @@
     <Compile Include="MODELOS\esdeveniments.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
+    <Compile Include="MODELOS\EventosOrm.cs" />
     <Compile Include="MODELOS\localitats.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
