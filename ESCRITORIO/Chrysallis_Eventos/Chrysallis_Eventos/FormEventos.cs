@@ -52,8 +52,12 @@ namespace Chrysallis_Eventos
         private void comboBoxComunidades_SelectedIndexChanged(object sender, EventArgs e)
         {
             String missatge = "";
-
-            bindingSourceComboComuni.DataSource = EventosOrm.Select(ref missatge, (comunitats) comboBoxComunidades.SelectedItem);
+            List<esdeveniments> esdeveniments = EventosOrm.Select(ref missatge, (comunitats)comboBoxComunidades.SelectedItem);
+            if(esdeveniments.Count > 0)
+            {
+                bindingSourceComboComuni.DataSource = esdeveniments;
+            }
+            
 
         }
 
@@ -61,6 +65,18 @@ namespace Chrysallis_Eventos
         {
             FormInsertarEventos formInsertarEventos = new FormInsertarEventos((comunitats)comboBoxComunidades.SelectedItem);
             formInsertarEventos.ShowDialog();
+        }
+
+        private void toolStripButtonEditEvent_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewEvents.Rows[0].DataBoundItem != null)
+            {
+                esdeveniments esdeveniment = (esdeveniments) dataGridViewEvents.Rows[0].DataBoundItem;
+                comunitats comunitat = (comunitats)comboBoxComunidades.SelectedItem;
+                FormInsertarEventos formInsertarEventos = new FormInsertarEventos(esdeveniment, comunitat);
+                formInsertarEventos.ShowDialog();
+            }
+
         }
     }
 }

@@ -456,7 +456,7 @@ namespace Chrysallis_Eventos
             this.toolStripButtonExit});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(800, 31);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -466,8 +466,8 @@ namespace Chrysallis_Eventos
             this.toolStripButtonAddEvent.Image = global::Chrysallis_Eventos.Properties.Resources.add_32px;
             this.toolStripButtonAddEvent.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAddEvent.Name = "toolStripButtonAddEvent";
-            this.toolStripButtonAddEvent.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButtonAddEvent.Text = "toolStripButton1";
+            this.toolStripButtonAddEvent.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButtonAddEvent.Text = "Añadir";
             this.toolStripButtonAddEvent.Click += new System.EventHandler(this.toolStripButtonAddEvent_Click);
             // 
             // toolStripButtonEditEvent
@@ -476,8 +476,9 @@ namespace Chrysallis_Eventos
             this.toolStripButtonEditEvent.Image = global::Chrysallis_Eventos.Properties.Resources.edit_file_32px;
             this.toolStripButtonEditEvent.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEditEvent.Name = "toolStripButtonEditEvent";
-            this.toolStripButtonEditEvent.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButtonEditEvent.Text = "toolStripButton2";
+            this.toolStripButtonEditEvent.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButtonEditEvent.Text = "Modificar";
+            this.toolStripButtonEditEvent.Click += new System.EventHandler(this.toolStripButtonEditEvent_Click);
             // 
             // toolStripButtonDelEvent
             // 
@@ -485,13 +486,13 @@ namespace Chrysallis_Eventos
             this.toolStripButtonDelEvent.Image = global::Chrysallis_Eventos.Properties.Resources.delete_bin_32px;
             this.toolStripButtonDelEvent.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDelEvent.Name = "toolStripButtonDelEvent";
-            this.toolStripButtonDelEvent.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButtonDelEvent.Text = "toolStripButton3";
+            this.toolStripButtonDelEvent.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButtonDelEvent.Text = "Eliminar";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // toolStripButtonExit
             // 
@@ -499,8 +500,8 @@ namespace Chrysallis_Eventos
             this.toolStripButtonExit.Image = global::Chrysallis_Eventos.Properties.Resources.exit_32px;
             this.toolStripButtonExit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonExit.Name = "toolStripButtonExit";
-            this.toolStripButtonExit.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButtonExit.Text = "toolStripButton1";
+            this.toolStripButtonExit.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButtonExit.Text = "Salir";
             this.toolStripButtonExit.Click += new System.EventHandler(this.toolStripButtonExit_Click);
             // 
             // bindingSourceComboComuni

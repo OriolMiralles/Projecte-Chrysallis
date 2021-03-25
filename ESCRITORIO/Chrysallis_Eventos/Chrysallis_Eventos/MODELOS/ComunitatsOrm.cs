@@ -42,5 +42,7 @@ namespace Chrysallis_Eventos.MODELOS
             return comunitats;
         }
 
+
+
     }
 }
