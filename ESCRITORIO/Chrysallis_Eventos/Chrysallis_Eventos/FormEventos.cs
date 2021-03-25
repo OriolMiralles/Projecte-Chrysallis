@@ -51,7 +51,16 @@ namespace Chrysallis_Eventos
 
         private void comboBoxComunidades_SelectedIndexChanged(object sender, EventArgs e)
         {
+            String missatge = "";
 
+            bindingSourceComboComuni.DataSource = EventosOrm.Select(ref missatge, (comunitats) comboBoxComunidades.SelectedItem);
+
+        }
+
+        private void toolStripButtonAddEvent_Click(object sender, EventArgs e)
+        {
+            FormInsertarEventos formInsertarEventos = new FormInsertarEventos((comunitats)comboBoxComunidades.SelectedItem);
+            formInsertarEventos.ShowDialog();
         }
     }
 }

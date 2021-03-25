@@ -468,6 +468,7 @@ namespace Chrysallis_Eventos
             this.toolStripButtonAddEvent.Name = "toolStripButtonAddEvent";
             this.toolStripButtonAddEvent.Size = new System.Drawing.Size(29, 24);
             this.toolStripButtonAddEvent.Text = "toolStripButton1";
+            this.toolStripButtonAddEvent.Click += new System.EventHandler(this.toolStripButtonAddEvent_Click);
             // 
             // toolStripButtonEditEvent
             // 
