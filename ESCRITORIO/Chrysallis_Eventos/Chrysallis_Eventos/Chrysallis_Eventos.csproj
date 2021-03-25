@@ -150,6 +150,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Chrysallis.edmx</DependentUpon>
     </Compile>
+    <Compile Include="MODELOS\CiutatsOrm.cs" />
     <Compile Include="MODELOS\comunitats.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
@@ -160,6 +161,7 @@
     <Compile Include="MODELOS\esdeveniments.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
+    <Compile Include="MODELOS\EventosOrm.cs" />
     <Compile Include="MODELOS\localitats.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
@@ -180,6 +182,7 @@
     <Compile Include="MODELOS\socis.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
+    <Compile Include="MODELOS\TipusEventsOrm.cs" />
     <Compile Include="MODELOS\tipus_events.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>

@@ -13,6 +13,7 @@ namespace Chrysallis_Eventos
 {
     public partial class FormUsuaris : Form
     {
+        public const int COMUNIDAD_POR_DEFECTO = 7;
         public FormUsuaris()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace Chrysallis_Eventos
             if (User.SuperAdmin)
             {            
                 comboBoxComunidades.DataSource = ComunitatsOrm.Select(ref missatge);
-                comboBoxComunidades.SelectedIndex = 7;
+                comboBoxComunidades.SelectedIndex = COMUNIDAD_POR_DEFECTO;
             }
             else
             {

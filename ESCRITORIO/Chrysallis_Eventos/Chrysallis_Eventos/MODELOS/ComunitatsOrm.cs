@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Chrysallis_Eventos.MODELOS
 {
-    class ComunitatsOrm
+    public static class ComunitatsOrm
     {
         public static List<comunitats> Select(ref String missatge)
         {
@@ -15,7 +15,7 @@ namespace Chrysallis_Eventos.MODELOS
             try
 
             {
-                comunitats = Orm.bd.comunitats.ToList();
+                comunitats = Orm.bd.comunitats.OrderBy(c => c.nom).ToList();
 
             }
             catch (SqlException ex)
@@ -41,6 +41,8 @@ namespace Chrysallis_Eventos.MODELOS
 
             return comunitats;
         }
+
+
 
     }
 }
