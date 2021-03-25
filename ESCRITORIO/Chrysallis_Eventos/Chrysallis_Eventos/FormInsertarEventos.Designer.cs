@@ -36,6 +36,7 @@ namespace Chrysallis_Eventos
             this.groupBoxUbicacionEvento = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxCiudadesBuscadas = new System.Windows.Forms.ComboBox();
+            this.bindingSourceCiutats = new System.Windows.Forms.BindingSource(this.components);
             this.comboBoxProvincias = new System.Windows.Forms.ComboBox();
             this.bindingSourceProvincies = new System.Windows.Forms.BindingSource(this.components);
             this.labelDireccionEvento = new System.Windows.Forms.Label();
@@ -65,13 +66,12 @@ namespace Chrysallis_Eventos
             this.buttonInsertarEvento = new System.Windows.Forms.Button();
             this.labelNumeroEvento = new System.Windows.Forms.Label();
             this.dateTimePickerEvento = new System.Windows.Forms.DateTimePicker();
-            this.bindingSourceCiutats = new System.Windows.Forms.BindingSource(this.components);
             this.groupBoxUbicacionEvento.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCiutats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProvincies)).BeginInit();
             this.groupBoxCosteEvento.SuspendLayout();
             this.groupBoxParticipantesEvento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTipoEventos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCiutats)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTituloEvento
@@ -142,12 +142,19 @@ namespace Chrysallis_Eventos
             // 
             // comboBoxCiudadesBuscadas
             // 
+            this.comboBoxCiudadesBuscadas.DataSource = this.bindingSourceCiutats;
+            this.comboBoxCiudadesBuscadas.DisplayMember = "nom";
             this.comboBoxCiudadesBuscadas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCiudadesBuscadas.FormattingEnabled = true;
             this.comboBoxCiudadesBuscadas.Location = new System.Drawing.Point(164, 147);
             this.comboBoxCiudadesBuscadas.Name = "comboBoxCiudadesBuscadas";
             this.comboBoxCiudadesBuscadas.Size = new System.Drawing.Size(499, 34);
             this.comboBoxCiudadesBuscadas.TabIndex = 27;
+            this.comboBoxCiudadesBuscadas.ValueMember = "id";
+            // 
+            // bindingSourceCiutats
+            // 
+            this.bindingSourceCiutats.DataSource = typeof(Chrysallis_Eventos.MODELOS.localitats);
             // 
             // comboBoxProvincias
             // 
@@ -160,6 +167,7 @@ namespace Chrysallis_Eventos
             this.comboBoxProvincias.Size = new System.Drawing.Size(499, 34);
             this.comboBoxProvincias.TabIndex = 26;
             this.comboBoxProvincias.ValueMember = "id_comunitat";
+            this.comboBoxProvincias.SelectedIndexChanged += new System.EventHandler(this.comboBoxProvincias_SelectedIndexChanged);
             // 
             // bindingSourceProvincies
             // 
@@ -202,6 +210,7 @@ namespace Chrysallis_Eventos
             this.textBoxCiudadEvento.Name = "textBoxCiudadEvento";
             this.textBoxCiudadEvento.Size = new System.Drawing.Size(499, 31);
             this.textBoxCiudadEvento.TabIndex = 20;
+            this.textBoxCiudadEvento.TextChanged += new System.EventHandler(this.textBoxCiudadEvento_TextChanged);
             // 
             // labelProvinciaEvento
             // 
@@ -454,10 +463,6 @@ namespace Chrysallis_Eventos
             this.dateTimePickerEvento.Size = new System.Drawing.Size(248, 23);
             this.dateTimePickerEvento.TabIndex = 34;
             // 
-            // bindingSourceCiutats
-            // 
-            this.bindingSourceCiutats.DataSource = typeof(Chrysallis_Eventos.MODELOS.localitats);
-            // 
             // FormInsertarEventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -483,13 +488,13 @@ namespace Chrysallis_Eventos
             this.Load += new System.EventHandler(this.FormInsertarEventos_Load);
             this.groupBoxUbicacionEvento.ResumeLayout(false);
             this.groupBoxUbicacionEvento.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCiutats)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProvincies)).EndInit();
             this.groupBoxCosteEvento.ResumeLayout(false);
             this.groupBoxCosteEvento.PerformLayout();
             this.groupBoxParticipantesEvento.ResumeLayout(false);
             this.groupBoxParticipantesEvento.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTipoEventos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCiutats)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

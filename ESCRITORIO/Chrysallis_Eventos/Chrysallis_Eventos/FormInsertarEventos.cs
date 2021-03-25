@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using Chrysallis_Eventos.MODELOS;
@@ -10,12 +12,14 @@ namespace Chrysallis_Eventos
         public comunitats comunitat;
         public esdeveniments esdeveniment;
         public Boolean modificar = false;
+        public List<localitats> _localitats = null;
 
         public FormInsertarEventos(comunitats comunitat)
         {
             InitializeComponent();
             this.comunitat = comunitat;
             labelNumeroEvento.Visible = false;
+            _localitats = new List<localitats>();
         }
 
         public FormInsertarEventos(esdeveniments esdeveniment, comunitats comunitat)
@@ -33,7 +37,7 @@ namespace Chrysallis_Eventos
             String missatge = "";
 
             bindingSourceTipoEventos.DataSource = TipusEventsOrm.Select(ref missatge);
-            bindingSourceProvincies.DataSource = esdeveniment.comunitats.provincies.ToList();
+            bindingSourceProvincies.DataSource = comunitat.provincies.ToList();
 
             if (!modificar)
             {
@@ -41,6 +45,7 @@ namespace Chrysallis_Eventos
                 dateTimePickerEvento.Value = DateTime.Now;
                 comboBoxTipoEvento.SelectedItem = null;
                 comboBoxProvincias.SelectedItem = null;
+                comboBoxCiudadesBuscadas.SelectedItem = null;
             }
             else
             {
@@ -202,6 +207,27 @@ namespace Chrysallis_Eventos
             }
 
             return correcto;
+        }
+
+        private void comboBoxProvincias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBoxProvincias.SelectedItem != null)
+            {
+                String missatge = "";
+                _localitats = CiutatsOrm.Select(ref missatge, (provincies)comboBoxProvincias.SelectedItem);
+                bindingSourceCiutats.DataSource = _localitats;
+            }
+           
+        }
+
+        private void textBoxCiudadEvento_TextChanged(object sender, EventArgs e)
+        {
+            BindingList<localitats> llistaFiltrada = null;
+
+            llistaFiltrada = new BindingList<localitats>(_localitats.Where(l => l.nom.ToLower().Contains(textBoxCiudadEvento.Text.ToLower())).ToList());
+
+            bindingSourceCiutats.DataSource = llistaFiltrada;
+
         }
     }
 }
