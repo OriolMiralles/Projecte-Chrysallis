@@ -77,6 +77,11 @@ namespace Chrysallis_Eventos
             }
         }
 
+        private void FormLoggin_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void FormLoggin_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (!entrada)

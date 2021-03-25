@@ -34,7 +34,6 @@
             this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonEntrar = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,6 +83,7 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(265, 23);
             this.textBoxPassword.TabIndex = 4;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // buttonEntrar
             // 
@@ -99,25 +99,13 @@
             this.buttonEntrar.UseVisualStyleBackColor = false;
             this.buttonEntrar.Click += new System.EventHandler(this.buttonEntrar_Click);
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(244, 455);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(185, 18);
-            this.linkLabel1.TabIndex = 6;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "¿Has olvidado la contraseña?";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
             // FormLoggin
             // 
+            this.AcceptButton = this.buttonEntrar;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(699, 534);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.buttonEntrar);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUserName);
@@ -129,6 +117,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chrysallis";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormLoggin_FormClosed);
+            this.Load += new System.EventHandler(this.FormLoggin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -143,7 +132,6 @@
         private System.Windows.Forms.TextBox textBoxUserName;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button buttonEntrar;
-        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

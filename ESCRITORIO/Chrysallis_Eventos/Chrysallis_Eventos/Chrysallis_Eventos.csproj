@@ -113,6 +113,12 @@
     <Compile Include="FormLoggin.Designer.cs">
       <DependentUpon>FormLoggin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormResetPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormResetPass.Designer.cs">
+      <DependentUpon>FormResetPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUsuaris.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,7 @@
     <Compile Include="MODELOS\esdeveniments.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
+    <Compile Include="MODELOS\EventosOrm.cs" />
     <Compile Include="MODELOS\localitats.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
@@ -206,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLoggin.resx">
       <DependentUpon>FormLoggin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormResetPass.resx">
+      <DependentUpon>FormResetPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsuaris.resx">
       <DependentUpon>FormUsuaris.cs</DependentUpon>
@@ -294,6 +304,8 @@
       <DependentUpon>Chrysallis.edmx</DependentUpon>
       <LastGenOutput>Chrysallis.cs</LastGenOutput>
     </Content>
+    <Content Include="Resources\password.png" />
+    <None Include="Resources\pass.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
