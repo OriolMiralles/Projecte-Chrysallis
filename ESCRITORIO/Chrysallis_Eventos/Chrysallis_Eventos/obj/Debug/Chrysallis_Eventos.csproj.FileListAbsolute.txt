@@ -1,33 +1,33 @@
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.exe.config
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.exe
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.pdb
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\BCrypt.Net-Next.dll
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\EntityFramework.dll
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Buffers.dll
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Memory.dll
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Numerics.Vectors.dll
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\BCrypt.Net-Next.xml
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\EntityFramework.xml
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Buffers.xml
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Memory.xml
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Numerics.Vectors.xml
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormAdmin.resources
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormCrearAdmin.resources
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormEventos.resources
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormInicial.resources
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormInsertarEventos.resources
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormInsertarUsuario.resources
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormLoggin.resources
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormResetPass.resources
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormUsuaris.resources
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormVerParticipantes.resources
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.Properties.Resources.resources
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.GenerateResource.cache
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.CoreCompileInputs.cache
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.CopyComplete
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.exe
-C:\Users\devin\Desktop\DAM2A\M13 - Projecte desenvolupament d'aplicacions multiplataforma\Projecte 2\Projecte Crysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.pdb
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.exe.config
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.exe
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\Chrysallis_Eventos.pdb
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\BCrypt.Net-Next.dll
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\EntityFramework.dll
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\EntityFramework.SqlServer.dll
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Buffers.dll
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Memory.dll
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Numerics.Vectors.dll
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\BCrypt.Net-Next.xml
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\EntityFramework.xml
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\EntityFramework.SqlServer.xml
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Buffers.xml
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Memory.xml
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Numerics.Vectors.xml
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormAdmin.resources
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormCrearAdmin.resources
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormEventos.resources
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormInicial.resources
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormInsertarEventos.resources
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormInsertarUsuario.resources
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormLoggin.resources
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormResetPass.resources
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormUsuaris.resources
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormVerParticipantes.resources
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.Properties.Resources.resources
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.GenerateResource.cache
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.CoreCompileInputs.cache
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.CopyComplete
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.exe
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.pdb
