@@ -22,7 +22,7 @@ namespace Chrysallis_Eventos
             usuari = new usuaris();
             modificar = false;
         }
-        public FormCrearAdmin(usuaris ususuari)
+        public FormCrearAdmin(usuaris usuari)
         {
             InitializeComponent();
             this.usuari = usuari;
@@ -50,11 +50,23 @@ namespace Chrysallis_Eventos
             }
             if (modificar)
             {
-                textBoxUserName.Text = usuari.username;
-                textBoxEmail.Text = usuari.contrasenya;
+                textBoxUserName.Text = usuari.username.ToString();
+                textBoxEmail.Text = usuari.email.ToString();
                 textBoxPassword.Enabled = false;
-                _comunitats = usuari.comunitats.ToList();
-                dataGridViewComunidades.DataSource = _comunitats;
+                textBoxUserName.Enabled = false;
+                comboBoxRol.SelectedItem = usuari.rols;
+                button1.Text = "Modificar";
+                if (usuari.comunitats != null)
+                {
+                    _comunitats = usuari.comunitats.ToList();
+                    dataGridViewComunidades.DataSource = _comunitats;
+                }
+                if (usuari.username.Equals("sa"))
+                {
+                    MessageBox.Show("No se puede modificar el usuario sa", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                
             }
             
 
@@ -106,8 +118,6 @@ namespace Chrysallis_Eventos
                 }
                 else
                 {
-                    if (comprobarPassword())
-                    {
                         if(comboBoxRol.SelectedIndex == -1)
                         {
                             MessageBox.Show("Seleccionar un rol", "Rol", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -116,38 +126,100 @@ namespace Chrysallis_Eventos
                         {
                             String username = textBoxUserName.Text;
                             String email = textBoxEmail.Text;
-                            String password = textBoxPassword.Text;
                             rols rol = (rols)comboBoxRol.SelectedItem;
-                            String passCryp = BCrypt.Net.BCrypt.EnhancedHashPassword(password, BCrypt.Net.HashType.SHA512);
-                            if (rol.nom.Equals("SuperAdministrador")){
+                            if (rol.nom.Equals("SuperAdministrador"))
+                            {
                                 usuari.username = username;
                                 usuari.email = email;
-                                usuari.contrasenya = passCryp;
                                 usuari.id_rol = rol.id;
-                                AdminOrm.Insert(usuari);
-                                this.Close();
+                                usuari.comunitats = null;
+                                String missatge = "";
+                                if (!modificar)
+                                {
+                                    String password = textBoxPassword.Text;
+                                    String passCryp = BCrypt.Net.BCrypt.EnhancedHashPassword(password, BCrypt.Net.HashType.SHA512);
+                                    usuari.contrasenya = passCryp;
+                                    if (comprobarPassword())
+                                    {
+                                        missatge = AdminOrm.Insert(usuari);
+                                        if (missatge.Equals(""))
+                                        {
+                                            MessageBox.Show("Usuari introduit correctament");
+                                            this.Close();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        }
+                                    }
+                                    
+                                }
+                                else
+                                {
+                                    missatge = AdminOrm.Update(usuari);
+                                    if (missatge.Equals(""))
+                                    {
+                                        MessageBox.Show("Usuari modificat correctament");
+                                        this.Close();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                }
+                                
                             }
                             else
                             {
-                                if (bindingSourceComunitats.Count == 0)
+                                if (_comunitats.Count == 0)
                                 {
                                     MessageBox.Show("Hay que introducir almenos 1 comunidad");
                                 }
                                 else
                                 {
-                                    usuaris usuari = new usuaris();
+                                    String missatge = "";
                                     usuari.username = username;
-                                    usuari.email = email;
-                                    usuari.contrasenya = passCryp;
+                                    usuari.email = email;  
                                     usuari.id_rol = rol.id;
-                                    usuari.comunitats = _comunitats;    
-                                    AdminOrm.Insert(usuari);
-                                    MessageBox.Show("Usuari introduit correctament");
-                                    this.Close();
+                                    usuari.comunitats = _comunitats;
+                                    if (!modificar)
+                                    {
+                                        String password = textBoxPassword.Text;
+                                        String passCryp = BCrypt.Net.BCrypt.EnhancedHashPassword(password, BCrypt.Net.HashType.SHA512);
+                                        usuari.contrasenya = passCryp;
+                                        if (comprobarPassword())
+                                        {
+                                            missatge = AdminOrm.Insert(usuari);
+                                            if (missatge.Equals(""))
+                                            {
+                                                MessageBox.Show("Usuari introduit correctament");
+                                                this.Close();
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        missatge = AdminOrm.Update(usuari);
+                                        if (missatge.Equals(""))
+                                        {
+                                            MessageBox.Show("Usuari modificat correctament");
+                                            this.Close();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        }
+
+                                    }
+                                    
                                 }
                             }
                         }
-                    }
+                    
                 }
             }
         }

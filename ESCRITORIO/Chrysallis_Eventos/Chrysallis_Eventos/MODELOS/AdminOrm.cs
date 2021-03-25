@@ -68,6 +68,19 @@ namespace Chrysallis_Eventos.MODELOS
 
             return usuaris;
         }
+
+        public static String Update(usuaris user)
+        {
+            String missatge = Orm.mySaveChanges();
+            return missatge;
+        }
+        public static String Delete(usuaris user)
+        {
+            String missatge = "";
+            Orm.bd.usuaris.Remove(user);
+            missatge = Orm.mySaveChanges();
+            return missatge;
+        }
     }
 
 }

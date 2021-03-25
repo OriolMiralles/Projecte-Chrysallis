@@ -41,10 +41,10 @@ namespace Chrysallis_Eventos
             // 
             this.pictureBoxLogo.Image = global::Chrysallis_Eventos.Properties.Resources.NOU_LOGO_SIN_FONDO;
             this.pictureBoxLogo.InitialImage = null;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(197, 33);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(242, 11);
             this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(161, 150);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(282, 263);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
@@ -56,12 +56,12 @@ namespace Chrysallis_Eventos
             this.buttonUsuarios.FlatAppearance.BorderSize = 2;
             this.buttonUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUsuarios.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUsuarios.Location = new System.Drawing.Point(157, 213);
+            this.buttonUsuarios.Location = new System.Drawing.Point(266, 296);
             this.buttonUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUsuarios.Name = "buttonUsuarios";
             this.buttonUsuarios.Size = new System.Drawing.Size(240, 46);
             this.buttonUsuarios.TabIndex = 1;
-            this.buttonUsuarios.Text = "Usuarios";
+            this.buttonUsuarios.Text = "Socies";
             this.buttonUsuarios.UseVisualStyleBackColor = false;
             this.buttonUsuarios.Click += new System.EventHandler(this.buttonUsuarios_Click);
             // 
@@ -71,7 +71,7 @@ namespace Chrysallis_Eventos
             this.buttonEventos.FlatAppearance.BorderSize = 2;
             this.buttonEventos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEventos.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEventos.Location = new System.Drawing.Point(157, 280);
+            this.buttonEventos.Location = new System.Drawing.Point(266, 357);
             this.buttonEventos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonEventos.Name = "buttonEventos";
             this.buttonEventos.Size = new System.Drawing.Size(240, 46);
@@ -86,26 +86,28 @@ namespace Chrysallis_Eventos
             this.buttonSocies.FlatAppearance.BorderSize = 2;
             this.buttonSocies.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSocies.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSocies.Location = new System.Drawing.Point(157, 346);
+            this.buttonSocies.Location = new System.Drawing.Point(266, 502);
             this.buttonSocies.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSocies.Name = "buttonSocies";
             this.buttonSocies.Size = new System.Drawing.Size(240, 46);
             this.buttonSocies.TabIndex = 3;
-            this.buttonSocies.Text = "Socies";
+            this.buttonSocies.Text = "Usuarios";
             this.buttonSocies.UseVisualStyleBackColor = false;
+            this.buttonSocies.Click += new System.EventHandler(this.buttonSocies_Click);
             // 
             // FormInicial
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(567, 434);
+            this.ClientSize = new System.Drawing.Size(768, 580);
             this.Controls.Add(this.buttonSocies);
             this.Controls.Add(this.buttonEventos);
             this.Controls.Add(this.buttonUsuarios);
             this.Controls.Add(this.pictureBoxLogo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "FormInicial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chrysallis";

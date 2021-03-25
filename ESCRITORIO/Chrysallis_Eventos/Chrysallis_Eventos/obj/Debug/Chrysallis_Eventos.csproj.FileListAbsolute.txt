@@ -96,4 +96,9 @@ D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Even
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.CopyComplete
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.exe
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.pdb
+<<<<<<< HEAD
 >>>>>>> 52d8bf0a7945f4c850b134ff678db5350af1e9ed
+=======
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csprojAssemblyReference.cache
+D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormResetPass.resources
+>>>>>>> 5ca91ddf9bdf2360c1955194803a9c243e3b31f0

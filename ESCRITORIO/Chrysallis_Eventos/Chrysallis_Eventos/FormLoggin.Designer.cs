@@ -84,6 +84,7 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(265, 23);
             this.textBoxPassword.TabIndex = 4;
+            this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // buttonEntrar
             // 
