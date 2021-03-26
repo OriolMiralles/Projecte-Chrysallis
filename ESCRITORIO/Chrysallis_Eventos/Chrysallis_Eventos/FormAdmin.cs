@@ -66,7 +66,7 @@ namespace Chrysallis_Eventos
             }
             else
             {
-                MessageBox.Show("Seleccionar un usuario de la grid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccionar un usuarie de la grid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
         }
@@ -93,7 +93,7 @@ namespace Chrysallis_Eventos
             }
             else
             {
-                MessageBox.Show("Seleccionar un usuario de la grid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccionar un usuarie de la grid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -105,17 +105,17 @@ namespace Chrysallis_Eventos
                 usuaris user = (usuaris)dataGridViewUsuaris.SelectedRows[0].DataBoundItem;
                 if (user.username.Equals("sa"))
                 {
-                    MessageBox.Show("No se puede eliminar el usuario sa", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No se puede eliminar el usuarie sa", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    DialogResult dg = MessageBox.Show("Estás seguro que quieres borrar el usuario?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    DialogResult dg = MessageBox.Show("Estás seguro que quieres borrar el usuarie?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (dg == DialogResult.OK)
                     {
                         missatge = AdminOrm.Delete((usuaris)dataGridViewUsuaris.SelectedRows[0].DataBoundItem);
                         if (missatge.Equals(""))
                         {
-                            MessageBox.Show("Usuario eliminado correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Usuarie eliminade correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             refrescarGrid();
                         }
                     }
@@ -124,8 +124,13 @@ namespace Chrysallis_Eventos
             }
             else
             {
-                MessageBox.Show("Seleccionar un usuario de la grid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccionar un usuarie de la grid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

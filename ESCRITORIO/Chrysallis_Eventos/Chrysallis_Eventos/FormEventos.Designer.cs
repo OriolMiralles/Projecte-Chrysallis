@@ -36,11 +36,24 @@ namespace Chrysallis_Eventos
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewEvents = new System.Windows.Forms.DataGridView();
+            this.bindingSourceGridEventos = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBoxBuscarEvent = new System.Windows.Forms.GroupBox();
+            this.buttonBuscar = new System.Windows.Forms.Button();
+            this.textBoxBuscarEvent = new System.Windows.Forms.TextBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonAddEvent = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonEditEvent = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDelEvent = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButtonExit = new System.Windows.Forms.ToolStripButton();
+            this.bindingSourceComboComuni = new System.Windows.Forms.BindingSource(this.components);
+            this.labelComunidad = new System.Windows.Forms.Label();
+            this.comboBoxComunidades = new System.Windows.Forms.ComboBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.titolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.horaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adrecaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idcomunitatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.latitudDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,19 +75,6 @@ namespace Chrysallis_Eventos
             this.tipuseventsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valoracionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.socisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bindingSourceGridEventos = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBoxBuscarEvent = new System.Windows.Forms.GroupBox();
-            this.buttonBuscar = new System.Windows.Forms.Button();
-            this.textBoxBuscarEvent = new System.Windows.Forms.TextBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonAddEvent = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonEditEvent = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonDelEvent = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButtonExit = new System.Windows.Forms.ToolStripButton();
-            this.bindingSourceComboComuni = new System.Windows.Forms.BindingSource(this.components);
-            this.labelComunidad = new System.Windows.Forms.Label();
-            this.comboBoxComunidades = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGridEventos)).BeginInit();
             this.groupBoxBuscarEvent.SuspendLayout();
@@ -102,8 +102,8 @@ namespace Chrysallis_Eventos
             this.idDataGridViewTextBoxColumn,
             this.descripcioDataGridViewTextBoxColumn,
             this.dataDataGridViewTextBoxColumn,
-            this.titolDataGridViewTextBoxColumn,
             this.horaDataGridViewTextBoxColumn,
+            this.titolDataGridViewTextBoxColumn,
             this.adrecaDataGridViewTextBoxColumn,
             this.idcomunitatDataGridViewTextBoxColumn,
             this.latitudDataGridViewTextBoxColumn,
@@ -135,6 +135,7 @@ namespace Chrysallis_Eventos
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewEvents.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewEvents.Location = new System.Drawing.Point(13, 140);
+            this.dataGridViewEvents.MultiSelect = false;
             this.dataGridViewEvents.Name = "dataGridViewEvents";
             this.dataGridViewEvents.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -149,8 +150,136 @@ namespace Chrysallis_Eventos
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewEvents.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewEvents.RowTemplate.Height = 24;
+            this.dataGridViewEvents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewEvents.Size = new System.Drawing.Size(775, 304);
             this.dataGridViewEvents.TabIndex = 5;
+            this.dataGridViewEvents.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewEvents_CellFormatting);
+            // 
+            // bindingSourceGridEventos
+            // 
+            this.bindingSourceGridEventos.DataSource = typeof(Chrysallis_Eventos.MODELOS.esdeveniments);
+            // 
+            // groupBoxBuscarEvent
+            // 
+            this.groupBoxBuscarEvent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxBuscarEvent.Controls.Add(this.buttonBuscar);
+            this.groupBoxBuscarEvent.Controls.Add(this.textBoxBuscarEvent);
+            this.groupBoxBuscarEvent.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxBuscarEvent.Location = new System.Drawing.Point(13, 69);
+            this.groupBoxBuscarEvent.Name = "groupBoxBuscarEvent";
+            this.groupBoxBuscarEvent.Size = new System.Drawing.Size(776, 65);
+            this.groupBoxBuscarEvent.TabIndex = 4;
+            this.groupBoxBuscarEvent.TabStop = false;
+            this.groupBoxBuscarEvent.Text = "Buscar";
+            // 
+            // buttonBuscar
+            // 
+            this.buttonBuscar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buttonBuscar.FlatAppearance.BorderSize = 2;
+            this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBuscar.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBuscar.Location = new System.Drawing.Point(643, 15);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(109, 41);
+            this.buttonBuscar.TabIndex = 1;
+            this.buttonBuscar.Text = "Buscar";
+            this.buttonBuscar.UseVisualStyleBackColor = false;
+            // 
+            // textBoxBuscarEvent
+            // 
+            this.textBoxBuscarEvent.Location = new System.Drawing.Point(16, 24);
+            this.textBoxBuscarEvent.Name = "textBoxBuscarEvent";
+            this.textBoxBuscarEvent.Size = new System.Drawing.Size(602, 23);
+            this.textBoxBuscarEvent.TabIndex = 0;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonAddEvent,
+            this.toolStripButtonEditEvent,
+            this.toolStripButtonDelEvent,
+            this.toolStripSeparator1,
+            this.toolStripButtonExit});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(800, 27);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonAddEvent
+            // 
+            this.toolStripButtonAddEvent.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonAddEvent.Image = global::Chrysallis_Eventos.Properties.Resources.add_32px;
+            this.toolStripButtonAddEvent.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAddEvent.Name = "toolStripButtonAddEvent";
+            this.toolStripButtonAddEvent.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButtonAddEvent.Text = "Añadir";
+            this.toolStripButtonAddEvent.Click += new System.EventHandler(this.toolStripButtonAddEvent_Click);
+            // 
+            // toolStripButtonEditEvent
+            // 
+            this.toolStripButtonEditEvent.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonEditEvent.Image = global::Chrysallis_Eventos.Properties.Resources.edit_file_32px;
+            this.toolStripButtonEditEvent.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonEditEvent.Name = "toolStripButtonEditEvent";
+            this.toolStripButtonEditEvent.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButtonEditEvent.Text = "Modificar";
+            this.toolStripButtonEditEvent.Click += new System.EventHandler(this.toolStripButtonEditEvent_Click);
+            // 
+            // toolStripButtonDelEvent
+            // 
+            this.toolStripButtonDelEvent.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonDelEvent.Image = global::Chrysallis_Eventos.Properties.Resources.delete_bin_32px;
+            this.toolStripButtonDelEvent.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDelEvent.Name = "toolStripButtonDelEvent";
+            this.toolStripButtonDelEvent.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButtonDelEvent.Text = "Eliminar";
+            this.toolStripButtonDelEvent.Click += new System.EventHandler(this.toolStripButtonDelEvent_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // toolStripButtonExit
+            // 
+            this.toolStripButtonExit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonExit.Image = global::Chrysallis_Eventos.Properties.Resources.exit_32px;
+            this.toolStripButtonExit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonExit.Name = "toolStripButtonExit";
+            this.toolStripButtonExit.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButtonExit.Text = "Salir";
+            this.toolStripButtonExit.Click += new System.EventHandler(this.toolStripButtonExit_Click);
+            // 
+            // bindingSourceComboComuni
+            // 
+            this.bindingSourceComboComuni.DataSource = typeof(Chrysallis_Eventos.MODELOS.comunitats);
+            // 
+            // labelComunidad
+            // 
+            this.labelComunidad.AutoSize = true;
+            this.labelComunidad.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelComunidad.Location = new System.Drawing.Point(26, 41);
+            this.labelComunidad.Name = "labelComunidad";
+            this.labelComunidad.Size = new System.Drawing.Size(78, 18);
+            this.labelComunidad.TabIndex = 7;
+            this.labelComunidad.Text = "Comunidad";
+            // 
+            // comboBoxComunidades
+            // 
+            this.comboBoxComunidades.DataSource = this.bindingSourceComboComuni;
+            this.comboBoxComunidades.DisplayMember = "nom";
+            this.comboBoxComunidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxComunidades.FormattingEnabled = true;
+            this.comboBoxComunidades.Location = new System.Drawing.Point(121, 39);
+            this.comboBoxComunidades.Name = "comboBoxComunidades";
+            this.comboBoxComunidades.Size = new System.Drawing.Size(510, 24);
+            this.comboBoxComunidades.TabIndex = 6;
+            this.comboBoxComunidades.ValueMember = "id";
+            this.comboBoxComunidades.SelectedIndexChanged += new System.EventHandler(this.comboBoxComunidades_SelectedIndexChanged);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -181,6 +310,16 @@ namespace Chrysallis_Eventos
             this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
             this.dataDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // horaDataGridViewTextBoxColumn
+            // 
+            this.horaDataGridViewTextBoxColumn.DataPropertyName = "hora";
+            this.horaDataGridViewTextBoxColumn.HeaderText = "Hora";
+            this.horaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.horaDataGridViewTextBoxColumn.Name = "horaDataGridViewTextBoxColumn";
+            this.horaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.horaDataGridViewTextBoxColumn.ToolTipText = "HH:mm";
+            this.horaDataGridViewTextBoxColumn.Width = 125;
+            // 
             // titolDataGridViewTextBoxColumn
             // 
             this.titolDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -189,16 +328,6 @@ namespace Chrysallis_Eventos
             this.titolDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.titolDataGridViewTextBoxColumn.Name = "titolDataGridViewTextBoxColumn";
             this.titolDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // horaDataGridViewTextBoxColumn
-            // 
-            this.horaDataGridViewTextBoxColumn.DataPropertyName = "hora";
-            this.horaDataGridViewTextBoxColumn.HeaderText = "hora";
-            this.horaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.horaDataGridViewTextBoxColumn.Name = "horaDataGridViewTextBoxColumn";
-            this.horaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.horaDataGridViewTextBoxColumn.Visible = false;
-            this.horaDataGridViewTextBoxColumn.Width = 125;
             // 
             // adrecaDataGridViewTextBoxColumn
             // 
@@ -408,129 +537,6 @@ namespace Chrysallis_Eventos
             this.socisDataGridViewTextBoxColumn.Visible = false;
             this.socisDataGridViewTextBoxColumn.Width = 125;
             // 
-            // bindingSourceGridEventos
-            // 
-            this.bindingSourceGridEventos.DataSource = typeof(Chrysallis_Eventos.MODELOS.esdeveniments);
-            // 
-            // groupBoxBuscarEvent
-            // 
-            this.groupBoxBuscarEvent.Controls.Add(this.buttonBuscar);
-            this.groupBoxBuscarEvent.Controls.Add(this.textBoxBuscarEvent);
-            this.groupBoxBuscarEvent.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxBuscarEvent.Location = new System.Drawing.Point(13, 69);
-            this.groupBoxBuscarEvent.Name = "groupBoxBuscarEvent";
-            this.groupBoxBuscarEvent.Size = new System.Drawing.Size(776, 65);
-            this.groupBoxBuscarEvent.TabIndex = 4;
-            this.groupBoxBuscarEvent.TabStop = false;
-            this.groupBoxBuscarEvent.Text = "Buscar";
-            // 
-            // buttonBuscar
-            // 
-            this.buttonBuscar.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.buttonBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonBuscar.FlatAppearance.BorderSize = 2;
-            this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBuscar.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBuscar.Location = new System.Drawing.Point(643, 15);
-            this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(109, 41);
-            this.buttonBuscar.TabIndex = 1;
-            this.buttonBuscar.Text = "Buscar";
-            this.buttonBuscar.UseVisualStyleBackColor = false;
-            // 
-            // textBoxBuscarEvent
-            // 
-            this.textBoxBuscarEvent.Location = new System.Drawing.Point(16, 24);
-            this.textBoxBuscarEvent.Name = "textBoxBuscarEvent";
-            this.textBoxBuscarEvent.Size = new System.Drawing.Size(602, 23);
-            this.textBoxBuscarEvent.TabIndex = 0;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonAddEvent,
-            this.toolStripButtonEditEvent,
-            this.toolStripButtonDelEvent,
-            this.toolStripSeparator1,
-            this.toolStripButtonExit});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 31);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButtonAddEvent
-            // 
-            this.toolStripButtonAddEvent.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAddEvent.Image = global::Chrysallis_Eventos.Properties.Resources.add_32px;
-            this.toolStripButtonAddEvent.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonAddEvent.Name = "toolStripButtonAddEvent";
-            this.toolStripButtonAddEvent.Size = new System.Drawing.Size(29, 28);
-            this.toolStripButtonAddEvent.Text = "Añadir";
-            this.toolStripButtonAddEvent.Click += new System.EventHandler(this.toolStripButtonAddEvent_Click);
-            // 
-            // toolStripButtonEditEvent
-            // 
-            this.toolStripButtonEditEvent.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonEditEvent.Image = global::Chrysallis_Eventos.Properties.Resources.edit_file_32px;
-            this.toolStripButtonEditEvent.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonEditEvent.Name = "toolStripButtonEditEvent";
-            this.toolStripButtonEditEvent.Size = new System.Drawing.Size(29, 28);
-            this.toolStripButtonEditEvent.Text = "Modificar";
-            this.toolStripButtonEditEvent.Click += new System.EventHandler(this.toolStripButtonEditEvent_Click);
-            // 
-            // toolStripButtonDelEvent
-            // 
-            this.toolStripButtonDelEvent.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonDelEvent.Image = global::Chrysallis_Eventos.Properties.Resources.delete_bin_32px;
-            this.toolStripButtonDelEvent.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonDelEvent.Name = "toolStripButtonDelEvent";
-            this.toolStripButtonDelEvent.Size = new System.Drawing.Size(29, 28);
-            this.toolStripButtonDelEvent.Text = "Eliminar";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
-            // 
-            // toolStripButtonExit
-            // 
-            this.toolStripButtonExit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonExit.Image = global::Chrysallis_Eventos.Properties.Resources.exit_32px;
-            this.toolStripButtonExit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonExit.Name = "toolStripButtonExit";
-            this.toolStripButtonExit.Size = new System.Drawing.Size(29, 28);
-            this.toolStripButtonExit.Text = "Salir";
-            this.toolStripButtonExit.Click += new System.EventHandler(this.toolStripButtonExit_Click);
-            // 
-            // bindingSourceComboComuni
-            // 
-            this.bindingSourceComboComuni.DataSource = typeof(Chrysallis_Eventos.MODELOS.comunitats);
-            // 
-            // labelComunidad
-            // 
-            this.labelComunidad.AutoSize = true;
-            this.labelComunidad.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelComunidad.Location = new System.Drawing.Point(26, 41);
-            this.labelComunidad.Name = "labelComunidad";
-            this.labelComunidad.Size = new System.Drawing.Size(78, 18);
-            this.labelComunidad.TabIndex = 7;
-            this.labelComunidad.Text = "Comunidad";
-            // 
-            // comboBoxComunidades
-            // 
-            this.comboBoxComunidades.DataSource = this.bindingSourceComboComuni;
-            this.comboBoxComunidades.DisplayMember = "nom";
-            this.comboBoxComunidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxComunidades.FormattingEnabled = true;
-            this.comboBoxComunidades.Location = new System.Drawing.Point(121, 39);
-            this.comboBoxComunidades.Name = "comboBoxComunidades";
-            this.comboBoxComunidades.Size = new System.Drawing.Size(510, 24);
-            this.comboBoxComunidades.TabIndex = 6;
-            this.comboBoxComunidades.ValueMember = "id";
-            this.comboBoxComunidades.SelectedIndexChanged += new System.EventHandler(this.comboBoxComunidades_SelectedIndexChanged);
-            // 
             // FormEventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -575,8 +581,8 @@ namespace Chrysallis_Eventos
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn titolDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn horaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titolDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn adrecaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idcomunitatDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn latitudDataGridViewTextBoxColumn;
