@@ -111,7 +111,6 @@ namespace Chrysallis_Eventos
                 _localitats = CiutatsOrm.Select(ref missatge, (provincies)comboBoxProvincias.SelectedItem);
                 bindingSourceCiutats.DataSource = _localitats;
             }
-
         }
 
         private void textBoxCiudadEvento_TextChanged(object sender, EventArgs e)
