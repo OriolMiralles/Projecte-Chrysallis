@@ -12,10 +12,25 @@ namespace Chrysallis_Eventos.MODELOS
     {
         public static List<socis> Select(ref String missatge, comunitats comunitat)
         {
+            List<socis> _socis = new List<socis>();
+            try
+            {
+                _socis = Orm.bd.socis.Where(s => s.localitats.provincies.id_comunitat==comunitat.id).OrderBy(s => s.dni).ToList();
+            }
+            catch (SqlException ex)
+            {
+                missatge = Orm.missatgeError(ex);
+            }
+
+
+            return _socis;
+        }
+        public static List<socis> Select(ref String missatge, String dni)
+        {
             List<socis> _socis = null;
             try
             {
-                _socis = Orm.bd.socis.Where(s => s.comunitats.ToString() == comunitat.nom).OrderBy(s => s.dni).ThenBy(s => s).ToList();
+                _socis = Orm.bd.socis.Where(s => s.dni.Equals(dni)).ToList();
             }
             catch (SqlException ex)
             {

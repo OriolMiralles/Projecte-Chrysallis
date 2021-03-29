@@ -317,7 +317,6 @@ namespace Chrysallis_Eventos
             this.horaDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.horaDataGridViewTextBoxColumn.Name = "horaDataGridViewTextBoxColumn";
             this.horaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.horaDataGridViewTextBoxColumn.ToolTipText = "HH:mm";
             this.horaDataGridViewTextBoxColumn.Width = 125;
             // 
             // titolDataGridViewTextBoxColumn
