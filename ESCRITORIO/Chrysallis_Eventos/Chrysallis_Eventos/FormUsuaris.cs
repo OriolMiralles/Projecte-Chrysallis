@@ -24,11 +24,6 @@ namespace Chrysallis_Eventos
             this.Close();
         }
 
-        private void comboBoxComunidades_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            
-        }
 
         private void FormUsuaris_Load(object sender, EventArgs e)
         {
