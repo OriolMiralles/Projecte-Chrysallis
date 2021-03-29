@@ -17,6 +17,7 @@ namespace Chrysallis_Eventos
         public socis soci;
         public Boolean modificar = false;
         public List<localitats> _localitats = null;
+        public List<menors_socis> menors = null;
 
         public FormInsertarUsuario(comunitats comunitat)
         {
@@ -25,44 +26,57 @@ namespace Chrysallis_Eventos
             labelNumeroUsuario.Visible = false;
             this.soci = new socis();
             _localitats = new List<localitats>();
+            dataGridViewMenors.Visible = false;
+            dataGridViewMenors.Enabled = false;
         }
-         public FormInsertarUsuario(socis soci, comunitats comunitat)
+        public FormInsertarUsuario(socis soci, comunitats comunitat)
         {
+            String missatge = "";
             InitializeComponent();
             this.soci = soci;
             this.modificar = true;
             this.comunitat = comunitat;
             labelNumeroUsuario.Visible = true;
-            buttonInsertarUsuario.Text = "Modificar";
+
         }
 
         private void FormInsertarUsuario_Load(object sender, EventArgs e)
         {
             String missatge = "";
-            
+
             bindingSourceProvincies.DataSource = comunitat.provincies.ToList();
 
             if (!modificar)
             {
-                textBoxComunidadUsuario.Text = comunitat.nom;   
+                textBoxComunidadUsuario.Text = comunitat.nom;
                 comboBoxProvinciasUsuario.SelectedItem = null;
                 comboBoxCiudadesBuscadasUsuario.SelectedItem = null;
+                labelInfo.Visible = false;
+                buttonInsertarMenor.Visible = false;
+
             }
             else
             {
+                menors = MenorOrm.Select(ref missatge, soci);
+                bindingSourceMenors.DataSource = menors;
                 textBoxNombreUsuario.Text = soci.nom;
                 textBoxApellidoUsuario.Text = soci.cognoms;
+                checkBoxActivo.Checked = soci.actiu;
+                checkBoxPermiso.Checked = soci.permis_app;
                 textBoxDNIUsuario.Text = soci.dni;
-                textBoxPasswordUsuario.Text = soci.contrasenya;
+                textBoxPasswordUsuario.Enabled = false;
+                textBoxNumSocio.Text = soci.num.ToString();
                 dateTimePickerUsuario.Value = soci.data_naixement.Value;
                 textBoxTelefono1Usuario.Text = soci.telefon1;
                 textBoxTelefono2Usuario.Text = soci.telefon2;
                 textBoxEmailUsuario.Text = soci.email;
-                textBoxComunidadUsuario.Text = soci.comunitats.ToString();                
+                textBoxComunidadUsuario.Text = soci.localitats.provincies.comunitats.nom;
                 bindingSourceCiutats.DataSource = CiutatsOrm.Select(ref missatge, (provincies)comboBoxProvinciasUsuario.SelectedItem);
+                comboBoxProvinciasUsuario.SelectedItem = soci.localitats.provincies;
+                comboBoxCiudadesBuscadasUsuario.SelectedItem = soci.localitats;
                 textBoxDireccionUsuario.Text = soci.adresa;
-                textBoxNombreMenorUsuario.Text = soci.menors_socis.ToString();
-                //textBoxRelacionMenorUsuario.Text = soci.num;
+                buttonInsertar.Text = "Modificar";
+                
             }
         }
 
@@ -83,7 +97,110 @@ namespace Chrysallis_Eventos
             bindingSourceCiutats.DataSource = llistaFiltrada;
         }
 
-        private void buttonInsertarUsuario_Click(object sender, EventArgs e)
+
+        private void omplirUsuario()
+        {
+            soci.nom = textBoxNombreUsuario.Text;
+            soci.num = Int32.Parse(textBoxNumSocio.Text);
+            soci.data_alta = DateTime.Now;
+            soci.permis_app = checkBoxPermiso.Checked;
+            soci.cognoms = textBoxApellidoUsuario.Text;
+            soci.dni = textBoxDNIUsuario.Text;
+            soci.actiu = checkBoxActivo.Checked;
+            soci.contrasenya = textBoxPasswordUsuario.Text;
+            soci.data_naixement = dateTimePickerUsuario.Value;
+            soci.telefon1 = textBoxTelefono1Usuario.Text;
+            if (!textBoxTelefono2Usuario.Equals(""))
+            {
+                soci.telefon2 = textBoxTelefono2Usuario.Text;
+            }
+            soci.email = textBoxEmailUsuario.Text;
+            soci.comunitats.Add(comunitat);
+            soci.adresa = textBoxDireccionUsuario.Text;
+            localitats localitat = (localitats)comboBoxCiudadesBuscadasUsuario.SelectedItem;
+            soci.id_localitat = localitat.id;
+            // soci.menors_socis. = textBoxNombreMenorUsuario.Text;
+            //soci.num = textBoxRelacionMenorUsuario.Text;
+
+        }
+        public Boolean comprobarEntero(String texto)
+        {
+            int numero;
+            bool ok = Int32.TryParse(texto, out numero);
+            return ok;
+        }
+
+        private Boolean comprobarDatos()
+        {
+            Boolean correcto = false;
+
+            if (textBoxNombreUsuario.Text.Length == 0)
+            {
+                MessageBox.Show("Debe introducir un Nombre al usuario", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxNombreUsuario.Focus();
+            }
+            else if (textBoxApellidoUsuario.Text.Length == 0)
+            {
+                MessageBox.Show("Debe seleccionar un Apelllido al usuario", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxApellidoUsuario.Focus();
+            }
+            else if (textBoxDNIUsuario.Text.Length == 0)
+            {
+                MessageBox.Show("Debe introducir un DNI al usuario", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxDNIUsuario.Focus();
+            }
+            else if (textBoxTelefono1Usuario.Text.Length == 0)
+            {
+                MessageBox.Show("Debe introducir un Telefono al usuario", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxPasswordUsuario.Focus();
+            }
+            else if (textBoxEmailUsuario.Text.Length == 0)
+            {
+                MessageBox.Show("Debe introducir un Email al usuario", "Advertencia",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxEmailUsuario.Focus();
+            }
+            else if (comboBoxProvinciasUsuario.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar una provincia", "Advertencia",
+                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBoxProvinciasUsuario.Focus();
+            }
+            else if (comboBoxCiudadesBuscadasUsuario.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar una ciudad/población", "Advertencia",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                comboBoxCiudadesBuscadasUsuario.Focus();
+            }
+            else if (!comprobarEntero(textBoxNumSocio.Text))
+            {
+                MessageBox.Show("Debe introducir un numero de socio correcto", "Advertencia",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxNumSocio.Focus();
+            }
+            else
+            {
+                correcto = true;
+            }
+            if (!modificar)
+            {
+                if (textBoxPasswordUsuario.Text.Length == 0)
+                {
+                    MessageBox.Show("Debe introducir una Contraseña al usuario", "Advertencia",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    textBoxPasswordUsuario.Focus();
+                    correcto = false;
+                }
+            }
+
+            return correcto;
+        }
+
+        private void buttonInsertar_Click(object sender, EventArgs e)
         {
             String missatge = "";
             if (comprobarDatos())
@@ -112,6 +229,9 @@ namespace Chrysallis_Eventos
                     if (missatge.Equals(""))
                     {
                         MessageBox.Show("Se ha insertado el Usuario correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        List<socis> _soci = UsuarioOrm.Select(ref missatge, soci.dni);
+                        FormInsertarMenor fim = new FormInsertarMenor(_soci[0]);
+                        fim.ShowDialog();
                         this.Close();
                     }
                     else
@@ -121,101 +241,46 @@ namespace Chrysallis_Eventos
                     }
                 }
             }
-        }
-
-        private void omplirUsuario()
-        {
-            soci.nom = textBoxNombreUsuario.Text;
-            soci.cognoms = textBoxApellidoUsuario.Text;
-            soci.dni = textBoxDNIUsuario.Text;
-            soci.contrasenya = textBoxPasswordUsuario.Text;
-            soci.data_naixement = dateTimePickerUsuario.Value;
-            soci.telefon1 = textBoxTelefono1Usuario.Text;
-            soci.telefon2 = textBoxTelefono2Usuario.Text;
-            soci.email = textBoxEmailUsuario.Text;
-            //soci.comunitats= comunitat.nom;
-            soci.adresa = textBoxDireccionUsuario.Text;
-            //soci.menors_socis = textBoxNombreMenorUsuario.Text;
-            //soci.num = textBoxRelacionMenorUsuario.Text;
 
         }
 
-        private Boolean comprobarDatos()
+        private void dataGridViewMenors_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Boolean correcto = false;
 
-            if (textBoxNombreUsuario.Text.Length == 0)
-            {
-                MessageBox.Show("Debe introducir un Nombre al usuario", "Advertencia",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBoxNombreUsuario.Focus();
-            }
-            else if (textBoxApellidoUsuario.Text.Length == 0)
-            {
-                MessageBox.Show("Debe seleccionar un Apelllido al usuario", "Advertencia",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBoxApellidoUsuario.Focus();
-            }
-            else if (textBoxDNIUsuario.Text.Length == 0)
-            {
-                MessageBox.Show("Debe introducir un DNI al usuario", "Advertencia",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBoxDNIUsuario.Focus();
-            }
-            else if (textBoxPasswordUsuario.Text.Length == 0)
-            {
-                MessageBox.Show("Debe introducir una Contraseña al usuario", "Advertencia",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBoxPasswordUsuario.Focus();
-            }
-            else if (textBoxTelefono1Usuario.Text.Length == 0)
-            {
-                MessageBox.Show("Debe introducir un Telefono al usuario", "Advertencia",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBoxPasswordUsuario.Focus();
-            }
-            else if (textBoxTelefono2Usuario.Text.Length == 0)
-            {
-                MessageBox.Show("Debe introducir otro Telefono al usuario", "Advertencia",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBoxTelefono2Usuario.Focus();
-            }
-            else if (textBoxEmailUsuario.Text.Length == 0)
-            {
-                MessageBox.Show("Debe introducir un Email al usuario", "Advertencia",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBoxEmailUsuario.Focus();
-            }
-            else if(comboBoxProvinciasUsuario.SelectedItem == null)
-            {
-                MessageBox.Show("Debe seleccionar una provincia", "Advertencia",
-                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                comboBoxProvinciasUsuario.Focus();
-            }
-            else if (comboBoxCiudadesBuscadasUsuario.SelectedItem == null)
-            {
-                MessageBox.Show("Debe seleccionar una ciudad/población", "Advertencia",
-                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                comboBoxCiudadesBuscadasUsuario.Focus();
-            }
-            else if (textBoxNombreMenorUsuario.Text.Length == 0)
-            {
-                MessageBox.Show("Debe introducir el Nombre del Menor", "Advertencia",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBoxNombreMenorUsuario.Focus();
-            }
-            else if (textBoxRelacionMenorUsuario.Text.Length == 0)
-            {
-                MessageBox.Show("Debe introducir la Relacion con el Menor del usuario", "Advertencia",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBoxRelacionMenorUsuario.Focus();
-            }
-            else
-            {               
-                correcto = true;
-            }
+        }
 
-            return correcto;
+        private void dataGridViewMenors_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            String missatge = "";
+            if (dataGridViewMenors.SelectedRows.Count > 0)
+            {
+                DialogResult dg = MessageBox.Show("Estás segure de borrar le menor?", "Pregunta", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (dg == DialogResult.OK)
+                {
+                    missatge = MenorOrm.Delete((menors_socis)dataGridViewMenors.SelectedRows[0].DataBoundItem);
+                    if (missatge.Equals(""))
+                    {
+                        MessageBox.Show("Menor borrado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        e.Cancel = true;
+                    }
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        private void buttonInsertarMenor_Click(object sender, EventArgs e)
+        {
+            String missatge = "";
+            FormInsertarMenor fim = new FormInsertarMenor(soci);
+            fim.ShowDialog();
+            menors = MenorOrm.Select(ref missatge, soci);
+            bindingSourceMenors.DataSource = menors;
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Chrysallis_Eventos
     public partial class FormUsuaris : Form
     {
         public const int COMUNIDAD_POR_DEFECTO = 7;
+        List<socis> _socis;
         public FormUsuaris()
         {
             InitializeComponent();
@@ -28,8 +29,7 @@ namespace Chrysallis_Eventos
         private void FormUsuaris_Load(object sender, EventArgs e)
         {
             String missatge = "";
-
-           
+                    
 
             if (User.SuperAdmin)
             {            
@@ -49,13 +49,41 @@ namespace Chrysallis_Eventos
                 MessageBox.Show(missatge,"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
+            else
+            {
+                _socis = UsuarioOrm.Select(ref missatge, (comunitats)comboBoxComunidades.SelectedItem);
+                bindingSourceUsuarios.DataSource = _socis;
+            }
 
         }
 
         private void toolStripButtonAddUser_Click(object sender, EventArgs e)
         {
-            FormInsertarUsuario fiu = new FormInsertarUsuario();
+            FormInsertarUsuario fiu = new FormInsertarUsuario((comunitats)comboBoxComunidades.SelectedItem);
             fiu.ShowDialog();
         }
+
+        private void toolStripButtonEditUser_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewUsers.SelectedRows.Count == 1)
+            {
+                FormInsertarUsuario fiu = new FormInsertarUsuario((socis)dataGridViewUsers.SelectedRows[0].DataBoundItem, (comunitats)comboBoxComunidades.SelectedItem);
+                fiu.ShowDialog();
+                //refrescarGrid();
+            }
+            else
+            {
+                MessageBox.Show("Seleccionar un usuarie de la grid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void comboBoxComunidades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String missatge = "";
+            _socis = UsuarioOrm.Select(ref missatge, (comunitats)comboBoxComunidades.SelectedItem);
+            bindingSourceUsuarios.DataSource = _socis;
+        }
+
+       
     }
 }

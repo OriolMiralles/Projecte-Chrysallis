@@ -38,19 +38,43 @@ namespace Chrysallis_Eventos
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonAddUser = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEditUser = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonDelUser = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.groupBoxBuscar = new System.Windows.Forms.GroupBox();
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.textBoxBuscarUser = new System.Windows.Forms.TextBox();
             this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cognomsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actiuDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.telefon1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefon2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dniDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contrasenyaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.datanaixementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.databaixaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataaltaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.permisappDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.adresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codipostalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idlocalitatDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.assistirDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localitatsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menorssocisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valoracionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comunitatsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.esdevenimentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceUsuarios = new System.Windows.Forms.BindingSource(this.components);
             this.comboBoxComunidades = new System.Windows.Forms.ComboBox();
             this.bindingSourceComunidades = new System.Windows.Forms.BindingSource(this.components);
             this.labelComunidad = new System.Windows.Forms.Label();
             this.toolStripMenu.SuspendLayout();
             this.groupBoxBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,12 +84,11 @@ namespace Chrysallis_Eventos
             this.toolStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonAddUser,
             this.toolStripButtonEditUser,
-            this.toolStripButtonDelUser,
             this.toolStripSeparator1,
             this.toolStripButton1});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(605, 27);
+            this.toolStripMenu.Size = new System.Drawing.Size(807, 27);
             this.toolStripMenu.TabIndex = 0;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -75,7 +98,7 @@ namespace Chrysallis_Eventos
             this.toolStripButtonAddUser.Image = global::Chrysallis_Eventos.Properties.Resources.add_32px;
             this.toolStripButtonAddUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAddUser.Name = "toolStripButtonAddUser";
-            this.toolStripButtonAddUser.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButtonAddUser.Size = new System.Drawing.Size(29, 24);
             this.toolStripButtonAddUser.Text = "Añadir";
             this.toolStripButtonAddUser.Click += new System.EventHandler(this.toolStripButtonAddUser_Click);
             // 
@@ -85,17 +108,9 @@ namespace Chrysallis_Eventos
             this.toolStripButtonEditUser.Image = global::Chrysallis_Eventos.Properties.Resources.edit_file_32px;
             this.toolStripButtonEditUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEditUser.Name = "toolStripButtonEditUser";
-            this.toolStripButtonEditUser.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButtonEditUser.Size = new System.Drawing.Size(29, 24);
             this.toolStripButtonEditUser.Text = "Modificar";
-            // 
-            // toolStripButtonDelUser
-            // 
-            this.toolStripButtonDelUser.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonDelUser.Image = global::Chrysallis_Eventos.Properties.Resources.delete_bin_32px;
-            this.toolStripButtonDelUser.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonDelUser.Name = "toolStripButtonDelUser";
-            this.toolStripButtonDelUser.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButtonDelUser.Text = "Eliminar";
+            this.toolStripButtonEditUser.Click += new System.EventHandler(this.toolStripButtonEditUser_Click);
             // 
             // toolStripSeparator1
             // 
@@ -108,7 +123,7 @@ namespace Chrysallis_Eventos
             this.toolStripButton1.Image = global::Chrysallis_Eventos.Properties.Resources.exit_32px;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
+            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
             this.toolStripButton1.Text = "Salir";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -117,11 +132,11 @@ namespace Chrysallis_Eventos
             this.groupBoxBuscar.Controls.Add(this.buttonBuscar);
             this.groupBoxBuscar.Controls.Add(this.textBoxBuscarUser);
             this.groupBoxBuscar.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxBuscar.Location = new System.Drawing.Point(10, 54);
-            this.groupBoxBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxBuscar.Location = new System.Drawing.Point(13, 66);
+            this.groupBoxBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxBuscar.Name = "groupBoxBuscar";
-            this.groupBoxBuscar.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBoxBuscar.Size = new System.Drawing.Size(582, 53);
+            this.groupBoxBuscar.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxBuscar.Size = new System.Drawing.Size(776, 65);
             this.groupBoxBuscar.TabIndex = 1;
             this.groupBoxBuscar.TabStop = false;
             this.groupBoxBuscar.Text = "Buscar";
@@ -133,26 +148,29 @@ namespace Chrysallis_Eventos
             this.buttonBuscar.FlatAppearance.BorderSize = 2;
             this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBuscar.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBuscar.Location = new System.Drawing.Point(482, 12);
-            this.buttonBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBuscar.Location = new System.Drawing.Point(643, 15);
+            this.buttonBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(82, 33);
+            this.buttonBuscar.Size = new System.Drawing.Size(109, 41);
             this.buttonBuscar.TabIndex = 1;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = false;
             // 
             // textBoxBuscarUser
             // 
-            this.textBoxBuscarUser.Location = new System.Drawing.Point(12, 20);
-            this.textBoxBuscarUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxBuscarUser.Location = new System.Drawing.Point(16, 25);
+            this.textBoxBuscarUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxBuscarUser.Name = "textBoxBuscarUser";
-            this.textBoxBuscarUser.Size = new System.Drawing.Size(452, 20);
+            this.textBoxBuscarUser.Size = new System.Drawing.Size(601, 23);
             this.textBoxBuscarUser.TabIndex = 0;
             // 
             // dataGridViewUsers
             // 
+            this.dataGridViewUsers.AllowUserToAddRows = false;
+            this.dataGridViewUsers.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewUsers.AutoGenerateColumns = false;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -162,6 +180,31 @@ namespace Chrysallis_Eventos
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.numDataGridViewTextBoxColumn,
+            this.nomDataGridViewTextBoxColumn,
+            this.cognomsDataGridViewTextBoxColumn,
+            this.actiuDataGridViewCheckBoxColumn,
+            this.telefon1DataGridViewTextBoxColumn,
+            this.telefon2DataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn,
+            this.dniDataGridViewTextBoxColumn,
+            this.contrasenyaDataGridViewTextBoxColumn,
+            this.datanaixementDataGridViewTextBoxColumn,
+            this.databaixaDataGridViewTextBoxColumn,
+            this.dataaltaDataGridViewTextBoxColumn,
+            this.permisappDataGridViewCheckBoxColumn,
+            this.adresaDataGridViewTextBoxColumn,
+            this.codipostalDataGridViewTextBoxColumn,
+            this.idlocalitatDataGridViewTextBoxColumn,
+            this.assistirDataGridViewTextBoxColumn,
+            this.localitatsDataGridViewTextBoxColumn,
+            this.menorssocisDataGridViewTextBoxColumn,
+            this.valoracionsDataGridViewTextBoxColumn,
+            this.comunitatsDataGridViewTextBoxColumn,
+            this.esdevenimentsDataGridViewTextBoxColumn});
+            this.dataGridViewUsers.DataSource = this.bindingSourceUsuarios;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -170,9 +213,11 @@ namespace Chrysallis_Eventos
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewUsers.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewUsers.Location = new System.Drawing.Point(10, 112);
-            this.dataGridViewUsers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewUsers.Location = new System.Drawing.Point(13, 138);
+            this.dataGridViewUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewUsers.MultiSelect = false;
             this.dataGridViewUsers.Name = "dataGridViewUsers";
+            this.dataGridViewUsers.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -185,8 +230,239 @@ namespace Chrysallis_Eventos
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewUsers.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewUsers.RowTemplate.Height = 24;
-            this.dataGridViewUsers.Size = new System.Drawing.Size(581, 273);
+            this.dataGridViewUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewUsers.Size = new System.Drawing.Size(775, 336);
             this.dataGridViewUsers.TabIndex = 2;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // numDataGridViewTextBoxColumn
+            // 
+            this.numDataGridViewTextBoxColumn.DataPropertyName = "num";
+            this.numDataGridViewTextBoxColumn.HeaderText = "num";
+            this.numDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.numDataGridViewTextBoxColumn.Name = "numDataGridViewTextBoxColumn";
+            this.numDataGridViewTextBoxColumn.ReadOnly = true;
+            this.numDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nomDataGridViewTextBoxColumn
+            // 
+            this.nomDataGridViewTextBoxColumn.DataPropertyName = "nom";
+            this.nomDataGridViewTextBoxColumn.HeaderText = "nom";
+            this.nomDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nomDataGridViewTextBoxColumn.Name = "nomDataGridViewTextBoxColumn";
+            this.nomDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nomDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // cognomsDataGridViewTextBoxColumn
+            // 
+            this.cognomsDataGridViewTextBoxColumn.DataPropertyName = "cognoms";
+            this.cognomsDataGridViewTextBoxColumn.HeaderText = "cognoms";
+            this.cognomsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.cognomsDataGridViewTextBoxColumn.Name = "cognomsDataGridViewTextBoxColumn";
+            this.cognomsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cognomsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // actiuDataGridViewCheckBoxColumn
+            // 
+            this.actiuDataGridViewCheckBoxColumn.DataPropertyName = "actiu";
+            this.actiuDataGridViewCheckBoxColumn.HeaderText = "actiu";
+            this.actiuDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.actiuDataGridViewCheckBoxColumn.Name = "actiuDataGridViewCheckBoxColumn";
+            this.actiuDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.actiuDataGridViewCheckBoxColumn.Width = 125;
+            // 
+            // telefon1DataGridViewTextBoxColumn
+            // 
+            this.telefon1DataGridViewTextBoxColumn.DataPropertyName = "telefon1";
+            this.telefon1DataGridViewTextBoxColumn.HeaderText = "telefon1";
+            this.telefon1DataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.telefon1DataGridViewTextBoxColumn.Name = "telefon1DataGridViewTextBoxColumn";
+            this.telefon1DataGridViewTextBoxColumn.ReadOnly = true;
+            this.telefon1DataGridViewTextBoxColumn.Visible = false;
+            this.telefon1DataGridViewTextBoxColumn.Width = 125;
+            // 
+            // telefon2DataGridViewTextBoxColumn
+            // 
+            this.telefon2DataGridViewTextBoxColumn.DataPropertyName = "telefon2";
+            this.telefon2DataGridViewTextBoxColumn.HeaderText = "telefon2";
+            this.telefon2DataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.telefon2DataGridViewTextBoxColumn.Name = "telefon2DataGridViewTextBoxColumn";
+            this.telefon2DataGridViewTextBoxColumn.ReadOnly = true;
+            this.telefon2DataGridViewTextBoxColumn.Visible = false;
+            this.telefon2DataGridViewTextBoxColumn.Width = 125;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "email";
+            this.emailDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.emailDataGridViewTextBoxColumn.Visible = false;
+            this.emailDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dniDataGridViewTextBoxColumn
+            // 
+            this.dniDataGridViewTextBoxColumn.DataPropertyName = "dni";
+            this.dniDataGridViewTextBoxColumn.HeaderText = "dni";
+            this.dniDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dniDataGridViewTextBoxColumn.Name = "dniDataGridViewTextBoxColumn";
+            this.dniDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dniDataGridViewTextBoxColumn.Visible = false;
+            this.dniDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // contrasenyaDataGridViewTextBoxColumn
+            // 
+            this.contrasenyaDataGridViewTextBoxColumn.DataPropertyName = "contrasenya";
+            this.contrasenyaDataGridViewTextBoxColumn.HeaderText = "contrasenya";
+            this.contrasenyaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.contrasenyaDataGridViewTextBoxColumn.Name = "contrasenyaDataGridViewTextBoxColumn";
+            this.contrasenyaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.contrasenyaDataGridViewTextBoxColumn.Visible = false;
+            this.contrasenyaDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // datanaixementDataGridViewTextBoxColumn
+            // 
+            this.datanaixementDataGridViewTextBoxColumn.DataPropertyName = "data_naixement";
+            this.datanaixementDataGridViewTextBoxColumn.HeaderText = "data_naixement";
+            this.datanaixementDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.datanaixementDataGridViewTextBoxColumn.Name = "datanaixementDataGridViewTextBoxColumn";
+            this.datanaixementDataGridViewTextBoxColumn.ReadOnly = true;
+            this.datanaixementDataGridViewTextBoxColumn.Visible = false;
+            this.datanaixementDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // databaixaDataGridViewTextBoxColumn
+            // 
+            this.databaixaDataGridViewTextBoxColumn.DataPropertyName = "data_baixa";
+            this.databaixaDataGridViewTextBoxColumn.HeaderText = "data_baixa";
+            this.databaixaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.databaixaDataGridViewTextBoxColumn.Name = "databaixaDataGridViewTextBoxColumn";
+            this.databaixaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.databaixaDataGridViewTextBoxColumn.Visible = false;
+            this.databaixaDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dataaltaDataGridViewTextBoxColumn
+            // 
+            this.dataaltaDataGridViewTextBoxColumn.DataPropertyName = "data_alta";
+            this.dataaltaDataGridViewTextBoxColumn.HeaderText = "data_alta";
+            this.dataaltaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dataaltaDataGridViewTextBoxColumn.Name = "dataaltaDataGridViewTextBoxColumn";
+            this.dataaltaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataaltaDataGridViewTextBoxColumn.Visible = false;
+            this.dataaltaDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // permisappDataGridViewCheckBoxColumn
+            // 
+            this.permisappDataGridViewCheckBoxColumn.DataPropertyName = "permis_app";
+            this.permisappDataGridViewCheckBoxColumn.HeaderText = "permis_app";
+            this.permisappDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.permisappDataGridViewCheckBoxColumn.Name = "permisappDataGridViewCheckBoxColumn";
+            this.permisappDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.permisappDataGridViewCheckBoxColumn.Visible = false;
+            this.permisappDataGridViewCheckBoxColumn.Width = 125;
+            // 
+            // adresaDataGridViewTextBoxColumn
+            // 
+            this.adresaDataGridViewTextBoxColumn.DataPropertyName = "adresa";
+            this.adresaDataGridViewTextBoxColumn.HeaderText = "adresa";
+            this.adresaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.adresaDataGridViewTextBoxColumn.Name = "adresaDataGridViewTextBoxColumn";
+            this.adresaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.adresaDataGridViewTextBoxColumn.Visible = false;
+            this.adresaDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // codipostalDataGridViewTextBoxColumn
+            // 
+            this.codipostalDataGridViewTextBoxColumn.DataPropertyName = "codi_postal";
+            this.codipostalDataGridViewTextBoxColumn.HeaderText = "codi_postal";
+            this.codipostalDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.codipostalDataGridViewTextBoxColumn.Name = "codipostalDataGridViewTextBoxColumn";
+            this.codipostalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codipostalDataGridViewTextBoxColumn.Visible = false;
+            this.codipostalDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // idlocalitatDataGridViewTextBoxColumn
+            // 
+            this.idlocalitatDataGridViewTextBoxColumn.DataPropertyName = "id_localitat";
+            this.idlocalitatDataGridViewTextBoxColumn.HeaderText = "id_localitat";
+            this.idlocalitatDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idlocalitatDataGridViewTextBoxColumn.Name = "idlocalitatDataGridViewTextBoxColumn";
+            this.idlocalitatDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idlocalitatDataGridViewTextBoxColumn.Visible = false;
+            this.idlocalitatDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // assistirDataGridViewTextBoxColumn
+            // 
+            this.assistirDataGridViewTextBoxColumn.DataPropertyName = "assistir";
+            this.assistirDataGridViewTextBoxColumn.HeaderText = "assistir";
+            this.assistirDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.assistirDataGridViewTextBoxColumn.Name = "assistirDataGridViewTextBoxColumn";
+            this.assistirDataGridViewTextBoxColumn.ReadOnly = true;
+            this.assistirDataGridViewTextBoxColumn.Visible = false;
+            this.assistirDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // localitatsDataGridViewTextBoxColumn
+            // 
+            this.localitatsDataGridViewTextBoxColumn.DataPropertyName = "localitats";
+            this.localitatsDataGridViewTextBoxColumn.HeaderText = "localitats";
+            this.localitatsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.localitatsDataGridViewTextBoxColumn.Name = "localitatsDataGridViewTextBoxColumn";
+            this.localitatsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.localitatsDataGridViewTextBoxColumn.Visible = false;
+            this.localitatsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // menorssocisDataGridViewTextBoxColumn
+            // 
+            this.menorssocisDataGridViewTextBoxColumn.DataPropertyName = "menors_socis";
+            this.menorssocisDataGridViewTextBoxColumn.HeaderText = "menors_socis";
+            this.menorssocisDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.menorssocisDataGridViewTextBoxColumn.Name = "menorssocisDataGridViewTextBoxColumn";
+            this.menorssocisDataGridViewTextBoxColumn.ReadOnly = true;
+            this.menorssocisDataGridViewTextBoxColumn.Visible = false;
+            this.menorssocisDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // valoracionsDataGridViewTextBoxColumn
+            // 
+            this.valoracionsDataGridViewTextBoxColumn.DataPropertyName = "valoracions";
+            this.valoracionsDataGridViewTextBoxColumn.HeaderText = "valoracions";
+            this.valoracionsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.valoracionsDataGridViewTextBoxColumn.Name = "valoracionsDataGridViewTextBoxColumn";
+            this.valoracionsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.valoracionsDataGridViewTextBoxColumn.Visible = false;
+            this.valoracionsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // comunitatsDataGridViewTextBoxColumn
+            // 
+            this.comunitatsDataGridViewTextBoxColumn.DataPropertyName = "comunitats";
+            this.comunitatsDataGridViewTextBoxColumn.HeaderText = "comunitats";
+            this.comunitatsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.comunitatsDataGridViewTextBoxColumn.Name = "comunitatsDataGridViewTextBoxColumn";
+            this.comunitatsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.comunitatsDataGridViewTextBoxColumn.Visible = false;
+            this.comunitatsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // esdevenimentsDataGridViewTextBoxColumn
+            // 
+            this.esdevenimentsDataGridViewTextBoxColumn.DataPropertyName = "esdeveniments";
+            this.esdevenimentsDataGridViewTextBoxColumn.HeaderText = "esdeveniments";
+            this.esdevenimentsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.esdevenimentsDataGridViewTextBoxColumn.Name = "esdevenimentsDataGridViewTextBoxColumn";
+            this.esdevenimentsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.esdevenimentsDataGridViewTextBoxColumn.Visible = false;
+            this.esdevenimentsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // bindingSourceUsuarios
+            // 
+            this.bindingSourceUsuarios.DataSource = typeof(Chrysallis_Eventos.MODELOS.socis);
             // 
             // comboBoxComunidades
             // 
@@ -194,12 +470,13 @@ namespace Chrysallis_Eventos
             this.comboBoxComunidades.DisplayMember = "nom";
             this.comboBoxComunidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxComunidades.FormattingEnabled = true;
-            this.comboBoxComunidades.Location = new System.Drawing.Point(91, 30);
-            this.comboBoxComunidades.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxComunidades.Location = new System.Drawing.Point(121, 37);
+            this.comboBoxComunidades.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxComunidades.Name = "comboBoxComunidades";
-            this.comboBoxComunidades.Size = new System.Drawing.Size(384, 21);
+            this.comboBoxComunidades.Size = new System.Drawing.Size(511, 24);
             this.comboBoxComunidades.TabIndex = 3;
             this.comboBoxComunidades.ValueMember = "id";
+            this.comboBoxComunidades.SelectedIndexChanged += new System.EventHandler(this.comboBoxComunidades_SelectedIndexChanged);
             // 
             // bindingSourceComunidades
             // 
@@ -209,24 +486,23 @@ namespace Chrysallis_Eventos
             // 
             this.labelComunidad.AutoSize = true;
             this.labelComunidad.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelComunidad.Location = new System.Drawing.Point(20, 32);
-            this.labelComunidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelComunidad.Location = new System.Drawing.Point(27, 39);
             this.labelComunidad.Name = "labelComunidad";
-            this.labelComunidad.Size = new System.Drawing.Size(62, 16);
+            this.labelComunidad.Size = new System.Drawing.Size(78, 18);
             this.labelComunidad.TabIndex = 4;
             this.labelComunidad.Text = "Comunidad";
             // 
             // FormUsuaris
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(605, 401);
+            this.ClientSize = new System.Drawing.Size(807, 494);
             this.Controls.Add(this.labelComunidad);
             this.Controls.Add(this.comboBoxComunidades);
             this.Controls.Add(this.dataGridViewUsers);
             this.Controls.Add(this.groupBoxBuscar);
             this.Controls.Add(this.toolStripMenu);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormUsuaris";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Usuarios Chrysallis";
@@ -236,6 +512,7 @@ namespace Chrysallis_Eventos
             this.groupBoxBuscar.ResumeLayout(false);
             this.groupBoxBuscar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunidades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -247,7 +524,6 @@ namespace Chrysallis_Eventos
         private System.Windows.Forms.ToolStrip toolStripMenu;
         private System.Windows.Forms.ToolStripButton toolStripButtonAddUser;
         private System.Windows.Forms.ToolStripButton toolStripButtonEditUser;
-        private System.Windows.Forms.ToolStripButton toolStripButtonDelUser;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.GroupBox groupBoxBuscar;
@@ -257,5 +533,29 @@ namespace Chrysallis_Eventos
         private System.Windows.Forms.ComboBox comboBoxComunidades;
         private System.Windows.Forms.Label labelComunidad;
         private System.Windows.Forms.BindingSource bindingSourceComunidades;
+        private System.Windows.Forms.BindingSource bindingSourceUsuarios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cognomsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn actiuDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefon1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefon2DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dniDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contrasenyaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn datanaixementDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn databaixaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataaltaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn permisappDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adresaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codipostalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idlocalitatDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn assistirDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn localitatsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn menorssocisDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valoracionsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comunitatsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn esdevenimentsDataGridViewTextBoxColumn;
     }
 }
