@@ -186,6 +186,7 @@
     <Compile Include="MODELOS\tipus_events.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
+    <Compile Include="MODELOS\UsuarioOrm.cs" />
     <Compile Include="MODELOS\usuaris.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
@@ -311,6 +312,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

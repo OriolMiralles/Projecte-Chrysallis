@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdmin));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonAnadir = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonModificar = new System.Windows.Forms.ToolStripButton();
@@ -37,7 +38,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonSalir = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewUsuaris = new System.Windows.Forms.DataGridView();
-            this.bindingSourceUsuaris = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contrasenyaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +45,7 @@
             this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rolsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comunitatsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bindingSourceUsuaris = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuaris)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceUsuaris)).BeginInit();
@@ -65,11 +66,12 @@
             this.toolStrip1.Size = new System.Drawing.Size(1129, 31);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // toolStripButtonAnadir
             // 
             this.toolStripButtonAnadir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAnadir.Image = global::Chrysallis_Eventos.Properties.Resources.add_32px;
+            this.toolStripButtonAnadir.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAnadir.Image")));
             this.toolStripButtonAnadir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAnadir.Name = "toolStripButtonAnadir";
             this.toolStripButtonAnadir.Size = new System.Drawing.Size(29, 28);
@@ -80,7 +82,7 @@
             // toolStripButtonModificar
             // 
             this.toolStripButtonModificar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonModificar.Image = global::Chrysallis_Eventos.Properties.Resources.edit_file_32px;
+            this.toolStripButtonModificar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonModificar.Image")));
             this.toolStripButtonModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonModificar.Name = "toolStripButtonModificar";
             this.toolStripButtonModificar.Size = new System.Drawing.Size(29, 28);
@@ -90,7 +92,7 @@
             // toolStripButtonPass
             // 
             this.toolStripButtonPass.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonPass.Image = global::Chrysallis_Eventos.Properties.Resources.pass;
+            this.toolStripButtonPass.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPass.Image")));
             this.toolStripButtonPass.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonPass.Name = "toolStripButtonPass";
             this.toolStripButtonPass.Size = new System.Drawing.Size(29, 28);
@@ -100,7 +102,7 @@
             // toolStripButtonBorrar
             // 
             this.toolStripButtonBorrar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonBorrar.Image = global::Chrysallis_Eventos.Properties.Resources.delete_bin_32px;
+            this.toolStripButtonBorrar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBorrar.Image")));
             this.toolStripButtonBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonBorrar.Name = "toolStripButtonBorrar";
             this.toolStripButtonBorrar.Size = new System.Drawing.Size(29, 28);
@@ -115,7 +117,7 @@
             // toolStripButtonSalir
             // 
             this.toolStripButtonSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonSalir.Image = global::Chrysallis_Eventos.Properties.Resources.exit_32px;
+            this.toolStripButtonSalir.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSalir.Image")));
             this.toolStripButtonSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSalir.Name = "toolStripButtonSalir";
             this.toolStripButtonSalir.Size = new System.Drawing.Size(29, 28);
@@ -149,10 +151,6 @@
             this.dataGridViewUsuaris.Size = new System.Drawing.Size(1129, 595);
             this.dataGridViewUsuaris.TabIndex = 1;
             this.dataGridViewUsuaris.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewUsuaris_CellFormatting);
-            // 
-            // bindingSourceUsuaris
-            // 
-            this.bindingSourceUsuaris.DataSource = typeof(Chrysallis_Eventos.MODELOS.usuaris);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -220,6 +218,10 @@
             this.comunitatsDataGridViewTextBoxColumn.ReadOnly = true;
             this.comunitatsDataGridViewTextBoxColumn.Visible = false;
             this.comunitatsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // bindingSourceUsuaris
+            // 
+            this.bindingSourceUsuaris.DataSource = typeof(Chrysallis_Eventos.MODELOS.usuaris);
             // 
             // FormAdmin
             // 

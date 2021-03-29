@@ -65,7 +65,7 @@ namespace Chrysallis_Eventos
             this.toolStripButton1});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(807, 27);
+            this.toolStripMenu.Size = new System.Drawing.Size(605, 27);
             this.toolStripMenu.TabIndex = 0;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -75,7 +75,7 @@ namespace Chrysallis_Eventos
             this.toolStripButtonAddUser.Image = global::Chrysallis_Eventos.Properties.Resources.add_32px;
             this.toolStripButtonAddUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAddUser.Name = "toolStripButtonAddUser";
-            this.toolStripButtonAddUser.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButtonAddUser.Size = new System.Drawing.Size(24, 24);
             this.toolStripButtonAddUser.Text = "Añadir";
             this.toolStripButtonAddUser.Click += new System.EventHandler(this.toolStripButtonAddUser_Click);
             // 
@@ -85,7 +85,7 @@ namespace Chrysallis_Eventos
             this.toolStripButtonEditUser.Image = global::Chrysallis_Eventos.Properties.Resources.edit_file_32px;
             this.toolStripButtonEditUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEditUser.Name = "toolStripButtonEditUser";
-            this.toolStripButtonEditUser.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButtonEditUser.Size = new System.Drawing.Size(24, 24);
             this.toolStripButtonEditUser.Text = "Modificar";
             // 
             // toolStripButtonDelUser
@@ -94,7 +94,7 @@ namespace Chrysallis_Eventos
             this.toolStripButtonDelUser.Image = global::Chrysallis_Eventos.Properties.Resources.delete_bin_32px;
             this.toolStripButtonDelUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDelUser.Name = "toolStripButtonDelUser";
-            this.toolStripButtonDelUser.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButtonDelUser.Size = new System.Drawing.Size(24, 24);
             this.toolStripButtonDelUser.Text = "Eliminar";
             // 
             // toolStripSeparator1
@@ -108,7 +108,7 @@ namespace Chrysallis_Eventos
             this.toolStripButton1.Image = global::Chrysallis_Eventos.Properties.Resources.exit_32px;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton1.Text = "Salir";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -117,9 +117,11 @@ namespace Chrysallis_Eventos
             this.groupBoxBuscar.Controls.Add(this.buttonBuscar);
             this.groupBoxBuscar.Controls.Add(this.textBoxBuscarUser);
             this.groupBoxBuscar.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxBuscar.Location = new System.Drawing.Point(13, 67);
+            this.groupBoxBuscar.Location = new System.Drawing.Point(10, 54);
+            this.groupBoxBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBoxBuscar.Name = "groupBoxBuscar";
-            this.groupBoxBuscar.Size = new System.Drawing.Size(776, 65);
+            this.groupBoxBuscar.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxBuscar.Size = new System.Drawing.Size(582, 53);
             this.groupBoxBuscar.TabIndex = 1;
             this.groupBoxBuscar.TabStop = false;
             this.groupBoxBuscar.Text = "Buscar";
@@ -131,18 +133,20 @@ namespace Chrysallis_Eventos
             this.buttonBuscar.FlatAppearance.BorderSize = 2;
             this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBuscar.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBuscar.Location = new System.Drawing.Point(643, 15);
+            this.buttonBuscar.Location = new System.Drawing.Point(482, 12);
+            this.buttonBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(109, 41);
+            this.buttonBuscar.Size = new System.Drawing.Size(82, 33);
             this.buttonBuscar.TabIndex = 1;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = false;
             // 
             // textBoxBuscarUser
             // 
-            this.textBoxBuscarUser.Location = new System.Drawing.Point(16, 24);
+            this.textBoxBuscarUser.Location = new System.Drawing.Point(12, 20);
+            this.textBoxBuscarUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxBuscarUser.Name = "textBoxBuscarUser";
-            this.textBoxBuscarUser.Size = new System.Drawing.Size(602, 23);
+            this.textBoxBuscarUser.Size = new System.Drawing.Size(452, 20);
             this.textBoxBuscarUser.TabIndex = 0;
             // 
             // dataGridViewUsers
@@ -166,7 +170,8 @@ namespace Chrysallis_Eventos
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewUsers.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewUsers.Location = new System.Drawing.Point(13, 138);
+            this.dataGridViewUsers.Location = new System.Drawing.Point(10, 112);
+            this.dataGridViewUsers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
@@ -180,7 +185,7 @@ namespace Chrysallis_Eventos
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewUsers.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewUsers.RowTemplate.Height = 24;
-            this.dataGridViewUsers.Size = new System.Drawing.Size(775, 336);
+            this.dataGridViewUsers.Size = new System.Drawing.Size(581, 273);
             this.dataGridViewUsers.TabIndex = 2;
             // 
             // comboBoxComunidades
@@ -189,12 +194,12 @@ namespace Chrysallis_Eventos
             this.comboBoxComunidades.DisplayMember = "nom";
             this.comboBoxComunidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxComunidades.FormattingEnabled = true;
-            this.comboBoxComunidades.Location = new System.Drawing.Point(121, 37);
+            this.comboBoxComunidades.Location = new System.Drawing.Point(91, 30);
+            this.comboBoxComunidades.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxComunidades.Name = "comboBoxComunidades";
-            this.comboBoxComunidades.Size = new System.Drawing.Size(510, 24);
+            this.comboBoxComunidades.Size = new System.Drawing.Size(384, 21);
             this.comboBoxComunidades.TabIndex = 3;
             this.comboBoxComunidades.ValueMember = "id";
-            this.comboBoxComunidades.SelectedIndexChanged += new System.EventHandler(this.comboBoxComunidades_SelectedIndexChanged);
             // 
             // bindingSourceComunidades
             // 
@@ -204,22 +209,24 @@ namespace Chrysallis_Eventos
             // 
             this.labelComunidad.AutoSize = true;
             this.labelComunidad.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelComunidad.Location = new System.Drawing.Point(26, 39);
+            this.labelComunidad.Location = new System.Drawing.Point(20, 32);
+            this.labelComunidad.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelComunidad.Name = "labelComunidad";
-            this.labelComunidad.Size = new System.Drawing.Size(78, 18);
+            this.labelComunidad.Size = new System.Drawing.Size(62, 16);
             this.labelComunidad.TabIndex = 4;
             this.labelComunidad.Text = "Comunidad";
             // 
             // FormUsuaris
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 493);
+            this.ClientSize = new System.Drawing.Size(605, 401);
             this.Controls.Add(this.labelComunidad);
             this.Controls.Add(this.comboBoxComunidades);
             this.Controls.Add(this.dataGridViewUsers);
             this.Controls.Add(this.groupBoxBuscar);
             this.Controls.Add(this.toolStripMenu);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormUsuaris";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Usuarios Chrysallis";
