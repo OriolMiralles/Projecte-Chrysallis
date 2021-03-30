@@ -53,6 +53,7 @@ namespace Chrysallis_Eventos
                 comboBoxCiudadesBuscadasUsuario.SelectedItem = null;
                 labelInfo.Visible = false;
                 buttonInsertarMenor.Visible = false;
+                generarContraseña();
 
             }
             else
@@ -116,7 +117,10 @@ namespace Chrysallis_Eventos
             soci.cognoms = textBoxApellidoUsuario.Text;
             soci.dni = textBoxDNIUsuario.Text;
             soci.actiu = checkBoxActivo.Checked;
-            soci.contrasenya = textBoxPasswordUsuario.Text;
+            if (!modificar)
+            {
+                soci.contrasenya = BCrypt.Net.BCrypt.EnhancedHashPassword(textBoxPasswordUsuario.Text, BCrypt.Net.HashType.SHA512);
+            }
             soci.data_naixement = dateTimePickerUsuario.Value;
             soci.telefon1 = textBoxTelefono1Usuario.Text;
             if (!textBoxTelefono2Usuario.Equals(""))
@@ -304,6 +308,20 @@ namespace Chrysallis_Eventos
                 }
 
             }
+        }
+        private void generarContraseña()
+        {
+            String pass="";
+            Random random = new Random();
+            for (int i = 0; i < 8; i++)
+            {
+                int numero = random.Next(97, 123);
+                char letra = (char)numero;
+                pass += letra;
+            }
+
+            textBoxPasswordUsuario.Text = pass;
+            
         }
     }
 }
