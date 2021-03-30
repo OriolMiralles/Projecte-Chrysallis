@@ -25,6 +25,21 @@ namespace Chrysallis_Eventos.MODELOS
 
             return _socis;
         }
+        public static List<socis> Select(ref String missatge, comunitats comunitat, Boolean activo)
+        {
+            List<socis> _socis = new List<socis>();
+            try
+            {
+                _socis = Orm.bd.socis.Where(s => s.localitats.provincies.id_comunitat == comunitat.id && s.actiu==activo).OrderBy(s => s.dni).ToList();
+            }
+            catch (SqlException ex)
+            {
+                missatge = Orm.missatgeError(ex);
+            }
+
+
+            return _socis;
+        }
         public static List<socis> Select(ref String missatge, String dni)
         {
             List<socis> _socis = null;

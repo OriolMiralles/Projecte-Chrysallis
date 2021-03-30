@@ -51,8 +51,7 @@ namespace Chrysallis_Eventos
             }
             else
             {
-                _socis = UsuarioOrm.Select(ref missatge, (comunitats)comboBoxComunidades.SelectedItem);
-                bindingSourceUsuarios.DataSource = _socis;
+                cargarGrid();
             }
 
         }
@@ -61,6 +60,7 @@ namespace Chrysallis_Eventos
         {
             FormInsertarUsuario fiu = new FormInsertarUsuario((comunitats)comboBoxComunidades.SelectedItem);
             fiu.ShowDialog();
+           // cargarGrid();
         }
 
         private void toolStripButtonEditUser_Click(object sender, EventArgs e)
@@ -69,7 +69,7 @@ namespace Chrysallis_Eventos
             {
                 FormInsertarUsuario fiu = new FormInsertarUsuario((socis)dataGridViewUsers.SelectedRows[0].DataBoundItem, (comunitats)comboBoxComunidades.SelectedItem);
                 fiu.ShowDialog();
-                //refrescarGrid();
+               // cargarGrid();
             }
             else
             {
@@ -84,6 +84,43 @@ namespace Chrysallis_Eventos
             bindingSourceUsuarios.DataSource = _socis;
         }
 
-       
+       private void cargarGrid()
+        {
+            String missatge = "";
+           
+            if (checkBoxActivo.Checked)
+            {
+                _socis = UsuarioOrm.Select(ref missatge, (comunitats)comboBoxComunidades.SelectedItem, checkBoxActivo.Checked);
+                bindingSourceUsuarios.DataSource = null;
+                bindingSourceUsuarios.DataSource = _socis;
+            }
+            else
+            {
+                _socis = UsuarioOrm.Select(ref missatge, (comunitats)comboBoxComunidades.SelectedItem);
+                bindingSourceUsuarios.DataSource = null;
+                bindingSourceUsuarios.DataSource = _socis;
+            }
+            
+            
+        }
+
+        private void FormUsuaris_Activated(object sender, EventArgs e)
+        {
+            cargarGrid();
+        }
+
+        private void textBoxBuscarUser_TextChanged(object sender, EventArgs e)
+        {
+            List<socis> llistaFiltrada = null;
+
+            llistaFiltrada = new List<socis>(_socis.Where(s => s.nom.ToLower().Contains(textBoxBuscarUser.Text.ToLower())|| s.cognoms.ToLower().Contains(textBoxBuscarUser.Text.ToLower())).ToList());
+
+            bindingSourceUsuarios.DataSource = llistaFiltrada;
+        }
+
+        private void checkBoxActivo_CheckedChanged(object sender, EventArgs e)
+        {
+            cargarGrid();
+        }
     }
 }
