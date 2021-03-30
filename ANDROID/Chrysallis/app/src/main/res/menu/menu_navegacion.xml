@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/mainEvent"
+        android:title="EVENTOS"
+        android:icon="@drawable/ic_eventos"
+        />
 
+    <item android:id="@+id/mainEventPref"
+        android:title="MIS EVENTOS"
+        android:icon="@drawable/ic_event_pref"/>
+    <item android:id="@+id/mainProfile"
+        android:title="MI PERFIL"
+        android:icon="@drawable/ic_profile"/>
 </menu>
