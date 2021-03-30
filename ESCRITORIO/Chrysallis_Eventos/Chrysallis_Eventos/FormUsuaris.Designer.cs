@@ -41,7 +41,7 @@ namespace Chrysallis_Eventos
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.groupBoxBuscar = new System.Windows.Forms.GroupBox();
-            this.buttonBuscar = new System.Windows.Forms.Button();
+            this.checkBoxActivo = new System.Windows.Forms.CheckBox();
             this.textBoxBuscarUser = new System.Windows.Forms.TextBox();
             this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,7 +129,7 @@ namespace Chrysallis_Eventos
             // 
             // groupBoxBuscar
             // 
-            this.groupBoxBuscar.Controls.Add(this.buttonBuscar);
+            this.groupBoxBuscar.Controls.Add(this.checkBoxActivo);
             this.groupBoxBuscar.Controls.Add(this.textBoxBuscarUser);
             this.groupBoxBuscar.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxBuscar.Location = new System.Drawing.Point(13, 66);
@@ -141,28 +141,26 @@ namespace Chrysallis_Eventos
             this.groupBoxBuscar.TabStop = false;
             this.groupBoxBuscar.Text = "Buscar";
             // 
-            // buttonBuscar
+            // checkBoxActivo
             // 
-            this.buttonBuscar.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.buttonBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.buttonBuscar.FlatAppearance.BorderSize = 2;
-            this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBuscar.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBuscar.Location = new System.Drawing.Point(643, 15);
-            this.buttonBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(109, 41);
-            this.buttonBuscar.TabIndex = 1;
-            this.buttonBuscar.Text = "Buscar";
-            this.buttonBuscar.UseVisualStyleBackColor = false;
+            this.checkBoxActivo.AutoSize = true;
+            this.checkBoxActivo.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxActivo.Location = new System.Drawing.Point(661, 26);
+            this.checkBoxActivo.Name = "checkBoxActivo";
+            this.checkBoxActivo.Size = new System.Drawing.Size(81, 27);
+            this.checkBoxActivo.TabIndex = 1;
+            this.checkBoxActivo.Text = "Activo";
+            this.checkBoxActivo.UseVisualStyleBackColor = true;
+            this.checkBoxActivo.CheckedChanged += new System.EventHandler(this.checkBoxActivo_CheckedChanged);
             // 
             // textBoxBuscarUser
             // 
             this.textBoxBuscarUser.Location = new System.Drawing.Point(16, 25);
             this.textBoxBuscarUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxBuscarUser.Name = "textBoxBuscarUser";
-            this.textBoxBuscarUser.Size = new System.Drawing.Size(601, 23);
+            this.textBoxBuscarUser.Size = new System.Drawing.Size(591, 23);
             this.textBoxBuscarUser.TabIndex = 0;
+            this.textBoxBuscarUser.TextChanged += new System.EventHandler(this.textBoxBuscarUser_TextChanged);
             // 
             // dataGridViewUsers
             // 
@@ -247,7 +245,7 @@ namespace Chrysallis_Eventos
             // numDataGridViewTextBoxColumn
             // 
             this.numDataGridViewTextBoxColumn.DataPropertyName = "num";
-            this.numDataGridViewTextBoxColumn.HeaderText = "num";
+            this.numDataGridViewTextBoxColumn.HeaderText = "Num Socio";
             this.numDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.numDataGridViewTextBoxColumn.Name = "numDataGridViewTextBoxColumn";
             this.numDataGridViewTextBoxColumn.ReadOnly = true;
@@ -255,26 +253,26 @@ namespace Chrysallis_Eventos
             // 
             // nomDataGridViewTextBoxColumn
             // 
+            this.nomDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nomDataGridViewTextBoxColumn.DataPropertyName = "nom";
-            this.nomDataGridViewTextBoxColumn.HeaderText = "nom";
+            this.nomDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nomDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nomDataGridViewTextBoxColumn.Name = "nomDataGridViewTextBoxColumn";
             this.nomDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nomDataGridViewTextBoxColumn.Width = 125;
             // 
             // cognomsDataGridViewTextBoxColumn
             // 
+            this.cognomsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.cognomsDataGridViewTextBoxColumn.DataPropertyName = "cognoms";
-            this.cognomsDataGridViewTextBoxColumn.HeaderText = "cognoms";
+            this.cognomsDataGridViewTextBoxColumn.HeaderText = "Apellidos";
             this.cognomsDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.cognomsDataGridViewTextBoxColumn.Name = "cognomsDataGridViewTextBoxColumn";
             this.cognomsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cognomsDataGridViewTextBoxColumn.Width = 125;
             // 
             // actiuDataGridViewCheckBoxColumn
             // 
             this.actiuDataGridViewCheckBoxColumn.DataPropertyName = "actiu";
-            this.actiuDataGridViewCheckBoxColumn.HeaderText = "actiu";
+            this.actiuDataGridViewCheckBoxColumn.HeaderText = "Activo";
             this.actiuDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.actiuDataGridViewCheckBoxColumn.Name = "actiuDataGridViewCheckBoxColumn";
             this.actiuDataGridViewCheckBoxColumn.ReadOnly = true;
@@ -473,7 +471,7 @@ namespace Chrysallis_Eventos
             this.comboBoxComunidades.Location = new System.Drawing.Point(121, 37);
             this.comboBoxComunidades.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxComunidades.Name = "comboBoxComunidades";
-            this.comboBoxComunidades.Size = new System.Drawing.Size(511, 24);
+            this.comboBoxComunidades.Size = new System.Drawing.Size(518, 24);
             this.comboBoxComunidades.TabIndex = 3;
             this.comboBoxComunidades.ValueMember = "id";
             this.comboBoxComunidades.SelectedIndexChanged += new System.EventHandler(this.comboBoxComunidades_SelectedIndexChanged);
@@ -506,6 +504,7 @@ namespace Chrysallis_Eventos
             this.Name = "FormUsuaris";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Usuarios Chrysallis";
+            this.Activated += new System.EventHandler(this.FormUsuaris_Activated);
             this.Load += new System.EventHandler(this.FormUsuaris_Load);
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
@@ -527,7 +526,6 @@ namespace Chrysallis_Eventos
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.GroupBox groupBoxBuscar;
-        private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.TextBox textBoxBuscarUser;
         private System.Windows.Forms.DataGridView dataGridViewUsers;
         private System.Windows.Forms.ComboBox comboBoxComunidades;
@@ -557,5 +555,6 @@ namespace Chrysallis_Eventos
         private System.Windows.Forms.DataGridViewTextBoxColumn valoracionsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn comunitatsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn esdevenimentsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.CheckBox checkBoxActivo;
     }
 }

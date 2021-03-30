@@ -21,12 +21,14 @@ namespace Chrysallis_Eventos
             InitializeComponent();
             usuari = new usuaris();
             modificar = false;
+            dataGridViewComunidades.AutoGenerateColumns = false;
         }
         public FormCrearAdmin(usuaris usuari)
         {
             InitializeComponent();
             this.usuari = usuari;
             modificar = true;
+            dataGridViewComunidades.AutoGenerateColumns = false;
         }
 
         private void label1_Click(object sender, EventArgs e)

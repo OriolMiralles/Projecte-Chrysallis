@@ -13,6 +13,7 @@ namespace Chrysallis_Eventos
 {
     public partial class FormEventos : Form
     {
+        List<esdeveniments> esdeveniments = new List<esdeveniments>();
         public FormEventos()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace Chrysallis_Eventos
         private void FormEventos_Load(object sender, EventArgs e)
         {
             String missatge = "";
-
+            
 
 
             if (User.SuperAdmin)
@@ -81,7 +82,7 @@ namespace Chrysallis_Eventos
         {
             String missatge = "";
 
-            List<esdeveniments> esdeveniments = EventosOrm.Select(ref missatge, (comunitats)comboBoxComunidades.SelectedItem);
+                esdeveniments = EventosOrm.Select(ref missatge, (comunitats)comboBoxComunidades.SelectedItem);
 
                 bindingSourceGridEventos.DataSource = null;
                 bindingSourceGridEventos.DataSource = esdeveniments;
@@ -126,6 +127,15 @@ namespace Chrysallis_Eventos
 
             }
             
+        }
+
+        private void textBoxBuscarEvent_TextChanged(object sender, EventArgs e)
+        {
+            List<esdeveniments> llistaFiltrada = null;
+
+            llistaFiltrada = new List<esdeveniments>(esdeveniments.Where(esdev => esdev.localitats.nom.ToLower().Contains(textBoxBuscarEvent.Text.ToLower())).ToList());
+
+            bindingSourceGridEventos.DataSource = llistaFiltrada;
         }
     }
 }

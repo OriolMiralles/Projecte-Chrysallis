@@ -480,6 +480,7 @@ namespace Chrysallis_Eventos
             this.dataGridViewMenors.Size = new System.Drawing.Size(707, 150);
             this.dataGridViewMenors.TabIndex = 42;
             this.dataGridViewMenors.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMenors_CellContentClick);
+            this.dataGridViewMenors.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewMenors_CellFormatting);
             this.dataGridViewMenors.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridViewMenors_UserDeletingRow);
             // 
             // idsociDataGridViewTextBoxColumn
