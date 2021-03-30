@@ -103,7 +103,16 @@ namespace Chrysallis_Eventos
             soci.nom = textBoxNombreUsuario.Text;
             soci.num = Int32.Parse(textBoxNumSocio.Text);
             soci.data_alta = DateTime.Now;
-            soci.permis_app = checkBoxPermiso.Checked;
+            soci.actiu = checkBoxActivo.Checked;
+            if (soci.actiu == true)
+            {
+                soci.permis_app = checkBoxPermiso.Checked;
+            }
+            else
+            {
+                soci.permis_app = false;
+            }
+           
             soci.cognoms = textBoxApellidoUsuario.Text;
             soci.dni = textBoxDNIUsuario.Text;
             soci.actiu = checkBoxActivo.Checked;
