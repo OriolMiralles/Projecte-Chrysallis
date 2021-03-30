@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         app:menu="@menu/menu_navegacion"
-        app:itemIconTint="@color/colorAccent"
-        android:background="@color/colorPrimary"
-        app:itemTextColor="@drawable/selector_colores"
+        app:itemIconTint="@drawable/selector_colores"
+        android:background="@color/colorPrimaryDark"
+        app:itemTextColor="@drawable/selector_colores_texto"
         >
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
