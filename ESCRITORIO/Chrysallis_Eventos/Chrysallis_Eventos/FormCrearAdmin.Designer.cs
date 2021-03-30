@@ -47,12 +47,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.comboBoxComunidades = new System.Windows.Forms.ComboBox();
             this.bindingSourceComunitats = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonAnadir = new System.Windows.Forms.Button();
+            this.bindingSourceComunitatUsuari = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewComunidades = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonAnadir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRols)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitatUsuari)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComunidades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -190,6 +192,17 @@
             // 
             this.bindingSourceComunitats.DataSource = typeof(Chrysallis_Eventos.MODELOS.comunitats);
             // 
+            // buttonAnadir
+            // 
+            this.buttonAnadir.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAnadir.Location = new System.Drawing.Point(443, 351);
+            this.buttonAnadir.Name = "buttonAnadir";
+            this.buttonAnadir.Size = new System.Drawing.Size(109, 40);
+            this.buttonAnadir.TabIndex = 13;
+            this.buttonAnadir.Text = "Añadir";
+            this.buttonAnadir.UseVisualStyleBackColor = true;
+            this.buttonAnadir.Click += new System.EventHandler(this.buttonAnadir_Click);
+            // 
             // dataGridViewComunidades
             // 
             this.dataGridViewComunidades.AllowUserToAddRows = false;
@@ -238,23 +251,12 @@
             // 
             // nom
             // 
+            this.nom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nom.DataPropertyName = "nom";
-            this.nom.HeaderText = "Nom";
+            this.nom.HeaderText = "Comunidad";
             this.nom.MinimumWidth = 6;
             this.nom.Name = "nom";
             this.nom.ReadOnly = true;
-            this.nom.Width = 125;
-            // 
-            // buttonAnadir
-            // 
-            this.buttonAnadir.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAnadir.Location = new System.Drawing.Point(443, 351);
-            this.buttonAnadir.Name = "buttonAnadir";
-            this.buttonAnadir.Size = new System.Drawing.Size(109, 40);
-            this.buttonAnadir.TabIndex = 13;
-            this.buttonAnadir.Text = "Añadir";
-            this.buttonAnadir.UseVisualStyleBackColor = true;
-            this.buttonAnadir.Click += new System.EventHandler(this.buttonAnadir_Click);
             // 
             // FormCrearAdmin
             // 
@@ -283,6 +285,7 @@
             this.Load += new System.EventHandler(this.FormCrearAdmin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceRols)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceComunitatUsuari)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewComunidades)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -304,9 +307,10 @@
         private System.Windows.Forms.BindingSource bindingSourceRols;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox comboBoxComunidades;
-        private System.Windows.Forms.DataGridView dataGridViewComunidades;
         private System.Windows.Forms.BindingSource bindingSourceComunitats;
         private System.Windows.Forms.Button buttonAnadir;
+        private System.Windows.Forms.BindingSource bindingSourceComunitatUsuari;
+        private System.Windows.Forms.DataGridView dataGridViewComunidades;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nom;
     }

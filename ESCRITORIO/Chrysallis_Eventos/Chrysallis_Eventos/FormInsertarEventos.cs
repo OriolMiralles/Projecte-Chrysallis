@@ -65,10 +65,14 @@ namespace Chrysallis_Eventos
             else
             {
                 textBoxTituloEvento.Text = esdeveniment.titol;
-                dateTimePickerEvento.Value = esdeveniment.data;
                 comboBoxTipoEvento.SelectedItem = esdeveniment.tipus_events;
                 textBoxComunidadEvento.Text = esdeveniment.comunitats.nom;
-                dateTimePickerEvento.Value = esdeveniment.data;
+                int ano = esdeveniment.data.Year;
+                int mes = esdeveniment.data.Month;
+                int dia = esdeveniment.data.Day;
+                dateTimePickerEvento.MaxDate = new DateTime(9998, 6, 20);
+                dateTimePickerEvento.MinDate = new DateTime(2000, 6, 20);
+                dateTimePickerEvento.Value = new DateTime(ano, mes, dia);
                 dateTimePickerHora.Text = esdeveniment.hora.ToString();
                 if (!esdeveniment.tipus_events.nom.Equals("Online"))
                 {

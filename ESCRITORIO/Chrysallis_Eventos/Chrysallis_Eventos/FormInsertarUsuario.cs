@@ -282,5 +282,19 @@ namespace Chrysallis_Eventos
             menors = MenorOrm.Select(ref missatge, soci);
             bindingSourceMenors.DataSource = menors;
         }
+
+        private void dataGridViewMenors_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 1)
+            {
+                menors_socis _menor = (menors_socis)dataGridViewMenors.Rows[e.RowIndex].DataBoundItem;
+                if (_menor != null)
+                {
+
+                    e.Value = _menor.menors.nom;
+                }
+
+            }
+        }
     }
 }
