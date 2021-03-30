@@ -113,6 +113,26 @@ namespace Chrysallis_Eventos.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_baby_50px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_baby_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_save_the_children_26px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_save_the_children_26px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NOU_LOGO_SIN_FONDO {
             get {
                 object obj = ResourceManager.GetObject("NOU_LOGO_SIN_FONDO", resourceCulture);

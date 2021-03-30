@@ -29,6 +29,7 @@ namespace Chrysallis_Eventos
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelNombreUsuario = new System.Windows.Forms.Label();
             this.labelApellidoUsuario = new System.Windows.Forms.Label();
             this.labelDNIUsuario = new System.Windows.Forms.Label();
@@ -41,35 +42,54 @@ namespace Chrysallis_Eventos
             this.textBoxApellidoUsuario = new System.Windows.Forms.TextBox();
             this.textBoxDNIUsuario = new System.Windows.Forms.TextBox();
             this.textBoxPasswordUsuario = new System.Windows.Forms.TextBox();
-            this.groupBoxUbicacionUsiario = new System.Windows.Forms.GroupBox();
-            this.labelCodigoPostalUsuario = new System.Windows.Forms.Label();
-            this.labelDireccionUsuario = new System.Windows.Forms.Label();
-            this.labelCiudadUsuario = new System.Windows.Forms.Label();
-            this.textBoxCodigoPostalUsuario = new System.Windows.Forms.TextBox();
-            this.textBoxDireccionUsuario = new System.Windows.Forms.TextBox();
-            this.textBoxCiudadUsuario = new System.Windows.Forms.TextBox();
-            this.textBoxProvinciaUsuario = new System.Windows.Forms.TextBox();
-            this.labelProvinciaUsuario = new System.Windows.Forms.Label();
-            this.textBoxComunidadUsuario = new System.Windows.Forms.TextBox();
-            this.labelComunidadUsuario = new System.Windows.Forms.Label();
-            this.textBoxFechaNacimientoUsuario = new System.Windows.Forms.TextBox();
             this.textBoxTelefono1Usuario = new System.Windows.Forms.TextBox();
             this.textBoxTelefono2Usuario = new System.Windows.Forms.TextBox();
             this.textBoxEmailUsuario = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.labelNombreMenorUsuario = new System.Windows.Forms.Label();
-            this.labelRelacionMenorUsuario = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.buttonInsertarUsuario = new System.Windows.Forms.Button();
-            this.groupBoxUbicacionUsiario.SuspendLayout();
+            this.labelNumeroUsuario = new System.Windows.Forms.Label();
+            this.labelCiudadadBuscadasUsuario = new System.Windows.Forms.Label();
+            this.comboBoxCiudadesBuscadasUsuario = new System.Windows.Forms.ComboBox();
+            this.bindingSourceCiutats = new System.Windows.Forms.BindingSource(this.components);
+            this.labelDireccionUsuario = new System.Windows.Forms.Label();
+            this.labelCiudadUsuario = new System.Windows.Forms.Label();
+            this.textBoxDireccionUsuario = new System.Windows.Forms.TextBox();
+            this.textBoxCiudadUsuario = new System.Windows.Forms.TextBox();
+            this.groupBoxUbicacionUsuario = new System.Windows.Forms.GroupBox();
+            this.comboBoxProvinciasUsuario = new System.Windows.Forms.ComboBox();
+            this.bindingSourceProvincies = new System.Windows.Forms.BindingSource(this.components);
+            this.labelProvinciaUsuario = new System.Windows.Forms.Label();
+            this.textBoxComunidadUsuario = new System.Windows.Forms.TextBox();
+            this.labelComunidadUsuario = new System.Windows.Forms.Label();
+            this.provinciesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dateTimePickerUsuario = new System.Windows.Forms.DateTimePicker();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonInsertar = new System.Windows.Forms.Button();
+            this.bindingSourceMenors = new System.Windows.Forms.BindingSource(this.components);
+            this.textBoxNumSocio = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkBoxPermiso = new System.Windows.Forms.CheckBox();
+            this.checkBoxActivo = new System.Windows.Forms.CheckBox();
+            this.dataGridViewMenors = new System.Windows.Forms.DataGridView();
+            this.idsociDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idmenorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.relacioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menorsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.socisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelInfo = new System.Windows.Forms.Label();
+            this.buttonInsertarMenor = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCiutats)).BeginInit();
+            this.groupBoxUbicacionUsuario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProvincies)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.provinciesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMenors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMenors)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNombreUsuario
             // 
             this.labelNombreUsuario.AutoSize = true;
             this.labelNombreUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombreUsuario.Location = new System.Drawing.Point(39, 18);
+            this.labelNombreUsuario.Location = new System.Drawing.Point(45, 61);
             this.labelNombreUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNombreUsuario.Name = "labelNombreUsuario";
             this.labelNombreUsuario.Size = new System.Drawing.Size(75, 23);
@@ -80,7 +100,7 @@ namespace Chrysallis_Eventos
             // 
             this.labelApellidoUsuario.AutoSize = true;
             this.labelApellidoUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelApellidoUsuario.Location = new System.Drawing.Point(39, 59);
+            this.labelApellidoUsuario.Location = new System.Drawing.Point(45, 102);
             this.labelApellidoUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelApellidoUsuario.Name = "labelApellidoUsuario";
             this.labelApellidoUsuario.Size = new System.Drawing.Size(78, 23);
@@ -91,7 +111,7 @@ namespace Chrysallis_Eventos
             // 
             this.labelDNIUsuario.AutoSize = true;
             this.labelDNIUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDNIUsuario.Location = new System.Drawing.Point(39, 102);
+            this.labelDNIUsuario.Location = new System.Drawing.Point(45, 145);
             this.labelDNIUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDNIUsuario.Name = "labelDNIUsuario";
             this.labelDNIUsuario.Size = new System.Drawing.Size(42, 23);
@@ -102,7 +122,7 @@ namespace Chrysallis_Eventos
             // 
             this.labelPasswordUsuario.AutoSize = true;
             this.labelPasswordUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPasswordUsuario.Location = new System.Drawing.Point(39, 146);
+            this.labelPasswordUsuario.Location = new System.Drawing.Point(45, 189);
             this.labelPasswordUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPasswordUsuario.Name = "labelPasswordUsuario";
             this.labelPasswordUsuario.Size = new System.Drawing.Size(87, 23);
@@ -113,7 +133,7 @@ namespace Chrysallis_Eventos
             // 
             this.labelFechaNacimientoUsuario.AutoSize = true;
             this.labelFechaNacimientoUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFechaNacimientoUsuario.Location = new System.Drawing.Point(39, 187);
+            this.labelFechaNacimientoUsuario.Location = new System.Drawing.Point(45, 230);
             this.labelFechaNacimientoUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFechaNacimientoUsuario.Name = "labelFechaNacimientoUsuario";
             this.labelFechaNacimientoUsuario.Size = new System.Drawing.Size(174, 23);
@@ -124,7 +144,7 @@ namespace Chrysallis_Eventos
             // 
             this.labelTelefono1Usuario.AutoSize = true;
             this.labelTelefono1Usuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTelefono1Usuario.Location = new System.Drawing.Point(39, 230);
+            this.labelTelefono1Usuario.Location = new System.Drawing.Point(45, 273);
             this.labelTelefono1Usuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTelefono1Usuario.Name = "labelTelefono1Usuario";
             this.labelTelefono1Usuario.Size = new System.Drawing.Size(94, 23);
@@ -135,7 +155,7 @@ namespace Chrysallis_Eventos
             // 
             this.labelTelefono2Usuario.AutoSize = true;
             this.labelTelefono2Usuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTelefono2Usuario.Location = new System.Drawing.Point(39, 273);
+            this.labelTelefono2Usuario.Location = new System.Drawing.Point(45, 316);
             this.labelTelefono2Usuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTelefono2Usuario.Name = "labelTelefono2Usuario";
             this.labelTelefono2Usuario.Size = new System.Drawing.Size(94, 23);
@@ -146,7 +166,7 @@ namespace Chrysallis_Eventos
             // 
             this.labelEmailUsuario.AutoSize = true;
             this.labelEmailUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmailUsuario.Location = new System.Drawing.Point(43, 316);
+            this.labelEmailUsuario.Location = new System.Drawing.Point(45, 356);
             this.labelEmailUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEmailUsuario.Name = "labelEmailUsuario";
             this.labelEmailUsuario.Size = new System.Drawing.Size(58, 23);
@@ -156,8 +176,8 @@ namespace Chrysallis_Eventos
             // textBoxNombreUsuario
             // 
             this.textBoxNombreUsuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNombreUsuario.Location = new System.Drawing.Point(243, 15);
-            this.textBoxNombreUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNombreUsuario.Location = new System.Drawing.Point(249, 58);
+            this.textBoxNombreUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNombreUsuario.Name = "textBoxNombreUsuario";
             this.textBoxNombreUsuario.Size = new System.Drawing.Size(484, 23);
             this.textBoxNombreUsuario.TabIndex = 8;
@@ -165,8 +185,8 @@ namespace Chrysallis_Eventos
             // textBoxApellidoUsuario
             // 
             this.textBoxApellidoUsuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxApellidoUsuario.Location = new System.Drawing.Point(243, 55);
-            this.textBoxApellidoUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxApellidoUsuario.Location = new System.Drawing.Point(249, 98);
+            this.textBoxApellidoUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxApellidoUsuario.Name = "textBoxApellidoUsuario";
             this.textBoxApellidoUsuario.Size = new System.Drawing.Size(484, 23);
             this.textBoxApellidoUsuario.TabIndex = 9;
@@ -174,59 +194,91 @@ namespace Chrysallis_Eventos
             // textBoxDNIUsuario
             // 
             this.textBoxDNIUsuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDNIUsuario.Location = new System.Drawing.Point(243, 98);
-            this.textBoxDNIUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxDNIUsuario.Location = new System.Drawing.Point(249, 141);
+            this.textBoxDNIUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDNIUsuario.Name = "textBoxDNIUsuario";
-            this.textBoxDNIUsuario.Size = new System.Drawing.Size(484, 23);
+            this.textBoxDNIUsuario.Size = new System.Drawing.Size(312, 23);
             this.textBoxDNIUsuario.TabIndex = 10;
             // 
             // textBoxPasswordUsuario
             // 
             this.textBoxPasswordUsuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPasswordUsuario.Location = new System.Drawing.Point(243, 143);
-            this.textBoxPasswordUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPasswordUsuario.Location = new System.Drawing.Point(249, 186);
+            this.textBoxPasswordUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPasswordUsuario.Name = "textBoxPasswordUsuario";
             this.textBoxPasswordUsuario.Size = new System.Drawing.Size(484, 23);
             this.textBoxPasswordUsuario.TabIndex = 11;
             // 
-            // groupBoxUbicacionUsiario
+            // textBoxTelefono1Usuario
             // 
-            this.groupBoxUbicacionUsiario.Controls.Add(this.labelCodigoPostalUsuario);
-            this.groupBoxUbicacionUsiario.Controls.Add(this.labelDireccionUsuario);
-            this.groupBoxUbicacionUsiario.Controls.Add(this.labelCiudadUsuario);
-            this.groupBoxUbicacionUsiario.Controls.Add(this.textBoxCodigoPostalUsuario);
-            this.groupBoxUbicacionUsiario.Controls.Add(this.textBoxDireccionUsuario);
-            this.groupBoxUbicacionUsiario.Controls.Add(this.textBoxCiudadUsuario);
-            this.groupBoxUbicacionUsiario.Controls.Add(this.textBoxProvinciaUsuario);
-            this.groupBoxUbicacionUsiario.Controls.Add(this.labelProvinciaUsuario);
-            this.groupBoxUbicacionUsiario.Controls.Add(this.textBoxComunidadUsuario);
-            this.groupBoxUbicacionUsiario.Controls.Add(this.labelComunidadUsuario);
-            this.groupBoxUbicacionUsiario.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxUbicacionUsiario.Location = new System.Drawing.Point(43, 357);
-            this.groupBoxUbicacionUsiario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBoxUbicacionUsiario.Name = "groupBoxUbicacionUsiario";
-            this.groupBoxUbicacionUsiario.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBoxUbicacionUsiario.Size = new System.Drawing.Size(685, 250);
-            this.groupBoxUbicacionUsiario.TabIndex = 12;
-            this.groupBoxUbicacionUsiario.TabStop = false;
-            this.groupBoxUbicacionUsiario.Text = "Ubicación";
+            this.textBoxTelefono1Usuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTelefono1Usuario.Location = new System.Drawing.Point(249, 269);
+            this.textBoxTelefono1Usuario.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxTelefono1Usuario.Name = "textBoxTelefono1Usuario";
+            this.textBoxTelefono1Usuario.Size = new System.Drawing.Size(484, 23);
+            this.textBoxTelefono1Usuario.TabIndex = 14;
             // 
-            // labelCodigoPostalUsuario
+            // textBoxTelefono2Usuario
             // 
-            this.labelCodigoPostalUsuario.AutoSize = true;
-            this.labelCodigoPostalUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCodigoPostalUsuario.Location = new System.Drawing.Point(20, 206);
-            this.labelCodigoPostalUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelCodigoPostalUsuario.Name = "labelCodigoPostalUsuario";
-            this.labelCodigoPostalUsuario.Size = new System.Drawing.Size(118, 23);
-            this.labelCodigoPostalUsuario.TabIndex = 25;
-            this.labelCodigoPostalUsuario.Text = "Codigo Postal:";
+            this.textBoxTelefono2Usuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTelefono2Usuario.Location = new System.Drawing.Point(250, 313);
+            this.textBoxTelefono2Usuario.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxTelefono2Usuario.Name = "textBoxTelefono2Usuario";
+            this.textBoxTelefono2Usuario.Size = new System.Drawing.Size(483, 23);
+            this.textBoxTelefono2Usuario.TabIndex = 15;
+            // 
+            // textBoxEmailUsuario
+            // 
+            this.textBoxEmailUsuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEmailUsuario.Location = new System.Drawing.Point(250, 356);
+            this.textBoxEmailUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxEmailUsuario.Name = "textBoxEmailUsuario";
+            this.textBoxEmailUsuario.Size = new System.Drawing.Size(483, 23);
+            this.textBoxEmailUsuario.TabIndex = 16;
+            // 
+            // labelNumeroUsuario
+            // 
+            this.labelNumeroUsuario.AutoSize = true;
+            this.labelNumeroUsuario.Location = new System.Drawing.Point(54, 853);
+            this.labelNumeroUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNumeroUsuario.Name = "labelNumeroUsuario";
+            this.labelNumeroUsuario.Size = new System.Drawing.Size(20, 17);
+            this.labelNumeroUsuario.TabIndex = 29;
+            this.labelNumeroUsuario.Text = "1·";
+            // 
+            // labelCiudadadBuscadasUsuario
+            // 
+            this.labelCiudadadBuscadasUsuario.AutoSize = true;
+            this.labelCiudadadBuscadasUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCiudadadBuscadasUsuario.Location = new System.Drawing.Point(21, 153);
+            this.labelCiudadadBuscadasUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCiudadadBuscadasUsuario.Name = "labelCiudadadBuscadasUsuario";
+            this.labelCiudadadBuscadasUsuario.Size = new System.Drawing.Size(67, 23);
+            this.labelCiudadadBuscadasUsuario.TabIndex = 28;
+            this.labelCiudadadBuscadasUsuario.Text = "Ciudad:";
+            // 
+            // comboBoxCiudadesBuscadasUsuario
+            // 
+            this.comboBoxCiudadesBuscadasUsuario.DataSource = this.bindingSourceCiutats;
+            this.comboBoxCiudadesBuscadasUsuario.DisplayMember = "nom";
+            this.comboBoxCiudadesBuscadasUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCiudadesBuscadasUsuario.FormattingEnabled = true;
+            this.comboBoxCiudadesBuscadasUsuario.Location = new System.Drawing.Point(164, 146);
+            this.comboBoxCiudadesBuscadasUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxCiudadesBuscadasUsuario.Name = "comboBoxCiudadesBuscadasUsuario";
+            this.comboBoxCiudadesBuscadasUsuario.Size = new System.Drawing.Size(499, 34);
+            this.comboBoxCiudadesBuscadasUsuario.TabIndex = 27;
+            this.comboBoxCiudadesBuscadasUsuario.ValueMember = "id";
+            // 
+            // bindingSourceCiutats
+            // 
+            this.bindingSourceCiutats.DataSource = typeof(Chrysallis_Eventos.MODELOS.localitats);
             // 
             // labelDireccionUsuario
             // 
             this.labelDireccionUsuario.AutoSize = true;
             this.labelDireccionUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDireccionUsuario.Location = new System.Drawing.Point(20, 161);
+            this.labelDireccionUsuario.Location = new System.Drawing.Point(21, 194);
             this.labelDireccionUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDireccionUsuario.Name = "labelDireccionUsuario";
             this.labelDireccionUsuario.Size = new System.Drawing.Size(86, 23);
@@ -237,44 +289,69 @@ namespace Chrysallis_Eventos
             // 
             this.labelCiudadUsuario.AutoSize = true;
             this.labelCiudadUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCiudadUsuario.Location = new System.Drawing.Point(20, 117);
+            this.labelCiudadUsuario.Location = new System.Drawing.Point(20, 114);
             this.labelCiudadUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCiudadUsuario.Name = "labelCiudadUsuario";
-            this.labelCiudadUsuario.Size = new System.Drawing.Size(67, 23);
+            this.labelCiudadUsuario.Size = new System.Drawing.Size(121, 23);
             this.labelCiudadUsuario.TabIndex = 23;
-            this.labelCiudadUsuario.Text = "Ciudad:";
-            // 
-            // textBoxCodigoPostalUsuario
-            // 
-            this.textBoxCodigoPostalUsuario.Location = new System.Drawing.Point(164, 202);
-            this.textBoxCodigoPostalUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBoxCodigoPostalUsuario.Name = "textBoxCodigoPostalUsuario";
-            this.textBoxCodigoPostalUsuario.Size = new System.Drawing.Size(499, 31);
-            this.textBoxCodigoPostalUsuario.TabIndex = 22;
+            this.labelCiudadUsuario.Text = "Buscar ciudad:";
             // 
             // textBoxDireccionUsuario
             // 
-            this.textBoxDireccionUsuario.Location = new System.Drawing.Point(164, 158);
-            this.textBoxDireccionUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxDireccionUsuario.Location = new System.Drawing.Point(164, 188);
+            this.textBoxDireccionUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDireccionUsuario.Name = "textBoxDireccionUsuario";
             this.textBoxDireccionUsuario.Size = new System.Drawing.Size(499, 31);
             this.textBoxDireccionUsuario.TabIndex = 21;
             // 
             // textBoxCiudadUsuario
             // 
-            this.textBoxCiudadUsuario.Location = new System.Drawing.Point(164, 113);
-            this.textBoxCiudadUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCiudadUsuario.Location = new System.Drawing.Point(164, 110);
+            this.textBoxCiudadUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCiudadUsuario.Name = "textBoxCiudadUsuario";
             this.textBoxCiudadUsuario.Size = new System.Drawing.Size(499, 31);
             this.textBoxCiudadUsuario.TabIndex = 20;
+            this.textBoxCiudadUsuario.TextChanged += new System.EventHandler(this.textBoxCiudadUsuario_TextChanged);
             // 
-            // textBoxProvinciaUsuario
+            // groupBoxUbicacionUsuario
             // 
-            this.textBoxProvinciaUsuario.Location = new System.Drawing.Point(164, 70);
-            this.textBoxProvinciaUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBoxProvinciaUsuario.Name = "textBoxProvinciaUsuario";
-            this.textBoxProvinciaUsuario.Size = new System.Drawing.Size(499, 31);
-            this.textBoxProvinciaUsuario.TabIndex = 19;
+            this.groupBoxUbicacionUsuario.Controls.Add(this.labelCiudadadBuscadasUsuario);
+            this.groupBoxUbicacionUsuario.Controls.Add(this.comboBoxCiudadesBuscadasUsuario);
+            this.groupBoxUbicacionUsuario.Controls.Add(this.comboBoxProvinciasUsuario);
+            this.groupBoxUbicacionUsuario.Controls.Add(this.labelDireccionUsuario);
+            this.groupBoxUbicacionUsuario.Controls.Add(this.labelCiudadUsuario);
+            this.groupBoxUbicacionUsuario.Controls.Add(this.textBoxDireccionUsuario);
+            this.groupBoxUbicacionUsuario.Controls.Add(this.textBoxCiudadUsuario);
+            this.groupBoxUbicacionUsuario.Controls.Add(this.labelProvinciaUsuario);
+            this.groupBoxUbicacionUsuario.Controls.Add(this.textBoxComunidadUsuario);
+            this.groupBoxUbicacionUsuario.Controls.Add(this.labelComunidadUsuario);
+            this.groupBoxUbicacionUsuario.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxUbicacionUsuario.Location = new System.Drawing.Point(37, 399);
+            this.groupBoxUbicacionUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBoxUbicacionUsuario.Name = "groupBoxUbicacionUsuario";
+            this.groupBoxUbicacionUsuario.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBoxUbicacionUsuario.Size = new System.Drawing.Size(707, 229);
+            this.groupBoxUbicacionUsuario.TabIndex = 31;
+            this.groupBoxUbicacionUsuario.TabStop = false;
+            this.groupBoxUbicacionUsuario.Text = "Ubicación";
+            // 
+            // comboBoxProvinciasUsuario
+            // 
+            this.comboBoxProvinciasUsuario.DataSource = this.bindingSourceProvincies;
+            this.comboBoxProvinciasUsuario.DisplayMember = "nom";
+            this.comboBoxProvinciasUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxProvinciasUsuario.FormattingEnabled = true;
+            this.comboBoxProvinciasUsuario.Location = new System.Drawing.Point(164, 68);
+            this.comboBoxProvinciasUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxProvinciasUsuario.Name = "comboBoxProvinciasUsuario";
+            this.comboBoxProvinciasUsuario.Size = new System.Drawing.Size(499, 34);
+            this.comboBoxProvinciasUsuario.TabIndex = 26;
+            this.comboBoxProvinciasUsuario.ValueMember = "id_comunitat";
+            this.comboBoxProvinciasUsuario.SelectedIndexChanged += new System.EventHandler(this.comboBoxProvinciasUsuario_SelectedIndexChanged);
+            // 
+            // bindingSourceProvincies
+            // 
+            this.bindingSourceProvincies.DataSource = typeof(Chrysallis_Eventos.MODELOS.provincies);
             // 
             // labelProvinciaUsuario
             // 
@@ -290,8 +367,9 @@ namespace Chrysallis_Eventos
             // textBoxComunidadUsuario
             // 
             this.textBoxComunidadUsuario.Location = new System.Drawing.Point(164, 28);
-            this.textBoxComunidadUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxComunidadUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxComunidadUsuario.Name = "textBoxComunidadUsuario";
+            this.textBoxComunidadUsuario.ReadOnly = true;
             this.textBoxComunidadUsuario.Size = new System.Drawing.Size(499, 31);
             this.textBoxComunidadUsuario.TabIndex = 17;
             // 
@@ -306,122 +384,196 @@ namespace Chrysallis_Eventos
             this.labelComunidadUsuario.TabIndex = 17;
             this.labelComunidadUsuario.Text = "Comunidad:";
             // 
-            // textBoxFechaNacimientoUsuario
+            // provinciesBindingSource
             // 
-            this.textBoxFechaNacimientoUsuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxFechaNacimientoUsuario.Location = new System.Drawing.Point(243, 183);
-            this.textBoxFechaNacimientoUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBoxFechaNacimientoUsuario.Name = "textBoxFechaNacimientoUsuario";
-            this.textBoxFechaNacimientoUsuario.Size = new System.Drawing.Size(484, 23);
-            this.textBoxFechaNacimientoUsuario.TabIndex = 13;
+            this.provinciesBindingSource.DataSource = typeof(Chrysallis_Eventos.MODELOS.provincies);
             // 
-            // textBoxTelefono1Usuario
+            // dateTimePickerUsuario
             // 
-            this.textBoxTelefono1Usuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTelefono1Usuario.Location = new System.Drawing.Point(243, 226);
-            this.textBoxTelefono1Usuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBoxTelefono1Usuario.Name = "textBoxTelefono1Usuario";
-            this.textBoxTelefono1Usuario.Size = new System.Drawing.Size(484, 23);
-            this.textBoxTelefono1Usuario.TabIndex = 14;
+            this.dateTimePickerUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerUsuario.Location = new System.Drawing.Point(246, 225);
+            this.dateTimePickerUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePickerUsuario.Name = "dateTimePickerUsuario";
+            this.dateTimePickerUsuario.Size = new System.Drawing.Size(487, 27);
+            this.dateTimePickerUsuario.TabIndex = 35;
             // 
-            // textBoxTelefono2Usuario
+            // buttonInsertar
             // 
-            this.textBoxTelefono2Usuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTelefono2Usuario.Location = new System.Drawing.Point(244, 270);
-            this.textBoxTelefono2Usuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBoxTelefono2Usuario.Name = "textBoxTelefono2Usuario";
-            this.textBoxTelefono2Usuario.Size = new System.Drawing.Size(483, 23);
-            this.textBoxTelefono2Usuario.TabIndex = 15;
+            this.buttonInsertar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonInsertar.FlatAppearance.BorderSize = 2;
+            this.buttonInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInsertar.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInsertar.Location = new System.Drawing.Point(559, 839);
+            this.buttonInsertar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonInsertar.Name = "buttonInsertar";
+            this.buttonInsertar.Size = new System.Drawing.Size(172, 42);
+            this.buttonInsertar.TabIndex = 36;
+            this.buttonInsertar.Text = "Insertar";
+            this.buttonInsertar.UseVisualStyleBackColor = false;
+            this.buttonInsertar.Click += new System.EventHandler(this.buttonInsertar_Click);
             // 
-            // textBoxEmailUsuario
+            // bindingSourceMenors
             // 
-            this.textBoxEmailUsuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmailUsuario.Location = new System.Drawing.Point(244, 313);
-            this.textBoxEmailUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBoxEmailUsuario.Name = "textBoxEmailUsuario";
-            this.textBoxEmailUsuario.Size = new System.Drawing.Size(483, 23);
-            this.textBoxEmailUsuario.TabIndex = 16;
+            this.bindingSourceMenors.DataSource = typeof(Chrysallis_Eventos.MODELOS.menors_socis);
             // 
-            // textBox14
+            // textBoxNumSocio
             // 
-            this.textBox14.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(244, 625);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(483, 23);
-            this.textBox14.TabIndex = 17;
+            this.textBoxNumSocio.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNumSocio.Location = new System.Drawing.Point(249, 13);
+            this.textBoxNumSocio.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxNumSocio.Name = "textBoxNumSocio";
+            this.textBoxNumSocio.Size = new System.Drawing.Size(312, 23);
+            this.textBoxNumSocio.TabIndex = 38;
             // 
-            // textBox15
+            // label1
             // 
-            this.textBox15.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox15.Location = new System.Drawing.Point(244, 668);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(483, 23);
-            this.textBox15.TabIndex = 18;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(45, 16);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 23);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Número Socio";
             // 
-            // labelNombreMenorUsuario
+            // checkBoxPermiso
             // 
-            this.labelNombreMenorUsuario.AutoSize = true;
-            this.labelNombreMenorUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombreMenorUsuario.Location = new System.Drawing.Point(39, 630);
-            this.labelNombreMenorUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelNombreMenorUsuario.Name = "labelNombreMenorUsuario";
-            this.labelNombreMenorUsuario.Size = new System.Drawing.Size(154, 23);
-            this.labelNombreMenorUsuario.TabIndex = 26;
-            this.labelNombreMenorUsuario.Text = "Nombre del Menor:";
+            this.checkBoxPermiso.AutoSize = true;
+            this.checkBoxPermiso.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxPermiso.Location = new System.Drawing.Point(608, 137);
+            this.checkBoxPermiso.Name = "checkBoxPermiso";
+            this.checkBoxPermiso.Size = new System.Drawing.Size(125, 27);
+            this.checkBoxPermiso.TabIndex = 39;
+            this.checkBoxPermiso.Text = "Permiso App";
+            this.checkBoxPermiso.UseVisualStyleBackColor = true;
             // 
-            // labelRelacionMenorUsuario
+            // checkBoxActivo
             // 
-            this.labelRelacionMenorUsuario.AutoSize = true;
-            this.labelRelacionMenorUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRelacionMenorUsuario.Location = new System.Drawing.Point(39, 672);
-            this.labelRelacionMenorUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelRelacionMenorUsuario.Name = "labelRelacionMenorUsuario";
-            this.labelRelacionMenorUsuario.Size = new System.Drawing.Size(189, 23);
-            this.labelRelacionMenorUsuario.TabIndex = 27;
-            this.labelRelacionMenorUsuario.Text = "Realacion con el Menor:";
+            this.checkBoxActivo.AutoSize = true;
+            this.checkBoxActivo.Checked = true;
+            this.checkBoxActivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxActivo.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxActivo.Location = new System.Drawing.Point(608, 12);
+            this.checkBoxActivo.Name = "checkBoxActivo";
+            this.checkBoxActivo.Size = new System.Drawing.Size(123, 27);
+            this.checkBoxActivo.TabIndex = 41;
+            this.checkBoxActivo.Text = "Socie active";
+            this.checkBoxActivo.UseVisualStyleBackColor = true;
             // 
-            // label16
+            // dataGridViewMenors
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(43, 735);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(0, 17);
-            this.label16.TabIndex = 29;
+            this.dataGridViewMenors.AllowUserToAddRows = false;
+            this.dataGridViewMenors.AutoGenerateColumns = false;
+            this.dataGridViewMenors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMenors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idsociDataGridViewTextBoxColumn,
+            this.idmenorDataGridViewTextBoxColumn,
+            this.relacioDataGridViewTextBoxColumn,
+            this.menorsDataGridViewTextBoxColumn,
+            this.socisDataGridViewTextBoxColumn});
+            this.dataGridViewMenors.DataSource = this.bindingSourceMenors;
+            this.dataGridViewMenors.Location = new System.Drawing.Point(37, 675);
+            this.dataGridViewMenors.Name = "dataGridViewMenors";
+            this.dataGridViewMenors.ReadOnly = true;
+            this.dataGridViewMenors.RowHeadersWidth = 51;
+            this.dataGridViewMenors.RowTemplate.Height = 24;
+            this.dataGridViewMenors.Size = new System.Drawing.Size(707, 150);
+            this.dataGridViewMenors.TabIndex = 42;
+            this.dataGridViewMenors.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMenors_CellContentClick);
+            this.dataGridViewMenors.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridViewMenors_UserDeletingRow);
             // 
-            // buttonInsertarUsuario
+            // idsociDataGridViewTextBoxColumn
             // 
-            this.buttonInsertarUsuario.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.buttonInsertarUsuario.FlatAppearance.BorderSize = 2;
-            this.buttonInsertarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInsertarUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonInsertarUsuario.Location = new System.Drawing.Point(556, 711);
-            this.buttonInsertarUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonInsertarUsuario.Name = "buttonInsertarUsuario";
-            this.buttonInsertarUsuario.Size = new System.Drawing.Size(172, 42);
-            this.buttonInsertarUsuario.TabIndex = 30;
-            this.buttonInsertarUsuario.Text = "Insertar";
-            this.buttonInsertarUsuario.UseVisualStyleBackColor = false;
+            this.idsociDataGridViewTextBoxColumn.DataPropertyName = "id_soci";
+            this.idsociDataGridViewTextBoxColumn.HeaderText = "id_soci";
+            this.idsociDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idsociDataGridViewTextBoxColumn.Name = "idsociDataGridViewTextBoxColumn";
+            this.idsociDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idsociDataGridViewTextBoxColumn.Visible = false;
+            this.idsociDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // idmenorDataGridViewTextBoxColumn
+            // 
+            this.idmenorDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.idmenorDataGridViewTextBoxColumn.DataPropertyName = "id_menor";
+            this.idmenorDataGridViewTextBoxColumn.HeaderText = "Nombre Menor";
+            this.idmenorDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idmenorDataGridViewTextBoxColumn.Name = "idmenorDataGridViewTextBoxColumn";
+            this.idmenorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // relacioDataGridViewTextBoxColumn
+            // 
+            this.relacioDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.relacioDataGridViewTextBoxColumn.DataPropertyName = "relacio";
+            this.relacioDataGridViewTextBoxColumn.HeaderText = "Relación";
+            this.relacioDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.relacioDataGridViewTextBoxColumn.Name = "relacioDataGridViewTextBoxColumn";
+            this.relacioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // menorsDataGridViewTextBoxColumn
+            // 
+            this.menorsDataGridViewTextBoxColumn.DataPropertyName = "menors";
+            this.menorsDataGridViewTextBoxColumn.HeaderText = "menors";
+            this.menorsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.menorsDataGridViewTextBoxColumn.Name = "menorsDataGridViewTextBoxColumn";
+            this.menorsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.menorsDataGridViewTextBoxColumn.Visible = false;
+            this.menorsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // socisDataGridViewTextBoxColumn
+            // 
+            this.socisDataGridViewTextBoxColumn.DataPropertyName = "socis";
+            this.socisDataGridViewTextBoxColumn.HeaderText = "socis";
+            this.socisDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.socisDataGridViewTextBoxColumn.Name = "socisDataGridViewTextBoxColumn";
+            this.socisDataGridViewTextBoxColumn.ReadOnly = true;
+            this.socisDataGridViewTextBoxColumn.Visible = false;
+            this.socisDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // labelInfo
+            // 
+            this.labelInfo.AutoSize = true;
+            this.labelInfo.Location = new System.Drawing.Point(37, 652);
+            this.labelInfo.Name = "labelInfo";
+            this.labelInfo.Size = new System.Drawing.Size(276, 17);
+            this.labelInfo.TabIndex = 43;
+            this.labelInfo.Text = "Pulse la tecla Supr para eliminar un menor";
+            // 
+            // buttonInsertarMenor
+            // 
+            this.buttonInsertarMenor.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonInsertarMenor.FlatAppearance.BorderSize = 2;
+            this.buttonInsertarMenor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInsertarMenor.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInsertarMenor.Location = new System.Drawing.Point(354, 839);
+            this.buttonInsertarMenor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonInsertarMenor.Name = "buttonInsertarMenor";
+            this.buttonInsertarMenor.Size = new System.Drawing.Size(172, 42);
+            this.buttonInsertarMenor.TabIndex = 44;
+            this.buttonInsertarMenor.Text = "Añadir Menor";
+            this.buttonInsertarMenor.UseVisualStyleBackColor = false;
+            this.buttonInsertarMenor.Click += new System.EventHandler(this.buttonInsertarMenor_Click);
             // 
             // FormInsertarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(761, 767);
-            this.Controls.Add(this.buttonInsertarUsuario);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.labelRelacionMenorUsuario);
-            this.Controls.Add(this.labelNombreMenorUsuario);
-            this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox14);
+            this.ClientSize = new System.Drawing.Size(765, 892);
+            this.Controls.Add(this.buttonInsertarMenor);
+            this.Controls.Add(this.labelInfo);
+            this.Controls.Add(this.dataGridViewMenors);
+            this.Controls.Add(this.checkBoxActivo);
+            this.Controls.Add(this.checkBoxPermiso);
+            this.Controls.Add(this.textBoxNumSocio);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttonInsertar);
+            this.Controls.Add(this.dateTimePickerUsuario);
+            this.Controls.Add(this.groupBoxUbicacionUsuario);
+            this.Controls.Add(this.labelNumeroUsuario);
             this.Controls.Add(this.textBoxEmailUsuario);
             this.Controls.Add(this.textBoxTelefono2Usuario);
             this.Controls.Add(this.textBoxTelefono1Usuario);
-            this.Controls.Add(this.textBoxFechaNacimientoUsuario);
-            this.Controls.Add(this.groupBoxUbicacionUsiario);
             this.Controls.Add(this.textBoxPasswordUsuario);
             this.Controls.Add(this.textBoxDNIUsuario);
             this.Controls.Add(this.textBoxApellidoUsuario);
@@ -434,13 +586,19 @@ namespace Chrysallis_Eventos
             this.Controls.Add(this.labelDNIUsuario);
             this.Controls.Add(this.labelApellidoUsuario);
             this.Controls.Add(this.labelNombreUsuario);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormInsertarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insertar Usuario";
             this.Load += new System.EventHandler(this.FormInsertarUsuario_Load);
-            this.groupBoxUbicacionUsiario.ResumeLayout(false);
-            this.groupBoxUbicacionUsiario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCiutats)).EndInit();
+            this.groupBoxUbicacionUsuario.ResumeLayout(false);
+            this.groupBoxUbicacionUsuario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProvincies)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.provinciesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceMenors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMenors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,26 +618,39 @@ namespace Chrysallis_Eventos
         private System.Windows.Forms.TextBox textBoxApellidoUsuario;
         private System.Windows.Forms.TextBox textBoxDNIUsuario;
         private System.Windows.Forms.TextBox textBoxPasswordUsuario;
-        private System.Windows.Forms.GroupBox groupBoxUbicacionUsiario;
-        private System.Windows.Forms.Label labelCodigoPostalUsuario;
-        private System.Windows.Forms.Label labelDireccionUsuario;
-        private System.Windows.Forms.Label labelCiudadUsuario;
-        private System.Windows.Forms.TextBox textBoxCodigoPostalUsuario;
-        private System.Windows.Forms.TextBox textBoxDireccionUsuario;
-        private System.Windows.Forms.TextBox textBoxCiudadUsuario;
-        private System.Windows.Forms.TextBox textBoxProvinciaUsuario;
-        private System.Windows.Forms.Label labelProvinciaUsuario;
-        private System.Windows.Forms.TextBox textBoxComunidadUsuario;
-        private System.Windows.Forms.Label labelComunidadUsuario;
-        private System.Windows.Forms.TextBox textBoxFechaNacimientoUsuario;
         private System.Windows.Forms.TextBox textBoxTelefono1Usuario;
         private System.Windows.Forms.TextBox textBoxTelefono2Usuario;
         private System.Windows.Forms.TextBox textBoxEmailUsuario;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.Label labelNombreMenorUsuario;
-        private System.Windows.Forms.Label labelRelacionMenorUsuario;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button buttonInsertarUsuario;
+        private System.Windows.Forms.Label labelNumeroUsuario;
+        private System.Windows.Forms.Label labelCiudadadBuscadasUsuario;
+        private System.Windows.Forms.ComboBox comboBoxCiudadesBuscadasUsuario;
+        private System.Windows.Forms.Label labelDireccionUsuario;
+        private System.Windows.Forms.Label labelCiudadUsuario;
+        private System.Windows.Forms.TextBox textBoxDireccionUsuario;
+        private System.Windows.Forms.TextBox textBoxCiudadUsuario;
+        private System.Windows.Forms.GroupBox groupBoxUbicacionUsuario;
+        private System.Windows.Forms.ComboBox comboBoxProvinciasUsuario;
+        private System.Windows.Forms.Label labelProvinciaUsuario;
+        private System.Windows.Forms.TextBox textBoxComunidadUsuario;
+        private System.Windows.Forms.Label labelComunidadUsuario;
+        private System.Windows.Forms.DateTimePicker dateTimePickerUsuario;
+        private System.Windows.Forms.BindingSource provinciesBindingSource;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.BindingSource bindingSourceProvincies;
+        private System.Windows.Forms.BindingSource bindingSourceCiutats;
+        private System.Windows.Forms.Button buttonInsertar;
+        private System.Windows.Forms.BindingSource bindingSourceMenors;
+        private System.Windows.Forms.TextBox textBoxNumSocio;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBoxPermiso;
+        private System.Windows.Forms.CheckBox checkBoxActivo;
+        private System.Windows.Forms.DataGridView dataGridViewMenors;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idsociDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idmenorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn relacioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn menorsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn socisDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label labelInfo;
+        private System.Windows.Forms.Button buttonInsertarMenor;
     }
 }
