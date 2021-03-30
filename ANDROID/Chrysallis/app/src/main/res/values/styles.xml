@@ -1,10 +1,42 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:textViewStyle">@style/textViewFont</item>
+        <item name="android:editTextStyle">@style/editTextFont</item>
     </style>
 
+    <style name="textViewFont" parent="android:Widget.TextView">
+        <item name="fontFamily">@font/trebuchetms</item>
+        <item name="android:textSize">@dimen/sizeCharacters</item>
+    </style>
+
+    <style name="editTextFont" parent="android:Widget.EditText">
+        <item name="fontFamily">@font/trebuchetms</item>
+    </style>
+
+    <style name="buttonPrimary" parent="android:Widget.Button">
+        <item name="fontFamily">@font/trebuchetms</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:background">@drawable/accentbutton</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/sizeButtonPrimary</item>
+    </style>
+
+    <style name="buttonSecondary" parent="android:Widget.Button">
+        <item name="fontFamily">@font/trebuchetms</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:background">@drawable/secundarybutton</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/sizeCharacters</item>
+    </style>
+
+    <dimen name="sizeCharacters">25sp</dimen>
+    <dimen name="sizeCharacters2">20sp</dimen>
+    <dimen name="sizeButtonPrimary">30sp</dimen>
+    <dimen name="letterSpacing">2sp</dimen>
 </resources>
