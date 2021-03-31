@@ -5,18 +5,31 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MenuActivity"
+    android:background="@color/colorPrimary"
     android:orientation="vertical">
 
     <fragment
-        class="com.example.chrysallis.FragmentListaEventos"
+        class="com.example.chrysallis.Fragment.FragmentFiltroEventos"
+        android:id="@+id/frgFiltros"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         />
+
+    <fragment
+        class="com.example.chrysallis.Fragment.FragmentListaEventos"
+        android:id="@+id/lstFrag"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        />
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btnNavegacion"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_gravity="bottom"
         app:menu="@menu/menu_navegacion"
         app:itemIconTint="@drawable/selector_colores"

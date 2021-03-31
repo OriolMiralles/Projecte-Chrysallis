@@ -4,4 +4,11 @@
     <string name="textPassword">Password:</string>
     <string name="textLogin">LOGIN</string>
     <string name="textRegistro">REGISTRO</string>
+    <string name="fecha">FECHA MINIMA</string>
+    <string name="comunidad">COMUNIDAD</string>
+    <string name="fechaMax">FECHA MAXIMA</string>
+    <string name="ciudad">CIUDAD</string>
+    <string name="tipo">TIPO</string>
+    <string name="eliminarFiltros">ELIMINAR FILTROS</string>
+    <string name="filtrar">FILTRAR</string>
 </resources>
