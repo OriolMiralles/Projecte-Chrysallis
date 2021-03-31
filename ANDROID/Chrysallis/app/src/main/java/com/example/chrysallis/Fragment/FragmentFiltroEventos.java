@@ -1,4 +1,4 @@
-package com.example.chrysallis;
+package com.example.chrysallis.Fragment;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chrysallis.Adapter.AdaptadorLista;
 import com.example.chrysallis.ClasesBD.Esdeveniment;
+import com.example.chrysallis.MiDialogPersonalizado;
+import com.example.chrysallis.R;
 
 import java.util.ArrayList;
 

@@ -2,25 +2,15 @@ package com.example.chrysallis;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.ListFragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.chrysallis.Adapter.AdaptadorLista;
 import com.example.chrysallis.ClasesBD.Esdeveniment;
+import com.example.chrysallis.Fragment.FragmentFiltroEventos;
+import com.example.chrysallis.Fragment.FragmentListaEventos;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;

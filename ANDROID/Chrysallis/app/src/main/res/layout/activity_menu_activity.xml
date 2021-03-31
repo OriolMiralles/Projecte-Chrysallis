@@ -9,7 +9,7 @@
     android:orientation="vertical">
 
     <fragment
-        class="com.example.chrysallis.FragmentFiltroEventos"
+        class="com.example.chrysallis.Fragment.FragmentFiltroEventos"
         android:id="@+id/frgFiltros"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -17,7 +17,7 @@
         />
 
     <fragment
-        class="com.example.chrysallis.FragmentListaEventos"
+        class="com.example.chrysallis.Fragment.FragmentListaEventos"
         android:id="@+id/lstFrag"
         android:layout_width="match_parent"
         android:layout_height="0dp"
