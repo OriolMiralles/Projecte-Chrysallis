@@ -1,13 +1,13 @@
 package com.example.chrysallis.ClasesBD;
 
-public class Evento {
+public class Esdeveniment {
     private int id;
     private String titol;
     private String data;
     private String localitat;
     private int id_tipus;
 
-    public Evento(int id, String titol, String data, int id_tipus){
+    public Esdeveniment(int id, String titol, String data,String localitat, int id_tipus){
         this.id = id;
         this.titol = titol;
         this.data = data;
