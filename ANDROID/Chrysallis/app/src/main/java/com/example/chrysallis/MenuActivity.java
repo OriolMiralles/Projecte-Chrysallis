@@ -12,26 +12,35 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MenuActivity extends AppCompatActivity {
 
     BottomNavigationView btnNavegacion;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_activity);
 
-       btnNavegacion = findViewById(R.id.btnNavegacion);
+        btnNavegacion = findViewById(R.id.btnNavegacion);
 
-       btnNavegacion.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-           @Override
-           public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-               if(menuItem.getItemId() == R.id.mainEvent){
+        btnNavegacion.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                boolean resultado = false;
 
-               }else if(menuItem.getItemId() == R.id.mainEventPref){
+                switch (menuItem.getItemId()) {
+                    case (R.id.mainEvent):
+                        resultado = true;
+                        break;
 
-               }else{
+                    case (R.id.mainEventPref):
+                        resultado = true;
+                        break;
 
-               }
+                    case (R.id.mainProfile):
+                        resultado = true;
+                        break;
 
-               return true;
-           }
-       });
+                }
+                return resultado;
+            }
+        });
     }
 }
