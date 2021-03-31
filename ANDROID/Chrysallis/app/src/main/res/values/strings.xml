@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Chrysallis</string>
+    <string name="textEmail">Email:</string>
+    <string name="textPassword">Password:</string>
+    <string name="textLogin">LOGIN</string>
+    <string name="textRegistro">REGISTRO</string>
 </resources>
