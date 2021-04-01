@@ -11,4 +11,8 @@
     <string name="tipo">TIPO</string>
     <string name="eliminarFiltros">ELIMINAR FILTROS</string>
     <string name="filtrar">FILTRAR</string>
+    <string name="textCerrar">CERRAR SESIÓN</string>
+    <string name="textNombre">NOMBRE:</string>
+    <string name="textApellido">APELLIDOS:</string>
+    <string name="textEMAIL">EMAIL:</string>
 </resources>

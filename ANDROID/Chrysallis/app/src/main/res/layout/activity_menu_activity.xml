@@ -8,21 +8,14 @@
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
-    <fragment
-        class="com.example.chrysallis.Fragment.FragmentFiltroEventos"
-        android:id="@+id/frgFiltros"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        />
 
-    <fragment
-        class="com.example.chrysallis.Fragment.FragmentListaEventos"
+    <FrameLayout
         android:id="@+id/lstFrag"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"
         />
+
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

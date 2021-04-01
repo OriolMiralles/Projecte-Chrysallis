@@ -10,27 +10,27 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
         android:background="@color/colorPrimaryDark"
-        android:gravity="right">
-        <Button
-            android:id="@+id/btnFilter"
-            android:layout_gravity="center_vertical"
+        android:gravity="center">
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:layout_marginRight="30dp"
-            android:stateListAnimator="@null"
-            android:textSize="@dimen/tamanoLetraMedia"
-            android:text="FILTROS"
-            android:drawableLeft="@drawable/ic_filter"/>
+            android:text="@string/filtrar"/>
+        <Spinner
+            android:id="@+id/spMisEventos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ReciclerEventos"
+        android:id="@+id/ReciclerMisEventos"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"
         />
+
 
 </LinearLayout>

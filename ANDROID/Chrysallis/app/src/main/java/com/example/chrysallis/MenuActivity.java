@@ -2,15 +2,18 @@ package com.example.chrysallis;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.chrysallis.ClasesBD.Esdeveniment;
-import com.example.chrysallis.Fragment.FragmentFiltroEventos;
 import com.example.chrysallis.Fragment.FragmentListaEventos;
+import com.example.chrysallis.Fragment.FragmentMiPerfil;
+import com.example.chrysallis.Fragment.FragmentMisEventos;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -19,19 +22,19 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
 
     BottomNavigationView btnNavegacion;
     ArrayList<Esdeveniment> esdeveniments;
-    FragmentManager mgr;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_activity);
         btnNavegacion = findViewById(R.id.btnNavegacion);
-
+        btnNavegacion.setSelectedItemId(R.id.mainEvent);
         esdeveniments = new ArrayList<Esdeveniment>();
         cargarEsdeveniemnts(esdeveniments);
 
-        mgr = getSupportFragmentManager();
-        cargarFragments();
-
+        FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
+        flista.setEsdevenimentListener(this);
+        cargarFragments(flista);
 
         btnNavegacion.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -40,16 +43,23 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
 
                 switch (menuItem.getItemId()) {
                     case (R.id.mainEvent):
-                        cargarFragments();
+                        FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
+                        flista.setEsdevenimentListener(MenuActivity.this);
+                        cargarFragments(flista);
 
                         resultado = true;
                         break;
 
                     case (R.id.mainEventPref):
+                        FragmentMisEventos fme = FragmentMisEventos.newInstance(esdeveniments);
+                        fme.setEsdevenimentListener(MenuActivity.this);
+                        cargarFragments(fme);
                         resultado = true;
                         break;
 
                     case (R.id.mainProfile):
+                        FragmentMiPerfil fmp = FragmentMiPerfil.newInstance();
+                        cargarFragments(fmp);
                         resultado = true;
                         break;
 
@@ -60,7 +70,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
     }
     @Override
     public void onSelectedEsdeveniment(Esdeveniment esdeveniment){
-        Toast.makeText(this, "ESEDENVINEM SELECCIONAR", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "ESEDENVINEM SELECCIONAR" + esdeveniment.getTitol(), Toast.LENGTH_SHORT).show();
         //DetailFragment detailFragment = (DetailFragment) mgr.findFragmentById(R.id.detFrag);
     }
     private void cargarEsdeveniemnts(ArrayList<Esdeveniment> esdeveniments){
@@ -80,11 +90,8 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
 
 
 
-    private void cargarFragments(){
-        FragmentFiltroEventos frgFiltros = (FragmentFiltroEventos) mgr.findFragmentById(R.id.frgFiltros);
-        frgFiltros.addListData();
-        FragmentListaEventos listFragment = (FragmentListaEventos) mgr.findFragmentById(R.id.lstFrag);
-        listFragment.addListData(esdeveniments);
-        listFragment.setEsdevenimentListener(MenuActivity.this);
+    private void cargarFragments(Fragment fragment){
+        getSupportFragmentManager().beginTransaction().replace(R.id.lstFrag, fragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
     }
 }
