@@ -30,6 +30,14 @@
         <item name="android:textSize">@dimen/sizeButtonPrimary</item>
     </style>
 
+    <style name="buttonPrimary2" parent="android:Widget.Button">
+        <item name="fontFamily">@font/trebuchetms</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:background">@drawable/accentbutton</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/sizeButtonPrimary2</item>
+    </style>
+
     <style name="buttonSecondary" parent="android:Widget.Button">
         <item name="fontFamily">@font/trebuchetms</item>
         <item name="android:textColor">@color/colorAccent</item>
@@ -41,5 +49,6 @@
     <dimen name="sizeCharacters">25sp</dimen>
     <dimen name="sizeCharacters2">20sp</dimen>
     <dimen name="sizeButtonPrimary">30sp</dimen>
+    <dimen name="sizeButtonPrimary2">20sp</dimen>
     <dimen name="letterSpacing">2sp</dimen>
 </resources>

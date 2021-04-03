@@ -3,6 +3,9 @@
     <string name="textEmail">Email:</string>
     <string name="textPassword">Password:</string>
     <string name="textLogin">LOGIN</string>
+    <string name="textApuntarse">APUNTARSE</string>
+    <string name="textModificar">MODIFICAR</string>
+    <string name="textDesapuntarse">DESAPUNTARSE</string>
     <string name="textRegistro">REGISTRO</string>
     <string name="fecha">FECHA MINIMA</string>
     <string name="comunidad">COMUNIDAD</string>
@@ -15,4 +18,5 @@
     <string name="textNombre">NOMBRE:</string>
     <string name="textApellido">APELLIDOS:</string>
     <string name="textEMAIL">EMAIL:</string>
+    <string name="txtDescripcionEvento">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "</string>
 </resources>

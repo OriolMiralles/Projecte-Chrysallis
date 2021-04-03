@@ -17,4 +17,15 @@
     <dimen name="tamanoLetraMedia">18sp</dimen>
     <dimen name="marginRightText">20dp</dimen>
     <dimen name="margin6dp">6dp</dimen>
+    <dimen name="btnApuntarseEventoWidth">201dp</dimen>
+    <dimen name="btnApuntarseEventoHeight">70dp</dimen>
+
+    <dimen name="marginTopImgEventoDetalle">30dp</dimen>
+    <dimen name="widthImgEventoDetalle">160dp</dimen>
+    <dimen name="heightImgEventoDetalle">160dp</dimen>
+
+    <dimen name="paddingTxtDescrEvento">5dp</dimen>
+    <dimen name="heightTxtDescrEvento">185dp</dimen>
+    <dimen name="marginTopTxtDescrEvento">30dp</dimen>
+    <dimen name="marginHorTxtDescrEvento">20dp</dimen>
 </resources>

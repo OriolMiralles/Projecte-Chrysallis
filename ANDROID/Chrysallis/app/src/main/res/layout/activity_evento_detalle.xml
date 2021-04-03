@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_back"/>
+
+        <ImageView
+            android:layout_width="@dimen/widthImgEventoDetalle"
+            android:layout_height="@dimen/heightImgEventoDetalle"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/marginTopImgEventoDetalle"
+            android:layout_marginLeft="@dimen/marginLeftEmail"
+            android:background="@drawable/colonias"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginTopEmail"
+        android:layout_marginLeft="@dimen/marginLeftPassword"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manifestación"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quedada"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8-6-2021"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="@dimen/widthLogo"
+            android:layout_height="115dp"
+            android:layout_marginLeft="@dimen/marginLeftPassword"
+            android:background="@drawable/taller" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/heightTxtDescrEvento"
+        android:layout_marginTop="@dimen/marginTopTxtDescrEvento"
+        android:layout_marginHorizontal="@dimen/marginHorTxtDescrEvento"
+        android:background="@drawable/textviewmargen"
+        android:padding="@dimen/paddingTxtDescrEvento"
+        android:text="@string/txtDescripcionEvento" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginHorTxtDescrEvento"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NUM. PER.:"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        style="@style/buttonPrimary2"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btnApuntarseEventoHeight"
+        android:layout_gravity="center"
+        android:text="@string/textApuntarse"/>
+
+
+</LinearLayout>
