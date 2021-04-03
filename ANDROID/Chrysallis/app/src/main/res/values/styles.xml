@@ -14,7 +14,10 @@
         <item name="fontFamily">@font/trebuchetms</item>
         <item name="android:textSize">@dimen/sizeCharacters</item>
     </style>
-
+    <style name="estiloSpinner" parent="android:Widget.Spinner">
+        <item name="fontFamily">@font/trebuchetms</item>
+        <item name="android:textSize">10sp</item>
+    </style>
     <style name="editTextFont" parent="android:Widget.EditText">
         <item name="fontFamily">@font/trebuchetms</item>
     </style>
