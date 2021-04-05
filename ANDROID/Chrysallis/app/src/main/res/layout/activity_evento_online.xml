@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:layout_marginLeft="@dimen/marginLeftPassword"
+        android:layout_marginLeft="50dp"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginTop="15dp"
+            android:layout_marginLeft="70dp"
             android:orientation="vertical">
 
             <TextView
@@ -58,21 +59,23 @@
                 android:layout_height="wrap_content"
                 android:text="8-6-2021"/>
 
-        </LinearLayout>
+            <Button
+                android:id="@+id/btnLink"
+                style="@style/buttonSecondary"
+                android:layout_width="133dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/link"
+                android:textSize="15sp" />
 
-        <ImageView
-            android:id="@+id/imgGoogle"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/cepmaps" />
+        </LinearLayout>
 
     </LinearLayout>
 
     <TextView
         android:id="@+id/tvDescripcionDetalle"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/heightTxtDescrEvento"
+        android:layout_height="@dimen/heightTxtDescrEventoOnline"
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="@dimen/marginHorTxtDescrEvento"
         android:background="@drawable/textviewmargen"

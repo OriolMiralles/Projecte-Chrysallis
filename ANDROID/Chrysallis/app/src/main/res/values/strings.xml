@@ -19,4 +19,5 @@
     <string name="textApellido">APELLIDOS:</string>
     <string name="textEMAIL">EMAIL:</string>
     <string name="txtDescripcionEvento">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "</string>
+    <string name="link">Enlace al evento</string>
 </resources>

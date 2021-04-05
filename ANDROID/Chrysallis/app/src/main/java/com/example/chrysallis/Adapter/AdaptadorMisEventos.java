@@ -14,7 +14,8 @@ import com.example.chrysallis.R;
 
 import java.util.ArrayList;
 
-public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEventos.ViewHolder> implements View.OnClickListener {
+public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEventos.ViewHolder>
+        implements View.OnClickListener {
     private ArrayList<Esdeveniment> esdeveniments;
     private View.OnClickListener listener;
     public AdaptadorMisEventos(ArrayList<Esdeveniment> esdeveniments){
@@ -57,7 +58,7 @@ public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEvento
                     imgTipoEvent.setImageResource(R.drawable.online);
                     break;
                 case (6):
-                    imgTipoEvent.setImageResource(R.drawable.quedada);
+                    imgTipoEvent.setImageResource(R.drawable.manifestacion);
                     break;
 
             }
@@ -70,7 +71,8 @@ public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEvento
     }
     @Override
     public AdaptadorMisEventos.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_mis_eventos, parent, false);
+        View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_mis_eventos,
+                parent, false);
         item.setOnClickListener(this);
         return new AdaptadorMisEventos.ViewHolder(item);
     }

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import com.example.chrysallis.ClasesBD.Soci;
 
 public class LoginActivity extends AppCompatActivity {
@@ -17,7 +16,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         Soci.setNom("Paquita");
         Soci.setCognoms("Hernandez Hernandez");
-        Soci.setEmail("paqui@gmail.com");
+        Soci.setEmail("paquihernandez88@gmail.com");
         Button btnLogin = findViewById(R.id.btnLogin);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {

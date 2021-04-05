@@ -15,7 +15,8 @@ import com.example.chrysallis.R;
 
 import java.util.ArrayList;
 
-public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHolder> implements View.OnClickListener{
+public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHolder>
+        implements View.OnClickListener{
     private ArrayList<Esdeveniment> esdeveniments;
     private View.OnClickListener listener;
     public AdaptadorLista(ArrayList<Esdeveniment> esdeveniments){
@@ -58,9 +59,10 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHold
                 case (5):
                     imgTipoEvent.setImageResource(R.drawable.online);
                     tvTipoAct.setText("Online");
+                    tvCiudad.setTextSize(12);
                     break;
                 case (6):
-                    imgTipoEvent.setImageResource(R.drawable.quedada);
+                    imgTipoEvent.setImageResource(R.drawable.manifestacion);
                     tvTipoAct.setText("Manifestación");
                     break;
 
@@ -73,7 +75,8 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHold
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_eventos, parent, false);
+        View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_eventos,
+                parent, false);
         item.setOnClickListener(this);
         return new ViewHolder(item);
     }

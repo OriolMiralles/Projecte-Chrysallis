@@ -15,7 +15,8 @@ public class MiDialogPersonalizado extends Dialog {
 
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.setCancelable(false);
-        this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        this.getWindow().setBackgroundDrawable(new ColorDrawable
+                (android.graphics.Color.TRANSPARENT));
         this.setContentView(id_layout);
     }
 
@@ -26,7 +27,8 @@ public class MiDialogPersonalizado extends Dialog {
     public void show() {
 
         //Hacer que el diálogo no tenga el foco.
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
 
         //Una vez que el diálogo no tiene el foco mostramos sin la barra de navegación.
         super.show();
@@ -37,7 +39,8 @@ public class MiDialogPersonalizado extends Dialog {
         //Hacer que el dialogo tenga la máxima anchura posible.
         WindowManager.LayoutParams windowParams = new WindowManager.LayoutParams();
         windowParams.copyFrom(this.getWindow().getAttributes()); //Obtenemos los atributos actuales de la ventana de diálogo y copiamos al nuevo LayaoutParams.
-        windowParams.width = (int) (this.getContext().getResources().getDisplayMetrics().widthPixels * 0.90); //El 90% de la anchura del activity.
+        windowParams.width = (int) (this.getContext().getResources().
+                getDisplayMetrics().widthPixels * 0.90); //El 90% de la anchura del activity.
         windowParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
 
         this.getWindow().setAttributes(windowParams);

@@ -34,7 +34,8 @@ public class FragmentMisEventos extends Fragment {
         this.listener = listener;
     }
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_mis_eventos, container, false);
         fillSpinner(view);
         addListData(esdeveniments, view);
@@ -45,15 +46,18 @@ public class FragmentMisEventos extends Fragment {
         final RecyclerView reciclerEventos =v.findViewById(R.id.ReciclerMisEventos);
         AdaptadorMisEventos adaptador = new AdaptadorMisEventos(esdeveniments);
         reciclerEventos.setHasFixedSize(true);
-        reciclerEventos.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        reciclerEventos.setLayoutManager(new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.VERTICAL, false));
         reciclerEventos.setAdapter(adaptador);
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(),
+                LinearLayoutManager.VERTICAL);
         reciclerEventos.addItemDecoration(dividerItemDecoration);
 
         adaptador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onSelectedEsdeveniment(esdeveniments.get(reciclerEventos.getChildAdapterPosition(view)));
+                listener.onSelectedEsdeveniment(esdeveniments.
+                        get(reciclerEventos.getChildAdapterPosition(view)));
 
             }
         });
@@ -64,7 +68,8 @@ public class FragmentMisEventos extends Fragment {
         ArrayList<String>stEvent = new ArrayList<>();
         stEvent.add("Eventos que participo");
         stEvent.add("Eventos realizados");
-        ArrayAdapter<String> eventos = new ArrayAdapter<String>(getContext(), R.layout.spinner_personalizado, stEvent);
+        ArrayAdapter<String> eventos = new ArrayAdapter<String>(getContext(),
+                R.layout.spinner_personalizado, stEvent);
         spMisEventos.setAdapter(eventos);
 
     }

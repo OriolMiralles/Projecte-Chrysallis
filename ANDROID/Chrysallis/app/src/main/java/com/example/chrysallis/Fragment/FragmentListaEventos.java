@@ -38,7 +38,8 @@ public class FragmentListaEventos extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_lista_eventos, container, false);
         addListData(esdeveniments, view);
         fillDialog(view);
@@ -50,16 +51,18 @@ public class FragmentListaEventos extends Fragment {
         final RecyclerView reciclerEventos =v.findViewById(R.id.ReciclerEventos);
         AdaptadorLista adaptador = new AdaptadorLista(esdeveniments);
         reciclerEventos.setHasFixedSize(true);
-        reciclerEventos.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        reciclerEventos.setLayoutManager(new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.VERTICAL, false));
         reciclerEventos.setAdapter(adaptador);
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getActivity(),
+                LinearLayoutManager.VERTICAL);
         reciclerEventos.addItemDecoration(dividerItemDecoration);
 
         adaptador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onSelectedEsdeveniment(esdeveniments.get(reciclerEventos.getChildAdapterPosition(view)));
-
+                listener.onSelectedEsdeveniment(esdeveniments.
+                        get(reciclerEventos.getChildAdapterPosition(view)));
             }
         });
     }
@@ -69,7 +72,8 @@ public class FragmentListaEventos extends Fragment {
         btnFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final Dialog dialog = new MiDialogPersonalizado(getContext(), R.layout.dialog_filters);
+                final Dialog dialog = new MiDialogPersonalizado(getContext(),
+                        R.layout.dialog_filters);
                 Spinner spComunidades = dialog.findViewById(R.id.spComunidad);
                 final Spinner spTipos = dialog.findViewById(R.id.spTipo);
                 Button btnEliminarFiltro = dialog.findViewById(R.id.btnEliminarFiltro);
@@ -83,12 +87,12 @@ public class FragmentListaEventos extends Fragment {
                 final ArrayList<String>tipos = new ArrayList<>();
                 cargarTipos(tipos);
                 Button btnClose = dialog.findViewById(R.id.btnClose);
-                ArrayAdapter<String> adapterComunidades = new ArrayAdapter<String>(getContext(), R.layout.spinner_personalizado, comunidades);
+                ArrayAdapter<String> adapterComunidades = new ArrayAdapter<String>(getContext(),
+                        R.layout.spinner_personalizado, comunidades);
                 spComunidades.setAdapter(adapterComunidades);
-                ArrayAdapter<String> adapterTipos = new ArrayAdapter<String>(getContext(), R.layout.spinner_personalizado, tipos);
+                ArrayAdapter<String> adapterTipos = new ArrayAdapter<String>(getContext(),
+                        R.layout.spinner_personalizado, tipos);
                 spTipos.setAdapter(adapterTipos);
-
-
 
                 btnClose.setOnClickListener(new View.OnClickListener() {
                     @Override

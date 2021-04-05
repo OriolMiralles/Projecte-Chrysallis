@@ -21,7 +21,8 @@ public class FragmentMiPerfil extends Fragment {
         return fragment;
     }
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_mis_perfil, container, false);
         addData(view);
         return  view;

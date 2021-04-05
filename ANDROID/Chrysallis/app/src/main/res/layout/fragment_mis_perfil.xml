@@ -6,68 +6,69 @@
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="@dimen/widthLogo"
-        android:layout_height="@dimen/heightLogo"
+        android:layout_width="213dp"
+        android:layout_height="213dp"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/marginTopLogo"
-        android:background="@drawable/logosinfondo"/>
+        android:background="@drawable/logosinfondo" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="@dimen/marginLeftEmail"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="@dimen/marginTopEmail">
 
         <TextView
-            android:layout_marginLeft="25dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/textNombre"
             android:textColor="@color/colorAccent"
             android:textStyle="bold"
-            android:textSize="@dimen/tamanoLetraGrande"
+            android:textSize="@dimen/tamanoLetraMedia"
             />
+
         <TextView
             android:id="@+id/tvNombre"
-            android:layout_width="@dimen/editTextSize"
-            android:layout_marginLeft="@dimen/marginLeftText"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/marginLeftText"
+            android:inputType="textEmailAddress"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/tamanoLetraGrande"
-            android:inputType="textEmailAddress"/>
+            android:textSize="@dimen/tamanoLetraPequenia" />
 
     </LinearLayout>
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="318dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="@dimen/marginLeftEmail"
-        android:layout_marginTop="@dimen/marginTopEmail">
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="@dimen/marginTopEmail"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/textApellido"
-            android:textSize="@dimen/tamanoLetraGrande"
-            android:textStyle="bold"
             android:textColor="@color/colorAccent"
-            />
+            android:textSize="@dimen/tamanoLetraMedia"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/tvApellido"
             android:layout_width="@dimen/editTextSize"
-            android:layout_marginLeft="@dimen/marginLeftText"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/marginLeftText"
+            android:inputType="textEmailAddress"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/tamanoLetraGrande"
-            android:inputType="textEmailAddress"/>
+            android:textSize="@dimen/tamanoLetraPequenia" />
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="@dimen/marginLeftEmail"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="@dimen/marginTopEmail">
 
         <TextView
@@ -75,18 +76,18 @@
             android:layout_height="wrap_content"
             android:text="@string/textEMAIL"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/tamanoLetraGrande"
+            android:textSize="@dimen/tamanoLetraMedia"
             android:textStyle="bold"
-            android:layout_marginLeft="50dp"
             />
+
         <TextView
             android:id="@+id/tvEMAIL"
-            android:layout_width="@dimen/editTextSize"
-            android:layout_marginLeft="@dimen/marginLeftText"
+            android:layout_width="255dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/marginLeftText"
+            android:inputType="textEmailAddress"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/tamanoLetraGrande"
-            android:inputType="textEmailAddress"/>
+            android:textSize="@dimen/tamanoLetraPequenia" />
 
     </LinearLayout>
 

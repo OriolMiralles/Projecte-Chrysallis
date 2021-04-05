@@ -5,13 +5,18 @@ public class Esdeveniment {
     private String titol;
     private String data;
     private String localitat;
+    private String tipoEvento;
+    private String descripcion;
     private int id_tipus;
 
-    public Esdeveniment(int id, String titol, String data,String localitat, int id_tipus){
+    public Esdeveniment(int id, String titol, String data,String tipoEvento,
+                        String localitat, String descripcion, int id_tipus){
         this.id = id;
         this.titol = titol;
         this.data = data;
         this.localitat = localitat;
+        this.tipoEvento = tipoEvento;
+        this.descripcion = descripcion;
         this.id_tipus = id_tipus;
     }
 
@@ -53,5 +58,21 @@ public class Esdeveniment {
 
     public void setId_tipus(int id_tipus) {
         this.id_tipus = id_tipus;
+    }
+
+    public String getTipoEvento() {
+        return tipoEvento;
+    }
+
+    public void setTipoEvento(String tipoEvento) {
+        this.tipoEvento = tipoEvento;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

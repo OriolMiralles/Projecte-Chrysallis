@@ -25,7 +25,9 @@
     <dimen name="heightImgEventoDetalle">160dp</dimen>
 
     <dimen name="paddingTxtDescrEvento">5dp</dimen>
-    <dimen name="heightTxtDescrEvento">185dp</dimen>
+    <dimen name="heightTxtDescrEvento">150dp</dimen>
     <dimen name="marginTopTxtDescrEvento">30dp</dimen>
     <dimen name="marginHorTxtDescrEvento">20dp</dimen>
+    <dimen name="tamanoLetraPequenia">15sp</dimen>
+    <dimen name="heightTxtDescrEventoOnline">110dp</dimen>
 </resources>
