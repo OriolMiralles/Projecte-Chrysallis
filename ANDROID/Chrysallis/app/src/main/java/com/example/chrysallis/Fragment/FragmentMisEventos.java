@@ -1,13 +1,10 @@
 package com.example.chrysallis.Fragment;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
@@ -15,11 +12,9 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.chrysallis.Adapter.AdaptadorLista;
 import com.example.chrysallis.Adapter.AdaptadorMisEventos;
 import com.example.chrysallis.ClasesBD.Esdeveniment;
-import com.example.chrysallis.EsdevenimentListener;
-import com.example.chrysallis.MiDialogPersonalizado;
+import com.example.chrysallis.Listener.EsdevenimentListener;
 import com.example.chrysallis.R;
 
 import java.util.ArrayList;

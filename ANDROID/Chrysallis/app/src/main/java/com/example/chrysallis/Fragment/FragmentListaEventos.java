@@ -17,8 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chrysallis.Adapter.AdaptadorLista;
 import com.example.chrysallis.ClasesBD.Esdeveniment;
-import com.example.chrysallis.EsdevenimentListener;
-import com.example.chrysallis.MiDialogPersonalizado;
+import com.example.chrysallis.Listener.EsdevenimentListener;
+import com.example.chrysallis.Dialog.MiDialogPersonalizado;
 import com.example.chrysallis.R;
 
 import java.util.ArrayList;

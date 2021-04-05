@@ -1,16 +1,14 @@
-package com.example.chrysallis;
+package com.example.chrysallis.Activitie;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.chrysallis.ClasesBD.Soci;
-
-import java.util.Locale;
+import com.example.chrysallis.R;
 
 public class LoginActivity extends AppCompatActivity {
 

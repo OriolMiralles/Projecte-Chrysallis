@@ -1,9 +1,8 @@
-package com.example.chrysallis;
+package com.example.chrysallis.Activitie;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
@@ -14,6 +13,8 @@ import com.example.chrysallis.ClasesBD.Esdeveniment;
 import com.example.chrysallis.Fragment.FragmentListaEventos;
 import com.example.chrysallis.Fragment.FragmentMiPerfil;
 import com.example.chrysallis.Fragment.FragmentMisEventos;
+import com.example.chrysallis.Listener.EsdevenimentListener;
+import com.example.chrysallis.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;

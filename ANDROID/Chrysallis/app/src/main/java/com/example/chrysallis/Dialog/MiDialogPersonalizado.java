@@ -1,4 +1,4 @@
-package com.example.chrysallis;
+package com.example.chrysallis.Dialog;
 
 import android.app.Dialog;
 import android.content.Context;
