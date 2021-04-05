@@ -1,4 +1,4 @@
-package com.example.chrysallis.Activitie;
+package com.example.chrysallis;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.chrysallis.ClasesBD.Soci;
-import com.example.chrysallis.R;
 
 public class LoginActivity extends AppCompatActivity {
 

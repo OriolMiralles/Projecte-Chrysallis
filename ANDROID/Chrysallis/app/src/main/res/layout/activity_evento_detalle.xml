@@ -17,6 +17,7 @@
             android:background="@drawable/ic_back"/>
 
         <ImageView
+            android:id="@+id/imgTipoEventDetalle"
             android:layout_width="@dimen/widthImgEventoDetalle"
             android:layout_height="@dimen/heightImgEventoDetalle"
             android:gravity="center"
@@ -40,16 +41,19 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tvTituloDetalle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Manifestación"/>
+                android:text="Colonies Berguedà"/>
 
             <TextView
+                android:id="@+id/tvTipoEventoDetalle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Quedada"/>
 
             <TextView
+                android:id="@+id/tvFechaDetalle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="8-6-2021"/>
@@ -57,14 +61,16 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/imgGoogle"
             android:layout_width="@dimen/widthLogo"
             android:layout_height="115dp"
-            android:layout_marginLeft="@dimen/marginLeftPassword"
+            android:layout_marginLeft="15dp"
             android:background="@drawable/taller" />
 
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tvDescripcionDetalle"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/heightTxtDescrEvento"
         android:layout_marginTop="@dimen/marginTopTxtDescrEvento"
@@ -86,13 +92,14 @@
             android:text="NUM. PER.:"/>
 
         <EditText
+            android:id="@+id/etNumPersonasDetalle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnApuntarse"
         style="@style/buttonPrimary2"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/btnApuntarseEventoHeight"

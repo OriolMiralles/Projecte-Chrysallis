@@ -1,4 +1,4 @@
-package com.example.chrysallis.Activitie;
+package com.example.chrysallis;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Window;
-
-import com.example.chrysallis.R;
 
 public class MainActivity extends AppCompatActivity {
 
