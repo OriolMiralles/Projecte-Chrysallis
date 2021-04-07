@@ -1,6 +1,5 @@
 package com.example.chrysallis.Adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.chrysallis.ClasesBD.Esdeveniment;
+import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.R;
 
 import java.util.ArrayList;
@@ -62,7 +61,7 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHold
                     tvCiudad.setTextSize(12);
                     break;
                 case (6):
-                    imgTipoEvent.setImageResource(R.drawable.manifestacion);
+                    imgTipoEvent.setImageResource(R.drawable.mani_blau);
                     tvTipoAct.setText("Manifestación");
                     break;
 

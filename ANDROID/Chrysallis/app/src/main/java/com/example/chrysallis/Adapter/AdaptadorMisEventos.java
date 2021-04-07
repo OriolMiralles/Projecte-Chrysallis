@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.chrysallis.ClasesBD.Esdeveniment;
+import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.R;
 
 import java.util.ArrayList;
