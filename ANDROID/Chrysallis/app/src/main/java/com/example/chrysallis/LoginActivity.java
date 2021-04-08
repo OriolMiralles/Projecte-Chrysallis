@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.chrysallis.Api.Api;
 import com.example.chrysallis.Api.ApiServices.SociService;
+import com.example.chrysallis.Models.MissatgeError;
 import com.example.chrysallis.Models.Soci;
 import com.google.gson.Gson;
 
@@ -55,15 +56,29 @@ public class LoginActivity extends AppCompatActivity {
                         public void onResponse(Call<Soci> call, Response<Soci> response) {
                             switch (response.code()){
                                 case 200:
-                                    Soci soci = response.body();
-                                    Toast.makeText(LoginActivity.this, "Soci: " + soci.getNom(), Toast.LENGTH_LONG).show();
+                                    if(response.body()!=null){
+                                        Soci soci = response.body();
+                                        if(soci.isPermis_app()){
+                                            boolean acces = BCrypt.checkpw(mail, soci.getContrasenya());
+                                            if(acces){
+                                                Toast.makeText(LoginActivity.this, "CONTRA OK", Toast.LENGTH_SHORT).show();
+                                            }else{
+                                                Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
+
+                                            }
+                                        }
+                                    }else{
+                                        Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                                    }
+                                    
                                     break;
                                 case 400:
-
-                                    Toast.makeText(LoginActivity.this, response.message(), Toast.LENGTH_LONG).show();
+                                    Gson gson = new Gson();
+                                    MissatgeError missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
+                                    Toast.makeText(LoginActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
                                     break;
                                 case 404:
-                                    Toast.makeText(LoginActivity.this, response.message(), Toast.LENGTH_LONG).show();
+                                    Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_LONG).show();
                                     break;
                                 default:
                                     break;
