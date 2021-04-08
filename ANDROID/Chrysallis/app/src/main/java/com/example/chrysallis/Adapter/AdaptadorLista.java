@@ -61,7 +61,7 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHold
                     tvCiudad.setTextSize(12);
                     break;
                 case (6):
-                    imgTipoEvent.setImageResource(R.drawable.manifestacion);
+                    imgTipoEvent.setImageResource(R.drawable.mani_blau);
                     tvTipoAct.setText("Manifestación");
                     break;
 
