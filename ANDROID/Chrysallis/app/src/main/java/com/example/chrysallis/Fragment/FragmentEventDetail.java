@@ -10,11 +10,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
-import com.example.chrysallis.ClasesBD.Esdeveniment;
+import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.EsdevenimentListener;
 import com.example.chrysallis.R;
-
-import java.net.URI;
 
 public class FragmentEventDetail extends Fragment {
 

@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.chrysallis.ClasesBD.Soci;
+import com.example.chrysallis.Models.Soci;
 import com.example.chrysallis.R;
 
 public class FragmentMiPerfil extends Fragment {
@@ -33,8 +33,8 @@ public class FragmentMiPerfil extends Fragment {
         TextView tvApellidos = v.findViewById(R.id.tvApellido);
         TextView tvEmail = v.findViewById(R.id.tvEMAIL);
 
-        tvNombre.setText(Soci.getNom());
+        /*tvNombre.setText(Soci.getNom());
         tvApellidos.setText(Soci.getCognoms());
-        tvEmail.setText(Soci.getEmail());
+        tvEmail.setText(Soci.getEmail());*/
     }
 }
