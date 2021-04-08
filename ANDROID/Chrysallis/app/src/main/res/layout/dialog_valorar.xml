@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_alignParentTop="true"
+    android:layout_width="match_parent"
+    android:background="@drawable/cuadro_personalizado"
+    android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/btnCloseModificar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_close"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:background="@drawable/cuadro_personalizado"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textComentario"
+            android:padding="10dp"/>
+
+        <EditText
+            android:id="@+id/etComentario"
+            android:layout_width="277dp"
+            android:layout_height="200dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:background="@drawable/cuadro_personalizado"
+            android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnStar1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/starfilled"/>
+        <Button
+            android:id="@+id/btnStar2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/starfilled"/>
+        <Button
+            android:id="@+id/btnStar3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/starfilled"/>
+        <Button
+            android:id="@+id/btnStar4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/starempty"/>
+        <Button
+            android:id="@+id/btnStar5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/starempty"/>
+
+    </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin6dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnDesapuntarse"
+    android:layout_width="wrap_content"
+    android:layout_height="70dp"
+    android:background="@drawable/accentbutton"
+    android:text="@string/textEnviar"/>
+</LinearLayout>
+
+</LinearLayout>
