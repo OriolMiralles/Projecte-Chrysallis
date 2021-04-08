@@ -38,7 +38,7 @@ namespace API_CHRYSALLIS.Controllers
             return Ok(socis);
         }
         [HttpGet]
-        [Route("api/socis/email/{email}")]
+        [Route("api/socis/email/{email}/")]
         public async Task<IHttpActionResult> FoundByEmail(String email)
         {
             db.Configuration.LazyLoadingEnabled = false;

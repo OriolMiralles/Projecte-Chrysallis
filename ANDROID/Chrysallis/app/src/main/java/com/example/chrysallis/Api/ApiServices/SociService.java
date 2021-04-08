@@ -9,7 +9,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface SociService {
-    @GET("api/socis/email/{email}")
+    @GET("api/socis/email/{email}/")
     Call<Soci> getSociEmail(@Path("email") String email);
 
     @GET("api/socis")
