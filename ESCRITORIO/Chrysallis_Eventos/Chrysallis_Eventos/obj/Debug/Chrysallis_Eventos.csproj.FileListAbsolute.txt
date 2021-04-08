@@ -100,3 +100,5 @@ D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Even
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.exe
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.pdb
 D:\DOCUMENTS\CEPNET\DAM2\Projecte\Projecte Chrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormInsertarMenor.resources
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csprojAssemblyReference.cache
+C:\ProjectoChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormInsertarMenor.resources
