@@ -15,7 +15,6 @@ namespace API_CHRYSALLIS.Controllers
 {
     public class socisController : ApiController
     {
-
         private ChrysallisEntities db = new ChrysallisEntities();
 
         // GET: api/socis
@@ -29,6 +28,7 @@ namespace API_CHRYSALLIS.Controllers
         [ResponseType(typeof(socis))]
         public async Task<IHttpActionResult> Getsocis(int id)
         {
+            db.Configuration.LazyLoadingEnabled = false;
             socis socis = await db.socis.FindAsync(id);
             if (socis == null)
             {
@@ -37,7 +37,6 @@ namespace API_CHRYSALLIS.Controllers
 
             return Ok(socis);
         }
-
         [HttpGet]
         [Route("api/socis/email/{email}")]
         public async Task<IHttpActionResult> FoundByEmail(String email)
@@ -45,7 +44,7 @@ namespace API_CHRYSALLIS.Controllers
             db.Configuration.LazyLoadingEnabled = false;
             IHttpActionResult result;
 
-            socis _soci = (socis)db.socis.Include("comunitats").Where(s => s.email.Equals(email));
+            socis _soci = await db.socis.Include("comunitats").Where(s => s.email.Equals(email)).FirstOrDefaultAsync();
 
             return Ok(_soci);
         }
