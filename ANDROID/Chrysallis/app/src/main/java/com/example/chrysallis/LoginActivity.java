@@ -8,7 +8,6 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -18,22 +17,23 @@ import android.widget.Toast;
 
 import com.example.chrysallis.Api.Api;
 import com.example.chrysallis.Api.ApiServices.SociService;
-import com.example.chrysallis.Models.Esdeveniment;
+import com.example.chrysallis.Models.Login;
 import com.example.chrysallis.Models.MissatgeError;
 import com.example.chrysallis.Models.Soci;
 import com.google.gson.Gson;
+
 import org.mindrot.jbcrypt.BCrypt;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
-    Button btnRegistro;
     List<Soci>socis;
-    public static final String URL_CHRYSALLIS = "https://chrysallis.org.es/contacto/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +41,8 @@ public class LoginActivity extends AppCompatActivity {
 
         btnLogin = findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(new View.OnClickListener() {
-        EditText etMail = findViewById(R.id.editTextEmail);
-        EditText etPass = findViewById(R.id.editTextPassword);
+            EditText etMail = findViewById(R.id.editTextEmail);
+            EditText etPass = findViewById(R.id.editTextPassword);
             @Override
             public void onClick(View v) {
                 String mail = etMail.getText().toString();
@@ -60,18 +60,28 @@ public class LoginActivity extends AppCompatActivity {
                                     if(response.body()!=null){
                                         Soci soci = response.body();
                                         if(soci.isPermis_app()){
-                                            boolean acces = BCrypt.checkpw(mail, soci.getContrasenya());
+                                            String contra = soci.getContrasenya();
+                                            boolean acces = BCrypt.checkpw(pass, contra);
+                                            Toast.makeText(LoginActivity.this, "acces:" + acces, Toast.LENGTH_SHORT).show();
                                             if(acces){
-                                                Toast.makeText(LoginActivity.this, "CONTRA OK", Toast.LENGTH_SHORT).show();
+                                                Login.setEmail(soci.getEmail());
+                                                Login.setComunitat(soci.getComunitats().get(0).getId());
+                                                Login.setNom(soci.getNom());
+                                                Login.setCognoms(soci.getCognoms());
+                                                Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                                                startActivity(intent);
+                                                finish();
                                             }else{
                                                 Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
 
                                             }
+                                        }else{
+                                            Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
                                         }
                                     }else{
                                         Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
                                     }
-                                    
+
                                     break;
                                 case 400:
                                     Gson gson = new Gson();
@@ -95,17 +105,10 @@ public class LoginActivity extends AppCompatActivity {
 
                 }
 
-            }
-        });
 
-        btnRegistro = findViewById(R.id.btnRegistro);
-
-        btnRegistro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Uri _link = Uri.parse(URL_CHRYSALLIS);
-                Intent i = new Intent(Intent.ACTION_VIEW, _link);
-                startActivity(i);
+                /*Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                startActivity(intent);
+                finish();*/
             }
         });
 

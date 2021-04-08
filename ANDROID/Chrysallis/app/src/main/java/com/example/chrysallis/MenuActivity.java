@@ -4,21 +4,39 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.example.chrysallis.Api.Api;
+import com.example.chrysallis.Api.ApiServices.EsdevenimentService;
+import com.example.chrysallis.Api.ApiServices.SociService;
 import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.Fragment.FragmentEventDetail;
 import com.example.chrysallis.Fragment.FragmentListaEventos;
 import com.example.chrysallis.Fragment.FragmentMiPerfil;
 import com.example.chrysallis.Fragment.FragmentMisEventos;
+import com.example.chrysallis.Models.Login;
+import com.example.chrysallis.Models.MissatgeError;
+import com.example.chrysallis.Models.Soci;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.Gson;
+
+import org.mindrot.jbcrypt.BCrypt;
+
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MenuActivity extends AppCompatActivity implements EsdevenimentListener {
 
     BottomNavigationView btnNavegacion;
-    ArrayList<Esdeveniment> esdeveniments;
+    List<Esdeveniment> esdeveniments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +50,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
         FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
         flista.setEsdevenimentListener(this);
         cargarFragments(flista);
+
 
         btnNavegacion.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -70,33 +89,39 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
         FragmentEventDetail fmp = FragmentEventDetail.newInstance(esdeveniment);
         cargarFragments(fmp);
     }
-    private void cargarEsdeveniemnts(ArrayList<Esdeveniment> esdeveniments){
-        //Si el evento es online => ponemos el link en "localitat"
-        Esdeveniment e1 = new Esdeveniment(0, "Colonias Berguedà", "19/03/2021",
-                "Colonias", "Tarragona", "Colonias familiares en un" +
-                " Tarragona ciudad, cantaremos y bailaremos hasta quedar exhaustos!",1);
-        Esdeveniment e2 = new Esdeveniment(0, "Quedada Plaça CAT", "9/05/2021",
-                "Quedada", "Barcelona","Quedada de nuestres hijes" +
-                " para lo que surja, importante venir con ganas de pasarlo bien.",2);
-        Esdeveniment e3 = new Esdeveniment(0, "Taller casa nido", "15/06/2021",
-                "Taller", "Reus","Taller en Reus dónde aprenderemos" +
-                " a realizar manualidades con madera.",3);
-        Esdeveniment e4 = new Esdeveniment(0, "Pícnic en la playa", "12/03/2021",
-                "Pícnic","Vilanova i la Geltrú","Pícnic en la playa" +
-                " de Vilanova. La comida la traéis vosotres!", 4);
-        Esdeveniment e5 = new Esdeveniment(0, "Meet Chrysallis", "16/03/2022",
-                "Meet","https://www.michaeljackson.com/es/",
-                "Meet online dónde discutiremos el próximo evento a realizar." +
-                        " Se ruega máxima asistencia.",5);
-        Esdeveniment e6 = new Esdeveniment(0, "Manifestación Plaça ESP", "18/05/2021",
-                "Manifestación","Barcelona","Manifestación en plaza" +
-                " españa para reivindicar los derechos del colectivo. Traed casco.",6);
-        esdeveniments.add(e1);
-        esdeveniments.add(e2);
-        esdeveniments.add(e3);
-        esdeveniments.add(e4);
-        esdeveniments.add(e5);
-        esdeveniments.add(e6);
+    private void cargarEsdeveniemnts(List<Esdeveniment> esdeveniments){
+        EsdevenimentService esdevenimentServiceServices = Api.getApi().create(EsdevenimentService.class);
+        Call<List<Esdeveniment>> ListEsdeveniment = esdevenimentServiceServices.getEsdevenimentsComunitat(Login.getComunitat());
+        ListEsdeveniment.enqueue(new Callback<List<Esdeveniment>>() {
+            @Override
+            public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
+                switch (response.code()){
+                    case 200:
+                        if(response.body()!=null){
+                            esdeveniments = response.body();
+                        }else{
+                            Toast.makeText(MenuActivity.this, "No hay datos para mostrar", Toast.LENGTH_SHORT).show();
+                        }
+
+                        break;
+                    case 400:
+                        Gson gson = new Gson();
+                        MissatgeError missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
+                        Toast.makeText(MenuActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
+                        break;
+                    case 404:
+                        Toast.makeText(MenuActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_LONG).show();
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Esdeveniment>> call, Throwable t) {
+
+            }
+        });
     }
 
     private void cargarFragments(Fragment fragment){
