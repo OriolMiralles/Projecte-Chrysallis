@@ -18,12 +18,13 @@ import com.example.chrysallis.EsdevenimentListener;
 import com.example.chrysallis.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FragmentMisEventos extends Fragment {
     private EsdevenimentListener listener;
-    private static ArrayList<Esdeveniment> esdeveniments;
+    private static List<Esdeveniment> esdeveniments;
 
-    public static FragmentMisEventos newInstance(ArrayList<Esdeveniment> esde) {
+    public static FragmentMisEventos newInstance(List<Esdeveniment> esde) {
         FragmentMisEventos fragment = new FragmentMisEventos();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -41,7 +42,7 @@ public class FragmentMisEventos extends Fragment {
         addListData(esdeveniments, view);
         return  view;
     }
-    public void addListData(final ArrayList<Esdeveniment> esdeveniments, View v){
+    public void addListData(final List<Esdeveniment> esdeveniments, View v){
 
         final RecyclerView reciclerEventos =v.findViewById(R.id.ReciclerMisEventos);
         AdaptadorMisEventos adaptador = new AdaptadorMisEventos(esdeveniments);

@@ -44,8 +44,8 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
         setContentView(R.layout.activity_menu_activity);
         btnNavegacion = findViewById(R.id.btnNavegacion);
         btnNavegacion.setSelectedItemId(R.id.mainEvent);
-        esdeveniments = new ArrayList<>();
-        cargarEsdeveniemnts(esdeveniments);
+
+        cargarEsdeveniemnts();
 
         FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
         flista.setEsdevenimentListener(this);
@@ -89,30 +89,15 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
         FragmentEventDetail fmp = FragmentEventDetail.newInstance(esdeveniment);
         cargarFragments(fmp);
     }
-    private void cargarEsdeveniemnts(List<Esdeveniment> esdeveniments){
-        EsdevenimentService esdevenimentServiceServices = Api.getApi().create(EsdevenimentService.class);
-        Call<List<Esdeveniment>> ListEsdeveniment = esdevenimentServiceServices.getEsdevenimentsComunitat(Login.getComunitat());
-        ListEsdeveniment.enqueue(new Callback<List<Esdeveniment>>() {
+    private void cargarEsdeveniemnts(){
+        int id = Login.getComunitat();
+        EsdevenimentService esdevService = Api.getApi().create(EsdevenimentService.class);
+        Call<List<Esdeveniment>> ListEsdev = esdevService.getEsdevenimentsComunitat(id);
+        ListEsdev.enqueue(new Callback<List<Esdeveniment>>() {
             @Override
             public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
                 switch (response.code()){
                     case 200:
-                        if(response.body()!=null){
-                            esdeveniments = response.body();
-                        }else{
-                            Toast.makeText(MenuActivity.this, "No hay datos para mostrar", Toast.LENGTH_SHORT).show();
-                        }
-
-                        break;
-                    case 400:
-                        Gson gson = new Gson();
-                        MissatgeError missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
-                        Toast.makeText(MenuActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
-                        break;
-                    case 404:
-                        Toast.makeText(MenuActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_LONG).show();
-                        break;
-                    default:
                         break;
                 }
             }
@@ -122,6 +107,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
 
             }
         });
+
     }
 
     private void cargarFragments(Fragment fragment){

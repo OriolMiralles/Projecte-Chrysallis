@@ -22,11 +22,12 @@ import com.example.chrysallis.MiDialogPersonalizado;
 import com.example.chrysallis.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FragmentListaEventos extends Fragment {
-    private static ArrayList<Esdeveniment> esdeveniments;
+    private static List<Esdeveniment> esdeveniments;
     private EsdevenimentListener listener;
-    public static FragmentListaEventos newInstance(ArrayList<Esdeveniment>esde) {
+    public static FragmentListaEventos newInstance(List<Esdeveniment>esde) {
         FragmentListaEventos fragment = new FragmentListaEventos();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -46,7 +47,7 @@ public class FragmentListaEventos extends Fragment {
         return  view;
     }
 
-    public void addListData(final ArrayList<Esdeveniment> esdeveniments, View v){
+    public void addListData(final List<Esdeveniment> esdeveniments, View v){
 
         final RecyclerView reciclerEventos =v.findViewById(R.id.ReciclerEventos);
         AdaptadorLista adaptador = new AdaptadorLista(esdeveniments);

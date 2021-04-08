@@ -13,12 +13,13 @@ import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHolder>
         implements View.OnClickListener{
-    private ArrayList<Esdeveniment> esdeveniments;
+    private List<Esdeveniment> esdeveniments;
     private View.OnClickListener listener;
-    public AdaptadorLista(ArrayList<Esdeveniment> esdeveniments){
+    public AdaptadorLista(List<Esdeveniment> esdeveniments){
         this.esdeveniments = esdeveniments;
     }
 
@@ -66,8 +67,8 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHold
                     break;
 
             }
-            tvCiudad.setText(event.getLocalitat());
-            tvFecha.setText(event.getData());
+            tvCiudad.setText(String.valueOf(event.getId_localitat()));
+            tvFecha.setText(event.getData().toString());
             tvTitulo.setText(event.getTitol());
 
         }
