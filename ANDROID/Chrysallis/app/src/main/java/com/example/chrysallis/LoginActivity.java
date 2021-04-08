@@ -42,7 +42,8 @@ public class LoginActivity extends AppCompatActivity {
                 email = editTextEmail.getText().toString();
                 final String pass = editTextPassword.getText().toString();
                 if(email.equals("")){
-                    Toast.makeText(LoginActivity.this, "Hay que escribir un correo electrónico.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Campos vacíos",
+                            Toast.LENGTH_SHORT).show();
                 }else{
                     SocisService socisService = Api.getApi().create(SocisService.class);
                     Call<Soci> sociCall = socisService.getSociEmail(email);
@@ -51,7 +52,16 @@ public class LoginActivity extends AppCompatActivity {
                         public void onResponse(Call<Soci> call, Response<Soci> response) {
                             Soci soci = response.body();
                             boolean acces = BCrypt.checkpw(pass, soci.getEmail());
-                            Toast.makeText(LoginActivity.this, "Vale: " + acces, Toast.LENGTH_SHORT).show();
+
+                            if(acces){
+                                Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                            else{
+                                Toast.makeText(LoginActivity.this, "Acceso denegado",
+                                        Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                         @Override
@@ -62,9 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
 
-                Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
-                startActivity(intent);
-                finish();
+
             }
         });
     }
