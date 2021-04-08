@@ -64,13 +64,13 @@ public class FragmentEventDetail extends Fragment {
         tvTituloDetalle.setText(esdeveniment.getTitol());
         tvTipoEventoDetalle.setText(esdeveniment.getTipoEvento());
         tvFechaDetalle.setText((esdeveniment.getData().toString()));
-        tvDescripcionDetalle.setText((esdeveniment.getDescripcion()));
+        tvDescripcionDetalle.setText((esdeveniment.getDescripcio()));
 
         if(esdeveniment.getId_tipus() == 5){
             btnLink.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String link = String.valueOf(esdeveniment.getId_localitat());
+                    String link = String.valueOf(esdeveniment.getLocalitat().getNom());
                     Uri _link = Uri.parse(link);
                     Intent i = new Intent(Intent.ACTION_VIEW, _link);
                     startActivity(i);

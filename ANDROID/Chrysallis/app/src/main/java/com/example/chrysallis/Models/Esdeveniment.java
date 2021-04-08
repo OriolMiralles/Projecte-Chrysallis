@@ -1,25 +1,31 @@
 package com.example.chrysallis.Models;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Esdeveniment {
+public class Esdeveniment implements Serializable {
     private int id;
     private String titol;
     private Date data;
-    private int id_localitat;
+    private Localitat localitats;
     private int id_tipus;
-    private String descripcion;
+    private String descripcio;
     private String tipoEvento;
+    private String adreca;
 
+    public Esdeveniment(){
+
+    }
     public Esdeveniment(int id, String titol, Date data,String tipoEvento,
-                        int id_localitat, String descripcion, int id_tipus){
+                        Localitat localitats, String descripcio, int id_tipus, String adreca){
         this.id = id;
         this.titol = titol;
         this.data = data;
-        this.id_localitat = id_localitat;
+        this.localitats = localitats;
         this.tipoEvento = tipoEvento;
-        this.descripcion = descripcion;
+        this.descripcio = descripcio;
         this.id_tipus = id_tipus;
+        this.adreca = adreca;
     }
 
     public int getId() {
@@ -46,12 +52,20 @@ public class Esdeveniment {
         this.data = data;
     }
 
-    public int getId_localitat() {
-        return id_localitat;
+    public Localitat getLocalitat() {
+        return localitats;
     }
 
-    public void setId_localitat(int id_localitat) {
-        this.id_localitat = id_localitat;
+    public void setLocalitat(Localitat localitats) {
+        this.localitats = localitats;
+    }
+
+    public String getAdreca() {
+        return adreca;
+    }
+
+    public void setAdreca(String adreca) {
+        this.adreca = adreca;
     }
 
     public int getId_tipus() {
@@ -62,12 +76,12 @@ public class Esdeveniment {
         this.id_tipus = id_tipus;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescripcio() {
+        return descripcio;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescripcio(String descripcio) {
+        this.descripcio = descripcio;
     }
 
     public String getTipoEvento() {

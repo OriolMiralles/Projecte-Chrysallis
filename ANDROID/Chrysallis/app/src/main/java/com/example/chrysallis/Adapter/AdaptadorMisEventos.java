@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.R;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,8 +65,11 @@ public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEvento
                     break;
 
             }
-            tvCiudad.setText(String.valueOf(event.getId_localitat()));
-            tvFecha.setText(event.getData().toString());
+            tvCiudad.setText(String.valueOf(event.getLocalitat().getNom()));
+            java.util.Date date = event.getData();
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            String fecha = df.format(date);
+            tvFecha.setText(fecha);
             tvTitulo.setText(event.getTitol());
             tvValorar.setText("VALORA EL EVENTO");
 

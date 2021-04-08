@@ -1,9 +1,10 @@
 package com.example.chrysallis.Models;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.List;
 
-public class Soci {
+public class Soci implements Serializable {
 
     private String nom;
     private String cognoms;

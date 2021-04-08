@@ -23,6 +23,7 @@ import com.example.chrysallis.Models.MissatgeError;
 import com.example.chrysallis.Models.Soci;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -47,9 +48,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
 
         cargarEsdeveniemnts();
 
-        FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
-        flista.setEsdevenimentListener(this);
-        cargarFragments(flista);
+
 
         btnNavegacion.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -58,14 +57,17 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
 
                 switch (menuItem.getItemId()) {
                     case (R.id.mainEvent):
-                        FragmentListaEventos flista = FragmentListaEventos.
-                                newInstance(esdeveniments);
+                        Toast.makeText(MenuActivity.this, "Comunitat: " + Login.getComunitat(), Toast.LENGTH_SHORT).show();
+                        cargarEsdeveniemnts();
+                        FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
                         flista.setEsdevenimentListener(MenuActivity.this);
                         cargarFragments(flista);
                         resultado = true;
                         break;
 
                     case (R.id.mainEventPref):
+                        Toast.makeText(MenuActivity.this, "Comunitat: " + Login.getComunitat(), Toast.LENGTH_SHORT).show();
+
                         FragmentMisEventos fme = FragmentMisEventos.newInstance(esdeveniments);
                         fme.setEsdevenimentListener(MenuActivity.this);
                         cargarFragments(fme);
@@ -73,6 +75,8 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
                         break;
 
                     case (R.id.mainProfile):
+                        Toast.makeText(MenuActivity.this, "Comunitat: " + Login.getComunitat(), Toast.LENGTH_SHORT).show();
+
                         FragmentMiPerfil fmp = FragmentMiPerfil.newInstance();
                         cargarFragments(fmp);
                         resultado = true;
@@ -91,19 +95,33 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
     private void cargarEsdeveniemnts(){
         int id = Login.getComunitat();
         EsdevenimentService esdevService = Api.getApi().create(EsdevenimentService.class);
-        Call<List<Esdeveniment>> ListEsdev = esdevService.getEsdevenimentsComunitat(id);
-        ListEsdev.enqueue(new Callback<List<Esdeveniment>>() {
+        Call<List<Esdeveniment>> listEsdev = esdevService.getEsdevenimentsComunitat(id);
+
+        listEsdev.enqueue(new Callback<List<Esdeveniment>>() {
             @Override
             public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
                 switch (response.code()){
                     case 200:
+
+                        esdeveniments = new ArrayList<>(response.body());
+                        FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
+                        flista.setEsdevenimentListener(MenuActivity.this);
+                        cargarFragments(flista);
+                        break;
+                    default:
+                        Gson gson = new Gson();
+                        MissatgeError missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
+                        Toast.makeText(MenuActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
                         break;
                 }
+                
             }
 
             @Override
             public void onFailure(Call<List<Esdeveniment>> call, Throwable t) {
-
+                String text = t.getMessage();
+                Toast.makeText(MenuActivity.this, "Entra aqui: ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MenuActivity.this, t.getCause() + " ; " + t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 
