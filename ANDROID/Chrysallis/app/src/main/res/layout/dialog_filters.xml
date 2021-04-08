@@ -5,7 +5,7 @@
     android:layout_alignParentTop="true"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary">
+    android:background="@drawable/cuadro_personalizado">
     <Button
         android:id="@+id/btnClose"
         android:layout_width="50dp"
@@ -22,16 +22,18 @@
             android:layout_width="0dp"
             android:layout_weight="2"
             android:textSize="@dimen/tamanoLetraMedia"
+            android:paddingRight="@dimen/marginTopEmail"
             android:layout_height="wrap_content"
 
             android:text="@string/fecha"/>
-        <EditText
-            android:id="@+id/etFechaMin"
-            android:hint="dd/mm/yyyy"
+        <Button
+            android:id="@+id/dateMinPicker"
             android:layout_width="0dp"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/marginTopLogo"/>
+            android:text="JAN 01 2021"
+            style="?android:spinnerStyle"
+            android:textAlignment="center"/>
 
     </LinearLayout>
     <LinearLayout
@@ -45,15 +47,17 @@
             android:gravity="right"
             android:layout_weight="2"
             android:layout_height="wrap_content"
+            android:paddingRight="@dimen/marginTopEmail"
             android:textSize="@dimen/tamanoLetraMedia"
             android:text="@string/fechaMax"/>
-        <EditText
-            android:id="@+id/etFechaMax"
-            android:hint="dd/mm/yyyy"
+        <Button
+            android:id="@+id/dateMaxPicker"
             android:layout_width="0dp"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/marginTopLogo"/>
+            android:text="JAN 01 2021"
+            style="?android:spinnerStyle"
+            android:textAlignment="center"/>
 
     </LinearLayout>
     <LinearLayout

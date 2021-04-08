@@ -1,5 +1,7 @@
 package com.example.chrysallis.Fragment;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -24,10 +27,15 @@ import com.example.chrysallis.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.Calendar;
+
 public class FragmentListaEventos extends Fragment {
     private static List<Esdeveniment> esdeveniments;
     private EsdevenimentListener listener;
-    public static FragmentListaEventos newInstance(List<Esdeveniment>esde) {
+
+    private static DatePickerDialog datePickerDialog;
+
+    public static FragmentListaEventos newInstance(ArrayList<Esdeveniment>esde) {
         FragmentListaEventos fragment = new FragmentListaEventos();
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -44,6 +52,7 @@ public class FragmentListaEventos extends Fragment {
         View view = inflater.inflate(R.layout.fragment_lista_eventos, container, false);
         addListData(esdeveniments, view);
         fillDialog(view);
+
         return  view;
     }
 
@@ -67,6 +76,7 @@ public class FragmentListaEventos extends Fragment {
             }
         });
     }
+
     public void fillDialog(View v){
 
         Button btnFilter = v.findViewById(R.id.btnFilter);
@@ -79,8 +89,12 @@ public class FragmentListaEventos extends Fragment {
                 final Spinner spTipos = dialog.findViewById(R.id.spTipo);
                 Button btnEliminarFiltro = dialog.findViewById(R.id.btnEliminarFiltro);
                 Button btnFiltrar = dialog.findViewById(R.id.btnFiltrar);
-                final EditText etFechaMin = dialog.findViewById(R.id.etFechaMin);
-                final EditText etFechaMax = dialog.findViewById(R.id.etFechaMax);
+
+
+                final Button btnFechaMin = dialog.findViewById(R.id.dateMinPicker);
+                btnFechaMin.setText(getTodayDate());
+                final Button btnFechaMax = dialog.findViewById(R.id.dateMaxPicker);
+                btnFechaMax.setText(getTodayDate());
                 final EditText etCiudad = dialog.findViewById(R.id.etCiudad);
 
                 final ArrayList<String>comunidades = new ArrayList<>();
@@ -95,20 +109,37 @@ public class FragmentListaEventos extends Fragment {
                         R.layout.spinner_personalizado, tipos);
                 spTipos.setAdapter(adapterTipos);
 
+
+                btnFechaMin.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        initDatePicker(btnFechaMin);
+                        openDatePicker(v);
+                    }
+                });
+
+                btnFechaMax.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        initDatePicker(btnFechaMax);
+                        openDatePicker(v);
+                    }
+                });
                 btnClose.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
                     }
                 });
+
                 btnEliminarFiltro.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         etCiudad.setText("");
-                        etFechaMax.setText("");
-                        etFechaMin.setText("");
+                        btnFechaMin.setText(getTodayDate());
+                        btnFechaMax.setText(getTodayDate());
                         spTipos.setSelection(0);
-                        //FALTA PROGRAMAR SELECCIONAR COMUNIDAD USUARIO
+                        //FALTA PROGRAMAR SELECCIONAR COMUNIDAD USUARIO (SELECT DE LA COMUNIDAD DEL USUARIO)
                     }
                 });
                 btnFiltrar.setOnClickListener(new View.OnClickListener() {
@@ -120,10 +151,53 @@ public class FragmentListaEventos extends Fragment {
                     }
                 });
                 dialog.show();
+
+
+
+            }
+
+            public void initDatePicker(Button btnFechaMin){
+                DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        month = month + 1;
+                        String date = makeDateString(day, month, year);
+                        btnFechaMin.setText(date);
+
+                    }
+                };
+
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                int style = AlertDialog.THEME_HOLO_LIGHT;
+
+                datePickerDialog = new DatePickerDialog(getContext(), style, dateSetListener, year, month, day);
             }
         });
 
     }
+
+    public String getTodayDate(){
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        month = month + 1;
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        return makeDateString(day, month, year);
+    }
+    public static String makeDateString(int day, int month, int year){
+        return day + "/" + month + "/" + year;
+    }
+
+    public void openDatePicker(View view){
+        datePickerDialog.show();
+    }
+
+
     private void cargarComunidades(ArrayList<String> comunitats){
         comunitats.add("Andalucía");
         comunitats.add("Aragón");

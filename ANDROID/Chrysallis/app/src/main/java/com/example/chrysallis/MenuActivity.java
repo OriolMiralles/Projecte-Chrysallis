@@ -36,7 +36,7 @@ import retrofit2.Response;
 public class MenuActivity extends AppCompatActivity implements EsdevenimentListener {
 
     BottomNavigationView btnNavegacion;
-    List<Esdeveniment> esdeveniments;
+    ArrayList<Esdeveniment> esdeveniments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,6 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
         FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
         flista.setEsdevenimentListener(this);
         cargarFragments(flista);
-
 
         btnNavegacion.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

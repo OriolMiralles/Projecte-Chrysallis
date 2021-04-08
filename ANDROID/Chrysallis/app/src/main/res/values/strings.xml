@@ -21,4 +21,8 @@
     <string name="txtDescripcionEvento">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "</string>
     <string name="link">Enlace al evento</string>
     <string name="textComPref">Selecciona la comunidad para mostrar sus eventos por defecto</string>
+    <string name="textValorar">VALORAR</string>
+    <string name="modificarParticipantes">MODIFICAR PARTICIPANTES</string>
+    <string name="textEnviar">ENVIAR COMENTARIO</string>
+    <string name="textComentario">Escribe tu comentario:</string>
 </resources>
