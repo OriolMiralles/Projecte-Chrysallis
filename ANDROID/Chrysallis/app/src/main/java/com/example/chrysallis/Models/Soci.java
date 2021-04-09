@@ -5,7 +5,7 @@ import java.lang.reflect.Array;
 import java.util.List;
 
 public class Soci implements Serializable {
-
+    private int id;
     private String nom;
     private String cognoms;
     private String email;
@@ -13,13 +13,22 @@ public class Soci implements Serializable {
     private boolean permis_app;
     private List<Comunitat> comunitats;
 
-    public Soci(String nom, String cognoms, String email, String contrasenya, boolean permis_app, List<Comunitat> comunitats) {
+    public Soci(int id, String nom, String cognoms, String email, String contrasenya, boolean permis_app, List<Comunitat> comunitats) {
+        this.id = id;
         this.nom = nom;
         this.cognoms = cognoms;
         this.email = email;
         this.contrasenya = contrasenya;
         this.permis_app = permis_app;
         this.comunitats = comunitats;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNom() {

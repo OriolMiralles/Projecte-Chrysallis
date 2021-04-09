@@ -36,8 +36,11 @@ import retrofit2.Response;
 
 public class MenuActivity extends AppCompatActivity implements EsdevenimentListener {
 
-    BottomNavigationView btnNavegacion;
-    ArrayList<Esdeveniment> esdeveniments;
+    private BottomNavigationView btnNavegacion;
+    private ArrayList<Esdeveniment> esdeveniments;
+    public final static String SOCIO = "socio";
+    private Soci soci;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +48,9 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
         setContentView(R.layout.activity_menu_activity);
         btnNavegacion = findViewById(R.id.btnNavegacion);
         btnNavegacion.setSelectedItemId(R.id.mainEvent);
+        Intent intent = getIntent();
 
+        soci = (Soci) intent.getSerializableExtra(SOCIO);
         cargarEsdeveniemnts();
 
 
@@ -77,7 +82,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
                     case (R.id.mainProfile):
                         Toast.makeText(MenuActivity.this, "Comunitat: " + Login.getComunitat(), Toast.LENGTH_SHORT).show();
 
-                        FragmentMiPerfil fmp = FragmentMiPerfil.newInstance();
+                        FragmentMiPerfil fmp = FragmentMiPerfil.newInstance(soci);
                         cargarFragments(fmp);
                         resultado = true;
                         break;
@@ -93,11 +98,11 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
         cargarFragments(fmp);
     }
     private void cargarEsdeveniemnts(){
-        int id = Login.getComunitat();
+        int id = soci.getComunitats().get(0).getId();
         EsdevenimentService esdevService = Api.getApi().create(EsdevenimentService.class);
         Call<List<Esdeveniment>> listEsdev = esdevService.getEsdevenimentsComunitat(id);
 
-        listEsdev.enqueue(new Callback<List<Esdeveniment>>() {
+        listEsdev.enqueue(new Callback<List<Esdeveniment>>() { 
             @Override
             public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
                 switch (response.code()){

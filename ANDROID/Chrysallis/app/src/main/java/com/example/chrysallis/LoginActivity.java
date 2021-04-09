@@ -63,11 +63,10 @@ public class LoginActivity extends AppCompatActivity {
                                             String contra = soci.getContrasenya();
                                             boolean acces = BCrypt.checkpw(pass, contra);
                                             if(acces){
-                                                Login.setEmail(soci.getEmail());
-                                                Login.setComunitat(soci.getComunitats().get(0).getId());
-                                                Login.setNom(soci.getNom());
-                                                Login.setCognoms(soci.getCognoms());
                                                 Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                                                Bundle b = new Bundle();
+                                                b.putSerializable(MenuActivity.SOCIO, soci);
+                                                intent.putExtras(b);
                                                 startActivity(intent);
                                                 finish();
                                             }else{
