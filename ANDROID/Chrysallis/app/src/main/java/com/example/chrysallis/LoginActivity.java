@@ -62,7 +62,6 @@ public class LoginActivity extends AppCompatActivity {
                                         if(soci.isPermis_app()){
                                             String contra = soci.getContrasenya();
                                             boolean acces = BCrypt.checkpw(pass, contra);
-                                            Toast.makeText(LoginActivity.this, "acces:" + acces, Toast.LENGTH_SHORT).show();
                                             if(acces){
                                                 Login.setEmail(soci.getEmail());
                                                 Login.setComunitat(soci.getComunitats().get(0).getId());

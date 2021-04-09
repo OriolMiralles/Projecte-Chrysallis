@@ -1,23 +1,31 @@
 package com.example.chrysallis.Models;
 
-public class Esdeveniment {
+import java.io.Serializable;
+import java.util.Date;
+
+public class Esdeveniment implements Serializable {
     private int id;
     private String titol;
-    private String data;
-    private String localitat;
-    private String tipoEvento;
-    private String descripcion;
+    private Date data;
+    private Localitat localitats;
     private int id_tipus;
+    private String descripcio;
+    private String tipoEvento;
+    private String adreca;
 
-    public Esdeveniment(int id, String titol, String data,String tipoEvento,
-                        String localitat, String descripcion, int id_tipus){
+    public Esdeveniment(){
+
+    }
+    public Esdeveniment(int id, String titol, Date data,String tipoEvento,
+                        Localitat localitats, String descripcio, int id_tipus, String adreca){
         this.id = id;
         this.titol = titol;
         this.data = data;
-        this.localitat = localitat;
+        this.localitats = localitats;
         this.tipoEvento = tipoEvento;
-        this.descripcion = descripcion;
+        this.descripcio = descripcio;
         this.id_tipus = id_tipus;
+        this.adreca = adreca;
     }
 
     public int getId() {
@@ -36,20 +44,28 @@ public class Esdeveniment {
         this.titol = titol;
     }
 
-    public String getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Date data) {
         this.data = data;
     }
 
-    public String getLocalitat() {
-        return localitat;
+    public Localitat getLocalitat() {
+        return localitats;
     }
 
-    public void setLocalitat(String localitat) {
-        this.localitat = localitat;
+    public void setLocalitat(Localitat localitats) {
+        this.localitats = localitats;
+    }
+
+    public String getAdreca() {
+        return adreca;
+    }
+
+    public void setAdreca(String adreca) {
+        this.adreca = adreca;
     }
 
     public int getId_tipus() {
@@ -60,19 +76,19 @@ public class Esdeveniment {
         this.id_tipus = id_tipus;
     }
 
+    public String getDescripcio() {
+        return descripcio;
+    }
+
+    public void setDescripcio(String descripcio) {
+        this.descripcio = descripcio;
+    }
+
     public String getTipoEvento() {
         return tipoEvento;
     }
 
     public void setTipoEvento(String tipoEvento) {
         this.tipoEvento = tipoEvento;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 }

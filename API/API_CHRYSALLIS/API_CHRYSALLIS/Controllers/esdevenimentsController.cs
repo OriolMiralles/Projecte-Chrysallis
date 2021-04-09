@@ -20,6 +20,7 @@ namespace API_CHRYSALLIS.Controllers
         // GET: api/esdeveniments
         public IQueryable<esdeveniments> Getesdeveniments()
         {
+            db.Configuration.LazyLoadingEnabled = false;
             return db.esdeveniments;
         }
 

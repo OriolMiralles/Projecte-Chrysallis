@@ -12,13 +12,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.R;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEventos.ViewHolder>
         implements View.OnClickListener {
-    private ArrayList<Esdeveniment> esdeveniments;
+    private List<Esdeveniment> esdeveniments;
     private View.OnClickListener listener;
-    public AdaptadorMisEventos(ArrayList<Esdeveniment> esdeveniments){
+    public AdaptadorMisEventos(List<Esdeveniment> esdeveniments){
         this.esdeveniments = esdeveniments;
     }
 
@@ -62,8 +65,11 @@ public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEvento
                     break;
 
             }
-            tvCiudad.setText(event.getLocalitat());
-            tvFecha.setText(event.getData());
+            tvCiudad.setText(String.valueOf(event.getLocalitat().getNom()));
+            java.util.Date date = event.getData();
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            String fecha = df.format(date);
+            tvFecha.setText(fecha);
             tvTitulo.setText(event.getTitol());
             tvValorar.setText("VALORA EL EVENTO");
 
