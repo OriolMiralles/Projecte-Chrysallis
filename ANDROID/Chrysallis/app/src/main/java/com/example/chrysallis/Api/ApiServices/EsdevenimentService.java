@@ -15,4 +15,9 @@ public interface EsdevenimentService {
     @GET("api/esdeveniments")
     Call<List<Esdeveniment>> getEsdeveniments();
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> a27569c1f33917b0793d0470b5589f9a3b95e418
 }

@@ -12,7 +12,7 @@
     <dimen name="btnLoginHeight">104dp</dimen>
     <dimen name="marginTopLogin">70dp</dimen>
     <dimen name="btnRegistroHeight">43dp</dimen>
-    <dimen name="marginTopRegistro">100dp</dimen>
+    <dimen name="marginTopRegistro">70dp</dimen>
     <dimen name="tamanoLetraGrande">20sp</dimen>
     <dimen name="tamanoLetraMedia">18sp</dimen>
     <dimen name="marginRightText">20dp</dimen>

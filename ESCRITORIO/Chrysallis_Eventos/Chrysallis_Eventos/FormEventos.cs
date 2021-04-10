@@ -121,8 +121,15 @@ namespace Chrysallis_Eventos
                 esdeveniments _esdev = (esdeveniments)dataGridViewEvents.Rows[e.RowIndex].DataBoundItem;
                 if (_esdev != null)
                 {
+                    if(_esdev.id_localitat != null)
+                    {
+                        e.Value = _esdev.localitats.nom;
+                    }
+                    else{
+                        e.Value = "Online";
+                    }
 
-                    e.Value = _esdev.localitats.nom;
+                    
                 }
 
             }

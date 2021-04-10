@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chrysallis.Adapter.AdaptadorLista;
+import com.example.chrysallis.MenuActivity;
+import com.example.chrysallis.Models.Assistir;
 import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.EsdevenimentListener;
 import com.example.chrysallis.MiDialogPersonalizado;
@@ -30,16 +32,21 @@ import java.util.List;
 import java.util.Calendar;
 
 public class FragmentListaEventos extends Fragment {
+<<<<<<< HEAD
+=======
+
+>>>>>>> a27569c1f33917b0793d0470b5589f9a3b95e418
     private static List<Esdeveniment> esdeveniments;
     private EsdevenimentListener listener;
 
     private static DatePickerDialog datePickerDialog;
 
-    public static FragmentListaEventos newInstance(ArrayList<Esdeveniment>esde) {
+    public static FragmentListaEventos newInstance(ArrayList<Esdeveniment>esdeven) {
         FragmentListaEventos fragment = new FragmentListaEventos();
+        MenuActivity.fragmentSelected = 1;
         Bundle args = new Bundle();
         fragment.setArguments(args);
-        esdeveniments = esde;
+        esdeveniments = esdeven;
         return fragment;
     }
     public void setEsdevenimentListener(EsdevenimentListener listener){

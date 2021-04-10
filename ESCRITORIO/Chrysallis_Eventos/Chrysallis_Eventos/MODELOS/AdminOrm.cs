@@ -29,6 +29,9 @@ namespace Chrysallis_Eventos.MODELOS
             }catch(SqlException ex)
             {
                 missatge = Orm.missatgeError(ex);
+            }catch(Exception e)
+            {
+                missatge = e.Message;
             }
             return _usuari;
         }

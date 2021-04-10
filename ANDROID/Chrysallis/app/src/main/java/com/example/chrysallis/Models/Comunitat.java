@@ -1,6 +1,8 @@
 package com.example.chrysallis.Models;
 
-public class Comunitat {
+import java.io.Serializable;
+
+public class Comunitat implements Serializable {
 
     private int id;
     private String nom;
@@ -16,5 +18,13 @@ public class Comunitat {
 
     public String getNom() {
         return nom;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 }

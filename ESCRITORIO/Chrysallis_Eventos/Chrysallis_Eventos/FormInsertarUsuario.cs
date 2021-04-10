@@ -119,7 +119,7 @@ namespace Chrysallis_Eventos
             soci.actiu = checkBoxActivo.Checked;
             if (!modificar)
             {
-                soci.contrasenya = BCrypt.Net.BCrypt.EnhancedHashPassword(textBoxPasswordUsuario.Text, BCrypt.Net.HashType.SHA512);
+                soci.contrasenya = BCrypt.Net.BCrypt.HashPassword(textBoxPasswordUsuario.Text);
             }
             soci.data_naixement = dateTimePickerUsuario.Value;
             soci.telefon1 = textBoxTelefono1Usuario.Text;
