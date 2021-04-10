@@ -25,4 +25,5 @@
     <string name="modificarParticipantes">MODIFICAR PARTICIPANTES</string>
     <string name="textEnviar">ENVIAR COMENTARIO</string>
     <string name="textComentario">Escribe tu comentario:</string>
+    <string name="contra">Click para cambiar contraseña</string>
 </resources>

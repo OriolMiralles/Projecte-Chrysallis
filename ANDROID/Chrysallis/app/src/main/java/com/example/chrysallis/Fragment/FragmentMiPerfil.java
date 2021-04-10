@@ -13,21 +13,15 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.chrysallis.Api.Api;
-import com.example.chrysallis.Api.ApiServices.ComunitatService;
-import com.example.chrysallis.Api.ApiServices.EsdevenimentService;
 import com.example.chrysallis.Api.ApiServices.SociService;
-import com.example.chrysallis.LoginActivity;
 import com.example.chrysallis.MenuActivity;
 import com.example.chrysallis.Models.Comunitat;
-import com.example.chrysallis.Models.Esdeveniment;
-import com.example.chrysallis.Models.Login;
 import com.example.chrysallis.Models.MissatgeError;
 import com.example.chrysallis.Models.Soci;
 import com.example.chrysallis.R;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +33,7 @@ private static Soci _soci;
 private Spinner spComuni;
     public static FragmentMiPerfil newInstance(Soci soci) {
         FragmentMiPerfil fragment = new FragmentMiPerfil();
+        MenuActivity.fragmentSelected = 3;
         Bundle args = new Bundle();
         fragment.setArguments(args);
         _soci = soci;
@@ -59,9 +54,9 @@ private Spinner spComuni;
         TextView tvEmail = v.findViewById(R.id.tvEMAIL);
         spComuni = v.findViewById(R.id.spComuni);
 
-        tvNombre.setText(Login.getNom());
-        tvApellidos.setText(Login.getCognoms());
-        tvEmail.setText(Login.getEmail());
+        tvNombre.setText(_soci.getNom());
+        tvApellidos.setText(_soci.getCognoms());
+        tvEmail.setText(_soci.getEmail());
 
         cargarComunidades();
         ArrayAdapter<String> adapterComunidades = new ArrayAdapter<String>(getContext(),
@@ -72,9 +67,11 @@ private Spinner spComuni;
         spComuni.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                _soci.getComunitats().get(0).setId(i+1);
-                _soci.getComunitats().get(0).setNom(spComuni.getSelectedItem().toString());
+                _soci.getComunitats().clear();
+                int idCom = i+1;
+                String nomCom = spComuni.getSelectedItem().toString();
+                Comunitat comunitat = new Comunitat(idCom, nomCom);
+                _soci.getComunitats().add(comunitat);
                 SociService sociService = Api.getApi().create(SociService.class);
                 Call<Soci>callSoci = sociService.updateSoci(_soci.getId(), _soci);
                 callSoci.enqueue(new Callback<Soci>() {
@@ -82,7 +79,7 @@ private Spinner spComuni;
                     public void onResponse(Call<Soci> call, Response<Soci> response) {
                         switch (response.code()){
                             case 200:
-                                Toast.makeText(getContext(), "Comunidad actualizada correctamente", Toast.LENGTH_SHORT).show();
+
                                 break;
                             case 404:
                                 Toast.makeText(getContext(), "No se puede actualizar", Toast.LENGTH_LONG).show();

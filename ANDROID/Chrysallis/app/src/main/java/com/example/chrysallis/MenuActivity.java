@@ -11,21 +11,17 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.chrysallis.Api.Api;
+import com.example.chrysallis.Api.ApiServices.AssistirService;
 import com.example.chrysallis.Api.ApiServices.EsdevenimentService;
-import com.example.chrysallis.Api.ApiServices.SociService;
+import com.example.chrysallis.Models.Assistir;
 import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.Fragment.FragmentEventDetail;
 import com.example.chrysallis.Fragment.FragmentListaEventos;
 import com.example.chrysallis.Fragment.FragmentMiPerfil;
-import com.example.chrysallis.Fragment.FragmentMisEventos;
-import com.example.chrysallis.Models.Login;
 import com.example.chrysallis.Models.MissatgeError;
 import com.example.chrysallis.Models.Soci;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,9 +34,10 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
 
     private BottomNavigationView btnNavegacion;
     private ArrayList<Esdeveniment> esdeveniments;
+    private Assistir assistirs;
     public final static String SOCIO = "socio";
     private Soci soci;
-
+    public static int fragmentSelected = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,26 +59,18 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
 
                 switch (menuItem.getItemId()) {
                     case (R.id.mainEvent):
-                        Toast.makeText(MenuActivity.this, "Comunitat: " + Login.getComunitat(), Toast.LENGTH_SHORT).show();
+                        fragmentSelected = 1;
                         cargarEsdeveniemnts();
-                        FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
-                        flista.setEsdevenimentListener(MenuActivity.this);
-                        cargarFragments(flista);
                         resultado = true;
                         break;
 
                     case (R.id.mainEventPref):
-                        Toast.makeText(MenuActivity.this, "Comunitat: " + Login.getComunitat(), Toast.LENGTH_SHORT).show();
-
-                        FragmentMisEventos fme = FragmentMisEventos.newInstance(esdeveniments);
-                        fme.setEsdevenimentListener(MenuActivity.this);
-                        cargarFragments(fme);
+                        fragmentSelected = 2;
+                        cargarEsdeveniemnts();
                         resultado = true;
                         break;
 
                     case (R.id.mainProfile):
-                        Toast.makeText(MenuActivity.this, "Comunitat: " + Login.getComunitat(), Toast.LENGTH_SHORT).show();
-
                         FragmentMiPerfil fmp = FragmentMiPerfil.newInstance(soci);
                         cargarFragments(fmp);
                         resultado = true;
@@ -98,40 +87,84 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
         cargarFragments(fmp);
     }
     private void cargarEsdeveniemnts(){
-        int id = soci.getComunitats().get(0).getId();
-        EsdevenimentService esdevService = Api.getApi().create(EsdevenimentService.class);
-        Call<List<Esdeveniment>> listEsdev = esdevService.getEsdevenimentsComunitat(id);
+        int id;
+        switch (fragmentSelected){
+            case 1:
+                id = soci.getComunitats().get(0).getId();
+                EsdevenimentService esdevService = Api.getApi().create(EsdevenimentService.class);
+                Call<List<Esdeveniment>> listEsdev = esdevService.getEsdevenimentsComunitat(id);
+                listEsdev.enqueue(new Callback<List<Esdeveniment>>() {
+                    @Override
+                    public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
+                        switch (response.code()){
+                            case 200:
+                                if(response.body()!=null){
+                                    esdeveniments = new ArrayList<>(response.body());
+                                    FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
+                                    flista.setEsdevenimentListener(MenuActivity.this);
+                                    cargarFragments(flista);
+                                }else{
+                                    Toast.makeText(MenuActivity.this, "No hay eventos programados", Toast.LENGTH_SHORT).show();
+                                }
+                                
+                                break;
+                            default:
+                                Gson gson = new Gson();
+                                MissatgeError missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
+                                Toast.makeText(MenuActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
+                                break;
+                        }
 
-        listEsdev.enqueue(new Callback<List<Esdeveniment>>() { 
-            @Override
-            public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
-                switch (response.code()){
-                    case 200:
+                    }
 
-                        esdeveniments = new ArrayList<>(response.body());
-                        FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
-                        flista.setEsdevenimentListener(MenuActivity.this);
-                        cargarFragments(flista);
-                        break;
-                    default:
-                        Gson gson = new Gson();
-                        MissatgeError missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
-                        Toast.makeText(MenuActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
-                        break;
-                }
-                
-            }
+                    @Override
+                    public void onFailure(Call<List<Esdeveniment>> call, Throwable t) {
+                        String text = t.getMessage();
+                        Toast.makeText(MenuActivity.this, t.getCause() + " ; " + t.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+                break;
+            case 2:
+                id = soci.getId();
+                AssistirService assistirService = Api.getApi().create(AssistirService.class);
+                Call<Assistir> assistirCall = assistirService.getMisEsdeveniments(id);
+                assistirCall.enqueue(new Callback<Assistir>() {
+                    @Override
+                    public void onResponse(Call<Assistir> call, Response<Assistir> response) {
+                        switch (response.code()){
+                            case 200:
+                                if(response.body()!=null){
+                                    assistirs = response.body();
+                                    esdeveniments = assistirs.getEsdeveniments();
+                                    FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
+                                    flista.setEsdevenimentListener(MenuActivity.this);
+                                    cargarFragments(flista);  
+                                }else{
+                                    esdeveniments = null;
+                                    Toast.makeText(MenuActivity.this, "NO HAY", Toast.LENGTH_SHORT).show();
+                                }
+                                
+                                break;
+                            default:
+                                Gson gson = new Gson();
+                                MissatgeError missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
+                                Toast.makeText(MenuActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
+                                break;
+                        }
+                    }
 
-            @Override
-            public void onFailure(Call<List<Esdeveniment>> call, Throwable t) {
-                String text = t.getMessage();
-                Toast.makeText(MenuActivity.this, "Entra aqui: ", Toast.LENGTH_SHORT).show();
-                Toast.makeText(MenuActivity.this, t.getCause() + " ; " + t.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
+                    @Override
+                    public void onFailure(Call<Assistir> call, Throwable t) {
+
+                    }
+                });
+                break;
+            case 3:
+                break;
+        }
+
 
     }
-
     private void cargarFragments(Fragment fragment){
         getSupportFragmentManager().beginTransaction().replace(R.id.lstFrag, fragment)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();

@@ -61,7 +61,7 @@ public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEvento
                     imgTipoEvent.setImageResource(R.drawable.online);
                     break;
                 case (6):
-                    imgTipoEvent.setImageResource(R.drawable.manifestacion);
+                    imgTipoEvent.setImageResource(R.drawable.mani_blau);
                     break;
 
             }

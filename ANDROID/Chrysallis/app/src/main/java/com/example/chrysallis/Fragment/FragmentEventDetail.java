@@ -70,7 +70,7 @@ public class FragmentEventDetail extends Fragment {
             btnLink.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String link = String.valueOf(esdeveniment.getLocalitat().getNom());
+                    String link = String.valueOf(esdeveniment.getAdreca());
                     Uri _link = Uri.parse(link);
                     Intent i = new Intent(Intent.ACTION_VIEW, _link);
                     startActivity(i);
@@ -99,7 +99,7 @@ public class FragmentEventDetail extends Fragment {
                 imgTipoEventDetalle.setImageResource(R.drawable.online);
                 break;
             case 6:
-                imgTipoEventDetalle.setImageResource(R.drawable.manifestacion);
+                imgTipoEventDetalle.setImageResource(R.drawable.mani_blau);
                 break;
         }
     }

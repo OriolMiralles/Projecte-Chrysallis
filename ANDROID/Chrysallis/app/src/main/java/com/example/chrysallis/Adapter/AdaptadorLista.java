@@ -9,13 +9,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.chrysallis.Models.Assistir;
 import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.R;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHolder>
@@ -47,31 +46,38 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHold
                 case (1):
                     imgTipoEvent.setImageResource(R.drawable.colonias);
                     tvTipoAct.setText("Colonias");
+                    tvCiudad.setText(String.valueOf(event.getLocalitat().getNom()));
                     break;
                 case (2):
                     imgTipoEvent.setImageResource(R.drawable.quedada);
                     tvTipoAct.setText("Quedada");
+                    tvCiudad.setText(String.valueOf(event.getLocalitat().getNom()));
                     break;
                 case (3):
                     imgTipoEvent.setImageResource(R.drawable.taller);
                     tvTipoAct.setText("Taller");
+                    tvCiudad.setText(String.valueOf(event.getLocalitat().getNom()));
                     break;
                 case (4):
                     imgTipoEvent.setImageResource(R.drawable.picnic);
                     tvTipoAct.setText("Pícnic");
+                    tvCiudad.setText(String.valueOf(event.getLocalitat().getNom()));
                     break;
                 case (5):
                     imgTipoEvent.setImageResource(R.drawable.online);
                     tvTipoAct.setText("Online");
                     tvCiudad.setTextSize(12);
+                    tvCiudad.setText(event.getAdreca());
                     break;
                 case (6):
                     imgTipoEvent.setImageResource(R.drawable.mani_blau);
                     tvTipoAct.setText("Manifestación");
+                    tvCiudad.setText(String.valueOf(event.getLocalitat().getNom()));
                     break;
 
             }
-            tvCiudad.setText(String.valueOf(event.getLocalitat().getNom()));
+
+
             java.util.Date date = event.getData();
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             String fecha = df.format(date);

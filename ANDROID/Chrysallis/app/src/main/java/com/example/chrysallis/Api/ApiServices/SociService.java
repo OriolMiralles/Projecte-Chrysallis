@@ -17,6 +17,7 @@ public interface SociService {
     @GET("api/socis")
     Call<List<Soci>>getSocis();
 
-    @PUT("api/socis/coumnitats_socis/{id}/")
-    Call<Soci>updateSoci(@Path("id") int id, @Body Soci soci);
+    @PUT("api/socis/{id}")
+    Call<Soci>updateSoci(@Path("id")int id, @Body Soci soci);
+
 }
