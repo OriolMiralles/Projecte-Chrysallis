@@ -46,19 +46,13 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
         setContentView(R.layout.activity_menu_activity);
         btnNavegacion = findViewById(R.id.btnNavegacion);
         btnNavegacion.setSelectedItemId(R.id.mainEvent);
-<<<<<<< HEAD
 
         cargarEsdeveniemnts();
 
-
-=======
         Intent intent = getIntent();
 
         soci = (Soci) intent.getSerializableExtra(SOCIO);
         cargarEsdeveniemnts();
-
-
->>>>>>> a27569c1f33917b0793d0470b5589f9a3b95e418
 
         btnNavegacion.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -67,41 +61,40 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
 
                 switch (menuItem.getItemId()) {
                     case (R.id.mainEvent):
-<<<<<<< HEAD
+
                         Toast.makeText(MenuActivity.this, "Comunitat: " + Login.getComunitat(), Toast.LENGTH_SHORT).show();
                         cargarEsdeveniemnts();
                         FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
                         flista.setEsdevenimentListener(MenuActivity.this);
                         cargarFragments(flista);
-=======
+
                         fragmentSelected = 1;
                         cargarEsdeveniemnts();
->>>>>>> a27569c1f33917b0793d0470b5589f9a3b95e418
                         resultado = true;
                         break;
 
                     case (R.id.mainEventPref):
-<<<<<<< HEAD
+
                         Toast.makeText(MenuActivity.this, "Comunitat: " + Login.getComunitat(), Toast.LENGTH_SHORT).show();
 
                         FragmentMisEventos fme = FragmentMisEventos.newInstance(esdeveniments);
                         fme.setEsdevenimentListener(MenuActivity.this);
                         cargarFragments(fme);
-=======
+
                         fragmentSelected = 2;
                         cargarEsdeveniemnts();
->>>>>>> a27569c1f33917b0793d0470b5589f9a3b95e418
+
                         resultado = true;
                         break;
 
                     case (R.id.mainProfile):
-<<<<<<< HEAD
+
                         Toast.makeText(MenuActivity.this, "Comunitat: " + Login.getComunitat(), Toast.LENGTH_SHORT).show();
 
                         FragmentMiPerfil fmp = FragmentMiPerfil.newInstance();
-=======
+
                         FragmentMiPerfil fmp = FragmentMiPerfil.newInstance(soci);
->>>>>>> a27569c1f33917b0793d0470b5589f9a3b95e418
+
                         cargarFragments(fmp);
                         resultado = true;
                         break;
@@ -117,7 +110,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
         cargarFragments(fmp);
     }
     private void cargarEsdeveniemnts(){
-<<<<<<< HEAD
+
         int id = Login.getComunitat();
         EsdevenimentService esdevService = Api.getApi().create(EsdevenimentService.class);
         Call<List<Esdeveniment>> listEsdev = esdevService.getEsdevenimentsComunitat(id);
@@ -151,7 +144,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
         });
 
     }
-=======
+
         int id;
         switch (fragmentSelected){
             case 1:
@@ -227,7 +220,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
             case 3:
                 break;
         }
->>>>>>> a27569c1f33917b0793d0470b5589f9a3b95e418
+
 
 
     }

@@ -10,16 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chrysallis.Models.Assistir;
-import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.R;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-<<<<<<< HEAD
-import java.util.ArrayList;
-import java.util.Date;
-=======
->>>>>>> a27569c1f33917b0793d0470b5589f9a3b95e418
 import java.util.List;
 
 public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHolder>
@@ -81,12 +74,9 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHold
                     break;
 
             }
-<<<<<<< HEAD
+
             tvCiudad.setText(String.valueOf(event.getLocalitat().getNom()));
-=======
 
-
->>>>>>> a27569c1f33917b0793d0470b5589f9a3b95e418
             java.util.Date date = event.getData();
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             String fecha = df.format(date);
