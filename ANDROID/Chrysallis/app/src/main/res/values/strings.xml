@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Chrysallis</string>
+    <string name="textEmail">Email:</string>
+    <string name="textPassword">Password:</string>
+    <string name="textLogin">LOGIN</string>
+    <string name="textApuntarse">APUNTARSE</string>
+    <string name="textModificar">MODIFICAR</string>
+    <string name="textDesapuntarse">DESAPUNTARSE</string>
+    <string name="textRegistro">REGISTRO</string>
+    <string name="fecha">FECHA MINIMA</string>
+    <string name="comunidad">COMUNIDAD</string>
+    <string name="fechaMax">FECHA MAXIMA</string>
+    <string name="ciudad">CIUDAD</string>
+    <string name="tipo">TIPO</string>
+    <string name="eliminarFiltros">ELIMINAR FILTROS</string>
+    <string name="filtrar">FILTRAR</string>
+    <string name="textCerrar">CERRAR SESIÓN</string>
+    <string name="textNombre">NOMBRE:</string>
+    <string name="textApellido">APELLIDOS:</string>
+    <string name="textEMAIL">EMAIL:</string>
+    <string name="txtDescripcionEvento">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "</string>
+    <string name="link">Enlace al evento</string>
+    <string name="textComPref">Selecciona la comunidad para mostrar sus eventos por defecto</string>
+    <string name="textValorar">VALORAR</string>
+    <string name="modificarParticipantes">MODIFICAR PARTICIPANTES</string>
+    <string name="textEnviar">ENVIAR COMENTARIO</string>
+    <string name="textComentario">Escribe tu comentario:</string>
+    <string name="contra">Click para cambiar contraseña</string>
+</resources>

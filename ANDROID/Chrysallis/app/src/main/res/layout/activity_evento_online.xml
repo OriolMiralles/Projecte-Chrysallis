@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/ic_back"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgTipoEventDetalle"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/colonias"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTituloDetalle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Colonies Berguedà"/>
+
+            <TextView
+                android:id="@+id/tvTipoEventoDetalle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quedada"/>
+
+            <TextView
+                android:id="@+id/tvFechaDetalle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8-6-2021"/>
+
+            <Button
+                android:id="@+id/btnLink"
+                style="@style/buttonSecondary"
+                android:layout_width="133dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:text="@string/link"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvDescripcionDetalle"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/heightTxtDescrEventoOnline"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/marginHorTxtDescrEvento"
+        android:background="@drawable/textviewmargen"
+        android:padding="@dimen/paddingTxtDescrEvento"
+        android:text="@string/txtDescripcionEvento" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NUM. PER.:"/>
+
+        <EditText
+            android:id="@+id/etNumPersonasDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnApuntarse"
+        style="@style/buttonPrimary2"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btnApuntarseEventoHeight"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:text="@string/textApuntarse"/>
+
+
+</LinearLayout>

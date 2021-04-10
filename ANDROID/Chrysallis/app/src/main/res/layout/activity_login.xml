@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="@dimen/widthLogo"
+        android:layout_height="@dimen/heightLogo"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/marginTopLogo"
+        android:background="@drawable/logosinfondo"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/marginLeftEmail"
+        android:layout_marginTop="@dimen/marginTopEmail">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textEmail"
+        android:textColor="@color/colorAccent"
+        />
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="@dimen/editTextSize"
+        android:layout_marginLeft="@dimen/marginLeftText"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:inputType="textEmailAddress"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/marginLeftPassword">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textPassword"
+            android:textColor="@color/colorAccent"/>
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="@dimen/editTextSize"
+            android:layout_marginLeft="@dimen/marginLeftText"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:inputType="textPassword"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        style="@style/buttonPrimary"
+        android:layout_width="@dimen/btnLoginWidth"
+        android:layout_height="@dimen/btnLoginHeight"
+        android:layout_gravity="center"
+        android:text="@string/textLogin"
+        android:layout_marginTop="@dimen/marginTopLogin"/>
+    <Button
+        android:id="@+id/btnResetPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contra"
+        android:background="@color/colorPrimary"
+       android:layout_gravity="center"
+        android:textStyle="bold"
+        android:stateListAnimator="@null"
+        android:layout_marginTop="20dp"
+        android:textColor="#135EA8"/>
+
+
+    <Button
+        android:id="@+id/btnRegistro"
+        style="@style/buttonSecondary"
+        android:text="@string/textRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/btnRegistroHeight"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/marginTopRegistro"/>
+
+    </LinearLayout>
