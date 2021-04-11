@@ -14,7 +14,7 @@
         <EntityTypeShape EntityType="ChrysallisModel.menors_socis" Width="1.5" PointX="15" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ChrysallisModel.provincies" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
         <EntityTypeShape EntityType="ChrysallisModel.rols" Width="1.5" PointX="1.375" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ChrysallisModel.socis" Width="1.5" PointX="12.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChrysallisModel.socis" Width="1.5" PointX="0.5" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ChrysallisModel.tipus_events" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ChrysallisModel.usuaris" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ChrysallisModel.valoracions" Width="1.5" PointX="15" PointY="14.75" IsExpanded="true" />

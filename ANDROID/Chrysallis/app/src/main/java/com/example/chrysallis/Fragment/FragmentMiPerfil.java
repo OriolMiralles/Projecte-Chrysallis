@@ -68,6 +68,10 @@ private Spinner spComuni;
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 _soci.getComunitats().clear();
+                int idCom = i+1;
+                String nomCom = spComuni.getSelectedItem().toString();
+                Comunitat comunitat = new Comunitat(idCom, nomCom);
+                _soci.getComunitats().add(comunitat);
                 SociService sociService = Api.getApi().create(SociService.class);
                 Call<Soci>callSoci = sociService.deleteComunitats(_soci.getId());
                 callSoci.enqueue(new Callback<Soci>() {
@@ -75,7 +79,33 @@ private Spinner spComuni;
                     public void onResponse(Call<Soci> call, Response<Soci> response) {
                         switch (response.code()){
                             case 200:
-                                Toast.makeText(getContext(), "Comunidades borradas", Toast.LENGTH_SHORT).show();
+                                Call<Soci>callSociDos = sociService.insertComunitat(_soci.getId(), comunitat);
+                                callSociDos.enqueue(new Callback<Soci>() {
+                                    @Override
+                                    public void onResponse(Call<Soci> call, Response<Soci> response) {
+                                        switch (response.code()){
+                                            case 200:
+                                                break;
+                                            case 404:
+                                                Toast.makeText(getContext(), "No se puede actualizar", Toast.LENGTH_LONG).show();
+                                                break;
+                                            case 400:
+                                                Gson gson = new Gson();
+                                                MissatgeError missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
+                                                Toast.makeText(getContext(), missatge.getMessage(), Toast.LENGTH_LONG).show();
+                                                break;
+                                            default:
+                                                Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
+                                                break;
+
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<Soci> call, Throwable t) {
+                                        Toast.makeText(getContext(), t.getCause() + "; " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                });
                                 break;
                             case 404:
                                 Toast.makeText(getContext(), "No se puede actualizar", Toast.LENGTH_LONG).show();
@@ -93,6 +123,7 @@ private Spinner spComuni;
 
                     @Override
                     public void onFailure(Call<Soci> call, Throwable t) {
+                        Toast.makeText(getContext(), t.getCause() + "; " + t.getMessage(), Toast.LENGTH_SHORT).show();
 
                     }
                 });

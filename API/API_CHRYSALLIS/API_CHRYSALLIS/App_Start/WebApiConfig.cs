@@ -17,7 +17,7 @@ namespace API_CHRYSALLIS
 
             json.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             json.SerializerSettings.PreserveReferencesHandling =
-                Newtonsoft.Json.PreserveReferencesHandling.None;
+                Newtonsoft.Json.PreserveReferencesHandling.None;    
             // Rutas de API web
             config.MapHttpAttributeRoutes();
 

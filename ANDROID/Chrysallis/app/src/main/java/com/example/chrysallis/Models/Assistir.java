@@ -12,7 +12,13 @@ public class Assistir implements Serializable {
     private boolean haPagado;
     private int valoracio;
     private ArrayList<Esdeveniment> esdeveniments;
+    private ArrayList<Soci> socis;
 
+    public Assistir(int id_soci, int id_esdeveniment, int quantitat_persones){
+        this.id_soci = id_soci;
+        this.id_esdeveniment = id_esdeveniment;
+        this.quantitat_persones = quantitat_persones;
+    }
     public Assistir(int id_soci, int id_esdeveniment, int quantitat_persones, String textValoracio, double cantidadTotal, boolean haPagado, int valoracio, ArrayList<Esdeveniment> esdeveniments) {
         this.id_soci = id_soci;
         this.id_esdeveniment = id_esdeveniment;

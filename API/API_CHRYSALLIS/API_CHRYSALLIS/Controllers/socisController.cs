@@ -70,7 +70,6 @@ namespace API_CHRYSALLIS.Controllers
                 {
 
                     db.Entry(socis).State = EntityState.Modified;
-                    db.Entry(socis.comunitats).State = EntityState.Modified;
                     result = StatusCode(HttpStatusCode.NoContent);
                     try
                     {
@@ -129,6 +128,20 @@ namespace API_CHRYSALLIS.Controllers
             return Ok(socis);
         }
 
+
+        [HttpPost]
+        [Route("api/socis/comunitats/{id}")]
+        public async Task<IHttpActionResult> InsertComunitats(int id, comunitats comunitat)
+        {
+            socis soci = await db.socis.FindAsync(id);
+            comunitats com = await db.comunitats.FindAsync(comunitat.id);
+            soci.comunitats.Add(com);
+            await db.SaveChangesAsync();
+
+
+            return Ok(soci);
+        }
+
         [HttpDelete]
         [Route("api/socis/comunitats/{id}")]
         public async Task<IHttpActionResult> DeleteComunitats(int id)
@@ -140,7 +153,7 @@ namespace API_CHRYSALLIS.Controllers
 
             return Ok(soci);
         }
-
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -71,6 +71,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
                         break;
 
                     case (R.id.mainProfile):
+                        fragmentSelected = 3;
                         FragmentMiPerfil fmp = FragmentMiPerfil.newInstance(soci);
                         cargarFragments(fmp);
                         resultado = true;
@@ -83,8 +84,18 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
     }
     @Override
     public void onSelectedEsdeveniment(Esdeveniment esdeveniment){
-        FragmentEventDetail fmp = FragmentEventDetail.newInstance(esdeveniment);
-        cargarFragments(fmp);
+        if(esdeveniment.getId_tipus()==5){
+
+        }else{
+            Intent intent = new Intent(MenuActivity.this, DetalleEventoActivity.class);
+            Bundle b = new Bundle();
+            b.putSerializable(DetalleEventoActivity.SOCI, soci);
+            b.putSerializable(DetalleEventoActivity.ESDEVENIMENT, esdeveniment);
+            intent.putExtras(b);
+            startActivity(intent);
+        }
+       /* FragmentEventDetail fmp = FragmentEventDetail.newInstance(esdeveniment, soci);
+        cargarFragments(fmp);*/
     }
     private void cargarEsdeveniemnts(){
         int id;

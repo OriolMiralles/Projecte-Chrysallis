@@ -7,23 +7,41 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.example.chrysallis.Api.Api;
+import com.example.chrysallis.Api.ApiServices.AssistirService;
+import com.example.chrysallis.Models.Assistir;
 import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.EsdevenimentListener;
+import com.example.chrysallis.Models.Soci;
 import com.example.chrysallis.R;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class FragmentEventDetail extends Fragment {
 
     private EsdevenimentListener listener;
     private static Esdeveniment esdeveniment;
+    private static Soci soci;
+    private Button btnApuntarse;
+    private EditText etNumPersonasDetalle;
 
-    public static FragmentEventDetail newInstance(Esdeveniment esde) {
+    public static FragmentEventDetail newInstance(Esdeveniment esde, Soci _soci) {
         FragmentEventDetail fragment = new FragmentEventDetail();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         esdeveniment = esde;
+        soci = _soci;
         return fragment;
     }
 
@@ -56,6 +74,8 @@ public class FragmentEventDetail extends Fragment {
         TextView tvTituloDetalle           = view.findViewById(R.id.tvTituloDetalle);
         TextView tvTipoEventoDetalle       = view.findViewById(R.id.tvTipoEventoDetalle);
         TextView tvFechaDetalle            = view.findViewById(R.id.tvFechaDetalle);
+        btnApuntarse                       = view.findViewById(R.id.btnApuntarse);
+        etNumPersonasDetalle               =view.findViewById(R.id.etNumPersonasDetalle);
         //ImageView imgGoogle              = view.findViewById(R.id.imgGoogle);
         TextView tvDescripcionDetalle      = view.findViewById(R.id.tvDescripcionDetalle);
         Button btnLink                     = view.findViewById(R.id.btnLink);
@@ -77,6 +97,35 @@ public class FragmentEventDetail extends Fragment {
                 }
             });
         }
+
+        btnApuntarse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int numPersonas = Integer.parseInt(etNumPersonasDetalle.getText().toString());
+                Assistir assistir = new Assistir(soci.getId(), esdeveniment.getId(), numPersonas);
+
+                AssistirService assistirService = Api.getApi().create(AssistirService.class);
+                Call<Assistir> callAssistir =assistirService.insertAssistir(assistir);
+
+                callAssistir.enqueue(new Callback<Assistir>() {
+                    @Override
+                    public void onResponse(Call<Assistir> call, Response<Assistir> response) {
+                        switch (response.code()){
+                            case 200:
+                                Toast.makeText(getContext(), "Te has apuntado al evento.", Toast.LENGTH_SHORT).show();
+
+                                break;
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Assistir> call, Throwable t) {
+
+                    }
+                });
+
+            }
+        });
     }
 
     private void loadImageEvent(ImageView imgTipoEventDetalle){
