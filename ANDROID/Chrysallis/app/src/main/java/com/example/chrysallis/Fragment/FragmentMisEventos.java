@@ -44,6 +44,7 @@ public class FragmentMisEventos extends Fragment {
     }
     public void addListData(final List<Esdeveniment> esdeveniments, View v){
 
+
         final RecyclerView reciclerEventos =v.findViewById(R.id.ReciclerMisEventos);
         AdaptadorMisEventos adaptador = new AdaptadorMisEventos(esdeveniments);
         reciclerEventos.setHasFixedSize(true);

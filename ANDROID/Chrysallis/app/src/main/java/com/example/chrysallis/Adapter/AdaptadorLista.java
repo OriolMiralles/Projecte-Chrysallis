@@ -46,22 +46,22 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHold
                 case (1):
                     imgTipoEvent.setImageResource(R.drawable.colonias);
                     tvTipoAct.setText("Colonias");
-                    tvCiudad.setText(String.valueOf(event.getLocalitat().getNom()));
+                    tvCiudad.setText(String.valueOf(event.getLocalitats().getNom()));
                     break;
                 case (2):
                     imgTipoEvent.setImageResource(R.drawable.quedada);
                     tvTipoAct.setText("Quedada");
-                    tvCiudad.setText(String.valueOf(event.getLocalitat().getNom()));
+                    tvCiudad.setText(String.valueOf(event.getLocalitats().getNom()));
                     break;
                 case (3):
                     imgTipoEvent.setImageResource(R.drawable.taller);
                     tvTipoAct.setText("Taller");
-                    tvCiudad.setText(String.valueOf(event.getLocalitat().getNom()));
+                    tvCiudad.setText(String.valueOf(event.getLocalitats().getNom()));
                     break;
                 case (4):
                     imgTipoEvent.setImageResource(R.drawable.picnic);
                     tvTipoAct.setText("Pícnic");
-                    tvCiudad.setText(String.valueOf(event.getLocalitat().getNom()));
+                    tvCiudad.setText(String.valueOf(event.getLocalitats().getNom()));
                     break;
                 case (5):
                     imgTipoEvent.setImageResource(R.drawable.online);
@@ -72,7 +72,7 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHold
                 case (6):
                     imgTipoEvent.setImageResource(R.drawable.mani_blau);
                     tvTipoAct.setText("Manifestación");
-                    tvCiudad.setText(String.valueOf(event.getLocalitat().getNom()));
+                    tvCiudad.setText(String.valueOf(event.getLocalitats().getNom()));
                     break;
 
             }

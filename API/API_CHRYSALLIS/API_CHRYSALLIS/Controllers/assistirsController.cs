@@ -39,12 +39,12 @@ namespace API_CHRYSALLIS.Controllers
 
         [HttpGet]
         [Route("api/assistir/soci/{id}")]
-        public async Task<IHttpActionResult> FoundById(String email)
+        public async Task<IHttpActionResult> FoundById(int id)
         {
             db.Configuration.LazyLoadingEnabled = false;
             IHttpActionResult result;
 
-            assistir assistir = await db.assistir.Include("esdeveniments").Include("socis").Where(a => a.socis.email.Equals(email)).FirstOrDefaultAsync();
+            List<assistir> assistir = db.assistir.Include("esdeveniments").Include("socis").Where(a => a.socis.id==id).ToList();
 
             return Ok(assistir);
         }

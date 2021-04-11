@@ -65,7 +65,7 @@ public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEvento
                     break;
 
             }
-            tvCiudad.setText(String.valueOf(event.getLocalitat().getNom()));
+            tvCiudad.setText(String.valueOf(event.getLocalitats().getNom()));
             java.util.Date date = event.getData();
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             String fecha = df.format(date);

@@ -13,17 +13,20 @@ import android.widget.Toast;
 import com.example.chrysallis.Api.Api;
 import com.example.chrysallis.Api.ApiServices.AssistirService;
 import com.example.chrysallis.Api.ApiServices.EsdevenimentService;
+import com.example.chrysallis.Fragment.FragmentMisEventos;
 import com.example.chrysallis.Models.Assistir;
 import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.Fragment.FragmentEventDetail;
 import com.example.chrysallis.Fragment.FragmentListaEventos;
 import com.example.chrysallis.Fragment.FragmentMiPerfil;
+import com.example.chrysallis.Models.Localitat;
 import com.example.chrysallis.Models.MissatgeError;
 import com.example.chrysallis.Models.Soci;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -98,12 +101,13 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
         cargarFragments(fmp);*/
     }
     private void cargarEsdeveniemnts(){
-        int id;
+        EsdevenimentService esdevService;
+        Call<List<Esdeveniment>> listEsdev;
+        int id = soci.getComunitats().get(0).getId();
         switch (fragmentSelected){
             case 1:
-                id = soci.getComunitats().get(0).getId();
-                EsdevenimentService esdevService = Api.getApi().create(EsdevenimentService.class);
-                Call<List<Esdeveniment>> listEsdev = esdevService.getEsdevenimentsComunitat(id);
+                esdevService = Api.getApi().create(EsdevenimentService.class);
+                listEsdev = esdevService.getEsdevenimentsComunitat(id);
                 listEsdev.enqueue(new Callback<List<Esdeveniment>>() {
                     @Override
                     public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
@@ -136,25 +140,35 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
                 });
                 break;
             case 2:
-                id = soci.getId();
-                AssistirService assistirService = Api.getApi().create(AssistirService.class);
-                Call<Assistir> assistirCall = assistirService.getMisEsdeveniments(id);
-                assistirCall.enqueue(new Callback<Assistir>() {
+                esdevService = Api.getApi().create(EsdevenimentService.class);
+                listEsdev = esdevService.getEsdevenimentsComunitat(id);
+                listEsdev.enqueue(new Callback<List<Esdeveniment>>() {
                     @Override
-                    public void onResponse(Call<Assistir> call, Response<Assistir> response) {
+                    public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
                         switch (response.code()){
                             case 200:
                                 if(response.body()!=null){
-                                    assistirs = response.body();
-                                    esdeveniments = assistirs.getEsdeveniments();
-                                    FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
-                                    flista.setEsdevenimentListener(MenuActivity.this);
-                                    cargarFragments(flista);  
+                                    esdeveniments = new ArrayList<>(response.body());
+                                    ArrayList<Esdeveniment>esdevenimentsSoci = new ArrayList<Esdeveniment>();
+                                    for(Esdeveniment item : esdeveniments){
+                                        for(Soci sociEsdev : item.getSocis()){
+                                            if(sociEsdev.getId() == soci.getId()){
+                                                esdevenimentsSoci.add(item);
+                                            }
+                                        }
+                                    }
+
+Date data = new Date("16/06/2021");
+Localitat localitat = new Localitat(4312, "Jorba");
+                                    Esdeveniment event = new Esdeveniment("Evento 3", data, localitat, 3, "Taller astronomico");
+                                    esdevenimentsSoci.add(event);
+                                    FragmentMisEventos fme = FragmentMisEventos.newInstance(esdevenimentsSoci);
+                                    fme.setEsdevenimentListener(MenuActivity.this);
+                                    cargarFragments(fme);
                                 }else{
-                                    esdeveniments = null;
-                                    Toast.makeText(MenuActivity.this, "NO HAY", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MenuActivity.this, "No hay eventos programados", Toast.LENGTH_SHORT).show();
                                 }
-                                
+
                                 break;
                             default:
                                 Gson gson = new Gson();
@@ -162,11 +176,13 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
                                 Toast.makeText(MenuActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
                                 break;
                         }
+
                     }
 
                     @Override
-                    public void onFailure(Call<Assistir> call, Throwable t) {
-
+                    public void onFailure(Call<List<Esdeveniment>> call, Throwable t) {
+                        String text = t.getMessage();
+                        Toast.makeText(MenuActivity.this, t.getCause() + " ; " + t.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
                 break;

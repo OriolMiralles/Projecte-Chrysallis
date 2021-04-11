@@ -11,20 +11,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btnBack"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_margin="@dimen/marginTopLogo"
             android:background="@drawable/ic_back"/>
 
         <ImageView
             android:id="@+id/imgTipoEventDetalle"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_marginLeft="90dp"
-            android:layout_marginTop = "20dp"
+            android:layout_gravity="center"
             android:background="@drawable/colonias"/>
 
     </LinearLayout>
@@ -74,7 +74,7 @@
 
     <TextView
         android:id="@+id/tvDescripcionDetalle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/heightTxtDescrEvento"
         android:layout_marginTop="20dp"
         android:layout_marginHorizontal="@dimen/marginHorTxtDescrEvento"

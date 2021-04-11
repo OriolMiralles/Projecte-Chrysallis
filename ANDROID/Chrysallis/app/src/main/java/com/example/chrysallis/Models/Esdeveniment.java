@@ -2,6 +2,7 @@ package com.example.chrysallis.Models;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Esdeveniment implements Serializable {
     private int id;
@@ -12,20 +13,26 @@ public class Esdeveniment implements Serializable {
     private String descripcio;
     private String tipoEvento;
     private String adreca;
+    private List<Soci> socis;
 
-    public Esdeveniment(){
-
+    public Esdeveniment(String titol, Date data, Localitat localitat, int id_tipus, String descripcio){
+        this.titol = titol;
+        this.data = data;
+        this.localitats = localitat;
+        this.id_tipus = id_tipus;
+        this.descripcio = descripcio;
     }
-    public Esdeveniment(int id, String titol, Date data,String tipoEvento,
-                        Localitat localitats, String descripcio, int id_tipus, String adreca){
+
+    public Esdeveniment(int id, String titol, Date data, Localitat localitats, int id_tipus, String descripcio, String tipoEvento, String adreca, List<Soci> socis) {
         this.id = id;
         this.titol = titol;
         this.data = data;
         this.localitats = localitats;
-        this.tipoEvento = tipoEvento;
-        this.descripcio = descripcio;
         this.id_tipus = id_tipus;
+        this.descripcio = descripcio;
+        this.tipoEvento = tipoEvento;
         this.adreca = adreca;
+        this.socis = socis;
     }
 
     public int getId() {
@@ -52,20 +59,12 @@ public class Esdeveniment implements Serializable {
         this.data = data;
     }
 
-    public Localitat getLocalitat() {
+    public Localitat getLocalitats() {
         return localitats;
     }
 
-    public void setLocalitat(Localitat localitats) {
+    public void setLocalitats(Localitat localitats) {
         this.localitats = localitats;
-    }
-
-    public String getAdreca() {
-        return adreca;
-    }
-
-    public void setAdreca(String adreca) {
-        this.adreca = adreca;
     }
 
     public int getId_tipus() {
@@ -90,5 +89,21 @@ public class Esdeveniment implements Serializable {
 
     public void setTipoEvento(String tipoEvento) {
         this.tipoEvento = tipoEvento;
+    }
+
+    public String getAdreca() {
+        return adreca;
+    }
+
+    public void setAdreca(String adreca) {
+        this.adreca = adreca;
+    }
+
+    public List<Soci> getSocis() {
+        return socis;
+    }
+
+    public void setSocis(List<Soci> socis) {
+        this.socis = socis;
     }
 }

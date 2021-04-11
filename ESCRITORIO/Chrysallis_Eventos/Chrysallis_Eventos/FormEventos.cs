@@ -139,8 +139,8 @@ namespace Chrysallis_Eventos
         private void textBoxBuscarEvent_TextChanged(object sender, EventArgs e)
         {
             List<esdeveniments> llistaFiltrada = null;
-
-            llistaFiltrada = new List<esdeveniments>(esdeveniments.Where(esdev => esdev.localitats.nom.ToLower().Contains(textBoxBuscarEvent.Text.ToLower())).ToList());
+            
+            llistaFiltrada = new List<esdeveniments>(esdeveniments.Where(esdev => esdev.localitats!=null && esdev.localitats.nom.ToLower().Contains(textBoxBuscarEvent.Text.ToLower())).ToList());
 
             bindingSourceGridEventos.DataSource = llistaFiltrada;
         }

@@ -13,7 +13,7 @@ import retrofit2.http.Path;
 
 public interface AssistirService {
     @GET("api/assistir/soci/{id}")
-    Call<Assistir> getMisEsdeveniments(@Path("id") int id);
+    Call<List<Assistir>> getMisEsdeveniments(@Path("id") int id);
 
     @POST("api/assistirs")
     Call<Assistir> insertAssistir(@Body Assistir assistir);

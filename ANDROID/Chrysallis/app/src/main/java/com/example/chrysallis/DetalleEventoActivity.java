@@ -16,7 +16,9 @@ import com.example.chrysallis.Api.ApiServices.AssistirService;
 import com.example.chrysallis.Api.ApiServices.EsdevenimentService;
 import com.example.chrysallis.Models.Assistir;
 import com.example.chrysallis.Models.Esdeveniment;
+import com.example.chrysallis.Models.MissatgeError;
 import com.example.chrysallis.Models.Soci;
+import com.google.gson.Gson;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,7 +31,10 @@ public class DetalleEventoActivity extends AppCompatActivity {
     private Soci soci;
     private Esdeveniment esdeveniment;
     private Button btnApuntarse;
+    private Button btnBack;
     private EditText etNumPersonasDetalle;
+    private boolean apuntado = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +52,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
         etNumPersonasDetalle               = findViewById(R.id.etNumPersonasDetalle);
         //ImageView imgGoogle              = findViewById(R.id.imgGoogle);
         TextView tvDescripcionDetalle      = findViewById(R.id.tvDescripcionDetalle);
+        btnBack                            = findViewById(R.id.btnBack);
         Button btnLink                     = findViewById(R.id.btnLink);
         //setteamos los elementos
         loadImageEvent(imgTipoEventDetalle);
@@ -56,31 +62,55 @@ public class DetalleEventoActivity extends AppCompatActivity {
         tvDescripcionDetalle.setText((esdeveniment.getDescripcio()));
 
 
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         btnApuntarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int numPersonas = Integer.parseInt(etNumPersonasDetalle.getText().toString());
-                Assistir assistir = new Assistir(soci.getId(), esdeveniment.getId(), numPersonas);
+                String personas = etNumPersonasDetalle.getText().toString();
+                if(!personas.equals("")){
+                    int numPersonas = Integer.parseInt(etNumPersonasDetalle.getText().toString());
 
-                AssistirService assistirService = Api.getApi().create(AssistirService.class);
-                Call<Assistir> callAssistir =assistirService.insertAssistir(assistir);
-
-                callAssistir.enqueue(new Callback<Assistir>() {
-                    @Override
-                    public void onResponse(Call<Assistir> call, Response<Assistir> response) {
-                        switch (response.code()){
-                            case 201:
-                                Toast.makeText(DetalleEventoActivity.this, "Te has apuntado al evento.", Toast.LENGTH_SHORT).show();
-                                finish();
-                                break;
+                    EsdevenimentService esdevenimentService = Api.getApi().create(EsdevenimentService.class);
+                    Call<Esdeveniment>esdevenimentCall = esdevenimentService.updateEsdeveniment(esdeveniment.getId(), esdeveniment);
+                    esdevenimentCall.enqueue(new Callback<Esdeveniment>() {
+                        @Override
+                        public void onResponse(Call<Esdeveniment> call, Response<Esdeveniment> response) {
+                            Gson gson;
+                            MissatgeError missatge;
+                            switch (response.code()){
+                                case 204:
+                                    finish();
+                                    break;
+                                case 404:
+                                    gson = new Gson();
+                                    missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
+                                    Toast.makeText(DetalleEventoActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
+                                    break;
+                                default:
+                                    gson = new Gson();
+                                    missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
+                                    Toast.makeText(DetalleEventoActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
+                                    break;
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<Assistir> call, Throwable t) {
+                        @Override
+                        public void onFailure(Call<Esdeveniment> call, Throwable t) {
 
-                    }
-                });
+                        }
+                    });
+
+
+                }else{
+                    Toast.makeText(DetalleEventoActivity.this, "Hay que indicar el número de asistentes", Toast.LENGTH_LONG).show();
+                }
+
 
             }
         });
