@@ -6,6 +6,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
@@ -20,4 +21,6 @@ public interface SociService {
     @PUT("api/socis/{id}")
     Call<Soci>updateSoci(@Path("id")int id, @Body Soci soci);
 
+    @DELETE("api/socis/comunitats/{id}")
+    Call<Soci>deleteComunitats(@Path("id")int id);
 }

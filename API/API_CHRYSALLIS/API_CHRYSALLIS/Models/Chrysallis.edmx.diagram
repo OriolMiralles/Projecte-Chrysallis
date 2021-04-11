@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3048ed2aaf2a4b288f845e7c9d286785" Name="Diagram1">
+      <Diagram DiagramId="3048ed2aaf2a4b288f845e7c9d286785" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="ChrysallisModel.assistir" Width="1.5" PointX="9.75" PointY="14.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ChrysallisModel.comunitats" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ChrysallisModel.documents" Width="1.5" PointX="9.75" PointY="18.25" IsExpanded="true" />
@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="ChrysallisModel.menors" Width="1.5" PointX="12.75" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="ChrysallisModel.menors_socis" Width="1.5" PointX="15" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ChrysallisModel.provincies" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
-        <EntityTypeShape EntityType="ChrysallisModel.rols" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChrysallisModel.rols" Width="1.5" PointX="1.375" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ChrysallisModel.socis" Width="1.5" PointX="12.75" PointY="13" IsExpanded="true" />
         <EntityTypeShape EntityType="ChrysallisModel.tipus_events" Width="1.5" PointX="5.25" PointY="14.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ChrysallisModel.usuaris" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />

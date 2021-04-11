@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -52,35 +53,52 @@ namespace API_CHRYSALLIS.Controllers
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> Putesdeveniments(int id, esdeveniments esdeveniments)
         {
+            IHttpActionResult result;
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                result = BadRequest(ModelState);
             }
-
-            if (id != esdeveniments.id)
+            else
             {
-                return BadRequest();
-            }
-
-            db.Entry(esdeveniments).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!esdevenimentsExists(id))
+                String missatge = "";
+                if (id != esdeveniments.id)
                 {
-                    return NotFound();
+                    result = BadRequest(missatge);
                 }
                 else
                 {
-                    throw;
+                    db.Entry(esdeveniments).State = EntityState.Modified;
+
+                    try
+                    {
+                        await db.SaveChangesAsync();
+                        result = StatusCode(HttpStatusCode.NoContent);
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!esdevenimentsExists(id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    catch (DbUpdateException ex)
+                    {
+                        SqlException sqlException = (SqlException)ex.InnerException.InnerException;
+                        missatge = CLASES.Utilitat.missatgeError(sqlException);
+                        result = BadRequest(missatge);
+                    }
                 }
+
+               
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+
+
+            return result;
         }
 
         // POST: api/esdeveniments

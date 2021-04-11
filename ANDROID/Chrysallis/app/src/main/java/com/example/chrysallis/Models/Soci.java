@@ -1,7 +1,6 @@
 package com.example.chrysallis.Models;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.Date;
 import java.util.List;
 
@@ -13,18 +12,17 @@ public class Soci implements Serializable {
     private String contrasenya;
     private boolean permis_app;
     private List<Comunitat> comunitats;
+    private int id_localitat;
     private boolean actiu;
     private String telefon1;
     private String telefon2;
     private String dni;
-    private Date data_naixement;
-    private Date data_baixa;
     private Date data_alta;
     private String adresa;
     private String codi_postal;
     private int num;
 
-    public Soci(int id, String nom, String cognoms, String email, String contrasenya, boolean permis_app, List<Comunitat> comunitats, boolean actiu, String telefon1, String telefon2, String dni, Date data_naixement, Date data_baixa, Date data_alta, String adresa, String codi_postal, int num) {
+    public Soci(int id, String nom, String cognoms, String email, String contrasenya, boolean permis_app, List<Comunitat> comunitats, int id_localitat, boolean actiu, String telefon1, String telefon2, String dni, Date data_alta, String adresa, String codi_postal, int num) {
         this.id = id;
         this.nom = nom;
         this.cognoms = cognoms;
@@ -32,12 +30,11 @@ public class Soci implements Serializable {
         this.contrasenya = contrasenya;
         this.permis_app = permis_app;
         this.comunitats = comunitats;
+        this.id_localitat = id_localitat;
         this.actiu = actiu;
         this.telefon1 = telefon1;
         this.telefon2 = telefon2;
         this.dni = dni;
-        this.data_naixement = data_naixement;
-        this.data_baixa = data_baixa;
         this.data_alta = data_alta;
         this.adresa = adresa;
         this.codi_postal = codi_postal;
@@ -100,6 +97,14 @@ public class Soci implements Serializable {
         this.comunitats = comunitats;
     }
 
+    public int getId_localitat() {
+        return id_localitat;
+    }
+
+    public void setId_localitat(int id_localitat) {
+        this.id_localitat = id_localitat;
+    }
+
     public boolean isActiu() {
         return actiu;
     }
@@ -130,22 +135,6 @@ public class Soci implements Serializable {
 
     public void setDni(String dni) {
         this.dni = dni;
-    }
-
-    public Date getData_naixement() {
-        return data_naixement;
-    }
-
-    public void setData_naixement(Date data_naixement) {
-        this.data_naixement = data_naixement;
-    }
-
-    public Date getData_baixa() {
-        return data_baixa;
-    }
-
-    public void setData_baixa(Date data_baixa) {
-        this.data_baixa = data_baixa;
     }
 
     public Date getData_alta() {

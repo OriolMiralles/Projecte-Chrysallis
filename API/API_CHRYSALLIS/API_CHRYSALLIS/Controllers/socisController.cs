@@ -37,6 +37,7 @@ namespace API_CHRYSALLIS.Controllers
 
             return Ok(socis);
         }
+
         [HttpGet]
         [Route("api/socis/email/{email}/")]
         public async Task<IHttpActionResult> FoundByEmail(String email)
@@ -53,35 +54,46 @@ namespace API_CHRYSALLIS.Controllers
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> Putsocis(int id, socis socis)
         {
+            IHttpActionResult result;
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                result = BadRequest(ModelState);
             }
-
-            if (id != socis.id)
+            else
             {
-                return BadRequest();
-            }
-
-            db.Entry(socis).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!socisExists(id))
+                String missatge = "";
+                if (id != socis.id)
                 {
-                    return NotFound();
+                    result = BadRequest(missatge);
                 }
                 else
                 {
-                    throw;
+
+                    db.Entry(socis).State = EntityState.Modified;
+                    db.Entry(socis.comunitats).State = EntityState.Modified;
+                    result = StatusCode(HttpStatusCode.NoContent);
+                    try
+                    {
+                        await db.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!socisExists(id))
+                        {
+                            result = NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
                 }
+
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+
+
+            return result;
         }
 
         // POST: api/socis
@@ -99,6 +111,8 @@ namespace API_CHRYSALLIS.Controllers
             return CreatedAtRoute("DefaultApi", new { id = socis.id }, socis);
         }
 
+
+
         // DELETE: api/socis/5
         [ResponseType(typeof(socis))]
         public async Task<IHttpActionResult> Deletesocis(int id)
@@ -113,6 +127,18 @@ namespace API_CHRYSALLIS.Controllers
             await db.SaveChangesAsync();
 
             return Ok(socis);
+        }
+
+        [HttpDelete]
+        [Route("api/socis/comunitats/{id}")]
+        public async Task<IHttpActionResult> DeleteComunitats(int id)
+        {
+            socis soci = await db.socis.FindAsync(id);
+            soci.comunitats.Clear();
+            await db.SaveChangesAsync();
+
+
+            return Ok(soci);
         }
 
         protected override void Dispose(bool disposing)
