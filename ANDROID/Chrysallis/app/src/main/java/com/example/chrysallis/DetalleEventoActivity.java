@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.chrysallis.Api.Api;
 import com.example.chrysallis.Api.ApiServices.AssistirService;
 import com.example.chrysallis.Api.ApiServices.EsdevenimentService;
+import com.example.chrysallis.Api.ApiServices.SociService;
 import com.example.chrysallis.Models.Assistir;
 import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.Models.MissatgeError;
@@ -75,17 +76,17 @@ public class DetalleEventoActivity extends AppCompatActivity {
                 String personas = etNumPersonasDetalle.getText().toString();
                 if(!personas.equals("")){
                     int numPersonas = Integer.parseInt(etNumPersonasDetalle.getText().toString());
-
-                    EsdevenimentService esdevenimentService = Api.getApi().create(EsdevenimentService.class);
-                    Call<Esdeveniment>esdevenimentCall = esdevenimentService.updateEsdeveniment(esdeveniment.getId(), esdeveniment);
-                    esdevenimentCall.enqueue(new Callback<Esdeveniment>() {
+                    Assistir assistir = new Assistir(soci.getId(), esdeveniment.getId(), numPersonas);
+                    AssistirService assistirService = Api.getApi().create(AssistirService.class);
+                    Call<Assistir>assistirCall = assistirService.insertAssistir(assistir);
+                    assistirCall.enqueue(new Callback<Assistir>() {
                         @Override
-                        public void onResponse(Call<Esdeveniment> call, Response<Esdeveniment> response) {
+                        public void onResponse(Call<Assistir> call, Response<Assistir> response) {
                             Gson gson;
                             MissatgeError missatge;
                             switch (response.code()){
                                 case 204:
-                                    finish();
+
                                     break;
                                 case 404:
                                     gson = new Gson();
@@ -101,7 +102,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
                         }
 
                         @Override
-                        public void onFailure(Call<Esdeveniment> call, Throwable t) {
+                        public void onFailure(Call<Assistir> call, Throwable t) {
 
                         }
                     });

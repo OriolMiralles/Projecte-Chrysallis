@@ -1,6 +1,7 @@
 package com.example.chrysallis.Api.ApiServices;
 
 import com.example.chrysallis.Models.Comunitat;
+import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.Models.Soci;
 
 import java.util.List;
@@ -28,4 +29,7 @@ public interface SociService {
 
     @POST("api/socis/comunitats/{id}")
     Call<Soci>insertComunitat(@Path("id") int id, @Body Comunitat comunitat);
+
+    @POST("api/socis/esdeveniment/{id}")
+    Call<Soci>insertEsdeveniment(@Path("id") int id, @Body Esdeveniment esdeveniment);
 }

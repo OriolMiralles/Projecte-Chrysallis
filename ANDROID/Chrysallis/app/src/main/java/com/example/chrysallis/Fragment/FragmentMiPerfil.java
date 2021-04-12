@@ -30,6 +30,8 @@ import retrofit2.Response;
 public class FragmentMiPerfil extends Fragment {
 private ArrayList<String> comunitats;
 private static Soci _soci;
+private int spinner = 0;
+
 private Spinner spComuni;
     public static FragmentMiPerfil newInstance(Soci soci) {
         FragmentMiPerfil fragment = new FragmentMiPerfil();
@@ -85,6 +87,10 @@ private Spinner spComuni;
                                     public void onResponse(Call<Soci> call, Response<Soci> response) {
                                         switch (response.code()){
                                             case 200:
+                                                Toast.makeText(getContext(), "Actualitzat", Toast.LENGTH_SHORT).show();
+                                                break;
+                                            case 204:
+                                                Toast.makeText(getContext(), "204", Toast.LENGTH_SHORT).show();
                                                 break;
                                             case 404:
                                                 Toast.makeText(getContext(), "No se puede actualizar", Toast.LENGTH_LONG).show();
@@ -107,6 +113,9 @@ private Spinner spComuni;
                                     }
                                 });
                                 break;
+                            case 204:
+                                Toast.makeText(getContext(), "Entra primer 204", Toast.LENGTH_SHORT).show();
+                                break;
                             case 404:
                                 Toast.makeText(getContext(), "No se puede actualizar", Toast.LENGTH_LONG).show();
                                 break;
@@ -127,39 +136,7 @@ private Spinner spComuni;
 
                     }
                 });
-                /*
-                int idCom = i+1;
-                String nomCom = spComuni.getSelectedItem().toString();
-                Comunitat comunitat = new Comunitat(idCom, nomCom);
-                _soci.getComunitats().add(comunitat);
-
-                callSoci = sociService.updateSoci(_soci.getId(), _soci);
-                callSoci.enqueue(new Callback<Soci>() {
-                    @Override
-                    public void onResponse(Call<Soci> call, Response<Soci> response) {
-                        switch (response.code()){
-                            case 200:
-                                Toast.makeText(getContext(), "ACTUALIZADO", Toast.LENGTH_SHORT).show();
-                                break;
-                            case 404:
-                                Toast.makeText(getContext(), "No se puede actualizar", Toast.LENGTH_LONG).show();
-                                break;
-                            case 400:
-                                Gson gson = new Gson();
-                                MissatgeError missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
-                                Toast.makeText(getContext(), missatge.getMessage(), Toast.LENGTH_LONG).show();
-                                break;
-                            default:
-                                Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
-                                break;
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<Soci> call, Throwable t) {
-                        Toast.makeText(getContext(), t.getCause() + "; " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });*/
+                
 
             }
 

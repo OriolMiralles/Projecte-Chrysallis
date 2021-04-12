@@ -45,10 +45,12 @@ namespace API_CHRYSALLIS.Controllers
             db.Configuration.LazyLoadingEnabled = false;
             IHttpActionResult result;
 
-            List<esdeveniments> _esdeveniments = db.esdeveniments.Include("comunitats").Include("localitats").Where(e => e.id_comunitat==id).ToList();
+            List<esdeveniments> _esdeveniments = db.esdeveniments.
+                Include("comunitats").Include("localitats").Where(e => e.id_comunitat==id).ToList();
 
             return Ok(_esdeveniments);
         }
+        
 
         // PUT: api/esdeveniments/5
         [ResponseType(typeof(void))]

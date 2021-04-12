@@ -44,7 +44,7 @@ namespace API_CHRYSALLIS.Controllers
             db.Configuration.LazyLoadingEnabled = false;
             IHttpActionResult result;
 
-            List<assistir> assistir = db.assistir.Include("esdeveniments").Include("socis").Where(a => a.socis.id==id).ToList();
+            List<assistir> assistir = db.assistir.Include("esdeveniments").Where(a => a.socis.id==id).ToList();
 
             return Ok(assistir);
         }

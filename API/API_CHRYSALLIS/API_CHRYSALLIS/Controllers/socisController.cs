@@ -133,6 +133,7 @@ namespace API_CHRYSALLIS.Controllers
         [Route("api/socis/comunitats/{id}")]
         public async Task<IHttpActionResult> InsertComunitats(int id, comunitats comunitat)
         {
+            db.Configuration.LazyLoadingEnabled = false;
             socis soci = await db.socis.FindAsync(id);
             comunitats com = await db.comunitats.FindAsync(comunitat.id);
             soci.comunitats.Add(com);
@@ -141,13 +142,30 @@ namespace API_CHRYSALLIS.Controllers
 
             return Ok(soci);
         }
-
-        [HttpDelete]
-        [Route("api/socis/comunitats/{id}")]
-        public async Task<IHttpActionResult> DeleteComunitats(int id)
+        [HttpPost]
+        [Route("api/socis/esdeveniment/{id}")]
+        public async Task<IHttpActionResult> InsertEsdeveniment(int id, esdeveniments esdeveniment)
         {
+            db.Configuration.LazyLoadingEnabled = false;
             socis soci = await db.socis.FindAsync(id);
+            esdeveniments _esdev = await db.esdeveniments.FindAsync(esdeveniment.id);
+            soci.esdeveniments.Add(_esdev);
+            await db.SaveChangesAsync();
+
+
+            return Ok(soci);
+        }
+
+        [HttpPut]
+        [Route("api/socis/comunitats/{id}")]
+        public async Task<IHttpActionResult> updateComunitats(int id, comunitats comunitat)
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+            socis soci = await db.socis.FindAsync(id);
+
             soci.comunitats.Clear();
+            await db.SaveChangesAsync();
+            soci.comunitats.Add(comunitat);
             await db.SaveChangesAsync();
 
 
