@@ -164,7 +164,6 @@ namespace API_CHRYSALLIS.Controllers
             socis soci = await db.socis.FindAsync(id);
 
             soci.comunitats.Clear();
-            await db.SaveChangesAsync();
             soci.comunitats.Add(comunitat);
             await db.SaveChangesAsync();
 

@@ -75,45 +75,13 @@ private Spinner spComuni;
                 Comunitat comunitat = new Comunitat(idCom, nomCom);
                 _soci.getComunitats().add(comunitat);
                 SociService sociService = Api.getApi().create(SociService.class);
-                Call<Soci>callSoci = sociService.deleteComunitats(_soci.getId());
+                Call<Soci>callSoci = sociService.updateComunitat(_soci.getId(),_soci.getComunitats().get(0));
                 callSoci.enqueue(new Callback<Soci>() {
                     @Override
                     public void onResponse(Call<Soci> call, Response<Soci> response) {
                         switch (response.code()){
                             case 200:
-                                Call<Soci>callSociDos = sociService.insertComunitat(_soci.getId(), comunitat);
-                                callSociDos.enqueue(new Callback<Soci>() {
-                                    @Override
-                                    public void onResponse(Call<Soci> call, Response<Soci> response) {
-                                        switch (response.code()){
-                                            case 200:
-                                                Toast.makeText(getContext(), "Actualitzat", Toast.LENGTH_SHORT).show();
-                                                break;
-                                            case 204:
-                                                Toast.makeText(getContext(), "204", Toast.LENGTH_SHORT).show();
-                                                break;
-                                            case 404:
-                                                Toast.makeText(getContext(), "No se puede actualizar", Toast.LENGTH_LONG).show();
-                                                break;
-                                            case 400:
-                                                Gson gson = new Gson();
-                                                MissatgeError missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
-                                                Toast.makeText(getContext(), missatge.getMessage(), Toast.LENGTH_LONG).show();
-                                                break;
-                                            default:
-                                                Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
-                                                break;
-
-                                        }
-                                    }
-
-                                    @Override
-                                    public void onFailure(Call<Soci> call, Throwable t) {
-                                        Toast.makeText(getContext(), t.getCause() + "; " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-                                break;
-                            case 204:
+                                                            case 204:
                                 Toast.makeText(getContext(), "Entra primer 204", Toast.LENGTH_SHORT).show();
                                 break;
                             case 404:

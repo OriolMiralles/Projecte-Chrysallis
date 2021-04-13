@@ -85,8 +85,11 @@ public class DetalleEventoActivity extends AppCompatActivity {
                             Gson gson;
                             MissatgeError missatge;
                             switch (response.code()){
+                                case 201:
+                                    Toast.makeText(DetalleEventoActivity.this, "INsertado", Toast.LENGTH_SHORT).show();
+                                    finish();
                                 case 204:
-
+                                    Toast.makeText(DetalleEventoActivity.this, "Insertado", Toast.LENGTH_SHORT).show();
                                     break;
                                 case 404:
                                     gson = new Gson();

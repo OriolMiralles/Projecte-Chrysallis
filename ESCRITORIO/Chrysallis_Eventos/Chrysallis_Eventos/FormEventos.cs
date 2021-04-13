@@ -34,7 +34,7 @@ namespace Chrysallis_Eventos
             {
                 bindingSourceComboComuni.DataSource = ComunitatsOrm.Select(ref missatge);
                
-                comboBoxComunidades.SelectedIndex = 7;
+                comboBoxComunidades.SelectedIndex = 9;
                 refrescarGrid();
             }
             else
@@ -143,6 +143,11 @@ namespace Chrysallis_Eventos
             llistaFiltrada = new List<esdeveniments>(esdeveniments.Where(esdev => esdev.localitats!=null && esdev.localitats.nom.ToLower().Contains(textBoxBuscarEvent.Text.ToLower())).ToList());
 
             bindingSourceGridEventos.DataSource = llistaFiltrada;
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

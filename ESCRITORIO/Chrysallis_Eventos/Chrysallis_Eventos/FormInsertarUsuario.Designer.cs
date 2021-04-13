@@ -559,8 +559,10 @@ namespace Chrysallis_Eventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(765, 892);
+            this.ClientSize = new System.Drawing.Size(765, 1055);
             this.Controls.Add(this.buttonInsertarMenor);
             this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.dataGridViewMenors);
@@ -589,7 +591,6 @@ namespace Chrysallis_Eventos
             this.Controls.Add(this.labelNombreUsuario);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormInsertarUsuario";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insertar Usuario";
             this.Load += new System.EventHandler(this.FormInsertarUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCiutats)).EndInit();

@@ -54,6 +54,8 @@ namespace Chrysallis_Eventos
                 labelInfo.Visible = false;
                 buttonInsertarMenor.Visible = false;
                 generarContraseña();
+                buttonInsertar.Location = new Point(400, 641);
+
 
             }
             else
@@ -77,7 +79,8 @@ namespace Chrysallis_Eventos
                 comboBoxCiudadesBuscadasUsuario.SelectedItem = soci.localitats;
                 textBoxDireccionUsuario.Text = soci.adresa;
                 buttonInsertar.Text = "Modificar";
-                
+
+
             }
         }
 

@@ -50,8 +50,21 @@ namespace API_CHRYSALLIS.Controllers
 
             return Ok(_esdeveniments);
         }
-        
 
+        [HttpGet]
+        [Route("api/esdeveniments/soci/{id}")]
+        public async Task<IHttpActionResult> FoundByIdSoci(int id)
+        {
+
+            db.Configuration.LazyLoadingEnabled = false;
+            IHttpActionResult result;
+
+            List<esdeveniments> _esdeveniments = db.esdeveniments.
+                Include("comunitats").Include("localitats").Include("assistir")
+                .Where(e => e.assistir.Any(a => a.id_soci == id)).ToList();
+
+            return Ok(_esdeveniments);
+        }
         // PUT: api/esdeveniments/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> Putesdeveniments(int id, esdeveniments esdeveniments)

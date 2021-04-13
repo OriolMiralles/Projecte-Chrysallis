@@ -13,10 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DetalleEventoActivity"></activity>
+        <activity android:name=".DetalleEventoActivityOnline"></activity>
+        <activity android:name=".DetalleEventoActivity" />
         <activity
             android:name=".MenuActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
