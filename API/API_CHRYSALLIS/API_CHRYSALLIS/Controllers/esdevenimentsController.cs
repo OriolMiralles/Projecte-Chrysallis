@@ -46,7 +46,8 @@ namespace API_CHRYSALLIS.Controllers
             IHttpActionResult result;
 
             List<esdeveniments> _esdeveniments = db.esdeveniments.
-                Include("comunitats").Include("localitats").Where(e => e.id_comunitat==id).ToList();
+                Include("comunitats").Include("localitats").Where(e => e.id_comunitat==id && e.data > DateTime.Now)
+                .OrderBy(e => e.data).ToList();
 
             return Ok(_esdeveniments);
         }

@@ -13,7 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".DetalleEventoActivityOnline"></activity>
         <activity android:name=".DetalleEventoActivity" />
         <activity
             android:name=".MenuActivity"

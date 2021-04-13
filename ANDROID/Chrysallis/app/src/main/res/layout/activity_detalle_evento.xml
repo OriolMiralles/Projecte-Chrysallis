@@ -8,69 +8,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="@dimen/marginTopLogo"
-            android:background="@drawable/ic_back"/>
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/marginTopLogo"
+        android:background="@drawable/ic_back"/>
 
         <ImageView
             android:id="@+id/imgTipoEventDetalle"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
             android:background="@drawable/colonias"/>
-
-    </LinearLayout>
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="25dp"
+    android:orientation="horizontal"
+    android:gravity="center"
+    >
     <LinearLayout
+        android:id="@+id/layoutInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="@dimen/marginLeftPassword"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="15dp"
-            android:orientation="vertical">
+        android:gravity="center"
+        android:orientation="vertical"
+        >
 
             <TextView
                 android:id="@+id/tvTituloDetalle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
                 android:text="Colonies Berguedà"/>
 
             <TextView
                 android:id="@+id/tvTipoEventoDetalle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/marginLeftText"
                 android:text="Quedada"/>
 
             <TextView
                 android:id="@+id/tvFechaDetalle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/marginLeftText"
                 android:text="8-6-2021"/>
 
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/imgGoogle"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/cepmaps" />
 
     </LinearLayout>
+    <Button
+        android:id="@+id/btnLink"
+        android:layout_marginLeft="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="LINK"/>
+</LinearLayout>
 
     <TextView
         android:id="@+id/tvDescripcionDetalle"
@@ -97,14 +94,16 @@
         <EditText
             android:id="@+id/etNumPersonasDetalle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
     <Button
         android:id="@+id/btnApuntarse"
         style="@style/buttonPrimary2"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/btnLoginWidth"
         android:layout_height="@dimen/btnApuntarseEventoHeight"
         android:layout_marginTop="15dp"
         android:layout_gravity="center"

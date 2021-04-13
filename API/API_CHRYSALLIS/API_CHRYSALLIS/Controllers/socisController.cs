@@ -45,7 +45,7 @@ namespace API_CHRYSALLIS.Controllers
             db.Configuration.LazyLoadingEnabled = false;
             IHttpActionResult result;
 
-            socis _soci = await db.socis.Include("comunitats").Where(s => s.email.Equals(email)).FirstOrDefaultAsync();
+            socis _soci = await db.socis.Include("comunitats").Include("assistir").Where(s => s.email.Equals(email)).FirstOrDefaultAsync();
 
             return Ok(_soci);
         }

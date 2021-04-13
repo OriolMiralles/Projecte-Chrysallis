@@ -2,7 +2,7 @@
 <resources>
     <dimen name="widthLogo">150dp</dimen>
     <dimen name="heightLogo">150dp</dimen>
-    <dimen name="marginTopLogo">20dp</dimen>
+    <dimen name="marginTopLogo">10dp</dimen>
     <dimen name="marginLeftText">5dp</dimen>
     <dimen name="marginLeftEmail">70dp</dimen>
     <dimen name="marginTopEmail">40dp</dimen>

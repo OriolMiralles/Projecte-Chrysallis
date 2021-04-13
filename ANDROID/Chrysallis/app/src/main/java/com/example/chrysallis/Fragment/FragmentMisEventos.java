@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.chrysallis.Adapter.AdaptadorMisEventos;
 import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.EsdevenimentListener;
+import com.example.chrysallis.Models.Soci;
 import com.example.chrysallis.R;
 
 import java.util.ArrayList;
@@ -23,12 +24,14 @@ import java.util.List;
 public class FragmentMisEventos extends Fragment {
     private EsdevenimentListener listener;
     private static List<Esdeveniment> esdeveniments;
+    private static Soci soci;
 
-    public static FragmentMisEventos newInstance(List<Esdeveniment> esde) {
+    public static FragmentMisEventos newInstance(List<Esdeveniment> esde, Soci _soci) {
         FragmentMisEventos fragment = new FragmentMisEventos();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         esdeveniments = esde;
+        soci = _soci;
         return fragment;
     }
     public void setEsdevenimentListener(EsdevenimentListener listener){
@@ -46,7 +49,7 @@ public class FragmentMisEventos extends Fragment {
 
 
         final RecyclerView reciclerEventos =v.findViewById(R.id.ReciclerMisEventos);
-        AdaptadorMisEventos adaptador = new AdaptadorMisEventos(esdeveniments);
+        AdaptadorMisEventos adaptador = new AdaptadorMisEventos(esdeveniments, soci);
         reciclerEventos.setHasFixedSize(true);
         reciclerEventos.setLayoutManager(new LinearLayoutManager(getActivity(),
                 LinearLayoutManager.VERTICAL, false));

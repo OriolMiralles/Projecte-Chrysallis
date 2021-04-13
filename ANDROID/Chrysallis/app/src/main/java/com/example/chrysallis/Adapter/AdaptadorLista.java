@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chrysallis.Models.Assistir;
 import com.example.chrysallis.Models.Esdeveniment;
+import com.example.chrysallis.Models.Soci;
 import com.example.chrysallis.R;
 
 import java.text.DateFormat;
@@ -23,6 +24,7 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHold
     private View.OnClickListener listener;
     public AdaptadorLista(List<Esdeveniment> esdeveniments){
         this.esdeveniments = esdeveniments;
+
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{

@@ -13,7 +13,7 @@ public class Esdeveniment implements Serializable {
     private String descripcio;
     private String tipoEvento;
     private String adreca;
-    private List<Soci> socis;
+    private List<Assistir> assistir;
 
     public Esdeveniment(String titol, Date data, Localitat localitat, int id_tipus, String descripcio){
         this.titol = titol;
@@ -23,7 +23,7 @@ public class Esdeveniment implements Serializable {
         this.descripcio = descripcio;
     }
 
-    public Esdeveniment(int id, String titol, Date data, Localitat localitats, int id_tipus, String descripcio, String tipoEvento, String adreca, List<Soci> socis) {
+    public Esdeveniment(int id, String titol, Date data, Localitat localitats, int id_tipus, String descripcio, String tipoEvento, String adreca, List<Assistir> assistir) {
         this.id = id;
         this.titol = titol;
         this.data = data;
@@ -32,7 +32,7 @@ public class Esdeveniment implements Serializable {
         this.descripcio = descripcio;
         this.tipoEvento = tipoEvento;
         this.adreca = adreca;
-        this.socis = socis;
+        this.assistir = assistir;
     }
 
     public int getId() {
@@ -84,6 +84,26 @@ public class Esdeveniment implements Serializable {
     }
 
     public String getTipoEvento() {
+        switch (this.id_tipus){
+            case 1:
+                tipoEvento = "Colonias";
+                break;
+            case 2:
+                tipoEvento = "Encuentro";
+                break;
+            case 3:
+                tipoEvento = "Taller";
+                break;
+            case 4:
+                tipoEvento = "Pícnic";
+                break;
+            case 5:
+                tipoEvento = "Online";
+                break;
+            case 6:
+                tipoEvento = "Manifestación";
+                break;
+        }
         return tipoEvento;
     }
 
@@ -99,11 +119,11 @@ public class Esdeveniment implements Serializable {
         this.adreca = adreca;
     }
 
-    public List<Soci> getSocis() {
-        return socis;
+    public List<Assistir> getAssistirs() {
+        return assistir;
     }
 
-    public void setSocis(List<Soci> socis) {
-        this.socis = socis;
+    public void setAssistirs(List<Assistir> assistir) {
+        this.assistir = assistir;
     }
 }

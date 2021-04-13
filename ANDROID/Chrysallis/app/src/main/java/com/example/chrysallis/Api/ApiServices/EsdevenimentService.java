@@ -14,6 +14,9 @@ public interface EsdevenimentService {
     @GET("api/esdeveniments/comunitat/{id}/")
     Call<List<Esdeveniment>> getEsdevenimentsComunitat(@Path("id") int id);
 
+    @GET("api/esdeveniments/soci/{id}")
+    Call<List<Esdeveniment>>getEsdevenimentSoci(@Path("id") int id);
+
     @GET("api/esdeveniments")
     Call<List<Esdeveniment>> getEsdeveniments();
 
