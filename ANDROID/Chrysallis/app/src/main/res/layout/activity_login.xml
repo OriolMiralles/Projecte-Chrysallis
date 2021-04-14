@@ -29,6 +29,7 @@
         android:id="@+id/editTextEmail"
         android:layout_width="@dimen/editTextSize"
         android:layout_marginLeft="@dimen/marginLeftText"
+        android:text="omirallesp47@cepnet.net"
         android:layout_height="wrap_content"
         android:textColor="@color/colorAccent"
         android:inputType="textEmailAddress"/>
@@ -51,6 +52,7 @@
             android:layout_width="@dimen/editTextSize"
             android:layout_marginLeft="@dimen/marginLeftText"
             android:layout_height="wrap_content"
+            android:text="pelota11"
             android:textColor="@color/colorAccent"
             android:inputType="textPassword"/>
 

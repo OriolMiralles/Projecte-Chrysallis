@@ -11,9 +11,14 @@ public class Assistir implements Serializable {
     private double cantidadTotal;
     private boolean haPagado;
     private int valoracio;
-    private ArrayList<Esdeveniment> esdeveniments;
 
-    public Assistir(int id_soci, int id_esdeveniment, int quantitat_persones, String textValoracio, double cantidadTotal, boolean haPagado, int valoracio, ArrayList<Esdeveniment> esdeveniments) {
+    public Assistir(int id_soci, int id_esdeveniment, int quantitat_persones){
+        this.id_soci = id_soci;
+        this.id_esdeveniment = id_esdeveniment;
+        this.quantitat_persones = quantitat_persones;
+    }
+    public Assistir(int id_soci, int id_esdeveniment, int quantitat_persones, String textValoracio,
+                    double cantidadTotal, boolean haPagado, int valoracio) {
         this.id_soci = id_soci;
         this.id_esdeveniment = id_esdeveniment;
         this.quantitat_persones = quantitat_persones;
@@ -21,7 +26,6 @@ public class Assistir implements Serializable {
         this.cantidadTotal = cantidadTotal;
         this.haPagado = haPagado;
         this.valoracio = valoracio;
-        this.esdeveniments = esdeveniments;
     }
 
     public int getId_soci() {
@@ -80,11 +84,5 @@ public class Assistir implements Serializable {
         this.valoracio = valoracio;
     }
 
-    public ArrayList<Esdeveniment> getEsdeveniments() {
-        return esdeveniments;
-    }
 
-    public void setEsdeveniments(ArrayList<Esdeveniment> esdeveniments) {
-        this.esdeveniments = esdeveniments;
-    }
 }

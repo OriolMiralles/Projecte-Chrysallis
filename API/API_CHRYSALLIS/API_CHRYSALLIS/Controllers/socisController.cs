@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -37,6 +38,9 @@ namespace API_CHRYSALLIS.Controllers
 
             return Ok(socis);
         }
+
+        
+
         [HttpGet]
         [Route("api/socis/email/{email}/")]
         public async Task<IHttpActionResult> FoundByEmail(String email)
@@ -44,7 +48,7 @@ namespace API_CHRYSALLIS.Controllers
             db.Configuration.LazyLoadingEnabled = false;
             IHttpActionResult result;
 
-            socis _soci = await db.socis.Include("comunitats").Where(s => s.email.Equals(email)).FirstOrDefaultAsync();
+            socis _soci = await db.socis.Include("comunitats").Include("assistir").Where(s => s.email.Equals(email)).FirstOrDefaultAsync();
 
             return Ok(_soci);
         }
@@ -53,35 +57,51 @@ namespace API_CHRYSALLIS.Controllers
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> Putsocis(int id, socis socis)
         {
+            IHttpActionResult result;
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                result = BadRequest(ModelState);
             }
-
-            if (id != socis.id)
+            else
             {
-                return BadRequest();
-            }
-
-            db.Entry(socis).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!socisExists(id))
+                String missatge = "";
+                if (id != socis.id)
                 {
-                    return NotFound();
+                    result = BadRequest(missatge);
                 }
                 else
                 {
-                    throw;
+
+                    db.Entry(socis).State = EntityState.Modified;
+                    result = StatusCode(HttpStatusCode.NoContent);
+                    try
+                    {
+                        await db.SaveChangesAsync();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!socisExists(id))
+                        {
+                            result = NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    catch (DbUpdateException ex)
+                    {
+                        SqlException sqlException = (SqlException)ex.InnerException.InnerException;
+                        missatge = CLASES.Utilitat.missatgeError(sqlException);
+                        result = BadRequest(missatge);
+                    }
                 }
+
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+
+
+            return result;
         }
 
         // POST: api/socis
@@ -99,6 +119,8 @@ namespace API_CHRYSALLIS.Controllers
             return CreatedAtRoute("DefaultApi", new { id = socis.id }, socis);
         }
 
+
+
         // DELETE: api/socis/5
         [ResponseType(typeof(socis))]
         public async Task<IHttpActionResult> Deletesocis(int id)
@@ -114,6 +136,91 @@ namespace API_CHRYSALLIS.Controllers
 
             return Ok(socis);
         }
+
+
+        [HttpPost]
+        [Route("api/socis/comunitats/{id}")]
+        public async Task<IHttpActionResult> InsertComunitats(int id, comunitats comunitat)
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+            socis soci = await db.socis.FindAsync(id);
+            comunitats com = await db.comunitats.FindAsync(comunitat.id);
+            soci.comunitats.Add(com);
+            await db.SaveChangesAsync();
+
+
+            return Ok(soci);
+        }
+        [HttpPost]
+        [Route("api/socis/esdeveniment/{id}")]
+        public async Task<IHttpActionResult> InsertEsdeveniment(int id, esdeveniments esdeveniment)
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+            socis soci = await db.socis.FindAsync(id);
+            esdeveniments _esdev = await db.esdeveniments.FindAsync(esdeveniment.id);
+            soci.esdeveniments.Add(_esdev);
+            await db.SaveChangesAsync();
+
+
+            return Ok(soci);
+        }
+
+        [HttpPut]
+        [Route("api/socis/comunitats/{id}")]
+        public async Task<IHttpActionResult> updateComunitats(int id, socis _soci)
+        {
+            IHttpActionResult result;
+            String missatge = "";
+
+            if (!ModelState.IsValid)
+            {
+                result = BadRequest(ModelState);
+            }
+
+            if (id != _soci.id)
+            {
+                result = BadRequest();
+            }
+            socis dbSocis = db.socis
+                .Include(s => s.comunitats)
+                .Where(s => s.id == id)
+                .First();
+            comunitats com = db.comunitats.Where(c => c.id == _soci.comunitats.ElementAt(0).id).First();
+            //Modifica los datos que no son objetos
+            db.Entry(dbSocis).CurrentValues.SetValues(_soci);
+
+            dbSocis.comunitats.Clear();
+
+            dbSocis.comunitats.Add(com);
+            
+
+            try
+            {
+                await db.SaveChangesAsync();
+                result = StatusCode(HttpStatusCode.NoContent);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!socisExists(id))
+                {
+                    result = NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            catch (DbUpdateException ex)
+            {
+                SqlException sqlException = (SqlException)ex.InnerException.InnerException;
+                missatge = CLASES.Utilitat.missatgeError(sqlException);
+                result = BadRequest(missatge);
+            }
+
+            return result;
+
+        }
+        
 
         protected override void Dispose(bool disposing)
         {

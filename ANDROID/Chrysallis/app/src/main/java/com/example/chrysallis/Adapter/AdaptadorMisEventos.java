@@ -9,7 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.chrysallis.Models.Assistir;
 import com.example.chrysallis.Models.Esdeveniment;
+import com.example.chrysallis.Models.Soci;
 import com.example.chrysallis.R;
 
 import java.text.DateFormat;
@@ -21,8 +23,10 @@ public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEvento
         implements View.OnClickListener {
     private List<Esdeveniment> esdeveniments;
     private View.OnClickListener listener;
-    public AdaptadorMisEventos(List<Esdeveniment> esdeveniments){
+    private Soci soci;
+    public AdaptadorMisEventos(List<Esdeveniment> esdeveniments, Soci soci){
         this.esdeveniments = esdeveniments;
+        this.soci = soci;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
@@ -32,46 +36,66 @@ public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEvento
         TextView tvCiudad;
         TextView tvFecha;
         TextView tvValorar;
+        private Soci soci;
 
-        public ViewHolder(@NonNull View item){
+        public ViewHolder(@NonNull View item, Soci soci){
             super(item);
             imgTipoEvent = item.findViewById(R.id.imgTipoEvent);
-            tvNumPer = item.findViewById(R.id.tvTipoAct);
+            tvNumPer = item.findViewById(R.id.tvNumPer);
             tvTitulo = item.findViewById(R.id.tvTitulo);
             tvCiudad = item.findViewById(R.id.tvCiudad);
             tvFecha = item.findViewById(R.id.tvFecha);
             tvValorar = item.findViewById(R.id.tvValorar);
+            this.soci = soci;
         }
         void bindEvento(Esdeveniment event){
             switch (event.getId_tipus()){
                 case (1):
                     imgTipoEvent.setImageResource(R.drawable.colonias);
+                    tvCiudad.setText(String.valueOf(event.getLocalitats().getNom()));
                     break;
                 case (2):
                     imgTipoEvent.setImageResource(R.drawable.quedada);
+                    tvCiudad.setText(String.valueOf(event.getLocalitats().getNom()));
                     break;
                 case (3):
                     imgTipoEvent.setImageResource(R.drawable.taller);
-
+                    tvCiudad.setText(String.valueOf(event.getLocalitats().getNom()));
                     break;
                 case (4):
                     imgTipoEvent.setImageResource(R.drawable.picnic);
+                    tvCiudad.setText(String.valueOf(event.getLocalitats().getNom()));
                     break;
                 case (5):
                     imgTipoEvent.setImageResource(R.drawable.online);
+                    tvCiudad.setText(event.getAdreca());
                     break;
                 case (6):
                     imgTipoEvent.setImageResource(R.drawable.mani_blau);
+                    tvCiudad.setText(String.valueOf(event.getLocalitats().getNom()));
                     break;
 
             }
-            tvCiudad.setText(String.valueOf(event.getLocalitat().getNom()));
+
             java.util.Date date = event.getData();
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             String fecha = df.format(date);
-            tvFecha.setText(fecha);
+
+            if(event.getData().getTime() < System.currentTimeMillis()){
+                //HA PASSAT
+                tvValorar.setText("VALORA EL EVENTO");
+            }else{
+                //NO HA PASSAT
+                tvFecha.setText(fecha);
+            }
+            for(Assistir assistir : soci.getAssistirs()){
+                if(assistir.getId_esdeveniment()==event.getId()){
+                    tvNumPer.setText("NUM. PER: " + assistir.getQuantitat_persones());
+                }
+            }
+
             tvTitulo.setText(event.getTitol());
-            tvValorar.setText("VALORA EL EVENTO");
+
 
         }
     }
@@ -80,7 +104,7 @@ public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEvento
         View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.lista_mis_eventos,
                 parent, false);
         item.setOnClickListener(this);
-        return new AdaptadorMisEventos.ViewHolder(item);
+        return new AdaptadorMisEventos.ViewHolder(item, soci);
     }
     public void onBindViewHolder(AdaptadorMisEventos.ViewHolder holder, int position){
         holder.bindEvento(esdeveniments.get(position));

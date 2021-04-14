@@ -63,7 +63,7 @@
             this.toolStripButtonSalir});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1129, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1129, 27);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
@@ -74,7 +74,7 @@
             this.toolStripButtonAnadir.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonAnadir.Image")));
             this.toolStripButtonAnadir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAnadir.Name = "toolStripButtonAnadir";
-            this.toolStripButtonAnadir.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButtonAnadir.Size = new System.Drawing.Size(29, 24);
             this.toolStripButtonAnadir.Tag = "";
             this.toolStripButtonAnadir.Text = "Añadir";
             this.toolStripButtonAnadir.Click += new System.EventHandler(this.toolStripButtonAnadir_Click);
@@ -85,7 +85,7 @@
             this.toolStripButtonModificar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonModificar.Image")));
             this.toolStripButtonModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonModificar.Name = "toolStripButtonModificar";
-            this.toolStripButtonModificar.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButtonModificar.Size = new System.Drawing.Size(29, 24);
             this.toolStripButtonModificar.Text = "Modificar";
             this.toolStripButtonModificar.Click += new System.EventHandler(this.toolStripButtonModificar_Click);
             // 
@@ -95,7 +95,7 @@
             this.toolStripButtonPass.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPass.Image")));
             this.toolStripButtonPass.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonPass.Name = "toolStripButtonPass";
-            this.toolStripButtonPass.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButtonPass.Size = new System.Drawing.Size(29, 24);
             this.toolStripButtonPass.Text = "Cambiar Password";
             this.toolStripButtonPass.Click += new System.EventHandler(this.toolStripButtonPass_Click);
             // 
@@ -105,14 +105,14 @@
             this.toolStripButtonBorrar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonBorrar.Image")));
             this.toolStripButtonBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonBorrar.Name = "toolStripButtonBorrar";
-            this.toolStripButtonBorrar.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButtonBorrar.Size = new System.Drawing.Size(29, 24);
             this.toolStripButtonBorrar.Text = "Eliminar usuario";
             this.toolStripButtonBorrar.Click += new System.EventHandler(this.toolStripButtonBorrar_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // toolStripButtonSalir
             // 
@@ -120,7 +120,7 @@
             this.toolStripButtonSalir.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSalir.Image")));
             this.toolStripButtonSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSalir.Name = "toolStripButtonSalir";
-            this.toolStripButtonSalir.Size = new System.Drawing.Size(29, 28);
+            this.toolStripButtonSalir.Size = new System.Drawing.Size(29, 24);
             this.toolStripButtonSalir.Text = "Salir";
             this.toolStripButtonSalir.Click += new System.EventHandler(this.toolStripButtonSalir_Click);
             // 
@@ -232,7 +232,7 @@
             this.Controls.Add(this.dataGridViewUsuaris);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FormAdmin";
-            this.Text = "FormAdmin";
+            this.Text = "Usuaries";
             this.Load += new System.EventHandler(this.FormAdmin_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

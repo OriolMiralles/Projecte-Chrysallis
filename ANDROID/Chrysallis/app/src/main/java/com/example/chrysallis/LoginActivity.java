@@ -219,6 +219,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void enviarEmail(String email, String contrasenya){
+
+
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
         String mensaje = "La nueva contraseña es: " + contrasenya;
         emailIntent.setData(Uri.parse("mailto:"));

@@ -13,7 +13,9 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.chrysallis.Api.Api;
+import com.example.chrysallis.Api.ApiServices.ComunitatService;
 import com.example.chrysallis.Api.ApiServices.SociService;
+import com.example.chrysallis.LoginActivity;
 import com.example.chrysallis.MenuActivity;
 import com.example.chrysallis.Models.Comunitat;
 import com.example.chrysallis.Models.MissatgeError;
@@ -22,6 +24,7 @@ import com.example.chrysallis.R;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,6 +33,8 @@ import retrofit2.Response;
 public class FragmentMiPerfil extends Fragment {
 private ArrayList<String> comunitats;
 private static Soci _soci;
+private int spinner = 0;
+
 private Spinner spComuni;
     public static FragmentMiPerfil newInstance(Soci soci) {
         FragmentMiPerfil fragment = new FragmentMiPerfil();
@@ -73,42 +78,46 @@ private Spinner spComuni;
                 Comunitat comunitat = new Comunitat(idCom, nomCom);
                 _soci.getComunitats().add(comunitat);
                 SociService sociService = Api.getApi().create(SociService.class);
-                Call<Soci>callSoci = sociService.updateSoci(_soci.getId(), _soci);
+                Call<Soci>callSoci = sociService.updateComunitat(_soci.getId(), _soci);
                 callSoci.enqueue(new Callback<Soci>() {
                     @Override
                     public void onResponse(Call<Soci> call, Response<Soci> response) {
                         switch (response.code()){
-                            case 200:
-
+                            case 204:
                                 break;
                             case 404:
                                 Toast.makeText(getContext(), "No se puede actualizar", Toast.LENGTH_LONG).show();
                                 break;
-                            default:
+                            case 400:
                                 Gson gson = new Gson();
                                 MissatgeError missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
                                 Toast.makeText(getContext(), missatge.getMessage(), Toast.LENGTH_LONG).show();
                                 break;
-
+                            default:
+                                Toast.makeText(getContext(), response.message(), Toast.LENGTH_SHORT).show();
+                                break;
                         }
                     }
 
                     @Override
                     public void onFailure(Call<Soci> call, Throwable t) {
                         Toast.makeText(getContext(), t.getCause() + "; " + t.getMessage(), Toast.LENGTH_SHORT).show();
+
                     }
                 });
+                
 
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
+                Toast.makeText(getContext(), "Nothing selected", Toast.LENGTH_SHORT).show();
             }
         });
 
     }
     private void cargarComunidades(){
+
         comunitats.add("Andalucía");
         comunitats.add("Aragón");
         comunitats.add("Asturias");

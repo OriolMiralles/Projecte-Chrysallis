@@ -1,6 +1,7 @@
 package com.example.chrysallis;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -13,9 +14,9 @@ import android.widget.Toast;
 import com.example.chrysallis.Api.Api;
 import com.example.chrysallis.Api.ApiServices.AssistirService;
 import com.example.chrysallis.Api.ApiServices.EsdevenimentService;
+import com.example.chrysallis.Fragment.FragmentMisEventos;
 import com.example.chrysallis.Models.Assistir;
 import com.example.chrysallis.Models.Esdeveniment;
-import com.example.chrysallis.Fragment.FragmentEventDetail;
 import com.example.chrysallis.Fragment.FragmentListaEventos;
 import com.example.chrysallis.Fragment.FragmentMiPerfil;
 import com.example.chrysallis.Models.MissatgeError;
@@ -36,6 +37,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
     private ArrayList<Esdeveniment> esdeveniments;
     private Assistir assistirs;
     public final static String SOCIO = "socio";
+    public final static int RESULT_SOCIO = 0;
     private Soci soci;
     public static int fragmentSelected = 1;
 
@@ -71,6 +73,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
                         break;
 
                     case (R.id.mainProfile):
+                        fragmentSelected = 3;
                         FragmentMiPerfil fmp = FragmentMiPerfil.newInstance(soci);
                         cargarFragments(fmp);
                         resultado = true;
@@ -83,16 +86,46 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
     }
     @Override
     public void onSelectedEsdeveniment(Esdeveniment esdeveniment){
-        FragmentEventDetail fmp = FragmentEventDetail.newInstance(esdeveniment);
-        cargarFragments(fmp);
+        boolean apuntado = false;
+        for(Assistir assistir : soci.getAssistirs()) {
+            if (assistir.getId_esdeveniment() == esdeveniment.getId()) {
+                apuntado = true;
+            }
+        }
+        if(apuntado){
+            Intent intent = new Intent(MenuActivity.this, DetalleEventoActivity.class);
+            intent.putExtra(DetalleEventoActivity.APUNTADO, apuntado);
+            Bundle b = new Bundle();
+            b.putSerializable(DetalleEventoActivity.SOCI, soci);
+            b.putSerializable(DetalleEventoActivity.ESDEVENIMENT, esdeveniment);
+            intent.putExtras(b);
+            startActivity(intent);
+        }else{
+            Intent intent = new Intent(MenuActivity.this, DetalleEventoActivity.class);
+            intent.putExtra(DetalleEventoActivity.APUNTADO, apuntado);
+            Bundle b = new Bundle();
+            b.putSerializable(DetalleEventoActivity.SOCI, soci);
+            b.putSerializable(DetalleEventoActivity.ESDEVENIMENT, esdeveniment);
+            intent.putExtras(b);
+            startActivity(intent);
+        }
+
+
+
+       /* FragmentEventDetail fmp = FragmentEventDetail.newInstance(esdeveniment, soci);
+        cargarFragments(fmp);*/
     }
+
+
     private void cargarEsdeveniemnts(){
-        int id;
+
         switch (fragmentSelected){
             case 1:
-                id = soci.getComunitats().get(0).getId();
-                EsdevenimentService esdevService = Api.getApi().create(EsdevenimentService.class);
-                Call<List<Esdeveniment>> listEsdev = esdevService.getEsdevenimentsComunitat(id);
+                EsdevenimentService esdevService;
+                Call<List<Esdeveniment>> listEsdev;
+                int id = soci.getComunitats().get(0).getId();
+                esdevService = Api.getApi().create(EsdevenimentService.class);
+                listEsdev = esdevService.getEsdevenimentsComunitat(id);
                 listEsdev.enqueue(new Callback<List<Esdeveniment>>() {
                     @Override
                     public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
@@ -125,25 +158,22 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
                 });
                 break;
             case 2:
-                id = soci.getId();
-                AssistirService assistirService = Api.getApi().create(AssistirService.class);
-                Call<Assistir> assistirCall = assistirService.getMisEsdeveniments(id);
-                assistirCall.enqueue(new Callback<Assistir>() {
+                EsdevenimentService esdevenimentService = Api.getApi().create(EsdevenimentService.class);
+                Call<List<Esdeveniment>>listCall = esdevenimentService.getEsdevenimentSoci(soci.getId());
+                listCall.enqueue(new Callback<List<Esdeveniment>>() {
                     @Override
-                    public void onResponse(Call<Assistir> call, Response<Assistir> response) {
+                    public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
                         switch (response.code()){
                             case 200:
                                 if(response.body()!=null){
-                                    assistirs = response.body();
-                                    esdeveniments = assistirs.getEsdeveniments();
-                                    FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
-                                    flista.setEsdevenimentListener(MenuActivity.this);
-                                    cargarFragments(flista);  
+                                    esdeveniments = new ArrayList<>(response.body());
+                                    FragmentMisEventos fme = FragmentMisEventos.newInstance(esdeveniments, soci);
+                                    fme.setEsdevenimentListener(MenuActivity.this);
+                                    cargarFragments(fme);
                                 }else{
-                                    esdeveniments = null;
-                                    Toast.makeText(MenuActivity.this, "NO HAY", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MenuActivity.this, "No tienes eventos donde estés apuntados", Toast.LENGTH_SHORT).show();
                                 }
-                                
+
                                 break;
                             default:
                                 Gson gson = new Gson();
@@ -154,7 +184,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
                     }
 
                     @Override
-                    public void onFailure(Call<Assistir> call, Throwable t) {
+                    public void onFailure(Call<List<Esdeveniment>> call, Throwable t) {
 
                     }
                 });

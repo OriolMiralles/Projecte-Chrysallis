@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -40,47 +41,81 @@ namespace API_CHRYSALLIS.Controllers
         [Route("api/esdeveniments/comunitat/{id}/")]
         public async Task<IHttpActionResult> FoundByIdComunitat(int id)
         {
+          
             db.Configuration.LazyLoadingEnabled = false;
             IHttpActionResult result;
 
-            List<esdeveniments> _esdeveniments = db.esdeveniments.Include("comunitats").Where(e => e.id_comunitat==id).ToList();
+            List<esdeveniments> _esdeveniments = db.esdeveniments.
+                Include("comunitats").Include("localitats").Where(e => e.id_comunitat==id && e.data > DateTime.Now)
+                .OrderBy(e => e.data).ToList();
 
             return Ok(_esdeveniments);
         }
 
+        [HttpGet]
+        [Route("api/esdeveniments/soci/{id}")]
+        public async Task<IHttpActionResult> FoundByIdSoci(int id)
+        {
+
+            db.Configuration.LazyLoadingEnabled = false;
+            IHttpActionResult result;
+
+            List<esdeveniments> _esdeveniments = db.esdeveniments.
+                Include("comunitats").Include("localitats").Include("assistir")
+                .Where(e => e.assistir.Any(a => a.id_soci == id)).ToList();
+
+            return Ok(_esdeveniments);
+        }
         // PUT: api/esdeveniments/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> Putesdeveniments(int id, esdeveniments esdeveniments)
         {
+            IHttpActionResult result;
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                result = BadRequest(ModelState);
             }
-
-            if (id != esdeveniments.id)
+            else
             {
-                return BadRequest();
-            }
-
-            db.Entry(esdeveniments).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!esdevenimentsExists(id))
+                String missatge = "";
+                if (id != esdeveniments.id)
                 {
-                    return NotFound();
+                    result = BadRequest(missatge);
                 }
                 else
                 {
-                    throw;
+                    db.Entry(esdeveniments).State = EntityState.Modified;
+
+                    try
+                    {
+                        await db.SaveChangesAsync();
+                        result = StatusCode(HttpStatusCode.NoContent);
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!esdevenimentsExists(id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                    catch (DbUpdateException ex)
+                    {
+                        SqlException sqlException = (SqlException)ex.InnerException.InnerException;
+                        missatge = CLASES.Utilitat.missatgeError(sqlException);
+                        result = BadRequest(missatge);
+                    }
                 }
+
+               
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+
+
+            return result;
         }
 
         // POST: api/esdeveniments
