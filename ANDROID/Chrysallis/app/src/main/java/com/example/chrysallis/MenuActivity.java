@@ -1,6 +1,7 @@
 package com.example.chrysallis;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -36,6 +37,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
     private ArrayList<Esdeveniment> esdeveniments;
     private Assistir assistirs;
     public final static String SOCIO = "socio";
+    public final static int RESULT_SOCIO = 0;
     private Soci soci;
     public static int fragmentSelected = 1;
 
@@ -113,6 +115,8 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
        /* FragmentEventDetail fmp = FragmentEventDetail.newInstance(esdeveniment, soci);
         cargarFragments(fmp);*/
     }
+
+
     private void cargarEsdeveniemnts(){
 
         switch (fragmentSelected){

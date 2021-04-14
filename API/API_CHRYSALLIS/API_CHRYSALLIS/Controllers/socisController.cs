@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -37,6 +38,8 @@ namespace API_CHRYSALLIS.Controllers
 
             return Ok(socis);
         }
+
+        
 
         [HttpGet]
         [Route("api/socis/email/{email}/")]
@@ -85,6 +88,12 @@ namespace API_CHRYSALLIS.Controllers
                         {
                             throw;
                         }
+                    }
+                    catch (DbUpdateException ex)
+                    {
+                        SqlException sqlException = (SqlException)ex.InnerException.InnerException;
+                        missatge = CLASES.Utilitat.missatgeError(sqlException);
+                        result = BadRequest(missatge);
                     }
                 }
 
@@ -158,19 +167,61 @@ namespace API_CHRYSALLIS.Controllers
 
         [HttpPut]
         [Route("api/socis/comunitats/{id}")]
-        public async Task<IHttpActionResult> updateComunitats(int id, comunitats comunitat)
+        public async Task<IHttpActionResult> updateComunitats(int id, socis _soci)
         {
-            db.Configuration.LazyLoadingEnabled = false;
-            socis soci = await db.socis.FindAsync(id);
+            IHttpActionResult result;
+            String missatge = "";
 
-            soci.comunitats.Clear();
-            soci.comunitats.Add(comunitat);
-            await db.SaveChangesAsync();
+            if (!ModelState.IsValid)
+            {
+                result = BadRequest(ModelState);
+            }
 
+            if (id != _soci.id)
+            {
+                result = BadRequest();
+            }
+            socis dbSocis = db.socis
+                .Include(s => s.comunitats)
+                .Where(s => s.id == id)
+                .First();
+            comunitats com = db.comunitats.Where(c => c.id == _soci.comunitats.ElementAt(0).id).First();
+            //Modifica los datos que no son objetos
+            db.Entry(dbSocis).CurrentValues.SetValues(_soci);
 
-            return Ok(soci);
+            dbSocis.comunitats.Clear();
+
+            dbSocis.comunitats.Add(com);
+            
+
+            try
+            {
+                await db.SaveChangesAsync();
+                result = StatusCode(HttpStatusCode.NoContent);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!socisExists(id))
+                {
+                    result = NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            catch (DbUpdateException ex)
+            {
+                SqlException sqlException = (SqlException)ex.InnerException.InnerException;
+                missatge = CLASES.Utilitat.missatgeError(sqlException);
+                result = BadRequest(missatge);
+            }
+
+            return result;
+
         }
         
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

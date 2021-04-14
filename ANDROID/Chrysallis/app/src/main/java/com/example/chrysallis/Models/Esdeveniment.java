@@ -14,6 +14,14 @@ public class Esdeveniment implements Serializable {
     private String tipoEvento;
     private String adreca;
     private List<Assistir> assistir;
+    private int quantitat_max;
+    private int cont_assitents;
+    private int id_comunitat;
+    private int quantitat_mínima;
+    private double preu;
+    private boolean pagament;
+    private Date data_max;
+    private int id_localitat;
 
     public Esdeveniment(String titol, Date data, Localitat localitat, int id_tipus, String descripcio){
         this.titol = titol;
@@ -23,7 +31,7 @@ public class Esdeveniment implements Serializable {
         this.descripcio = descripcio;
     }
 
-    public Esdeveniment(int id, String titol, Date data, Localitat localitats, int id_tipus, String descripcio, String tipoEvento, String adreca, List<Assistir> assistir) {
+    public Esdeveniment(int id, String titol, Date data, Localitat localitats, int id_tipus, String descripcio, String tipoEvento, String adreca, List<Assistir> assistir, int quantitat_max, int cont_assitents, int id_comunitat, int quantitat_mínima, double preu, boolean pagament, Date data_max, int id_localitat) {
         this.id = id;
         this.titol = titol;
         this.data = data;
@@ -33,6 +41,14 @@ public class Esdeveniment implements Serializable {
         this.tipoEvento = tipoEvento;
         this.adreca = adreca;
         this.assistir = assistir;
+        this.quantitat_max = quantitat_max;
+        this.cont_assitents = cont_assitents;
+        this.id_comunitat = id_comunitat;
+        this.quantitat_mínima = quantitat_mínima;
+        this.preu = preu;
+        this.pagament = pagament;
+        this.data_max = data_max;
+        this.id_localitat = id_localitat;
     }
 
     public int getId() {
@@ -125,5 +141,77 @@ public class Esdeveniment implements Serializable {
 
     public void setAssistirs(List<Assistir> assistir) {
         this.assistir = assistir;
+    }
+
+    public List<Assistir> getAssistir() {
+        return assistir;
+    }
+
+    public void setAssistir(List<Assistir> assistir) {
+        this.assistir = assistir;
+    }
+
+    public int getQuantitat_max() {
+        return quantitat_max;
+    }
+
+    public void setQuantitat_max(int quantitat_max) {
+        this.quantitat_max = quantitat_max;
+    }
+
+    public int getCont_assitents() {
+        return cont_assitents;
+    }
+
+    public void setCont_assitents(int cont_assitents) {
+        this.cont_assitents = cont_assitents;
+    }
+
+    public int getId_comunitat() {
+        return id_comunitat;
+    }
+
+    public void setId_comunitat(int id_comunitat) {
+        this.id_comunitat = id_comunitat;
+    }
+
+    public int getQuantitat_minima() {
+        return quantitat_mínima;
+    }
+
+    public void setQuantitat_minima(int quantitat_minima) {
+        this.quantitat_mínima = quantitat_minima;
+    }
+
+    public double getPreu() {
+        return preu;
+    }
+
+    public void setPreu(double preu) {
+        this.preu = preu;
+    }
+
+    public boolean isPagament() {
+        return pagament;
+    }
+
+    public void setPagament(boolean pagament) {
+        this.pagament = pagament;
+    }
+
+    public Date getData_max() {
+        return data_max;
+    }
+
+    public void setData_max(Date data_max) {
+        this.data_max = data_max;
+    }
+
+    public int getId_localitat() {
+        return id_localitat;
+    }
+
+    public void setId_localitat(int id_localitat) {
+        this.id_localitat = id_localitat;
     }
 }

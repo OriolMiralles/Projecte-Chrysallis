@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -53,35 +54,50 @@ namespace API_CHRYSALLIS.Controllers
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> Putassistir(int id, assistir assistir)
         {
+            IHttpActionResult result;
+            String missatge = "";
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                result = BadRequest(ModelState);
             }
-
-            if (id != assistir.id_soci)
+            else
             {
-                return BadRequest();
-            }
-
-            db.Entry(assistir).State = EntityState.Modified;
-
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!assistirExists(id))
+                if (id != assistir.id_soci)
                 {
-                    return NotFound();
+                    result = BadRequest();
                 }
-                else
+
+                db.Entry(assistir).State = EntityState.Modified;
+                result = StatusCode(HttpStatusCode.NoContent);
+
+                try
                 {
-                    throw;
+                    await db.SaveChangesAsync();
+                    
                 }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!assistirExists(id))
+                    {
+                        result = NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                catch (DbUpdateException ex)
+                {
+                    SqlException sqlException = (SqlException)ex.InnerException.InnerException;
+                    missatge = CLASES.Utilitat.missatgeError(sqlException);
+                    result = BadRequest(missatge);
+                }
+
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+
+
+            return result;
         }
 
         // POST: api/assistirs
@@ -102,7 +118,7 @@ namespace API_CHRYSALLIS.Controllers
                 {
                     await db.SaveChangesAsync();
                 }
-                catch (DbUpdateException)
+                catch (DbUpdateConcurrencyException)
                 {
                     if (assistirExists(assistir.id_soci))
                     {
@@ -112,6 +128,12 @@ namespace API_CHRYSALLIS.Controllers
                     {
                         throw;
                     }
+                }
+                catch (DbUpdateException ex)
+                {
+                    SqlException sqlException = (SqlException)ex.InnerException.InnerException;
+                    missatge = CLASES.Utilitat.missatgeError(sqlException);
+                    result = BadRequest(missatge);
                 }
             }
 
@@ -125,6 +147,21 @@ namespace API_CHRYSALLIS.Controllers
         public async Task<IHttpActionResult> Deleteassistir(int id)
         {
             assistir assistir = await db.assistir.FindAsync(id);
+            if (assistir == null)
+            {
+                return NotFound();
+            }
+
+            db.assistir.Remove(assistir);
+            await db.SaveChangesAsync();
+
+            return Ok(assistir);
+        }
+        // DELETE: api/assistirs/5/5
+        [ResponseType(typeof(assistir))]
+        public async Task<IHttpActionResult> DeleteAssistirUser(int id_soci, int id_esdeveniment)
+        {
+            assistir assistir = await db.assistir.Where(a =>a.id_soci==id_soci &&  a.id_esdeveniment==id_esdeveniment).FirstOrDefaultAsync();
             if (assistir == null)
             {
                 return NotFound();
