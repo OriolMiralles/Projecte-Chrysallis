@@ -64,7 +64,7 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHold
                     imgTipoEvent.setImageResource(R.drawable.picnic);
                     tvTipoAct.setText("Pícnic");
                     tvCiudad.setText(String.valueOf(event.getLocalitats().getNom()));
-                    break;
+                    break; b
                 case (5):
                     imgTipoEvent.setImageResource(R.drawable.online);
                     tvTipoAct.setText("Online");

@@ -40,5 +40,11 @@ namespace Chrysallis_Eventos
             FormAdmin fa = new FormAdmin();
             fa.ShowDialog();
         }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            FormLoggin formLog = new FormLoggin();
+            formLog.Show();
+        }
     }
 }

@@ -494,6 +494,7 @@ namespace Chrysallis_Eventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(807, 494);
             this.Controls.Add(this.labelComunidad);
             this.Controls.Add(this.comboBoxComunidades);

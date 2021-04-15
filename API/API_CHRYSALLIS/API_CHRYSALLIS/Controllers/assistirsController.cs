@@ -161,7 +161,7 @@ namespace API_CHRYSALLIS.Controllers
         [ResponseType(typeof(assistir))]
         public async Task<IHttpActionResult> DeleteAssistirUser(int id_soci, int id_esdeveniment)
         {
-            assistir assistir = await db.assistir.Where(a =>a.id_soci==id_soci &&  a.id_esdeveniment==id_esdeveniment).FirstOrDefaultAsync();
+            assistir assistir = await db.assistir.Where(a =>a.id_soci==id_soci &&  a.id_esdeveniment==id_esdeveniment).FirstOrDefaultAsync() ;
             if (assistir == null)
             {
                 return NotFound();

@@ -62,7 +62,7 @@ namespace API_CHRYSALLIS.Controllers
 
             List<esdeveniments> _esdeveniments = db.esdeveniments.
                 Include("comunitats").Include("localitats").Include("assistir")
-                .Where(e => e.assistir.Any(a => a.id_soci == id)).ToList();
+                .Where(e => e.assistir.Any(a => a.id_soc i == id)).ToList();
 
             return Ok(_esdeveniments);
         }

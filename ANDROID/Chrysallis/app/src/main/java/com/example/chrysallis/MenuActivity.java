@@ -110,7 +110,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
             startActivity(intent);
         }
 
-
+ 
 
        /* FragmentEventDetail fmp = FragmentEventDetail.newInstance(esdeveniment, soci);
         cargarFragments(fmp);*/
