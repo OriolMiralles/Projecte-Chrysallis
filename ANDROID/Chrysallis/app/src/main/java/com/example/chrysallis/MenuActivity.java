@@ -199,4 +199,9 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
         getSupportFragmentManager().beginTransaction().replace(R.id.lstFrag, fragment)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
     }
+
+    @Override
+    public void onBackPressed() {
+
+    }
 }

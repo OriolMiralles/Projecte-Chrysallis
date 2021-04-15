@@ -129,7 +129,8 @@ public class DetalleEventoActivity extends AppCompatActivity {
             btnLink.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    String link = String.valueOf(esdeveniment.getAdreca());
+                    //String link = String.valueOf(esdeveniment.getAdreca());
+                    String link = "https://politecnics.barcelona/";
                     Uri _link = Uri.parse(link);
                     Intent i = new Intent(Intent.ACTION_VIEW, _link);
                     startActivity(i);
