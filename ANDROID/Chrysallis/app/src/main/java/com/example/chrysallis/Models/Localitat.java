@@ -27,3 +27,4 @@ public class Localitat implements Serializable {
         this.nom = nom;
     }
 }
+

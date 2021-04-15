@@ -66,19 +66,7 @@
         android:layout_gravity="center"
         android:text="@string/textLogin"
         android:layout_marginTop="@dimen/marginTopLogin"/>
-    <Button
-        android:id="@+id/btnResetPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/contra"
-        android:background="@color/colorPrimary"
-       android:layout_gravity="center"
-        android:textStyle="bold"
-        android:stateListAnimator="@null"
-        android:layout_marginTop="20dp"
-        android:textColor="#135EA8"/>
-
-
+    
     <Button
         android:id="@+id/btnRegistro"
         style="@style/buttonSecondary"

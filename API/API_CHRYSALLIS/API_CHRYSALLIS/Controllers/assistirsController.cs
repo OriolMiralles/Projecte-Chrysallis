@@ -157,8 +157,8 @@ namespace API_CHRYSALLIS.Controllers
 
             return Ok(assistir);
         }
-        // DELETE: api/assistirs/5/5
-        [ResponseType(typeof(assistir))]
+        [HttpDelete]
+        [Route("api/assistirs/{id_soci}/{id_esdeveniment}/")]
         public async Task<IHttpActionResult> DeleteAssistirUser(int id_soci, int id_esdeveniment)
         {
             assistir assistir = await db.assistir.Where(a =>a.id_soci==id_soci &&  a.id_esdeveniment==id_esdeveniment).FirstOrDefaultAsync() ;

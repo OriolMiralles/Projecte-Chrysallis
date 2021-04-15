@@ -36,13 +36,11 @@ public class LoginActivity extends AppCompatActivity {
     public static final String INTERNET = Manifest.permission.INTERNET;
     public static final int REQUEST_CODE = 0;
     EditText etMail;
-    Button btnResetPass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         etMail = findViewById(R.id.editTextEmail);
-        btnResetPass = findViewById(R.id.btnResetPass);
         requestPermission();
 
 
@@ -70,12 +68,6 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void start(){
         btnLogin = findViewById(R.id.btnLogin);
-        btnResetPass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                enviarEmail();
-            }
-        });
         btnLogin.setOnClickListener(new View.OnClickListener() {
 
             EditText etPass = findViewById(R.id.editTextPassword);
@@ -141,26 +133,6 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-
-    }
-    public void enviarEmail(){
-
-        String email = etMail.getText().toString();
-        if(email.equals("")){
-            Toast.makeText(this, "Escribe tu correo electrónico para poder recibir un email.", Toast.LENGTH_SHORT).show();
-        }else{
-            String pass="";
-            Random random = new Random();
-            for(int i = 0; i<8; i++){
-                char caracter = (char)(random.nextInt(26) + 'a');
-                pass += caracter;
-            }
-            String contrasenyaEncriptada = BCrypt.hashpw(pass, BCrypt.gensalt(10));
-            obtenerSocio(email, contrasenyaEncriptada);
-
-
-        }
-
 
     }
     private void obtenerSocio(String mail, String contrasenya){
@@ -236,5 +208,10 @@ public class LoginActivity extends AppCompatActivity {
         catch (android.content.ActivityNotFoundException e) {
             Toast.makeText(this, "NO existe ningún cliente de email instalado!.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }
