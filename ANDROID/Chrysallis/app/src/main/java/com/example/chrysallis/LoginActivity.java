@@ -36,7 +36,6 @@ public class LoginActivity extends AppCompatActivity {
     public static final String INTERNET = Manifest.permission.INTERNET;
     public static final int REQUEST_CODE = 0;
     EditText etMail;
-    Button btnResetPass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

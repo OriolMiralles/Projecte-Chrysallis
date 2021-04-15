@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.chrysallis.Api.Api;
 import com.example.chrysallis.Api.ApiServices.AssistirService;
 import com.example.chrysallis.Api.ApiServices.EsdevenimentService;
+import com.example.chrysallis.Api.ApiServices.SociService;
 import com.example.chrysallis.Fragment.FragmentMisEventos;
 import com.example.chrysallis.Models.Assistir;
 import com.example.chrysallis.Models.Esdeveniment;
@@ -45,14 +46,12 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_activity);
-        btnNavegacion = findViewById(R.id.btnNavegacion);
-        btnNavegacion.setSelectedItemId(R.id.mainEvent);
-        Intent intent = getIntent();
 
+        Intent intent = getIntent();
         soci = (Soci) intent.getSerializableExtra(SOCIO);
         cargarEsdeveniemnts();
-
-
+        btnNavegacion = findViewById(R.id.btnNavegacion);
+        btnNavegacion.setSelectedItemId(R.id.mainEvent);
 
         btnNavegacion.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -185,7 +184,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
 
                     @Override
                     public void onFailure(Call<List<Esdeveniment>> call, Throwable t) {
-
+                        Toast.makeText(MenuActivity.this, t.getCause() + " ; " + t.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
                 break;
@@ -204,4 +203,33 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
     public void onBackPressed() {
 
     }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        SociService sociService = Api.getApi().create(SociService.class);
+        Call<Soci>sociCall = sociService.getSociEmail(soci.getEmail());
+        sociCall.enqueue(new Callback<Soci>() {
+            @Override
+            public void onResponse(Call<Soci> call, Response<Soci> response) {
+                switch (response.code()){
+                    case 200:
+                        if(response.body()!=null){
+                            soci = response.body();
+                            cargarEsdeveniemnts();
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Soci> call, Throwable t) {
+                Toast.makeText(MenuActivity.this, t.getCause() + " ; " + t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+
 }

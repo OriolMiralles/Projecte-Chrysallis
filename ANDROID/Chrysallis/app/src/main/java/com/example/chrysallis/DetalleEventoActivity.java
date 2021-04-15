@@ -56,7 +56,6 @@ public class DetalleEventoActivity extends AppCompatActivity {
 
         apuntado = intent.getExtras().getBoolean(APUNTADO);
 
-
         java.util.Date date = esdeveniment.getData();
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = df.format(date);
@@ -215,16 +214,40 @@ public class DetalleEventoActivity extends AppCompatActivity {
                             MissatgeError missatge;
                             switch (response.code()){
                                 case 200:
-                                    Toast.makeText(DetalleEventoActivity.this, "Desapuntado correctamente", Toast.LENGTH_SHORT).show();
+                                    EsdevenimentService esdevenimentService = Api.getApi()
+                                            .create(EsdevenimentService.class);
+                                    Call<Esdeveniment> esdevenimentCall = esdevenimentService.updateEsdeveniment(esdeveniment.getId(),esdeveniment);
+                                    esdevenimentCall.enqueue(new Callback<Esdeveniment>() {
+                                        @Override
+                                        public void onResponse(Call<Esdeveniment> call, Response<Esdeveniment> response) {
+                                            switch(response.code()){
+                                                case 204:
+                                                    Toast.makeText(DetalleEventoActivity.this,
+                                                            "Desapuntado correctamente", Toast.LENGTH_LONG).show();
+                                                    dialog.dismiss();
+                                                    finish();
+                                                    break;
+                                                case 404:
+                                                    Toast.makeText(DetalleEventoActivity.this,
+                                                            "Error al actualizar el socio", Toast.LENGTH_LONG).show();
+                                                    break;
+                                                default:
+                                                    Toast.makeText(DetalleEventoActivity.this,
+                                                            "Error al actualizar el socio", Toast.LENGTH_LONG).show();
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<Esdeveniment> call, Throwable t) {
+                                            Toast.makeText(DetalleEventoActivity.this,
+                                                    t.getCause() + " - "  + t.getMessage(), Toast.LENGTH_LONG).show();
+                                        }
+                                    });
                                     break;
                                 case 400:
                                     gson = new Gson();
                                     missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
                                     Toast.makeText(DetalleEventoActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
-                                    break;
-
-                                case 404:
-                                    Toast.makeText(DetalleEventoActivity.this, "No s'ha pogut esborrar", Toast.LENGTH_SHORT).show();
                                     break;
                                 default:
                                     gson = new Gson();
@@ -237,7 +260,8 @@ public class DetalleEventoActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<Assistir> call, Throwable t) {
-
+                            Toast.makeText(DetalleEventoActivity.this,
+                                    t.getCause() + " - "  + t.getMessage(), Toast.LENGTH_LONG).show();
                         }
                     });
 
@@ -276,32 +300,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
                                 switch (response.code()){
                                     case 204:
                                         Toast.makeText(DetalleEventoActivity.this, "Te has inscrito al evento", Toast.LENGTH_LONG).show();
-                                        SociService sociService = Api.getApi().create(SociService.class);
-                                        Call<Soci>sociCall = sociService.getSociEmail(soci.getEmail());
-                                        sociCall.enqueue(new Callback<Soci>() {
-                                            @Override
-                                            public void onResponse(Call<Soci> call, Response<Soci> response) {
-                                                switch (response.code()){
-                                                    case 200:
-                                                        if(response.body()!=null){
-                                                            soci = response.body();
-                                                        }
-                                                        Intent intent = new Intent(DetalleEventoActivity.this, MenuActivity.class);
-                                                        Bundle b = new Bundle();
-                                                        b.putSerializable(MenuActivity.SOCIO, soci);
-                                                        intent.putExtras(b);
-                                                        startActivity(intent);
-                                                        break;
-                                                    default:
-                                                        break;
-                                                }
-                                            }
-
-                                            @Override
-                                            public void onFailure(Call<Soci> call, Throwable t) {
-
-                                            }
-                                        });
+                                        finish();
                                         break;
                                     case 404:
                                         Toast.makeText(DetalleEventoActivity.this, "No se ha encontrado el evento", Toast.LENGTH_SHORT).show();
@@ -317,15 +316,15 @@ public class DetalleEventoActivity extends AppCompatActivity {
 
                             @Override
                             public void onFailure(Call<Esdeveniment> call, Throwable t) {
-
+                                Toast.makeText(DetalleEventoActivity.this, t.getCause() + " ; " + t.getMessage(), Toast.LENGTH_LONG).show();
                             }
                         });
 
 
-
+                  /*
                     case 204:
 
-                        break;
+                        break;*/
                     case 404:
                         Toast.makeText(DetalleEventoActivity.this, "No se ha encontrado el evento", Toast.LENGTH_SHORT).show();
                         break;
