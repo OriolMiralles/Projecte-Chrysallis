@@ -215,16 +215,49 @@ public class DetalleEventoActivity extends AppCompatActivity {
                             MissatgeError missatge;
                             switch (response.code()){
                                 case 200:
-                                    Toast.makeText(DetalleEventoActivity.this, "Desapuntado correctamente", Toast.LENGTH_SHORT).show();
+                                    EsdevenimentService esdevenimentService = Api.getApi()
+                                            .create(EsdevenimentService.class);
+                                    Call<Esdeveniment> esdevenimentCall = esdevenimentService.updateEsdeveniment(esdeveniment.getId(),esdeveniment);
+                                    esdevenimentCall.enqueue(new Callback<Esdeveniment>() {
+                                        @Override
+                                        public void onResponse(Call<Esdeveniment> call, Response<Esdeveniment> response) {
+                                            switch(response.code()){
+                                                case 204:
+                                                    Toast.makeText(DetalleEventoActivity.this,
+                                                            "Desapuntado correctamente", Toast.LENGTH_LONG).show();
+                                                    SociService sociService = Api.getApi().create(SociService.class);
+                                                    Call<Soci> sociCall = sociService.updateSoci(soci.getId(),soci);
+                                                    sociCall.enqueue(new Callback<Soci>() {
+                                                        @Override
+                                                        public void onResponse(Call<Soci> call, Response<Soci> response) {
+                                                            dialog.dismiss();
+                                                            finish();
+                                                        }
+
+                                                        @Override
+                                                        public void onFailure(Call<Soci> call, Throwable t) {
+                                                            Toast.makeText(DetalleEventoActivity.this,
+                                                                    t.getCause() + " - "  + t.getMessage(), Toast.LENGTH_LONG).show();
+                                                        }
+                                                    });
+                                                    break;
+                                                case 404:
+                                                    break;
+                                                default:
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<Esdeveniment> call, Throwable t) {
+                                            Toast.makeText(DetalleEventoActivity.this,
+                                                    t.getCause() + " - "  + t.getMessage(), Toast.LENGTH_LONG).show();
+                                        }
+                                    });
                                     break;
                                 case 400:
                                     gson = new Gson();
                                     missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
                                     Toast.makeText(DetalleEventoActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
-                                    break;
-
-                                case 404:
-                                    Toast.makeText(DetalleEventoActivity.this, "No s'ha pogut esborrar", Toast.LENGTH_SHORT).show();
                                     break;
                                 default:
                                     gson = new Gson();
@@ -237,7 +270,8 @@ public class DetalleEventoActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<Assistir> call, Throwable t) {
-
+                            Toast.makeText(DetalleEventoActivity.this,
+                                    t.getCause() + " - "  + t.getMessage(), Toast.LENGTH_LONG).show();
                         }
                     });
 
@@ -322,10 +356,10 @@ public class DetalleEventoActivity extends AppCompatActivity {
                         });
 
 
-
+                  /*
                     case 204:
 
-                        break;
+                        break;*/
                     case 404:
                         Toast.makeText(DetalleEventoActivity.this, "No se ha encontrado el evento", Toast.LENGTH_SHORT).show();
                         break;

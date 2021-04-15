@@ -204,4 +204,10 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
     public void onBackPressed() {
 
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        cargarEsdeveniemnts();
+    }
 }
