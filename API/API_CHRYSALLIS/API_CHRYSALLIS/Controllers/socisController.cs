@@ -185,13 +185,17 @@ namespace API_CHRYSALLIS.Controllers
                 .Include(s => s.comunitats)
                 .Where(s => s.id == id)
                 .First();
-            comunitats com = db.comunitats.Where(c => c.id == _soci.comunitats.ElementAt(0).id).First();
+            //comunitats com = db.comunitats.Where(c => c.id == _soci.comunitats.ElementAt(0).id).First();
             //Modifica los datos que no son objetos
             db.Entry(dbSocis).CurrentValues.SetValues(_soci);
 
             dbSocis.comunitats.Clear();
+            /*
+            foreach (comunitats comunitat in _soci.comunitats)
+            {
+                dbSocis.comunitats.Add(comunitat);
+            }*/
 
-            dbSocis.comunitats.Add(com);
             
 
             try

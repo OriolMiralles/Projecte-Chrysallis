@@ -53,6 +53,52 @@ namespace API_CHRYSALLIS.Controllers
         }
 
         [HttpGet]
+        [Route("api/esdeveniments/eventoNoRealizado/{id}/")]
+        public async Task<IHttpActionResult> FoundByEventoNoRealizado(int id)
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+            IHttpActionResult result;
+
+            List<esdeveniments> _esdeveniments = db.esdeveniments.
+                Include("comunitats").Include("localitats").Include("assistir")
+                .Where(e => e.assistir.Any(a => a.id_soci == id) && e.data >= DateTime.Now).ToList();
+
+            return Ok(_esdeveniments);
+        }
+
+        [HttpGet]
+        [Route("api/esdeveniments/eventoRealizado/{id}/")]
+        public async Task<IHttpActionResult> FoundByEventoRealizado(int id)
+        {
+
+            db.Configuration.LazyLoadingEnabled = false;
+            IHttpActionResult result;
+
+            List<esdeveniments> _esdeveniments = db.esdeveniments.
+                Include("comunitats").Include("localitats").Include("assistir")
+                .Where(e => e.assistir.Any(a => a.id_soci == id) && e.data < DateTime.Now).ToList();
+
+            return Ok(_esdeveniments);
+        }
+
+        [HttpGet]
+        [Route("api/esdeveniments/comunitat/{nomComunitat}/{nomCiutat}/{idTipo}/{dateMin}/{dateMax}")]
+        public async Task<IHttpActionResult> FoundByIdFiltres(String nomComunitat, String nomCiutat, int idTipo, DateTime dateMin, DateTime dateMax)
+        {
+
+            db.Configuration.LazyLoadingEnabled = false;
+            IHttpActionResult result;
+
+            List<esdeveniments> _esdeveniments = db.esdeveniments.
+                Include("comunitats").Include("localitats").Where(e => e.comunitats.nom.Equals(nomComunitat) && e.data > dateMin
+                                                            && e.data < dateMax && e.id_tipus == idTipo
+                                                            && e.localitats.nom.Contains(nomCiutat))
+                .OrderBy(e => e.data).ToList();
+
+            return Ok(_esdeveniments);
+        }
+
+        [HttpGet]
         [Route("api/esdeveniments/soci/{id}")]
         public async Task<IHttpActionResult> FoundByIdSoci(int id)
         {
@@ -66,6 +112,8 @@ namespace API_CHRYSALLIS.Controllers
 
             return Ok(_esdeveniments);
         }
+
+
         // PUT: api/esdeveniments/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> Putesdeveniments(int id, esdeveniments esdeveniments)

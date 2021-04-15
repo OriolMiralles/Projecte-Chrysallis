@@ -4,8 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -13,6 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.chrysallis.Adapter.AdaptadorMisEventos;
+import com.example.chrysallis.Api.Api;
+import com.example.chrysallis.Api.ApiServices.EsdevenimentService;
 import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.EsdevenimentListener;
 import com.example.chrysallis.Models.Soci;
@@ -20,6 +24,10 @@ import com.example.chrysallis.R;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class FragmentMisEventos extends Fragment {
     private EsdevenimentListener listener;
@@ -77,6 +85,81 @@ public class FragmentMisEventos extends Fragment {
                 R.layout.spinner_personalizado, stEvent);
         spMisEventos.setAdapter(eventos);
 
+        spMisEventos.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                EsdevenimentService esdevenimentService;
+                Call<List<Esdeveniment>> listEsdev;
+                esdevenimentService = Api.getApi().create(EsdevenimentService.class);
+
+                if(i == 0){
+                    listEsdev = esdevenimentService.getEventosNoRealizados(soci.getId());
+                    listEsdev.enqueue(new Callback<List<Esdeveniment>>() {
+                        @Override
+                        public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
+                            switch (response.code()){
+                                case 200:
+                                    if(response.body()!=null){
+                                        esdeveniments = new ArrayList<>(response.body());
+                                        //FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
+                                        //flista.setEsdevenimentListener(getContext());
+                                        //cargarFragments(flista);
+                                        View view1 = getView();
+                                        addListData(esdeveniments, view1);
+                                        Toast.makeText(getContext(), "Correcte", Toast.LENGTH_LONG).show();
+                                    }else{
+                                        Toast.makeText(getContext(), "No hay eventos programados", Toast.LENGTH_SHORT).show();
+                                    }
+
+                                    break;
+                                default:
+                                    Toast.makeText(getContext(), "ERRORRRRR", Toast.LENGTH_SHORT).show();
+                                    break;
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<List<Esdeveniment>> call, Throwable t) {
+
+                        }
+                    });
+                }else{
+                    listEsdev = esdevenimentService.getEventosRealizados(soci.getId());
+                    listEsdev.enqueue(new Callback<List<Esdeveniment>>() {
+                        @Override
+                        public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
+                            switch (response.code()){
+                                case 200:
+                                    List<Esdeveniment> lesd = response.body();
+                                    if(lesd!=null){
+                                        esdeveniments = new ArrayList<>(lesd);
+                                        View view1 = getView();
+                                        addListData(esdeveniments, view1);
+                                        Toast.makeText(getContext(), "Correcte", Toast.LENGTH_LONG).show();
+                                    }else{
+                                        Toast.makeText(getContext(), "No hay eventos programados", Toast.LENGTH_SHORT).show();
+                                    }
+
+                                    break;
+                                default:
+                                    Toast.makeText(getContext(), "ERRORRRRR", Toast.LENGTH_SHORT).show();
+                                    break;
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<List<Esdeveniment>> call, Throwable t) {
+
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
 
