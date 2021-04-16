@@ -34,7 +34,7 @@ namespace Chrysallis_Eventos
             {
                 bindingSourceComboComuni.DataSource = ComunitatsOrm.Select(ref missatge);
                
-                comboBoxComunidades.SelectedIndex = 9;
+                comboBoxComunidades.SelectedIndex = 7;
                 refrescarGrid();
             }
             else
@@ -132,6 +132,36 @@ namespace Chrysallis_Eventos
                     
                 }
 
+            }
+            if (e.ColumnIndex == 3)
+            {
+                esdeveniments _esdev = (esdeveniments)dataGridViewEvents.Rows[e.RowIndex].DataBoundItem;
+                if(_esdev != null)
+                {
+                    String hor = "";
+                    TimeSpan hora = _esdev.hora;
+                    String horaDef = "";
+                    String minDef = ""; 
+                    if (hora.Hours < 10)
+                    {
+                        horaDef = "0" + hora.Hours;
+                    }
+                    else
+                    {
+                        horaDef = hora.Hours.ToString();
+                    }
+                    if(hora.Minutes < 10)
+                    {
+                        minDef = "0" + hora.Minutes;
+                    }
+                    else
+                    {
+                        minDef = hora.Minutes.ToString();
+                    }
+                    hor = horaDef  + ":" + minDef;
+                    e.Value = hor;
+                }
+                
             }
             
         }

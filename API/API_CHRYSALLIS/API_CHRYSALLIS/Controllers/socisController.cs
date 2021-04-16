@@ -138,19 +138,7 @@ namespace API_CHRYSALLIS.Controllers
         }
 
 
-        [HttpPost]
-        [Route("api/socis/comunitats/{id}")]
-        public async Task<IHttpActionResult> InsertComunitats(int id, comunitats comunitat)
-        {
-            db.Configuration.LazyLoadingEnabled = false;
-            socis soci = await db.socis.FindAsync(id);
-            comunitats com = await db.comunitats.FindAsync(comunitat.id);
-            soci.comunitats.Add(com);
-            await db.SaveChangesAsync();
-
-
-            return Ok(soci);
-        }
+       
         [HttpPost]
         [Route("api/socis/esdeveniment/{id}")]
         public async Task<IHttpActionResult> InsertEsdeveniment(int id, esdeveniments esdeveniment)
@@ -166,8 +154,8 @@ namespace API_CHRYSALLIS.Controllers
         }
 
         [HttpPut]
-        [Route("api/socis/comunitats/{id}")]
-        public async Task<IHttpActionResult> updateComunitats(int id, socis _soci)
+        [Route("api/socis/comunitats/{id}/{id_com}")]
+        public async Task<IHttpActionResult> updateComunitats(int id,int id_com, socis _soci)
         {
             IHttpActionResult result;
             String missatge = "";
@@ -181,17 +169,19 @@ namespace API_CHRYSALLIS.Controllers
             {
                 result = BadRequest();
             }
-            socis dbSocis = db.socis
+            /*socis dbSocis = db.socis
                 .Include(s => s.comunitats)
                 .Where(s => s.id == id)
-                .First();
-            //comunitats com = db.comunitats.Where(c => c.id == _soci.comunitats.ElementAt(0).id).First();
+                .First();*/
+            socis dbSocis = db.socis.Where(s => s.id == id).FirstOrDefault();
+            comunitats com = db.comunitats.Where(c => c.id == id_com).FirstOrDefault();
             //Modifica los datos que no son objetos
-            db.Entry(dbSocis).CurrentValues.SetValues(_soci);
+           // db.Entry(dbSocis).CurrentValues.SetValues(_soci);
 
             dbSocis.comunitats.Clear();
-            /*
-            foreach (comunitats comunitat in _soci.comunitats)
+            dbSocis.comunitats.Add(com);
+            
+           /* foreach (comunitats comunitat in _soci.comunitats)
             {
                 dbSocis.comunitats.Add(comunitat);
             }*/

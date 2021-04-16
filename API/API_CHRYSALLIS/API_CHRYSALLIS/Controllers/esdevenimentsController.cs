@@ -143,7 +143,7 @@ namespace API_CHRYSALLIS.Controllers
                     {
                         if (!esdevenimentsExists(id))
                         {
-                            return NotFound();
+                            result = NotFound();
                         }
                         else
                         {
