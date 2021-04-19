@@ -34,6 +34,7 @@ namespace Chrysallis_Eventos
             this.buttonUsuarios = new System.Windows.Forms.Button();
             this.buttonEventos = new System.Windows.Forms.Button();
             this.buttonSocies = new System.Windows.Forms.Button();
+            this.buttonLogout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,12 +96,29 @@ namespace Chrysallis_Eventos
             this.buttonSocies.UseVisualStyleBackColor = false;
             this.buttonSocies.Click += new System.EventHandler(this.buttonSocies_Click);
             // 
+            // buttonLogout
+            // 
+            this.buttonLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(194)))), ((int)(((byte)(205)))));
+            this.buttonLogout.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonLogout.FlatAppearance.BorderSize = 2;
+            this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogout.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogout.Location = new System.Drawing.Point(599, 11);
+            this.buttonLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonLogout.Name = "buttonLogout";
+            this.buttonLogout.Size = new System.Drawing.Size(157, 33);
+            this.buttonLogout.TabIndex = 4;
+            this.buttonLogout.Text = "Logout";
+            this.buttonLogout.UseVisualStyleBackColor = false;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
+            // 
             // FormInicial
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(768, 580);
+            this.Controls.Add(this.buttonLogout);
             this.Controls.Add(this.buttonSocies);
             this.Controls.Add(this.buttonEventos);
             this.Controls.Add(this.buttonUsuarios);
@@ -123,5 +141,6 @@ namespace Chrysallis_Eventos
         private System.Windows.Forms.Button buttonUsuarios;
         private System.Windows.Forms.Button buttonEventos;
         private System.Windows.Forms.Button buttonSocies;
+        private System.Windows.Forms.Button buttonLogout;
     }
 }

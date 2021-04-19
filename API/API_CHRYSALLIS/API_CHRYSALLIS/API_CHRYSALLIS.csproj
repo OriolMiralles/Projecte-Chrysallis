@@ -164,6 +164,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="CLASES\Utilitat.cs" />
     <Compile Include="Controllers\assistirsController.cs" />
+    <Compile Include="Controllers\comunitatsController.cs" />
     <Compile Include="Controllers\esdevenimentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\socisController.cs" />

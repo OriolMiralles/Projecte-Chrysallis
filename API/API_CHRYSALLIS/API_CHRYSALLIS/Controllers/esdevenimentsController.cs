@@ -81,22 +81,85 @@ namespace API_CHRYSALLIS.Controllers
             return Ok(_esdeveniments);
         }
 
+        //GET AMB TOTS ELS FILTRES
         [HttpGet]
         [Route("api/esdeveniments/comunitat/{nomComunitat}/{nomCiutat}/{idTipo}/{dateMin}/{dateMax}")]
-        public async Task<IHttpActionResult> FoundByIdFiltres(String nomComunitat, String nomCiutat, int idTipo, DateTime dateMin, DateTime dateMax)
+        public async Task<IHttpActionResult> FoundByTotsFiltres(String nomComunitat, String nomCiutat, int idTipo, DateTime dateMin, DateTime dateMax)
         {
 
             db.Configuration.LazyLoadingEnabled = false;
             IHttpActionResult result;
-
+            DateTime dataMinima = dateMin;
+            DateTime dataMaxima = dateMax;
             List<esdeveniments> _esdeveniments = db.esdeveniments.
-                Include("comunitats").Include("localitats").Where(e => e.comunitats.nom.Equals(nomComunitat) && e.data > dateMin
-                                                            && e.data < dateMax && e.id_tipus == idTipo
+                Include("comunitats").Include("localitats").Where(e => e.comunitats.nom.Equals(nomComunitat) && e.data >= dataMinima
+                                                            && e.data <= dataMaxima && e.id_tipus == idTipo
                                                             && e.localitats.nom.Contains(nomCiutat))
                 .OrderBy(e => e.data).ToList();
 
             return Ok(_esdeveniments);
         }
+
+        //GET FILTRANT SENSE ID_TIPU NI CIUTAT
+        [HttpGet]
+        [Route("api/esdeveniments/comunitat/{nomComunitat}/{dateMin}/{dateMax}")]
+        public async Task<IHttpActionResult> FoundByFiltresDates(String nomComunitat, DateTime dateMin, DateTime dateMax)
+        {
+
+            db.Configuration.LazyLoadingEnabled = false;
+            IHttpActionResult result;
+            DateTime dataMinima = dateMin;
+            DateTime dataMaxima = dateMax;
+
+            List<esdeveniments> _esdeveniments = db.esdeveniments.
+                Include("comunitats").Include("localitats").Where(e => e.comunitats.nom.Equals(nomComunitat) && e.data >= dataMinima
+                                                            && e.data <= dataMaxima)
+                .OrderBy(e => e.data).ToList();
+
+            return Ok(_esdeveniments);
+        }
+
+        //GET FILTRANT PER CIUTAT SENSE ID_TIPUS
+        [HttpGet]
+        [Route("api/esdeveniments/comunitat/{nomComunitat}/{nomCiutat}/{dateMin}/{dateMax}")]
+        public async Task<IHttpActionResult> FoundByFiltreCiutat(String nomComunitat, String nomCiutat, DateTime dateMin, DateTime dateMax)
+        {
+
+            db.Configuration.LazyLoadingEnabled = false;
+            IHttpActionResult result;
+            DateTime dataMinima = dateMin;
+            DateTime dataMaxima = dateMax;
+
+            List<esdeveniments> _esdeveniments = db.esdeveniments.
+                Include("comunitats").Include("localitats").Where(e => e.comunitats.nom.Equals(nomComunitat) && e.data >= dataMinima
+                                                            && e.data <= dataMaxima
+                                                            && e.localitats.nom.Contains(nomCiutat))
+                .OrderBy(e => e.data).ToList();
+
+            return Ok(_esdeveniments);
+        }
+
+        //GET FILTRANT PER ID_TIPUS SENSE CIUTAT
+        [HttpGet]
+        [Route("api/esdeveniments/comunitat2/{nomComunitat}/{idTipo}/{dateMin}/{dateMax}")]
+        public async Task<IHttpActionResult> FoundByFiltresTipus(String nomComunitat, int idTipo, DateTime dateMin, DateTime dateMax)
+        {
+
+            db.Configuration.LazyLoadingEnabled = false;
+            IHttpActionResult result;
+            DateTime dataMinima = dateMin;
+            DateTime dataMaxima = dateMax;
+
+            List<esdeveniments> _esdeveniments = db.esdeveniments.
+                Include("comunitats").Include("localitats").Where(e => e.comunitats.nom.Equals(nomComunitat) && 
+                                                            e.id_tipus == idTipo && e.data >= dataMinima
+                                                            && e.data <= dataMaxima)
+                .OrderBy(e => e.data).ToList();
+
+            return Ok(_esdeveniments);
+        }
+
+       
 
         [HttpGet]
         [Route("api/esdeveniments/soci/{id}")]
@@ -143,7 +206,7 @@ namespace API_CHRYSALLIS.Controllers
                     {
                         if (!esdevenimentsExists(id))
                         {
-                            return NotFound();
+                            result = NotFound();
                         }
                         else
                         {
