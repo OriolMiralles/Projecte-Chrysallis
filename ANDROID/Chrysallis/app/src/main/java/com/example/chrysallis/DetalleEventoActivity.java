@@ -233,7 +233,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
                                                     break;
                                                 default:
                                                     Toast.makeText(DetalleEventoActivity.this,
-                                                            "Error al actualizar el socio", Toast.LENGTH_LONG).show();
+                                                            "error: " + response.code(), Toast.LENGTH_LONG).show();
                                             }
                                         }
 
@@ -250,9 +250,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
                                     Toast.makeText(DetalleEventoActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
                                     break;
                                 default:
-                                    gson = new Gson();
-                                    missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
-                                    Toast.makeText(DetalleEventoActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(DetalleEventoActivity.this, "Error code: " + response.code(), Toast.LENGTH_SHORT).show();;
                                     break;
 
                             }
@@ -306,9 +304,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
                                         Toast.makeText(DetalleEventoActivity.this, "No se ha encontrado el evento", Toast.LENGTH_SHORT).show();
                                         break;
                                     default:
-                                        gson = new Gson();
-                                        missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
-                                        Toast.makeText(DetalleEventoActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(DetalleEventoActivity.this, "error: " + response.code(), Toast.LENGTH_SHORT).show();
                                         break;
 
                                 }
@@ -329,9 +325,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
                         Toast.makeText(DetalleEventoActivity.this, "No se ha encontrado el evento", Toast.LENGTH_SHORT).show();
                         break;
                     default:
-                        gson = new Gson();
-                        missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
-                        Toast.makeText(DetalleEventoActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DetalleEventoActivity.this,"error: " + response.code(), Toast.LENGTH_SHORT).show();
                         break;
                 }
             }

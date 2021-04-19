@@ -118,6 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_LONG).show();
                                     break;
                                 default:
+                                    Toast.makeText(LoginActivity.this, "error: " + response.code(), Toast.LENGTH_SHORT).show();
                                     break;
                             }
 
@@ -155,9 +156,8 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, "Se ha enviado un correo electrónico.", Toast.LENGTH_SHORT).show();
                                         break;
                                     default:
-                                        Gson gson = new Gson();
-                                        MissatgeError missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
-                                        Toast.makeText(LoginActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                        Toast.makeText(LoginActivity.this,"error: " + response.code(), Toast.LENGTH_SHORT).show();
                                         break;
                                 }
                             }
@@ -177,7 +177,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_LONG).show();
                         break;
                     default:
-                        Toast.makeText(LoginActivity.this, "Error mensaje", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "error: " + response.code(), Toast.LENGTH_SHORT).show();
                         break;
                 }
 
@@ -190,25 +190,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void enviarEmail(String email, String contrasenya){
 
-
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-        String mensaje = "La nueva contraseña es: " + contrasenya;
-        emailIntent.setData(Uri.parse("mailto:"));
-        emailIntent.setType("text/plain");
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, email); // * configurar email aquí!
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Cambio de contraseña App Chrysallis");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, mensaje);
-
-        try {
-            startActivity(Intent.createChooser(emailIntent, "Enviar email."));
-            Log.i("EMAIL", "Enviando email...");
-        }
-        catch (android.content.ActivityNotFoundException e) {
-            Toast.makeText(this, "NO existe ningún cliente de email instalado!.", Toast.LENGTH_SHORT).show();
-        }
-    }
 
     @Override
     public void onBackPressed() {

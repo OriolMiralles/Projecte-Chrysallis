@@ -209,7 +209,7 @@ public class FragmentListaEventos extends Fragment {
 
                                             break;
                                         default:
-                                            Toast.makeText(getContext(), "ERRORRRRR", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getContext(), "error: " + response.code(), Toast.LENGTH_SHORT).show();
                                             break;
                                     }
                                 }
