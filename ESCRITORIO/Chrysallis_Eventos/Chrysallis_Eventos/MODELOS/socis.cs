@@ -25,7 +25,7 @@ namespace Chrysallis_Eventos.MODELOS
         }
     
         public int id { get; set; }
-        public int num { get; set; }
+        public Nullable<int> num { get; set; }
         public string nom { get; set; }
         public string cognoms { get; set; }
         public bool actiu { get; set; }

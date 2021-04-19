@@ -47,7 +47,6 @@
     <Property Name="data" Type="date" Nullable="false" />
     <Property Name="hora" Type="time" Precision="7" Nullable="false" />
     <Property Name="adreca" Type="varchar" MaxLength="140" Nullable="false" />
-    <Property Name="id_comunitat" Type="int" Nullable="false" />
     <Property Name="latitud" Type="nchar" MaxLength="10" />
     <Property Name="longitud" Type="nchar" MaxLength="10" />
     <Property Name="imatge" Type="varchar" MaxLength="30" />
@@ -59,7 +58,8 @@
     <Property Name="cont_assitents" Type="int" />
     <Property Name="id_localitat" Type="int" />
     <Property Name="id_tipus" Type="int" />
-    <Property Name="meet" Type="varchar" MaxLength="50" />
+    <Property Name="eventoEstatal" Type="bit" />
+    <Property Name="id_comunitat" Type="int" />
   </EntityType>
   <EntityType Name="localitats">
     <Key>
@@ -229,7 +229,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_esdeveniments_comunitats">
-    <End Role="comunitats" Type="Self.comunitats" Multiplicity="1" />
+    <End Role="comunitats" Type="Self.comunitats" Multiplicity="0..1" />
     <End Role="esdeveniments" Type="Self.esdeveniments" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="comunitats">

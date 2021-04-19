@@ -22,6 +22,7 @@ public class Esdeveniment implements Serializable {
     private boolean pagament;
     private Date data_max;
     private int id_localitat;
+    private boolean eventoEstatal;
 
     public Esdeveniment(String titol, Date data, Localitat localitat, int id_tipus, String descripcio){
         this.titol = titol;
@@ -31,7 +32,7 @@ public class Esdeveniment implements Serializable {
         this.descripcio = descripcio;
     }
 
-    public Esdeveniment(int id, String titol, Date data, Localitat localitats, int id_tipus, String descripcio, String tipoEvento, String adreca, List<Assistir> assistir, int quantitat_max, int cont_assitents, int id_comunitat, int quantitat_mínima, double preu, boolean pagament, Date data_max, int id_localitat) {
+    public Esdeveniment(int id, String titol, Date data, Localitat localitats, int id_tipus, String descripcio, String tipoEvento, String adreca, List<Assistir> assistir, int quantitat_max, int cont_assitents, int id_comunitat, int quantitat_mínima, double preu, boolean pagament, Date data_max, int id_localitat, boolean eventoEstatal) {
         this.id = id;
         this.titol = titol;
         this.data = data;
@@ -49,6 +50,7 @@ public class Esdeveniment implements Serializable {
         this.pagament = pagament;
         this.data_max = data_max;
         this.id_localitat = id_localitat;
+        this.eventoEstatal = eventoEstatal;
     }
 
     public int getId() {
