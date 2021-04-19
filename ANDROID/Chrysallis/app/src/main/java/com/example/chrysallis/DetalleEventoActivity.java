@@ -138,8 +138,6 @@ public class DetalleEventoActivity extends AppCompatActivity {
             });
         }
 
-
-
         btnApuntarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
