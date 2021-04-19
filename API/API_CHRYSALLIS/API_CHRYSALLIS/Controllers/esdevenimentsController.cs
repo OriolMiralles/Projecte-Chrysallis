@@ -112,8 +112,10 @@ namespace API_CHRYSALLIS.Controllers
             DateTime dataMaxima = dateMax;
 
             List<esdeveniments> _esdeveniments = db.esdeveniments.
-                Include("comunitats").Include("localitats").Where(e => e.comunitats.nom.Equals(nomComunitat) && e.data >= dataMinima
-                                                            && e.data <= dataMaxima)
+                Include("comunitats").Include("localitats")
+                .Where(e => e.comunitats.nom.Equals(nomComunitat)
+                && e.data >= dataMinima                                                
+                && e.data <= dataMaxima)
                 .OrderBy(e => e.data).ToList();
 
             return Ok(_esdeveniments);
