@@ -37,6 +37,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
     public final static String ESDEVENIMENT = "esdev";
     public final static String SOCI = "soci";
     private Soci soci;
+    private Assistir assistir;
     private Esdeveniment esdeveniment;
     private Button btnApuntarse;
     private Button btnLink;
@@ -144,24 +145,30 @@ public class DetalleEventoActivity extends AppCompatActivity {
                     valorarEvento();
 
                 }else if(apuntado && date.getTime() > System.currentTimeMillis()){
-                    modificarEvento();
+                    modificarEvento(plazasLibres);
                 }else{
                     String personas = etNumPersonasDetalle.getText().toString();
-                    int num = Integer.parseInt(personas);
+                    
                     if(!personas.equals("")){
-                        if(esdeveniment.getQuantitat_max()==0){
-                            int total = esdeveniment.getCont_assitents()+num;
-                            esdeveniment.setCont_assitents(total);
-                            apuntarseEvento();
+                        int num = Integer.parseInt(personas);
+                        if(num<1 || num >10){
+                            Toast.makeText(DetalleEventoActivity.this, "El número de personas apuntadas deber estar entre 1 i 10.", Toast.LENGTH_SHORT).show();
                         }else{
-                            if(num > plazasLibres){
-                                Toast.makeText(DetalleEventoActivity.this, "El número de personas excede el de plazas libres", Toast.LENGTH_LONG).show();
-                            }else{
-                                esdeveniment.setCont_assitents(esdeveniment.getCont_assitents()+num);
+                            if(esdeveniment.getQuantitat_max()==0){
+                                int total = esdeveniment.getCont_assitents()+num;
+                                esdeveniment.setCont_assitents(total);
                                 apuntarseEvento();
-                            }
+                            }else{
+                                if(num > plazasLibres){
+                                    Toast.makeText(DetalleEventoActivity.this, "El número de personas excede el de plazas libres", Toast.LENGTH_LONG).show();
+                                }else{
+                                    esdeveniment.setCont_assitents(esdeveniment.getCont_assitents()+num);
+                                    apuntarseEvento();
+                                }
 
+                            }
                         }
+                        
 
                     }else{
                         Toast.makeText(DetalleEventoActivity.this, "Hay que indicar el número de asistentes", Toast.LENGTH_LONG).show();
@@ -175,7 +182,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
             }
         });
     }
-    private void modificarEvento(){
+    private void modificarEvento(int plazasLibres){
         Dialog dialog = new MiDialogPersonalizado(DetalleEventoActivity.this,
                 R.layout.dialog_modificar);
 
@@ -195,10 +202,11 @@ public class DetalleEventoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int assistents = 0;
-                for(Assistir assistir : soci.getAssistirs()){
-                    if(assistir.getId_esdeveniment()==esdeveniment.getId()){
+                for(Assistir assistir : soci.getAssistirs()) {
+                    if (assistir.getId_esdeveniment() == esdeveniment.getId()) {
                         assistents = assistir.getQuantitat_persones();
                     }
+                }
                     int assistentsFinal = esdeveniment.getCont_assitents() - assistents;
                     esdeveniment.setCont_assitents(assistentsFinal);
                     int soci_id = soci.getId();
@@ -221,7 +229,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
                                             switch(response.code()){
                                                 case 204:
                                                     Toast.makeText(DetalleEventoActivity.this,
-                                                            "Desapuntado correctamente", Toast.LENGTH_LONG).show();
+                                                            "Te has desapuntado correctamente", Toast.LENGTH_LONG).show();
                                                     dialog.dismiss();
                                                     finish();
                                                     break;
@@ -231,7 +239,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
                                                     break;
                                                 default:
                                                     Toast.makeText(DetalleEventoActivity.this,
-                                                            "Error al actualizar el socio", Toast.LENGTH_LONG).show();
+                                                            "error: " + response.code(), Toast.LENGTH_LONG).show();
                                             }
                                         }
 
@@ -248,9 +256,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
                                     Toast.makeText(DetalleEventoActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
                                     break;
                                 default:
-                                    gson = new Gson();
-                                    missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
-                                    Toast.makeText(DetalleEventoActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(DetalleEventoActivity.this, "Error code: " + response.code(), Toast.LENGTH_SHORT).show();;
                                     break;
 
                             }
@@ -265,6 +271,46 @@ public class DetalleEventoActivity extends AppCompatActivity {
 
                 }
 
+
+        });
+
+        btnModificarPersonas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int assistents = 0;
+                for(Assistir item : soci.getAssistirs()) {
+                    if (item.getId_esdeveniment() == esdeveniment.getId()) {
+                        assistents = item.getQuantitat_persones();
+                        assistir = (Assistir) item;
+                    }
+                }
+                if(!etNumPersonasModificar.getText().equals("")){
+                    int nuevosAsistentes = Integer.parseInt(etNumPersonasModificar.getText().toString());
+                    if(nuevosAsistentes<1 || nuevosAsistentes >10){
+                        Toast.makeText(DetalleEventoActivity.this, "El número de personas apuntadas deber estar entre 1 i 10.", Toast.LENGTH_SHORT).show();
+                    }else{
+                        int diferencia = nuevosAsistentes - assistents;
+                        if(esdeveniment.getQuantitat_max()==0){
+                            esdeveniment.setCont_assitents(esdeveniment.getCont_assitents()+diferencia);
+                            assistir.setQuantitat_persones(nuevosAsistentes);
+                            actualizarAssistir(dialog);
+                        }else{
+                            if(diferencia > plazasLibres){
+                                Toast.makeText(DetalleEventoActivity.this, "El número de personas excede el de plazas libres", Toast.LENGTH_LONG).show();
+                            }else{
+                                esdeveniment.setCont_assitents(esdeveniment.getCont_assitents()+diferencia);
+                                assistir.setQuantitat_persones(nuevosAsistentes);
+                                actualizarAssistir(dialog);
+
+                            }
+
+                        }
+                    }
+                }else{
+                    Toast.makeText(DetalleEventoActivity.this, "Hay que indicar el número de asistentes", Toast.LENGTH_LONG).show();
+                }
+
+
             }
         });
 
@@ -274,6 +320,67 @@ public class DetalleEventoActivity extends AppCompatActivity {
                 R.layout.dialog_valorar);
         Button btnCloseModificar = findViewById(R.id.btnCloseModificar);
         EditText etComentario = findViewById(R.id.etComentario);
+    }
+
+    private void actualizarAssistir(Dialog dialog){
+
+        EsdevenimentService esdevenimentService = Api.getApi()
+                .create(EsdevenimentService.class);
+        Call<Esdeveniment> esdevenimentCall = esdevenimentService.updateEsdeveniment(esdeveniment.getId(),esdeveniment);
+        esdevenimentCall.enqueue(new Callback<Esdeveniment>() {
+            @Override
+            public void onResponse(Call<Esdeveniment> call, Response<Esdeveniment> response) {
+                switch (response.code()){
+                    case 204:
+                        Toast.makeText(DetalleEventoActivity.this,
+                                "Actualizado correctamente", Toast.LENGTH_LONG).show();
+                        AssistirService assistirService = Api.getApi().create(AssistirService.class);
+                        Call<Assistir> assistirCall = assistirService.updateAssistir(soci.getId(), assistir);
+                        assistirCall.enqueue(new Callback<Assistir>() {
+                            @Override
+                            public void onResponse(Call<Assistir> call, Response<Assistir> response) {
+                                switch (response.code()){
+                                    case 204:
+                                        dialog.dismiss();
+                                        finish();
+                                        break;
+                                    case 404:
+                                        Toast.makeText(DetalleEventoActivity.this,
+                                                "Error al actualizar evento", Toast.LENGTH_LONG).show();
+                                        break;
+                                    default:
+                                        Toast.makeText(DetalleEventoActivity.this,
+                                                "error: " + response.code(), Toast.LENGTH_LONG).show();
+                                        break;
+
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<Assistir> call, Throwable t) {
+
+                            }
+                        });
+
+
+                        break;
+                    case 404:
+                        Toast.makeText(DetalleEventoActivity.this,
+                                "Error al actualizar evento", Toast.LENGTH_LONG).show();
+                        break;
+                    default:
+                        Toast.makeText(DetalleEventoActivity.this,
+                                "error: " + response.code(), Toast.LENGTH_LONG).show();
+                        break;
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Esdeveniment> call, Throwable t) {
+
+            }
+        });
+
     }
     private void apuntarseEvento(){
         int numPersonas = Integer.parseInt(etNumPersonasDetalle.getText().toString());
@@ -304,9 +411,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
                                         Toast.makeText(DetalleEventoActivity.this, "No se ha encontrado el evento", Toast.LENGTH_SHORT).show();
                                         break;
                                     default:
-                                        gson = new Gson();
-                                        missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
-                                        Toast.makeText(DetalleEventoActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(DetalleEventoActivity.this, "error: " + response.code(), Toast.LENGTH_SHORT).show();
                                         break;
 
                                 }
@@ -327,9 +432,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
                         Toast.makeText(DetalleEventoActivity.this, "No se ha encontrado el evento", Toast.LENGTH_SHORT).show();
                         break;
                     default:
-                        gson = new Gson();
-                        missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
-                        Toast.makeText(DetalleEventoActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DetalleEventoActivity.this,"error: " + response.code(), Toast.LENGTH_SHORT).show();
                         break;
                 }
             }

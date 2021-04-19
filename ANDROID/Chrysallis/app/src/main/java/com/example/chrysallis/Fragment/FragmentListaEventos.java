@@ -249,6 +249,7 @@ public class FragmentListaEventos extends Fragment {
                                                     Toast.makeText(getContext(), "ERRORRRRR", Toast.LENGTH_SHORT).show();
                                                     break;
                                             }
+
                                         }
 
                                         @Override

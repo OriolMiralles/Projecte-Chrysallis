@@ -29,7 +29,6 @@ namespace API_CHRYSALLIS.Models
         public System.DateTime data { get; set; }
         public System.TimeSpan hora { get; set; }
         public string adreca { get; set; }
-        public int id_comunitat { get; set; }
         public string latitud { get; set; }
         public string longitud { get; set; }
         public string imatge { get; set; }
@@ -41,7 +40,8 @@ namespace API_CHRYSALLIS.Models
         public Nullable<int> cont_assitents { get; set; }
         public Nullable<int> id_localitat { get; set; }
         public Nullable<int> id_tipus { get; set; }
-        public string meet { get; set; }
+        public Nullable<bool> eventoEstatal { get; set; }
+        public Nullable<int> id_comunitat { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<assistir> assistir { get; set; }

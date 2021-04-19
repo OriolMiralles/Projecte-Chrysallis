@@ -100,6 +100,7 @@ namespace API_CHRYSALLIS.Controllers
             return result;
         }
 
+
         // POST: api/assistirs
         [ResponseType(typeof(assistir))]
         public async Task<IHttpActionResult> Postassistir(assistir assistir)

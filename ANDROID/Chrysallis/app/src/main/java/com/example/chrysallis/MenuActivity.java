@@ -141,9 +141,8 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
                                 
                                 break;
                             default:
-                                Gson gson = new Gson();
-                                MissatgeError missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
-                                Toast.makeText(MenuActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                Toast.makeText(MenuActivity.this, "error : " + response.code(), Toast.LENGTH_SHORT).show();
                                 break;
                         }
 
@@ -175,9 +174,8 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
 
                                 break;
                             default:
-                                Gson gson = new Gson();
-                                MissatgeError missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
-                                Toast.makeText(MenuActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                Toast.makeText(MenuActivity.this, "error: " + response.code(), Toast.LENGTH_SHORT).show();
                                 break;
                         }
                     }
@@ -220,6 +218,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
                         }
                         break;
                     default:
+                        Toast.makeText(MenuActivity.this, "error: " + response.code(), Toast.LENGTH_SHORT).show();
                         break;
                 }
             }

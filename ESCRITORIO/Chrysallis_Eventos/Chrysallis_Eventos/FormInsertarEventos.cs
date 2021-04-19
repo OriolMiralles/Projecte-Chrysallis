@@ -62,6 +62,7 @@ namespace Chrysallis_Eventos
                 textBoxMaximoasistentesEvento.Text = "0";
                 textBoxMinimoAsistentesEvento.Text = "0";
             }
+            
             else
             {
                 textBoxTituloEvento.Text = esdeveniment.titol;
@@ -87,6 +88,7 @@ namespace Chrysallis_Eventos
                 textBoxMinimoAsistentesEvento.Text = esdeveniment.quantitat_mínima.ToString();
                 textBoxMaximoasistentesEvento.Text = esdeveniment.quantitat_max.ToString();
                 textBoxTotalparticipantesEvento.Text = esdeveniment.cont_assitents.ToString();
+                checkBoxEstatal.Checked = esdeveniment.eventoEstatal.Value;
             }
         }
 
@@ -170,6 +172,7 @@ namespace Chrysallis_Eventos
         {
             esdeveniment.titol = textBoxTituloEvento.Text;
             esdeveniment.descripcio = richTextBoxDescripcionEvento.Text;
+            esdeveniment.eventoEstatal = checkBoxEstatal.Checked;
             esdeveniment.data = dateTimePickerEvento.Value;
             esdeveniment.hora = dateTimePickerHora.Value.TimeOfDay;
             esdeveniment.adreca = textBoxDireccionEvento.Text;

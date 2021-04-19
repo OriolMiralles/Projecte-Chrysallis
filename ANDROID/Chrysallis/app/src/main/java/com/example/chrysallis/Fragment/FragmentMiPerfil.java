@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,11 +59,18 @@ private Spinner spComuni;
         TextView tvApellidos = v.findViewById(R.id.tvApellido);
         TextView tvEmail = v.findViewById(R.id.tvEMAIL);
         spComuni = v.findViewById(R.id.spComuni);
+        Button btnLogout = v.findViewById(R.id.btnLogout);
 
         tvNombre.setText(_soci.getNom());
         tvApellidos.setText(_soci.getCognoms());
         tvEmail.setText(_soci.getEmail());
 
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               getActivity().finish();
+            }
+        });
         cargarComunidades();
         ArrayAdapter<String> adapterComunidades = new ArrayAdapter<String>(getContext(),
                 R.layout.spinner_personalizado, comunitats);
@@ -78,7 +86,7 @@ private Spinner spComuni;
                 Comunitat comunitat = new Comunitat(idCom, nomCom);
                 _soci.getComunitats().add(comunitat);
                 SociService sociService = Api.getApi().create(SociService.class);
-                Call<Soci>callSoci = sociService.updateComunitat(_soci.getId(), _soci);
+                Call<Soci>callSoci = sociService.updateComunitat(_soci.getId(), idCom, _soci);
                 callSoci.enqueue(new Callback<Soci>() {
                     @Override
                     public void onResponse(Call<Soci> call, Response<Soci> response) {
