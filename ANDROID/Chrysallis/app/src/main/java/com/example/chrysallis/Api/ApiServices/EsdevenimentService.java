@@ -1,6 +1,7 @@
 package com.example.chrysallis.Api.ApiServices;
 
 import com.example.chrysallis.Models.Esdeveniment;
+import com.example.chrysallis.Models.MyDate;
 
 import java.util.Date;
 import java.util.List;
@@ -26,6 +27,15 @@ public interface EsdevenimentService {
 
     @GET("api/esdeveniments/comunitat/{nomComunitat}/{nomCiutat}/{idTipo}/{dateMin}/{dateMax}")
     Call<List<Esdeveniment>> getEsdevenimentsFiltrats(@Path("nomComunitat") String nomComunitat, @Path("nomCiutat") String nomCiutat, @Path("idTipo") int idTipo, @Path("dateMin") Date dateMin, @Path("dateMax") Date dateMax);
+
+    @GET("api/esdeveniments/comunitat2/{nomComunitat}/{idTipo}/{dateMin}/{dateMax}")
+    Call<List<Esdeveniment>> getEsdevenimentsFiltrantTipus(@Path("nomComunitat") String nomComunitat, @Path("idTipo") int idTipo, @Path("dateMin") Date dateMin, @Path("dateMax") Date dateMax);
+
+    @GET("api/esdeveniments/comunitat/{nomComunitat}/{nomCiutat}/{dateMin}/{dateMax}")
+    Call<List<Esdeveniment>> getEsdevenimentsFiltrantCiutat(@Path("nomComunitat") String nomComunitat, @Path("nomCiutat") String nomCiutat, @Path("dateMin") Date dateMin, @Path("dateMax") Date dateMax);
+
+    @GET("api/esdeveniments/comunitat/{nomComunitat}/{dateMin}/{dateMax}")
+    Call<List<Esdeveniment>> getEsdevenimentsFiltrantSenseCiutatNiTipus(@Path("nomComunitat") String nomComunitat, @Path("dateMin") Date dateMin, @Path("dateMax") Date dateMax);
 
     @GET("api/esdeveniments/eventoNoRealizado/{id}/")
     Call<List<Esdeveniment>>getEventosNoRealizados(@Path("id") int id);

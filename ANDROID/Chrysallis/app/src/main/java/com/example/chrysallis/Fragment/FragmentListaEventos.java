@@ -23,17 +23,16 @@ import com.example.chrysallis.Adapter.AdaptadorLista;
 import com.example.chrysallis.Api.Api;
 import com.example.chrysallis.Api.ApiServices.EsdevenimentService;
 import com.example.chrysallis.MenuActivity;
-import com.example.chrysallis.Models.Assistir;
 import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.EsdevenimentListener;
 import com.example.chrysallis.MiDialogPersonalizado;
-import com.example.chrysallis.Models.MissatgeError;
+import com.example.chrysallis.Models.MyDate;
 import com.example.chrysallis.R;
-import com.google.gson.Gson;
 
-import java.time.LocalDate;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import java.util.Calendar;
@@ -45,8 +44,9 @@ public class FragmentListaEventos extends Fragment {
 
     private static List<Esdeveniment> esdeveniments;
     private EsdevenimentListener listener;
-    private static Date fechaMin = getTodayDate1();
-    private static Date fechaMax = getTodayDate1();
+    private static MyDate fechaMin = getTodayDate1();
+    private static MyDate fechaMax = getTodayDate2();
+
 
     private static DatePickerDialog datePickerDialog;
 
@@ -105,12 +105,13 @@ public class FragmentListaEventos extends Fragment {
                 final Spinner spTipos = dialog.findViewById(R.id.spTipo);
                 Button btnEliminarFiltro = dialog.findViewById(R.id.btnEliminarFiltro);
                 Button btnFiltrar = dialog.findViewById(R.id.btnFiltrar);
-
+                fechaMin = getTodayDate1();
+                fechaMax = getTodayDate2();
 
                 final Button btnFechaMin = dialog.findViewById(R.id.dateMinPicker);
-                btnFechaMin.setText(getTodayDate());
+                btnFechaMin.setText(fechaMin.toString());
                 final Button btnFechaMax = dialog.findViewById(R.id.dateMaxPicker);
-                btnFechaMax.setText(getTodayDate());
+                btnFechaMax.setText(fechaMax.toString());
                 final EditText etCiudad = dialog.findViewById(R.id.etCiudad);
 
                 final ArrayList<String>comunidades = new ArrayList<>();
@@ -152,8 +153,10 @@ public class FragmentListaEventos extends Fragment {
                     @Override
                     public void onClick(View v) {
                         etCiudad.setText("");
-                        btnFechaMin.setText(getTodayDate());
-                        btnFechaMax.setText(getTodayDate());
+                        MyDate nuevaFecha = getTodayDate1();
+                        MyDate nuevaFecha2 = getTodayDate2();
+                        btnFechaMin.setText(nuevaFecha.toString());
+                        btnFechaMax.setText(nuevaFecha2.toString());
                         spTipos.setSelection(0);
                         //FALTA PROGRAMAR SELECCIONAR COMUNIDAD USUARIO (SELECT DE LA COMUNIDAD DEL USUARIO)
                     }
@@ -189,38 +192,138 @@ public class FragmentListaEventos extends Fragment {
                                 case "Manifestación":
                                     id_tipo = 6;
                                     break;
+                                default:
+                                    id_tipo = 0;
                             }
+
                             esdevenimentService = Api.getApi().create(EsdevenimentService.class);
-                            listEsdev = esdevenimentService.getEsdevenimentsFiltrats(comunitat, ciutat, id_tipo, fechaMin, fechaMax);
-                            listEsdev.enqueue(new Callback<List<Esdeveniment>>() {
-                                @Override
-                                public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
-                                    switch (response.code()){
-                                        case 200:
-                                            if(response.body()!=null){
-                                                esdeveniments = new ArrayList<>(response.body());
-                                                //FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
-                                                //flista.setEsdevenimentListener(getContext());
-                                                //cargarFragments(flista);
-                                                Toast.makeText(getContext(), "Correcte", Toast.LENGTH_LONG).show();
-                                            }else{
-                                                Toast.makeText(getContext(), "No hay eventos programados", Toast.LENGTH_SHORT).show();
+                            if(fechaMin.before(fechaMax)){
+                                Toast.makeText(getContext(), "La fecha mínima no puede ser mayor a la fecha máxima", Toast.LENGTH_LONG).show();
+                                btnFechaMax.setText(btnFechaMin.getText());
+                                fechaMax = fechaMin;
+                            }else{
+                                if(!ciutat.isEmpty() && id_tipo != 0){
+                                    listEsdev = esdevenimentService.getEsdevenimentsFiltrats(comunitat, ciutat, id_tipo, fechaMin, fechaMax);
+                                    listEsdev.enqueue(new Callback<List<Esdeveniment>>() {
+                                        @Override
+                                        public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
+                                            switch (response.code()){
+                                                case 200:
+                                                    if(response.body()!=null){
+                                                        esdeveniments = new ArrayList<>(response.body());
+                                                        //FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
+                                                        //flista.setEsdevenimentListener(getContext());
+                                                        //cargarFragments(flista);
+                                                        Toast.makeText(getContext(), "Filtrat per tot", Toast.LENGTH_LONG).show();
+                                                    }else{
+                                                        Toast.makeText(getContext(), "No hay eventos programados", Toast.LENGTH_SHORT).show();
+                                                    }
+
+                                                    break;
+                                                default:
+                                                    Toast.makeText(getContext(), "ERRORRRRR", Toast.LENGTH_SHORT).show();
+                                                    break;
                                             }
+                                        }
 
-                                            break;
-                                        default:
-                                            Toast.makeText(getContext(), "ERRORRRRR", Toast.LENGTH_SHORT).show();
-                                            break;
-                                    }
+                                        @Override
+                                        public void onFailure(Call<List<Esdeveniment>> call, Throwable t) {
+                                            String text = t.getMessage();
+                                            Toast.makeText(getContext(), t.getCause() + " ; " + t.getMessage(), Toast.LENGTH_LONG).show();
+                                        }
+                                    });
+                                }else if (ciutat.isEmpty() && id_tipo != 0){
+                                    listEsdev = esdevenimentService.getEsdevenimentsFiltrantTipus(comunitat,id_tipo, fechaMin, fechaMax);
+                                    listEsdev.enqueue(new Callback<List<Esdeveniment>>() {
+                                        @Override
+                                        public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
+                                            switch (response.code()){
+                                                case 200:
+                                                    if(response.body()!=null){
+                                                        esdeveniments = new ArrayList<>(response.body());
+                                                        //FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
+                                                        //flista.setEsdevenimentListener(getContext());
+                                                        //cargarFragments(flista);
+                                                        Toast.makeText(getContext(), "Filtrat per tipus", Toast.LENGTH_LONG).show();
+                                                    }else{
+                                                        Toast.makeText(getContext(), "No hay eventos programados", Toast.LENGTH_SHORT).show();
+                                                    }
+
+                                                    break;
+                                                default:
+                                                    Toast.makeText(getContext(), "ERRORRRRR", Toast.LENGTH_SHORT).show();
+                                                    break;
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<List<Esdeveniment>> call, Throwable t) {
+                                            String text = t.getMessage();
+                                            Toast.makeText(getContext(), t.getCause() + " ; " + t.getMessage(), Toast.LENGTH_LONG).show();
+                                        }
+                                    });
+                                }else if(!ciutat.isEmpty() && id_tipo == 0){
+                                    listEsdev = esdevenimentService.getEsdevenimentsFiltrantCiutat(comunitat,ciutat, fechaMin, fechaMax);
+                                    listEsdev.enqueue(new Callback<List<Esdeveniment>>() {
+                                        @Override
+                                        public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
+                                            switch (response.code()){
+                                                case 200:
+                                                    if(response.body()!=null){
+                                                        esdeveniments = new ArrayList<>(response.body());
+                                                        //FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
+                                                        //flista.setEsdevenimentListener(getContext());
+                                                        //cargarFragments(flista);
+                                                        Toast.makeText(getContext(), "Filtrat per ciutat", Toast.LENGTH_LONG).show();
+                                                    }else{
+                                                        Toast.makeText(getContext(), "No hay eventos programados", Toast.LENGTH_SHORT).show();
+                                                    }
+
+                                                    break;
+                                                default:
+                                                    Toast.makeText(getContext(), "ERRORRRRR", Toast.LENGTH_SHORT).show();
+                                                    break;
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<List<Esdeveniment>> call, Throwable t) {
+                                            String text = t.getMessage();
+                                            Toast.makeText(getContext(), t.getCause() + " ; " + t.getMessage(), Toast.LENGTH_LONG).show();
+                                        }
+                                    });
+                                }else{
+                                    listEsdev = esdevenimentService.getEsdevenimentsFiltrantSenseCiutatNiTipus(comunitat, fechaMin, fechaMax);
+                                    listEsdev.enqueue(new Callback<List<Esdeveniment>>() {
+                                        @Override
+                                        public void onResponse(Call<List<Esdeveniment>> call, Response<List<Esdeveniment>> response) {
+                                            switch (response.code()){
+                                                case 200:
+                                                    if(response.body()!=null){
+                                                        esdeveniments = new ArrayList<>(response.body());
+                                                        //FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
+                                                        //flista.setEsdevenimentListener(getContext());
+                                                        //cargarFragments(flista);
+                                                        Toast.makeText(getContext(), "Filtrat sense tipus ni ciutat", Toast.LENGTH_LONG).show();
+                                                    }else{
+                                                        Toast.makeText(getContext(), "No hay eventos programados", Toast.LENGTH_SHORT).show();
+                                                    }
+
+                                                    break;
+                                                default:
+                                                    Toast.makeText(getContext(), "ERRORRRRR", Toast.LENGTH_SHORT).show();
+                                                    break;
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<List<Esdeveniment>> call, Throwable t) {
+                                            String text = t.getMessage();
+                                            Toast.makeText(getContext(), t.getCause() + " ; " + t.getMessage(), Toast.LENGTH_LONG).show();
+                                        }
+                                    });
                                 }
-
-                                @Override
-                                public void onFailure(Call<List<Esdeveniment>> call, Throwable t) {
-                                    String text = t.getMessage();
-                                    Toast.makeText(getContext(), t.getCause() + " ; " + t.getMessage(), Toast.LENGTH_LONG).show();
-                                }
-                            });
-
+                            }
                         }
                     }
                 });
@@ -230,18 +333,31 @@ public class FragmentListaEventos extends Fragment {
 
             }
 
-            public void initDatePicker(Button btnFechaMin, int minOMax){
+            public void initDatePicker(Button btnFecha, int minOMax){
                 DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                         month = month + 1;
                         String date = makeDateString(day, month, year);
-                        btnFechaMin.setText(date);
+                        btnFecha.setText(date);
+
+                        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                        MyDate data = null;
 
                         if(minOMax == 1){
-                            fechaMin = new Date (day, month, year);
+                            try {
+                                data = new MyDate(df.parse(makeDateString(year, month, day)));
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            fechaMin = new MyDate(data);
                         }else{
-                            fechaMax = new Date (day, month, year);
+                            try {
+                                data = new MyDate(df.parse(makeDateString(year, month, day)));
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            fechaMax = new MyDate(data);
                         }
 
                     }
@@ -260,28 +376,40 @@ public class FragmentListaEventos extends Fragment {
 
     }
 
-    public String getTodayDate(){
+    public static MyDate getTodayDate1() {
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);
         month = month + 1;
         int day = cal.get(Calendar.DAY_OF_MONTH);
-
-        return makeDateString(day, month, year);
-    }
-
-    public static Date getTodayDate1(){
-        Calendar cal = Calendar.getInstance();
-        int year = cal.get(Calendar.YEAR);
-        int month = cal.get(Calendar.MONTH);
-        month = month + 1;
-        int day = cal.get(Calendar.DAY_OF_MONTH);
-        Date date = new Date(day, month, year);
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        MyDate date = null;
+        try {
+            date = new MyDate(df.parse(makeDateString(day, month, year)));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         return date;
     }
 
+    public static MyDate getTodayDate2() {
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        month = month + 1;
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        day++;
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        MyDate date = null;
+        try {
+            date = new MyDate(df.parse(makeDateString(day, month, year)));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
     public static String makeDateString(int day, int month, int year){
-        return day + "/" + month + "/" + year;
+        return year + "-" + month + "-" + day;
     }
 
     public void openDatePicker(View view){
