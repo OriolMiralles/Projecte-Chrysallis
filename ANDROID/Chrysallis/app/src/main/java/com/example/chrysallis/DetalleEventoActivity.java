@@ -410,7 +410,6 @@ public class DetalleEventoActivity extends AppCompatActivity {
                                         finish();
                                         break;
                                     case 404:
-                                        Toast.makeText(DetalleEventoActivity.this, "No se ha encontrado el evento", Toast.LENGTH_SHORT).show();
                                         break;
                                     default:
                                         Toast.makeText(DetalleEventoActivity.this, "error: " + response.code(), Toast.LENGTH_SHORT).show();
@@ -431,7 +430,6 @@ public class DetalleEventoActivity extends AppCompatActivity {
 
                         break;*/
                     case 404:
-                        Toast.makeText(DetalleEventoActivity.this, "No se ha encontrado el evento", Toast.LENGTH_SHORT).show();
                         break;
                     default:
                         Toast.makeText(DetalleEventoActivity.this,"error: " + response.code(), Toast.LENGTH_SHORT).show();
