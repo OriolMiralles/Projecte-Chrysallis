@@ -197,7 +197,7 @@ public class FragmentListaEventos extends Fragment {
                             }
 
                             esdevenimentService = Api.getApi().create(EsdevenimentService.class);
-                            if(fechaMin.before(fechaMax)){
+                            if(fechaMin.compareTo(fechaMax) == 1){
                                 Toast.makeText(getContext(), "La fecha mínima no puede ser mayor a la fecha máxima", Toast.LENGTH_LONG).show();
                                 btnFechaMax.setText(btnFechaMin.getText());
                                 fechaMax = fechaMin;
@@ -214,6 +214,8 @@ public class FragmentListaEventos extends Fragment {
                                                         //FragmentListaEventos flista = FragmentListaEventos.newInstance(esdeveniments);
                                                         //flista.setEsdevenimentListener(getContext());
                                                         //cargarFragments(flista);
+                                                        View view1 = getView();
+                                                        addListData(esdeveniments, view1);
                                                         Toast.makeText(getContext(), "Filtrat per tot", Toast.LENGTH_LONG).show();
                                                     }else{
                                                         Toast.makeText(getContext(), "No hay eventos programados", Toast.LENGTH_SHORT).show();
@@ -346,14 +348,14 @@ public class FragmentListaEventos extends Fragment {
 
                         if(minOMax == 1){
                             try {
-                                data = new MyDate(df.parse(makeDateString(year, month, day)));
+                                data = new MyDate(df.parse(makeDateString(day, month, year)));
                             } catch (ParseException e) {
                                 e.printStackTrace();
                             }
                             fechaMin = new MyDate(data);
                         }else{
                             try {
-                                data = new MyDate(df.parse(makeDateString(year, month, day)));
+                                data = new MyDate(df.parse(makeDateString(day, month, year)));
                             } catch (ParseException e) {
                                 e.printStackTrace();
                             }
