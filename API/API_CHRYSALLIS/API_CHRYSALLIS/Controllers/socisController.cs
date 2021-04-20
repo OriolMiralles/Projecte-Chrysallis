@@ -162,54 +162,61 @@ namespace API_CHRYSALLIS.Controllers
 
             if (!ModelState.IsValid)
             {
-                result = BadRequest(ModelState);
+                result = BadRequest("Hola compañeros");
             }
-
-            if (id != _soci.id)
+            else
             {
-                result = BadRequest();
-            }
-            /*socis dbSocis = db.socis
-                .Include(s => s.comunitats)
-                .Where(s => s.id == id)
-                .First();*/
-            socis dbSocis = db.socis.Where(s => s.id == id).FirstOrDefault();
-            comunitats com = db.comunitats.Where(c => c.id == id_com).FirstOrDefault();
-            //Modifica los datos que no son objetos
-           // db.Entry(dbSocis).CurrentValues.SetValues(_soci);
-
-            dbSocis.comunitats.Clear();
-            dbSocis.comunitats.Add(com);
-            
-           /* foreach (comunitats comunitat in _soci.comunitats)
-            {
-                dbSocis.comunitats.Add(comunitat);
-            }*/
-
-            
-
-            try
-            {
-                await db.SaveChangesAsync();
-                result = StatusCode(HttpStatusCode.NoContent);
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!socisExists(id))
+                if (id != _soci.id)
                 {
-                    result = NotFound();
+                    result = BadRequest();
                 }
-                else
+                /*socis dbSocis = db.socis
+                    .Include(s => s.comunitats)
+                    .Where(s => s.id == id)
+                    .First();*/
+                //socis dbSocis = db.socis.Where(s => s.id == id).FirstOrDefault();
+                // comunitats com = db.comunitats.Where(c => c.id == id_com).FirstOrDefault();
+                socis dbSocis = db.socis.Find(id);
+                comunitats com = db.comunitats.Find(id_com);
+                //Modifica los datos que no son objetos
+                // db.Entry(dbSocis).CurrentValues.SetValues(_soci);
+
+                dbSocis.comunitats.Clear();
+                dbSocis.comunitats.Add(com);
+
+                /* foreach (comunitats comunitat in _soci.comunitats)
+                 {
+                     dbSocis.comunitats.Add(comunitat);
+                 }*/
+
+
+
+                try
                 {
-                    throw;
+                    await db.SaveChangesAsync();
+                    result = StatusCode(HttpStatusCode.NoContent);
                 }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!socisExists(id))
+                    {
+                        result = NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                catch (DbUpdateException ex)
+                {
+                    SqlException sqlException = (SqlException)ex.InnerException.InnerException;
+                    missatge = CLASES.Utilitat.missatgeError(sqlException);
+                    result = BadRequest(missatge);
+                }
+
             }
-            catch (DbUpdateException ex)
-            {
-                SqlException sqlException = (SqlException)ex.InnerException.InnerException;
-                missatge = CLASES.Utilitat.missatgeError(sqlException);
-                result = BadRequest(missatge);
-            }
+
+           
 
             return result;
 

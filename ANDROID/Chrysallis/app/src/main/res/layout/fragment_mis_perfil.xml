@@ -16,8 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="@dimen/marginTopEmail">
+        android:layout_marginLeft="40dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -43,7 +42,7 @@
         android:layout_width="318dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="@dimen/marginTopEmail"
+        android:layout_marginTop="@dimen/marginTopImgEventoDetalle"
         android:orientation="horizontal">
 
         <TextView
@@ -69,7 +68,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="40dp"
-        android:layout_marginTop="@dimen/marginTopEmail">
+        android:layout_marginTop="@dimen/marginTopImgEventoDetalle">
 
         <TextView
             android:layout_width="wrap_content"
@@ -90,13 +89,38 @@
             android:textSize="@dimen/tamanoLetraPequenia" />
 
     </LinearLayout>
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/marginTopImgEventoDetalle"
+        android:paddingLeft="15dp"
+        >
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@drawable/change_pass"/>
+    <Button
+        android:id="@+id/btnChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contra"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="@dimen/marginTopLogo"
+        android:textSize="@dimen/tamanoLetraPequenia"
+        android:layout_marginLeft="@dimen/marginTopLogo"
+        android:textColor="@color/blue"
+        android:stateListAnimator="@null"
+        />
+    </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/textComPref"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="@dimen/marginTopEmail"
+        android:layout_marginTop="@dimen/marginTopLogo"
         android:textColor="@color/colorAccent"
         android:textSize="@dimen/tamanoLetraMedia"
         android:textStyle="bold"
@@ -107,6 +131,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="@dimen/marginTopLogo"/>
+
 
     <Button
         android:id="@+id/btnLogout"

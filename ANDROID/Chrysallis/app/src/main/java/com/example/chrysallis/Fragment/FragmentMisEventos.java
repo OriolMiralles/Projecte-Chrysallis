@@ -1,11 +1,13 @@
 package com.example.chrysallis.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -17,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.chrysallis.Adapter.AdaptadorMisEventos;
 import com.example.chrysallis.Api.Api;
 import com.example.chrysallis.Api.ApiServices.EsdevenimentService;
+import com.example.chrysallis.CambiarPassActivity;
+import com.example.chrysallis.DetalleEventoActivity;
 import com.example.chrysallis.Models.Esdeveniment;
 import com.example.chrysallis.EsdevenimentListener;
 import com.example.chrysallis.Models.Soci;
@@ -33,6 +37,7 @@ public class FragmentMisEventos extends Fragment {
     private EsdevenimentListener listener;
     private static List<Esdeveniment> esdeveniments;
     private static Soci soci;
+
 
     public static FragmentMisEventos newInstance(List<Esdeveniment> esde, Soci _soci) {
         FragmentMisEventos fragment = new FragmentMisEventos();
@@ -57,6 +62,7 @@ public class FragmentMisEventos extends Fragment {
 
 
         final RecyclerView reciclerEventos =v.findViewById(R.id.ReciclerMisEventos);
+
         AdaptadorMisEventos adaptador = new AdaptadorMisEventos(esdeveniments, soci);
         reciclerEventos.setHasFixedSize(true);
         reciclerEventos.setLayoutManager(new LinearLayoutManager(getActivity(),
@@ -74,6 +80,7 @@ public class FragmentMisEventos extends Fragment {
 
             }
         });
+
     }
     public void fillSpinner(View v){
 
@@ -106,14 +113,13 @@ public class FragmentMisEventos extends Fragment {
                                         //cargarFragments(flista);
                                         View view1 = getView();
                                         addListData(esdeveniments, view1);
-                                        Toast.makeText(getContext(), "Correcte", Toast.LENGTH_LONG).show();
                                     }else{
                                         Toast.makeText(getContext(), "No hay eventos programados", Toast.LENGTH_SHORT).show();
                                     }
 
                                     break;
                                 default:
-                                    Toast.makeText(getContext(), "ERRORRRRR", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getContext(), "Error al mostrar eventos", Toast.LENGTH_SHORT).show();
                                     break;
                             }
                         }

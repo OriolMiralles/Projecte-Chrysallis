@@ -1,5 +1,6 @@
 package com.example.chrysallis.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,8 @@ import androidx.fragment.app.Fragment;
 import com.example.chrysallis.Api.Api;
 import com.example.chrysallis.Api.ApiServices.ComunitatService;
 import com.example.chrysallis.Api.ApiServices.SociService;
+import com.example.chrysallis.CambiarPassActivity;
+import com.example.chrysallis.DetalleEventoActivity;
 import com.example.chrysallis.LoginActivity;
 import com.example.chrysallis.MenuActivity;
 import com.example.chrysallis.Models.Comunitat;
@@ -54,6 +57,8 @@ private Spinner spComuni;
         return  view;
     }
     public void addData(View v){
+        Button btnChange = v.findViewById(R.id.btnChange);
+
 
         TextView tvNombre = v.findViewById(R.id.tvNombre);
         TextView tvApellidos = v.findViewById(R.id.tvApellido);
@@ -71,6 +76,18 @@ private Spinner spComuni;
                getActivity().finish();
             }
         });
+
+        btnChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), CambiarPassActivity.class);
+                Bundle b = new Bundle();
+                b.putSerializable(CambiarPassActivity.SOCI_PASS, _soci);
+                intent.putExtras(b);
+                startActivity(intent);
+            }
+        });
+
         cargarComunidades();
         ArrayAdapter<String> adapterComunidades = new ArrayAdapter<String>(getContext(),
                 R.layout.spinner_personalizado, comunitats);

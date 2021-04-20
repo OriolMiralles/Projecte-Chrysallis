@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".CambiarPassActivity"></activity>
         <activity android:name=".DetalleEventoActivity" />
         <activity
             android:name=".MenuActivity"

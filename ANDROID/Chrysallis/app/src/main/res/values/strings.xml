@@ -26,4 +26,8 @@
     <string name="textEnviar">ENVIAR COMENTARIO</string>
     <string name="textComentario">Escribe tu comentario:</string>
     <string name="contra">Click para cambiar contraseña</string>
+    <string name="PasswordActual">Password Actual:</string>
+    <string name="textNuevoPass">Nuevo Password</string>
+    <string name="textConfirPass">Confirmar Password</string>
+    <string name="Actualizar">ACTUALIZAR</string>
 </resources>

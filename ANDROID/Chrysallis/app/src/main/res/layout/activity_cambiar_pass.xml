@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="@dimen/marginTopLogo"
+        android:background="@drawable/ic_back"/>
+    <ImageView
+        android:layout_width="@dimen/widthLogo"
+        android:layout_height="@dimen/heightLogo"
+        android:layout_gravity="center"
+        android:background="@drawable/logosinfondo"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/marginLeftPassword"
+        android:layout_marginTop="@dimen/marginTopEmail">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/PasswordActual"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/tamanoLetraMedia"
+            />
+        <EditText
+            android:id="@+id/etPassAct"
+            android:layout_width="@dimen/btnLoginHeight"
+            android:layout_marginLeft="@dimen/marginLeftText"
+            android:layout_height="wrap_content"
+            android:text="pelota11"
+            android:textColor="@color/colorAccent"
+            android:inputType="textPassword"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/marginLeftPassword">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textNuevoPass"
+            android:textSize="@dimen/tamanoLetraMedia"
+            android:textColor="@color/colorAccent"/>
+        <EditText
+            android:id="@+id/etNewPass"
+            android:layout_width="@dimen/btnLoginHeight"
+            android:layout_marginLeft="@dimen/marginLeftText"
+            android:layout_height="wrap_content"
+            android:text="pelota11"
+            android:textColor="@color/colorAccent"
+            android:inputType="textPassword"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/marginLeftPassword">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/tamanoLetraMedia"
+            android:text="@string/textConfirPass"
+            android:textColor="@color/colorAccent"/>
+        <EditText
+            android:id="@+id/etConfirPass"
+            android:layout_width="@dimen/btnLoginHeight"
+            android:layout_marginLeft="@dimen/marginLeftText"
+            android:layout_height="wrap_content"
+            android:text="pelota11"
+            android:textColor="@color/colorAccent"
+            android:inputType="textPassword"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        style="@style/buttonPrimary"
+        android:layout_width="@dimen/btnLoginWidth"
+        android:layout_height="@dimen/btnLoginHeight"
+        android:layout_gravity="center"
+        android:text="@string/Actualizar"
+        android:layout_marginTop="@dimen/marginTopLogin"/>
+
+
+
+</LinearLayout>
