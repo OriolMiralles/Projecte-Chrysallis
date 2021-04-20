@@ -36,6 +36,8 @@ public class DetalleEventoActivity extends AppCompatActivity {
     public final static String APUNTADO = "apuntado";
     public final static String ESDEVENIMENT = "esdev";
     public final static String SOCI = "soci";
+    public static final String GOOGLEMAPS = "geo:0,0?q=";
+    public static final String GOOGLEPACKAGE = "com.google.android.apps.maps";
     private Soci soci;
     private Assistir assistir;
     private Esdeveniment esdeveniment;
@@ -84,6 +86,13 @@ public class DetalleEventoActivity extends AppCompatActivity {
         tvFechaDetalle.setText(fecha);
         tvDescripcionDetalle.setText((esdeveniment.getDescripcio()));
 
+        if(esdeveniment.getId_tipus() != 5){
+            btnLink.setText("Google Maps");
+        }
+        else{
+            btnLink.setText("Link");
+        }
+
         if(apuntado && date.getTime() < System.currentTimeMillis()){
             btnApuntarse.setText("VALORAR");
             btnLink.setVisibility(View.VISIBLE);
@@ -122,15 +131,28 @@ public class DetalleEventoActivity extends AppCompatActivity {
             btnLink.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //ABRIR MAPS
+                    String location = esdeveniment.getAdreca();
+
+                    if(location.equals("")){
+                        Toast.makeText(DetalleEventoActivity.this, "Dirección no válida",
+                                Toast.LENGTH_LONG).show();
+                    }else{
+                        String find = GOOGLEMAPS + location;
+                        Uri gmmIntentUri = Uri.parse(find);
+                        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                        mapIntent.setPackage(GOOGLEPACKAGE);
+                        startActivity(mapIntent);
+                    }
                 }
             });
         }else if(apuntado){
             btnLink.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //String link = String.valueOf(esdeveniment.getAdreca());
-                    String link = "https://politecnics.barcelona/";
+                    String link = String.valueOf(esdeveniment.getAdreca());
+                    if(!link.startsWith("https://")){  //www.cepnet.net
+                        link = "https://" + link;
+                    }
                     Uri _link = Uri.parse(link);
                     Intent i = new Intent(Intent.ACTION_VIEW, _link);
                     startActivity(i);
