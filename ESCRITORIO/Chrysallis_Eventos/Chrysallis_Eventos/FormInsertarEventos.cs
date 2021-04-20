@@ -204,6 +204,12 @@ namespace Chrysallis_Eventos
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBoxTituloEvento.Focus();
             }
+            if(textBoxTituloEvento.Text.Length > 20)
+            {
+                MessageBox.Show("El título debe tener 20 caracteres máximo", "Advertencia",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxTituloEvento.Focus();
+            }
             else if (comboBoxTipoEvento.SelectedItem == null)
             {
                 MessageBox.Show("Debe seleccionar un tipo de evento", "Advertencia",
