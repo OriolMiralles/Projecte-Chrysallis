@@ -138,7 +138,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
             btnLink.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String location = esdeveniment.getAdreca();
+                    String location = esdeveniment.getAdreca() + " " + esdeveniment.getLocalitats().getNom();
 
                     if(location.equals("")){
                         Toast.makeText(DetalleEventoActivity.this, "Dirección no válida",
