@@ -25,8 +25,10 @@ import com.google.gson.Gson;
 
 import org.mindrot.jbcrypt.BCrypt;
 
+import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -43,8 +45,11 @@ public class DetalleEventoActivity extends AppCompatActivity {
     private Button btnLink;
     private Button btnBack;
     private EditText etNumPersonasDetalle;
+    private TextView txtNumPers;
     private TextView tvPlazas;
     private boolean apuntado;
+    private int numEstrellas;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +59,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
         Intent intent = getIntent();
         soci = (Soci) intent.getSerializableExtra(SOCI);
         esdeveniment = (Esdeveniment) intent.getSerializableExtra(ESDEVENIMENT);
-
+        numEstrellas = 3;
         apuntado = intent.getExtras().getBoolean(APUNTADO);
 
         java.util.Date date = esdeveniment.getData();
@@ -76,6 +81,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
         btnBack                            = findViewById(R.id.btnBack);
         btnLink                            = findViewById(R.id.btnLink);
         tvPlazas                           = findViewById(R.id.tvPlazas);
+        txtNumPers                         = findViewById(R.id.txtViewNumPers);
 
         //setteamos los elementos
         loadImageEvent(imgTipoEventDetalle);
@@ -88,6 +94,8 @@ public class DetalleEventoActivity extends AppCompatActivity {
             btnApuntarse.setText("VALORAR");
             btnLink.setVisibility(View.VISIBLE);
             etNumPersonasDetalle.setVisibility(View.GONE);
+            txtNumPers.setVisibility(View.GONE);
+
         }else if(apuntado && date.getTime() > System.currentTimeMillis()){
             btnApuntarse.setText("MODIFICAR");
             btnLink.setVisibility(View.VISIBLE);
@@ -142,6 +150,11 @@ public class DetalleEventoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(apuntado && date.getTime() < System.currentTimeMillis()){
+                    for(Assistir item : soci.getAssistirs()) {
+                        if (item.getId_esdeveniment() == esdeveniment.getId()) {
+                            assistir = (Assistir) item;
+                        }
+                    }
                     valorarEvento();
 
                 }else if(apuntado && date.getTime() > System.currentTimeMillis()){
@@ -293,14 +306,14 @@ public class DetalleEventoActivity extends AppCompatActivity {
                         if(esdeveniment.getQuantitat_max()==0){
                             esdeveniment.setCont_assitents(esdeveniment.getCont_assitents()+diferencia);
                             assistir.setQuantitat_persones(nuevosAsistentes);
-                            actualizarAssistir(dialog);
+                            actualizarAssistir(dialog,"Evento actualizado correctamente");
                         }else{
                             if(diferencia > plazasLibres){
                                 Toast.makeText(DetalleEventoActivity.this, "El número de personas excede el de plazas libres", Toast.LENGTH_LONG).show();
                             }else{
                                 esdeveniment.setCont_assitents(esdeveniment.getCont_assitents()+diferencia);
                                 assistir.setQuantitat_persones(nuevosAsistentes);
-                                actualizarAssistir(dialog);
+                                actualizarAssistir(dialog, "Evento actualizado correctamente");
 
                             }
 
@@ -318,11 +331,106 @@ public class DetalleEventoActivity extends AppCompatActivity {
     private void valorarEvento(){
         Dialog dialog = new MiDialogPersonalizado(DetalleEventoActivity.this,
                 R.layout.dialog_valorar);
-        Button btnCloseModificar = findViewById(R.id.btnCloseModificar);
-        EditText etComentario = findViewById(R.id.etComentario);
+        Button btnCloseModificar = dialog.findViewById(R.id.btnCloseModificar);
+        EditText etComentario = dialog.findViewById(R.id.etComentario);
+        Button btnValorar = dialog.findViewById(R.id.btnValorar);
+
+        Button btnStar1 = dialog.findViewById(R.id.btnStar1);
+        Button btnStar2 = dialog.findViewById(R.id.btnStar2);
+        Button btnStar3 = dialog.findViewById(R.id.btnStar3);
+        Button btnStar4 = dialog.findViewById(R.id.btnStar4);
+        Button btnStar5 = dialog.findViewById(R.id.btnStar5);
+
+        ArrayList<Button> ArrayButtonStars = new ArrayList<>();
+        ArrayButtonStars.add(btnStar1);
+        ArrayButtonStars.add(btnStar2);
+        ArrayButtonStars.add(btnStar3);
+        ArrayButtonStars.add(btnStar4);
+        ArrayButtonStars.add(btnStar5);
+
+        if(assistir.getValoracio() != 0){
+            etComentario.setText(assistir.getTextValoracio());
+            numEstrellas = assistir.getValoracio();
+            rellenarEstrellas(ArrayButtonStars);
+        }
+
+        btnCloseModificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+
+        btnValorar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String comentari = "";
+
+                if(etComentario.getText().toString().equals("")){
+                    comentari = "Sin comentario";
+                }else{
+                    comentari = etComentario.getText().toString();
+                }
+                assistir.setTextValoracio(comentari);
+                assistir.setValoracio(numEstrellas);
+                actualizarAssistir(dialog, "Evento valorado");
+            }
+        });
+
+        btnStar1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fillStars(ArrayButtonStars, 0);
+                numEstrellas = 1;
+            }
+        });
+        btnStar2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fillStars(ArrayButtonStars, 1);
+                numEstrellas = 2;
+            }
+        });
+        btnStar3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fillStars(ArrayButtonStars, 2);
+                numEstrellas = 3;
+            }
+        });
+        btnStar4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fillStars(ArrayButtonStars, 3);
+                numEstrellas = 4;
+            }
+        });
+        btnStar5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fillStars(ArrayButtonStars, 4);
+                numEstrellas = 5;
+            }
+        });
+
+        dialog.show();
     }
 
-    private void actualizarAssistir(Dialog dialog){
+    private void rellenarEstrellas(ArrayList<Button> btnStars){
+        for(int i = 0; i < btnStars.size(); i++){
+            if(i > numEstrellas) btnStars.get(i).setBackgroundResource(R.drawable.starempty);
+            else btnStars.get(i).setBackgroundResource(R.drawable.starfilled);
+        }
+    }
+
+    private void fillStars(ArrayList<Button> btnStars, int star){
+        for(int i = 0; i < btnStars.size(); i++){
+            if(i > star) btnStars.get(i).setBackgroundResource(R.drawable.starempty);
+            else btnStars.get(i).setBackgroundResource(R.drawable.starfilled);
+        }
+    }
+
+    private void actualizarAssistir(Dialog dialog, String mensaje){
 
         EsdevenimentService esdevenimentService = Api.getApi()
                 .create(EsdevenimentService.class);
@@ -333,7 +441,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
                 switch (response.code()){
                     case 204:
                         Toast.makeText(DetalleEventoActivity.this,
-                                "Actualizado correctamente", Toast.LENGTH_LONG).show();
+                                mensaje, Toast.LENGTH_LONG).show();
                         AssistirService assistirService = Api.getApi().create(AssistirService.class);
                         Call<Assistir> assistirCall = assistirService.updateAssistir(soci.getId(), assistir);
                         assistirCall.enqueue(new Callback<Assistir>() {

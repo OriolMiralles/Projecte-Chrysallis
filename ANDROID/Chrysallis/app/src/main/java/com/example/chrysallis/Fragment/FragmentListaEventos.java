@@ -218,11 +218,9 @@ public class FragmentListaEventos extends Fragment {
                             }
 
                             esdevenimentService = Api.getApi().create(EsdevenimentService.class);
-<<<<<<< HEAD
-                            if(fechaMin.compareTo(fechaMax) == 1){
-=======
+
                             if(fechaMin.after(fechaMax)){
->>>>>>> 70dcc404c51bd519b4cd1f0a22d9b2c544ac72b0
+
                                 Toast.makeText(getContext(), "La fecha mínima no puede ser mayor a la fecha máxima", Toast.LENGTH_LONG).show();
                                 btnFechaMax.setText(btnFechaMin.getText());
                                 fechaMax = fechaMin;
@@ -241,10 +239,8 @@ public class FragmentListaEventos extends Fragment {
                                                         //cargarFragments(flista);
                                                         View view1 = getView();
                                                         addListData(esdeveniments, view1);
-<<<<<<< HEAD
-=======
                                                         dialog.dismiss();
->>>>>>> 70dcc404c51bd519b4cd1f0a22d9b2c544ac72b0
+
                                                         Toast.makeText(getContext(), "Filtrat per tot", Toast.LENGTH_LONG).show();
 
                                                     }else{

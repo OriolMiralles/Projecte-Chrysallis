@@ -25,7 +25,7 @@ public interface SociService {
     Call<Soci>updateSoci(@Path("id")int id, @Body Soci soci);
 
     @PUT("api/socis/comunitats/{id}/{id_com}")
-    Call<Soci>updateComunitat(@Path("id")int id, @Path("id")int id_com, @Body Soci soci);
+    Call<Soci>updateComunitat(@Path("id")int id, @Path("id_com")int id_com, @Body Soci soci);
 
     @DELETE("api/socis/comunitats/{id}")
     Call<Soci>deleteComunitats(@Path("id")int id);
