@@ -68,6 +68,7 @@ namespace Chrysallis_Eventos
             this.dateTimePickerEvento = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePickerHora = new System.Windows.Forms.DateTimePicker();
+            this.checkBoxEstatal = new System.Windows.Forms.CheckBox();
             this.groupBoxUbicacionEvento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCiutats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProvincies)).BeginInit();
@@ -488,12 +489,24 @@ namespace Chrysallis_Eventos
             this.dateTimePickerHora.Size = new System.Drawing.Size(147, 27);
             this.dateTimePickerHora.TabIndex = 36;
             // 
+            // checkBoxEstatal
+            // 
+            this.checkBoxEstatal.AutoSize = true;
+            this.checkBoxEstatal.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxEstatal.Location = new System.Drawing.Point(615, 66);
+            this.checkBoxEstatal.Name = "checkBoxEstatal";
+            this.checkBoxEstatal.Size = new System.Drawing.Size(143, 27);
+            this.checkBoxEstatal.TabIndex = 37;
+            this.checkBoxEstatal.Text = "Evento estatal";
+            this.checkBoxEstatal.UseVisualStyleBackColor = true;
+            // 
             // FormInsertarEventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(802, 1044);
+            this.Controls.Add(this.checkBoxEstatal);
             this.Controls.Add(this.dateTimePickerHora);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dateTimePickerEvento);
@@ -568,5 +581,6 @@ namespace Chrysallis_Eventos
         private System.Windows.Forms.BindingSource bindingSourceCiutats;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePickerHora;
+        private System.Windows.Forms.CheckBox checkBoxEstatal;
     }
 }

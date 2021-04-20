@@ -22,7 +22,7 @@ namespace API_CHRYSALLIS.Models
         public Nullable<bool> haPagado { get; set; }
         public int valoracio { get; set; }
     
-        public virtual esdeveniments esdeveniments { get; set; }
         public virtual socis socis { get; set; }
+        public virtual esdeveniments esdeveniments { get; set; }
     }
 }

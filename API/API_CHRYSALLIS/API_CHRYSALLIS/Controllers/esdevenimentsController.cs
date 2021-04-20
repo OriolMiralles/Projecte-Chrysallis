@@ -29,6 +29,7 @@ namespace API_CHRYSALLIS.Controllers
         [ResponseType(typeof(esdeveniments))]
         public async Task<IHttpActionResult> Getesdeveniments(int id)
         {
+            db.Configuration.LazyLoadingEnabled = false;
             esdeveniments esdeveniments = await db.esdeveniments.FindAsync(id);
             if (esdeveniments == null)
             {
@@ -46,7 +47,7 @@ namespace API_CHRYSALLIS.Controllers
             IHttpActionResult result;
 
             List<esdeveniments> _esdeveniments = db.esdeveniments.
-                Include("comunitats").Include("localitats").Where(e => e.id_comunitat==id && e.data > DateTime.Now)
+                Include("comunitats").Include("localitats").Where(e => e.data > DateTime.Now && e.id_comunitat==id || e.eventoEstatal == true)
                 .OrderBy(e => e.data).ToList();
 
             return Ok(_esdeveniments);
@@ -112,8 +113,10 @@ namespace API_CHRYSALLIS.Controllers
             DateTime dataMaxima = dateMax;
 
             List<esdeveniments> _esdeveniments = db.esdeveniments.
-                Include("comunitats").Include("localitats").Where(e => e.comunitats.nom.Equals(nomComunitat) && e.data >= dataMinima
-                                                            && e.data <= dataMaxima)
+                Include("comunitats").Include("localitats")
+                .Where(e => e.comunitats.nom.Equals(nomComunitat)
+                && e.data >= dataMinima                                                
+                && e.data <= dataMaxima)
                 .OrderBy(e => e.data).ToList();
 
             return Ok(_esdeveniments);

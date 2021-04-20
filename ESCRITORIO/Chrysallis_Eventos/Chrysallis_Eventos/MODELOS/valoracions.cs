@@ -18,7 +18,7 @@ namespace Chrysallis_Eventos.MODELOS
         public int id_esdeveniment { get; set; }
         public int valoracio { get; set; }
     
-        public virtual esdeveniments esdeveniments { get; set; }
         public virtual socis socis { get; set; }
+        public virtual esdeveniments esdeveniments { get; set; }
     }
 }

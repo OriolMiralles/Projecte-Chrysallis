@@ -1,6 +1,7 @@
 package com.example.chrysallis.Models;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Comunitat implements Serializable {
 
