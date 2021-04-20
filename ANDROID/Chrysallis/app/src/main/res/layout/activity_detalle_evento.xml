@@ -15,12 +15,12 @@
         android:layout_margin="@dimen/marginTopLogo"
         android:background="@drawable/ic_back"/>
 
-        <ImageView
-            android:id="@+id/imgTipoEventDetalle"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:background="@drawable/colonias"/>
+    <ImageView
+        android:id="@+id/imgTipoEventDetalle"
+        android:layout_width="153dp"
+        android:layout_height="151dp"
+        android:layout_gravity="center"
+        android:background="@drawable/colonias" />
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -30,7 +30,8 @@
     >
     <LinearLayout
         android:id="@+id/layoutInfo"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="2"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
@@ -61,12 +62,14 @@
 
 
     </LinearLayout>
+
     <Button
         android:id="@+id/btnLink"
-        android:layout_marginLeft="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="LINK"/>
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/secundarybutton" />
 </LinearLayout>
 
     <TextView
@@ -96,6 +99,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/txtViewNumPers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="NUM. PER.:"/>

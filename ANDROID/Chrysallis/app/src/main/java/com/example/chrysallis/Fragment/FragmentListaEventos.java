@@ -128,7 +128,7 @@ public class FragmentListaEventos extends Fragment {
                 ArrayAdapter<String> adapterTipos = new ArrayAdapter<String>(getContext(),
                         R.layout.spinner_personalizado, tipos);
                 spTipos.setAdapter(adapterTipos);
-//PRUEBA
+
                spTipos.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
                    @Override
                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -147,7 +147,7 @@ public class FragmentListaEventos extends Fragment {
 
                    }
                });
-//FIN PRUEBA
+
                 btnFechaMin.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -218,7 +218,9 @@ public class FragmentListaEventos extends Fragment {
                             }
 
                             esdevenimentService = Api.getApi().create(EsdevenimentService.class);
+
                             if(fechaMin.after(fechaMax)){
+
                                 Toast.makeText(getContext(), "La fecha mínima no puede ser mayor a la fecha máxima", Toast.LENGTH_LONG).show();
                                 btnFechaMax.setText(btnFechaMin.getText());
                                 fechaMax = fechaMin;
@@ -238,6 +240,7 @@ public class FragmentListaEventos extends Fragment {
                                                         View view1 = getView();
                                                         addListData(esdeveniments, view1);
                                                         dialog.dismiss();
+
                                                         Toast.makeText(getContext(), "Filtrat per tot", Toast.LENGTH_LONG).show();
 
                                                     }else{

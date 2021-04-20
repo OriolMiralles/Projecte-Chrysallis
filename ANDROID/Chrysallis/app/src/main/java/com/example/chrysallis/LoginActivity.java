@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
     public static final String INTERNET = Manifest.permission.INTERNET;
     public static final int REQUEST_CODE = 0;
+    public static final String LINKCHRYSALLIS = "https://chrysallis.org.es/contacto/";
     EditText etMail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,17 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         etMail = findViewById(R.id.editTextEmail);
         requestPermission();
+
+        Button btnRegistro = findViewById(R.id.btnRegistro);
+
+        btnRegistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri _link = Uri.parse(LINKCHRYSALLIS);
+                Intent i = new Intent(Intent.ACTION_VIEW, _link);
+                startActivity(i);
+            }
+        });
 
 
     }

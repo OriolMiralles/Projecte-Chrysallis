@@ -23,7 +23,7 @@
     <string name="textComPref">Selecciona la comunidad para mostrar sus eventos por defecto</string>
     <string name="textValorar">VALORAR</string>
     <string name="modificarParticipantes">MODIFICAR PARTICIPANTES</string>
-    <string name="textEnviar">ENVIAR COMENTARIO</string>
+    <string name="textEnviar">ENVIAR VALORACIÓN</string>
     <string name="textComentario">Escribe tu comentario:</string>
     <string name="contra">Click para cambiar contraseña</string>
     <string name="PasswordActual">Password Actual:</string>

@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.chrysallis.Api.Api;
@@ -109,10 +110,6 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
             startActivity(intent);
         }
 
- 
-
-       /* FragmentEventDetail fmp = FragmentEventDetail.newInstance(esdeveniment, soci);
-        cargarFragments(fmp);*/
     }
 
 
