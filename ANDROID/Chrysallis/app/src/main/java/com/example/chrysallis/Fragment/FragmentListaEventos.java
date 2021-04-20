@@ -128,7 +128,7 @@ public class FragmentListaEventos extends Fragment {
                 ArrayAdapter<String> adapterTipos = new ArrayAdapter<String>(getContext(),
                         R.layout.spinner_personalizado, tipos);
                 spTipos.setAdapter(adapterTipos);
-//PRUEBA
+
                spTipos.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
                    @Override
                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -147,7 +147,7 @@ public class FragmentListaEventos extends Fragment {
 
                    }
                });
-//FIN PRUEBA
+
                 btnFechaMin.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
