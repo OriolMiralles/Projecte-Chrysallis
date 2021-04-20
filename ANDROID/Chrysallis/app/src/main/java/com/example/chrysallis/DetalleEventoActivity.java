@@ -78,7 +78,6 @@ public class DetalleEventoActivity extends AppCompatActivity {
         TextView tvFechaDetalle            = findViewById(R.id.tvFechaDetalle);
         btnApuntarse                       = findViewById(R.id.btnApuntarse);
         etNumPersonasDetalle               = findViewById(R.id.etNumPersonasDetalle);
-        //ImageView imgGoogle              = findViewById(R.id.imgGoogle);
         TextView tvDescripcionDetalle      = findViewById(R.id.tvDescripcionDetalle);
         btnBack                            = findViewById(R.id.btnBack);
         btnLink                            = findViewById(R.id.btnLink);
@@ -158,7 +157,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     String link = String.valueOf(esdeveniment.getAdreca());
-                    if(!link.startsWith("https://")){  //www.cepnet.net
+                    if(!link.startsWith("https://")){
                         link = "https://" + link;
                     }
                     Uri _link = Uri.parse(link);
@@ -440,8 +439,11 @@ public class DetalleEventoActivity extends AppCompatActivity {
 
     private void rellenarEstrellas(ArrayList<Button> btnStars){
         for(int i = 0; i < btnStars.size(); i++){
-            if(i > numEstrellas) btnStars.get(i).setBackgroundResource(R.drawable.starempty);
-            else btnStars.get(i).setBackgroundResource(R.drawable.starfilled);
+            if(i >= numEstrellas) {
+                btnStars.get(i).setBackgroundResource(R.drawable.starempty);
+            } else{
+                btnStars.get(i).setBackgroundResource(R.drawable.starfilled);
+            }
         }
     }
 
