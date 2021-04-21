@@ -10,6 +10,19 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
+
+import com.example.chrysallis.Api.Api;
+import com.example.chrysallis.Api.ApiServices.SociService;
+import com.example.chrysallis.Models.MissatgeError;
+import com.example.chrysallis.Models.Soci;
+import com.google.gson.Gson;
+
+import org.mindrot.jbcrypt.BCrypt;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import com.example.chrysallis.Api.Api;
 import com.example.chrysallis.Api.ApiServices.SociService;

@@ -35,6 +35,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import java.util.Calendar;
@@ -48,6 +49,9 @@ public class FragmentListaEventos extends Fragment {
     private EsdevenimentListener listener;
     private static MyDate fechaMin = getTodayDate1();
     private static MyDate fechaMax = getTodayDate2();
+    private int dia;
+    private int mes;
+    private int anyo;
 
 
     private static DatePickerDialog datePickerDialog;
@@ -111,9 +115,18 @@ public class FragmentListaEventos extends Fragment {
                 fechaMax = getTodayDate2();
 
                 final Button btnFechaMin = dialog.findViewById(R.id.dateMinPicker);
-                btnFechaMin.setText(fechaMin.toString());
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(fechaMin);
+                dia = cal.get(Calendar.DAY_OF_MONTH);
+                mes = cal.get(Calendar.MONTH);
+                anyo = cal.get(Calendar.YEAR);
+                btnFechaMin.setText(formatDateBoton(dia, (mes + 1), anyo));
                 final Button btnFechaMax = dialog.findViewById(R.id.dateMaxPicker);
-                btnFechaMax.setText(fechaMax.toString());
+                cal.setTime(fechaMax);
+                dia = cal.get(Calendar.DAY_OF_MONTH);
+                mes = cal.get(Calendar.MONTH);
+                anyo = cal.get(Calendar.YEAR);
+                btnFechaMax.setText(formatDateBoton(dia, (mes + 1), anyo));
                 final EditText etCiudad = dialog.findViewById(R.id.etCiudad);
                 final TextView tvCiudad = dialog.findViewById(R.id.tvCiudad);
 
@@ -174,10 +187,20 @@ public class FragmentListaEventos extends Fragment {
                     @Override
                     public void onClick(View v) {
                         etCiudad.setText("");
+                        Calendar cal = Calendar.getInstance();
                         MyDate nuevaFecha = getTodayDate1();
+                        cal.setTime(nuevaFecha);
+                        dia = cal.get(Calendar.DAY_OF_MONTH);
+                        mes = cal.get(Calendar.MONTH);
+                        anyo = cal.get(Calendar.YEAR);
+
                         MyDate nuevaFecha2 = getTodayDate2();
-                        btnFechaMin.setText(nuevaFecha.toString());
-                        btnFechaMax.setText(nuevaFecha2.toString());
+                        cal.setTime(nuevaFecha2);
+                        dia = cal.get(Calendar.DAY_OF_MONTH);
+                        mes = cal.get(Calendar.MONTH);
+                        anyo = cal.get(Calendar.YEAR);
+                        btnFechaMin.setText(formatDateBoton(dia, (mes + 1), anyo));
+                        btnFechaMax.setText(formatDateBoton((dia + 1), (mes + 1), anyo));
                         spTipos.setSelection(0);
                         //FALTA PROGRAMAR SELECCIONAR COMUNIDAD USUARIO (SELECT DE LA COMUNIDAD DEL USUARIO)
                     }
@@ -375,7 +398,7 @@ public class FragmentListaEventos extends Fragment {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                         month = month + 1;
-                        String date = makeDateString(day, month, year);
+                        String date = formatDateBoton(day, month, year);
                         btnFecha.setText(date);
 
                         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -449,6 +472,9 @@ public class FragmentListaEventos extends Fragment {
         return year + "-" + month + "-" + day;
     }
 
+    public static String formatDateBoton(int day, int month, int year){
+        return day + " / " + month + " / " + year;
+    }
     public void openDatePicker(View view){
         datePickerDialog.show();
     }

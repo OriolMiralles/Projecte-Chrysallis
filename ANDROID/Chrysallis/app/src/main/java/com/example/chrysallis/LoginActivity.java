@@ -38,11 +38,14 @@ public class LoginActivity extends AppCompatActivity {
     public static final String INTERNET = Manifest.permission.INTERNET;
     public static final int REQUEST_CODE = 0;
     public static final String LINKCHRYSALLIS = "https://chrysallis.org.es/contacto/";
+
     EditText etMail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
         etMail = findViewById(R.id.editTextEmail);
         requestPermission();
 
@@ -208,6 +211,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 
 
 
