@@ -1,12 +1,28 @@
 package com.example.chrysallis;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
+
+import com.example.chrysallis.Api.Api;
+import com.example.chrysallis.Api.ApiServices.SociService;
+import com.example.chrysallis.Models.MissatgeError;
+import com.example.chrysallis.Models.Soci;
+import com.google.gson.Gson;
+
+import org.mindrot.jbcrypt.BCrypt;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,10 +54,10 @@ public class MainActivity extends AppCompatActivity {
             }
             //onFinish: Callback fired when the time is up.
             public void onFinish() {
-                Intent intent =
-                        new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
+                    Intent intent =
+                            new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
             }
         }.start();
     }

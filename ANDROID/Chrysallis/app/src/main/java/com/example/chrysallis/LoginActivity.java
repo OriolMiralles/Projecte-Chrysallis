@@ -6,7 +6,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -36,11 +38,14 @@ public class LoginActivity extends AppCompatActivity {
     public static final String INTERNET = Manifest.permission.INTERNET;
     public static final int REQUEST_CODE = 0;
     public static final String LINKCHRYSALLIS = "https://chrysallis.org.es/contacto/";
+
     EditText etMail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
         etMail = findViewById(R.id.editTextEmail);
         requestPermission();
 
@@ -201,6 +206,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 
 
 

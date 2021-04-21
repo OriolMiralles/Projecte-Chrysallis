@@ -37,6 +37,9 @@ public class FragmentMisEventos extends Fragment {
     private EsdevenimentListener listener;
     private static List<Esdeveniment> esdeveniments;
     private static Soci soci;
+    private static int opcioSpinner = 0;
+    private Spinner spMisEventos ;
+
 
 
     public static FragmentMisEventos newInstance(List<Esdeveniment> esde, Soci _soci) {
@@ -54,8 +57,11 @@ public class FragmentMisEventos extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_mis_eventos, container, false);
+        spMisEventos =  view.findViewById(R.id.spMisEventos);
         fillSpinner(view);
         addListData(esdeveniments, view);
+
+
         return  view;
     }
     public void addListData(final List<Esdeveniment> esdeveniments, View v){
@@ -72,6 +78,13 @@ public class FragmentMisEventos extends Fragment {
                 LinearLayoutManager.VERTICAL);
         reciclerEventos.addItemDecoration(dividerItemDecoration);
 
+        if(opcioSpinner == 0){
+            spMisEventos.setSelection(0);
+        }else{
+            spMisEventos.setSelection(1);
+        }
+
+
         adaptador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,7 +97,6 @@ public class FragmentMisEventos extends Fragment {
     }
     public void fillSpinner(View v){
 
-        Spinner spMisEventos = v.findViewById(R.id.spMisEventos);
         ArrayList<String>stEvent = new ArrayList<>();
         stEvent.add("Eventos que participo");
         stEvent.add("Eventos realizados");
@@ -100,6 +112,7 @@ public class FragmentMisEventos extends Fragment {
                 esdevenimentService = Api.getApi().create(EsdevenimentService.class);
 
                 if(i == 0){
+                    opcioSpinner = 0;
                     listEsdev = esdevenimentService.getEventosNoRealizados(soci.getId());
                     listEsdev.enqueue(new Callback<List<Esdeveniment>>() {
                         @Override
@@ -113,6 +126,7 @@ public class FragmentMisEventos extends Fragment {
                                         //cargarFragments(flista);
                                         View view1 = getView();
                                         addListData(esdeveniments, view1);
+
                                     }else{
                                         Toast.makeText(getContext(), "No hay eventos programados", Toast.LENGTH_SHORT).show();
                                     }
@@ -130,6 +144,7 @@ public class FragmentMisEventos extends Fragment {
                         }
                     });
                 }else{
+                    opcioSpinner = 1;
                     listEsdev = esdevenimentService.getEventosRealizados(soci.getId());
                     listEsdev.enqueue(new Callback<List<Esdeveniment>>() {
                         @Override
@@ -142,6 +157,7 @@ public class FragmentMisEventos extends Fragment {
                                         View view1 = getView();
                                         addListData(esdeveniments, view1);
                                         Toast.makeText(getContext(), "Correcte", Toast.LENGTH_LONG).show();
+
                                     }else{
                                         Toast.makeText(getContext(), "No hay eventos programados", Toast.LENGTH_SHORT).show();
                                     }
