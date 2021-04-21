@@ -76,6 +76,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
         TextView tvTituloDetalle           = findViewById(R.id.tvTituloDetalle);
         TextView tvTipoEventoDetalle       = findViewById(R.id.tvTipoEventoDetalle);
         TextView tvFechaDetalle            = findViewById(R.id.tvFechaDetalle);
+        TextView tvLoca                    = findViewById(R.id.tvLoca);
         btnApuntarse                       = findViewById(R.id.btnApuntarse);
         etNumPersonasDetalle               = findViewById(R.id.etNumPersonasDetalle);
         TextView tvDescripcionDetalle      = findViewById(R.id.tvDescripcionDetalle);
@@ -93,9 +94,11 @@ public class DetalleEventoActivity extends AppCompatActivity {
 
         if(esdeveniment.getId_tipus() != 5){
             btnLink.setText("Google Maps");
+            tvLoca.setText(esdeveniment.getLocalitats().getNom());
         }
         else{
             btnLink.setText("Link");
+            tvLoca.setVisibility(View.GONE);
         }
 
         if(apuntado && date.getTime() < System.currentTimeMillis()){
@@ -527,6 +530,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
                 MissatgeError missatge;
                 switch (response.code()){
                     case 201:
+
                         EsdevenimentService esdevenimentService = Api.getApi().create(EsdevenimentService.class);
                         Call<Esdeveniment> esdevenimentCall = esdevenimentService.updateEsdeveniment(esdeveniment.getId(), esdeveniment);
                         esdevenimentCall.enqueue(new Callback<Esdeveniment>() {

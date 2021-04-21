@@ -216,4 +216,20 @@ public class Esdeveniment implements Serializable {
     public void setId_localitat(int id_localitat) {
         this.id_localitat = id_localitat;
     }
+
+    public int getQuantitat_mínima() {
+        return quantitat_mínima;
+    }
+
+    public void setQuantitat_mínima(int quantitat_mínima) {
+        this.quantitat_mínima = quantitat_mínima;
+    }
+
+    public boolean isEventoEstatal() {
+        return eventoEstatal;
+    }
+
+    public void setEventoEstatal(boolean eventoEstatal) {
+        this.eventoEstatal = eventoEstatal;
+    }
 }

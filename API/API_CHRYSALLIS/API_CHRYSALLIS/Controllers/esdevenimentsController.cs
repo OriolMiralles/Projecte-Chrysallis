@@ -47,7 +47,7 @@ namespace API_CHRYSALLIS.Controllers
             IHttpActionResult result;
 
             List<esdeveniments> _esdeveniments = db.esdeveniments.
-                Include("comunitats").Include("localitats").Where(e => e.data > DateTime.Now && e.id_comunitat==id || e.eventoEstatal == true)
+                Include("comunitats").Include("localitats").Where(e => e.data > DateTime.Now && (e.id_comunitat==id || e.eventoEstatal == true))
                 .OrderBy(e => e.data).ToList();
 
             return Ok(_esdeveniments);
@@ -198,6 +198,10 @@ namespace API_CHRYSALLIS.Controllers
                 }
                 else
                 {
+                    if(esdeveniments.id_tipus == 5)
+                    {
+                        esdeveniments.id_localitat = null;
+                    }
                     db.Entry(esdeveniments).State = EntityState.Modified;
 
                     try

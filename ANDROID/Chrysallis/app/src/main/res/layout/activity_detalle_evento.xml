@@ -59,6 +59,12 @@
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/marginLeftText"
                 android:text="8-6-2021"/>
+            <TextView
+                android:id="@+id/tvLoca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/marginLeftText" />
 
 
     </LinearLayout>

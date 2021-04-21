@@ -1,6 +1,8 @@
 package com.example.chrysallis.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +22,7 @@ import com.example.chrysallis.Api.ApiServices.SociService;
 import com.example.chrysallis.CambiarPassActivity;
 import com.example.chrysallis.DetalleEventoActivity;
 import com.example.chrysallis.LoginActivity;
+import com.example.chrysallis.MainActivity;
 import com.example.chrysallis.MenuActivity;
 import com.example.chrysallis.Models.Comunitat;
 import com.example.chrysallis.Models.MissatgeError;
@@ -73,7 +76,13 @@ private Spinner spComuni;
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               getActivity().finish();
+                SharedPreferences preferencias = getActivity().getSharedPreferences("datos", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor=preferencias.edit();
+                editor.clear().apply();
+                Intent intent =
+                        new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+                getActivity().finish();
             }
         });
 

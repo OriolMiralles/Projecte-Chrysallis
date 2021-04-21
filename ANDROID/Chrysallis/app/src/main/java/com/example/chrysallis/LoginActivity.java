@@ -6,7 +6,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
@@ -103,6 +105,11 @@ public class LoginActivity extends AppCompatActivity {
                                             String contra = soci.getContrasenya();
                                             boolean acces = BCrypt.checkpw(pass, contra);
                                             if(acces){
+                                                SharedPreferences preferencias=getSharedPreferences("datos", Context.MODE_PRIVATE);
+                                                SharedPreferences.Editor editor=preferencias.edit();
+                                                editor.putString("mail", mail);
+                                                editor.putBoolean("loggeado", true);
+                                                editor.commit();
                                                 Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
                                                 Bundle b = new Bundle();
                                                 b.putSerializable(MenuActivity.SOCIO, soci);
