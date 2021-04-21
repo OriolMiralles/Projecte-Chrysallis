@@ -63,19 +63,20 @@ public class MainActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
 
             }
+
             //onFinish: Callback fired when the time is up.
             public void onFinish() {
                 boolean loggeado = prefe.getBoolean("loggeado", false);
-                if(loggeado){
+                if (loggeado) {
                     String mail = prefe.getString("mail", "");
                     SociService sociServices = Api.getApi().create(SociService.class);
                     Call<Soci> callSoci = sociServices.getSociEmail(mail);
                     callSoci.enqueue(new Callback<Soci>() {
                         @Override
                         public void onResponse(Call<Soci> call, Response<Soci> response) {
-                            switch (response.code()){
+                            switch (response.code()) {
                                 case 200:
-                                    if(response.body()!=null){
+                                    if (response.body() != null) {
                                         Soci soci = response.body();
                                         Intent intent = new Intent(MainActivity.this, MenuActivity.class);
                                         Bundle b = new Bundle();
@@ -94,14 +95,16 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     });
-                }else{
+                } else {
                     Intent intent =
                             new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
+
                 }
 
             }
+
         }.start();
     }
 
