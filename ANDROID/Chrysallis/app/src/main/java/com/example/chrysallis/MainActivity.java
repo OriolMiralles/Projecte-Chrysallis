@@ -78,12 +78,17 @@ public class MainActivity extends AppCompatActivity {
                                 case 200:
                                     if (response.body() != null) {
                                         Soci soci = response.body();
-                                        Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-                                        Bundle b = new Bundle();
-                                        b.putSerializable(MenuActivity.SOCIO, soci);
-                                        intent.putExtras(b);
-                                        startActivity(intent);
-                                        finish();
+                                        if(soci.isPermis_app()){
+                                            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                                            Bundle b = new Bundle();
+                                            b.putSerializable(MenuActivity.SOCIO, soci);
+                                            intent.putExtras(b);
+                                            startActivity(intent);
+                                            finish();
+                                        }else{
+                                            Toast.makeText(MainActivity.this, "No tienes permisos para utilizar la app", Toast.LENGTH_SHORT).show();
+                                        }
+                                       
                                     }
                                     break;
 

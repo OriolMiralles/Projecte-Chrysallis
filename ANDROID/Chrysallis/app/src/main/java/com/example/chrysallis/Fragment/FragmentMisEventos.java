@@ -156,7 +156,6 @@ public class FragmentMisEventos extends Fragment {
                                         esdeveniments = new ArrayList<>(lesd);
                                         View view1 = getView();
                                         addListData(esdeveniments, view1);
-                                        Toast.makeText(getContext(), "Correcte", Toast.LENGTH_LONG).show();
 
                                     }else{
                                         Toast.makeText(getContext(), "No hay eventos programados", Toast.LENGTH_SHORT).show();
