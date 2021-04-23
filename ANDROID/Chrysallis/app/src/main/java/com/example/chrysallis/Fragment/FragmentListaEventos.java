@@ -264,15 +264,13 @@ public class FragmentListaEventos extends Fragment {
                                                         addListData(esdeveniments, view1);
                                                         dialog.dismiss();
 
-                                                        Toast.makeText(getContext(), "Filtrat per tot", Toast.LENGTH_LONG).show();
-
                                                     }else{
                                                         Toast.makeText(getContext(), "No hay eventos programados", Toast.LENGTH_SHORT).show();
                                                     }
 
                                                     break;
                                                 default:
-                                                    Toast.makeText(getContext(), "ERRORRRRR", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(getContext(), "ERROR", Toast.LENGTH_SHORT).show();
                                                     break;
                                             }
 
@@ -299,14 +297,13 @@ public class FragmentListaEventos extends Fragment {
                                                         View view1 = getView();
                                                         addListData(esdeveniments, view1);
                                                         dialog.dismiss();
-                                                        Toast.makeText(getContext(), "Filtrat per tipus", Toast.LENGTH_LONG).show();
                                                     }else{
                                                         Toast.makeText(getContext(), "No hay eventos programados", Toast.LENGTH_SHORT).show();
                                                     }
 
                                                     break;
                                                 default:
-                                                    Toast.makeText(getContext(), "ERRORRRRR", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(getContext(), "ERROR", Toast.LENGTH_SHORT).show();
                                                     break;
                                             }
                                         }
@@ -332,14 +329,13 @@ public class FragmentListaEventos extends Fragment {
                                                         View view1 = getView();
                                                         addListData(esdeveniments, view1);
                                                         dialog.dismiss();
-                                                        Toast.makeText(getContext(), "Filtrat per ciutat", Toast.LENGTH_LONG).show();
                                                     }else{
                                                         Toast.makeText(getContext(), "No hay eventos programados", Toast.LENGTH_SHORT).show();
                                                     }
 
                                                     break;
                                                 default:
-                                                    Toast.makeText(getContext(), "ERRORRRRR", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(getContext(), "ERROR", Toast.LENGTH_SHORT).show();
                                                     break;
                                             }
                                         }
@@ -365,14 +361,13 @@ public class FragmentListaEventos extends Fragment {
                                                         View view1 = getView();
                                                         addListData(esdeveniments, view1);
                                                         dialog.dismiss();
-                                                        Toast.makeText(getContext(), "Filtrat sense tipus ni ciutat", Toast.LENGTH_LONG).show();
                                                     }else{
                                                         Toast.makeText(getContext(), "No hay eventos programados", Toast.LENGTH_SHORT).show();
                                                     }
 
                                                     break;
                                                 default:
-                                                    Toast.makeText(getContext(), "ERRORRRRR", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(getContext(), "ERROR", Toast.LENGTH_SHORT).show();
                                                     break;
                                             }
                                         }

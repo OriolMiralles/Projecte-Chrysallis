@@ -18,13 +18,14 @@ public class Soci implements Serializable {
     private String telefon2;
     private String dni;
     private Date data_alta;
+    private Date data_naixement;
     private String adresa;
     private String codi_postal;
     private int num;
     private List<Assistir> assistir;
     private List<Esdeveniment> esdeveniments;
 
-    public Soci(int id, String nom, String cognoms, String email, String contrasenya, boolean permis_app, List<Comunitat> comunitats, int id_localitat, boolean actiu, String telefon1, String telefon2, String dni, Date data_alta, String adresa, String codi_postal, int num, List<Assistir> assistir, List<Esdeveniment> esdeveniments) {
+    public Soci(int id, String nom, String cognoms, String email, String contrasenya, boolean permis_app, List<Comunitat> comunitats, int id_localitat, boolean actiu, String telefon1, String telefon2, String dni, Date data_alta, String adresa, String codi_postal, int num, List<Assistir> assistir, List<Esdeveniment> esdeveniments, Date data_naixement) {
         this.id = id;
         this.nom = nom;
         this.cognoms = cognoms;
@@ -43,6 +44,7 @@ public class Soci implements Serializable {
         this.num = num;
         this.assistir = assistir;
         this.esdeveniments = esdeveniments;
+        this.data_naixement = data_naixement;
     }
 
     public int getId() {
