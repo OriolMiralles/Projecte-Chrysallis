@@ -54,9 +54,8 @@ namespace Chrysallis_Eventos
                 labelInfo.Visible = false;
                 buttonInsertarMenor.Visible = false;
                 generarContraseña();
-                buttonInsertar.Location = new Point(400, 641);
-
-
+                buttonInsertar.Location = new Point(975,300);
+                this.Size = new Size(1150, 400);
             }
             else
             {
@@ -325,6 +324,11 @@ namespace Chrysallis_Eventos
 
             textBoxPasswordUsuario.Text = pass;
             
+        }
+
+        private void checkBoxActivo_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
