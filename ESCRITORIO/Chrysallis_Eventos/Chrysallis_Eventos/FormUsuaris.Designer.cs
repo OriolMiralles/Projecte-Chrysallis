@@ -30,11 +30,17 @@ namespace Chrysallis_Eventos
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+<<<<<<< HEAD
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+=======
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUsuaris));
+>>>>>>> 35db311001152e5c76c78003af6992daa8ad0dea
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonAddUser = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEditUser = new System.Windows.Forms.ToolStripButton();
@@ -90,7 +96,7 @@ namespace Chrysallis_Eventos
             this.toolStripButton1});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(807, 27);
+            this.toolStripMenu.Size = new System.Drawing.Size(706, 27);
             this.toolStripMenu.TabIndex = 0;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -134,12 +140,12 @@ namespace Chrysallis_Eventos
             this.groupBoxBuscar.Controls.Add(this.checkBoxActivo);
             this.groupBoxBuscar.Controls.Add(this.textBoxBuscarUser);
             this.groupBoxBuscar.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxBuscar.Location = new System.Drawing.Point(13, 66);
+            this.groupBoxBuscar.Location = new System.Drawing.Point(11, 74);
             this.groupBoxBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxBuscar.Name = "groupBoxBuscar";
             this.groupBoxBuscar.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxBuscar.Size = new System.Drawing.Size(776, 65);
-            this.groupBoxBuscar.TabIndex = 1;
+            this.groupBoxBuscar.Size = new System.Drawing.Size(679, 73);
+            this.groupBoxBuscar.TabIndex = 3;
             this.groupBoxBuscar.TabStop = false;
             this.groupBoxBuscar.Text = "Buscar";
             // 
@@ -147,20 +153,20 @@ namespace Chrysallis_Eventos
             // 
             this.checkBoxActivo.AutoSize = true;
             this.checkBoxActivo.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxActivo.Location = new System.Drawing.Point(661, 26);
+            this.checkBoxActivo.Location = new System.Drawing.Point(578, 29);
             this.checkBoxActivo.Name = "checkBoxActivo";
             this.checkBoxActivo.Size = new System.Drawing.Size(81, 27);
             this.checkBoxActivo.TabIndex = 1;
-            this.checkBoxActivo.Text = "Activo";
+            this.checkBoxActivo.Text = "Active";
             this.checkBoxActivo.UseVisualStyleBackColor = true;
             this.checkBoxActivo.CheckedChanged += new System.EventHandler(this.checkBoxActivo_CheckedChanged);
             // 
             // textBoxBuscarUser
             // 
-            this.textBoxBuscarUser.Location = new System.Drawing.Point(16, 25);
+            this.textBoxBuscarUser.Location = new System.Drawing.Point(14, 28);
             this.textBoxBuscarUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxBuscarUser.Name = "textBoxBuscarUser";
-            this.textBoxBuscarUser.Size = new System.Drawing.Size(591, 23);
+            this.textBoxBuscarUser.Size = new System.Drawing.Size(518, 23);
             this.textBoxBuscarUser.TabIndex = 0;
             this.textBoxBuscarUser.TextChanged += new System.EventHandler(this.textBoxBuscarUser_TextChanged);
             // 
@@ -171,6 +177,7 @@ namespace Chrysallis_Eventos
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewUsers.AutoGenerateColumns = false;
+<<<<<<< HEAD
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -179,6 +186,8 @@ namespace Chrysallis_Eventos
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+=======
+>>>>>>> 35db311001152e5c76c78003af6992daa8ad0dea
             this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -205,6 +214,7 @@ namespace Chrysallis_Eventos
             this.comunitatsDataGridViewTextBoxColumn,
             this.esdevenimentsDataGridViewTextBoxColumn});
             this.dataGridViewUsers.DataSource = this.bindingSourceUsuarios;
+<<<<<<< HEAD
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -214,10 +224,14 @@ namespace Chrysallis_Eventos
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewUsers.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewUsers.Location = new System.Drawing.Point(13, 138);
+=======
+            this.dataGridViewUsers.Location = new System.Drawing.Point(11, 155);
+>>>>>>> 35db311001152e5c76c78003af6992daa8ad0dea
             this.dataGridViewUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewUsers.MultiSelect = false;
             this.dataGridViewUsers.Name = "dataGridViewUsers";
             this.dataGridViewUsers.ReadOnly = true;
+<<<<<<< HEAD
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -229,10 +243,15 @@ namespace Chrysallis_Eventos
             this.dataGridViewUsers.RowHeadersWidth = 51;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewUsers.RowsDefaultCellStyle = dataGridViewCellStyle10;
+=======
+            this.dataGridViewUsers.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewUsers.RowsDefaultCellStyle = dataGridViewCellStyle2;
+>>>>>>> 35db311001152e5c76c78003af6992daa8ad0dea
             this.dataGridViewUsers.RowTemplate.Height = 24;
             this.dataGridViewUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewUsers.Size = new System.Drawing.Size(775, 336);
-            this.dataGridViewUsers.TabIndex = 2;
+            this.dataGridViewUsers.Size = new System.Drawing.Size(678, 378);
+            this.dataGridViewUsers.TabIndex = 4;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -247,7 +266,7 @@ namespace Chrysallis_Eventos
             // numDataGridViewTextBoxColumn
             // 
             this.numDataGridViewTextBoxColumn.DataPropertyName = "num";
-            this.numDataGridViewTextBoxColumn.HeaderText = "Num Socio";
+            this.numDataGridViewTextBoxColumn.HeaderText = "Num Socie";
             this.numDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.numDataGridViewTextBoxColumn.Name = "numDataGridViewTextBoxColumn";
             this.numDataGridViewTextBoxColumn.ReadOnly = true;
@@ -274,7 +293,7 @@ namespace Chrysallis_Eventos
             // actiuDataGridViewCheckBoxColumn
             // 
             this.actiuDataGridViewCheckBoxColumn.DataPropertyName = "actiu";
-            this.actiuDataGridViewCheckBoxColumn.HeaderText = "Activo";
+            this.actiuDataGridViewCheckBoxColumn.HeaderText = "Active";
             this.actiuDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.actiuDataGridViewCheckBoxColumn.Name = "actiuDataGridViewCheckBoxColumn";
             this.actiuDataGridViewCheckBoxColumn.ReadOnly = true;
@@ -470,11 +489,11 @@ namespace Chrysallis_Eventos
             this.comboBoxComunidades.DisplayMember = "nom";
             this.comboBoxComunidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxComunidades.FormattingEnabled = true;
-            this.comboBoxComunidades.Location = new System.Drawing.Point(121, 37);
+            this.comboBoxComunidades.Location = new System.Drawing.Point(106, 42);
             this.comboBoxComunidades.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxComunidades.Name = "comboBoxComunidades";
-            this.comboBoxComunidades.Size = new System.Drawing.Size(518, 24);
-            this.comboBoxComunidades.TabIndex = 3;
+            this.comboBoxComunidades.Size = new System.Drawing.Size(454, 26);
+            this.comboBoxComunidades.TabIndex = 2;
             this.comboBoxComunidades.ValueMember = "id";
             this.comboBoxComunidades.SelectedIndexChanged += new System.EventHandler(this.comboBoxComunidades_SelectedIndexChanged);
             // 
@@ -486,10 +505,10 @@ namespace Chrysallis_Eventos
             // 
             this.labelComunidad.AutoSize = true;
             this.labelComunidad.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelComunidad.Location = new System.Drawing.Point(27, 39);
+            this.labelComunidad.Location = new System.Drawing.Point(24, 44);
             this.labelComunidad.Name = "labelComunidad";
             this.labelComunidad.Size = new System.Drawing.Size(78, 18);
-            this.labelComunidad.TabIndex = 4;
+            this.labelComunidad.TabIndex = 1;
             this.labelComunidad.Text = "Comunidad";
             // 
             // toolStripButton2
@@ -504,19 +523,23 @@ namespace Chrysallis_Eventos
             // 
             // FormUsuaris
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(807, 494);
+            this.ClientSize = new System.Drawing.Size(706, 556);
             this.Controls.Add(this.labelComunidad);
             this.Controls.Add(this.comboBoxComunidades);
             this.Controls.Add(this.dataGridViewUsers);
             this.Controls.Add(this.groupBoxBuscar);
             this.Controls.Add(this.toolStripMenu);
+            this.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "FormUsuaris";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Usuarios Chrysallis";
+            this.Text = "Usuaries";
             this.Activated += new System.EventHandler(this.FormUsuaris_Activated);
             this.Load += new System.EventHandler(this.FormUsuaris_Load);
             this.toolStripMenu.ResumeLayout(false);
@@ -545,6 +568,7 @@ namespace Chrysallis_Eventos
         private System.Windows.Forms.Label labelComunidad;
         private System.Windows.Forms.BindingSource bindingSourceComunidades;
         private System.Windows.Forms.BindingSource bindingSourceUsuarios;
+        private System.Windows.Forms.CheckBox checkBoxActivo;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomDataGridViewTextBoxColumn;
@@ -568,7 +592,10 @@ namespace Chrysallis_Eventos
         private System.Windows.Forms.DataGridViewTextBoxColumn valoracionsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn comunitatsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn esdevenimentsDataGridViewTextBoxColumn;
+<<<<<<< HEAD
         private System.Windows.Forms.CheckBox checkBoxActivo;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
+=======
+>>>>>>> 35db311001152e5c76c78003af6992daa8ad0dea
     }
 }
