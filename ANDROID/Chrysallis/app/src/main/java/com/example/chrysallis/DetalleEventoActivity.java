@@ -27,8 +27,11 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import java.lang.reflect.Array;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.StringTokenizer;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -89,7 +92,10 @@ public class DetalleEventoActivity extends AppCompatActivity {
         loadImageEvent(imgTipoEventDetalle);
         tvTituloDetalle.setText(esdeveniment.getTitol());
         tvTipoEventoDetalle.setText(esdeveniment.getTipoEvento());
-        tvFechaDetalle.setText(fecha);
+
+        String _hora = esdeveniment.getHora();
+        String h =_hora.substring(0, _hora.length()-3);
+        tvFechaDetalle.setText(fecha + " " + h);
         tvDescripcionDetalle.setText((esdeveniment.getDescripcio()));
 
         if(esdeveniment.getId_tipus() != 5){
@@ -239,6 +245,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int assistents = 0;
+
                 for(Assistir assistir : soci.getAssistirs()) {
                     if (assistir.getId_esdeveniment() == esdeveniment.getId()) {
                         assistents = assistir.getQuantitat_persones();
@@ -531,6 +538,9 @@ public class DetalleEventoActivity extends AppCompatActivity {
                 switch (response.code()){
                     case 201:
 
+
+
+
                         EsdevenimentService esdevenimentService = Api.getApi().create(EsdevenimentService.class);
                         Call<Esdeveniment> esdevenimentCall = esdevenimentService.updateEsdeveniment(esdeveniment.getId(), esdeveniment);
                         esdevenimentCall.enqueue(new Callback<Esdeveniment>() {
@@ -543,7 +553,14 @@ public class DetalleEventoActivity extends AppCompatActivity {
                                         Toast.makeText(DetalleEventoActivity.this, "Te has inscrito al evento", Toast.LENGTH_LONG).show();
                                         finish();
                                         break;
+                                    case 400:
+                                        gson = new Gson();
+                                        missatge = gson.fromJson(response.errorBody().charStream(), MissatgeError.class);
+                                        Toast.makeText(DetalleEventoActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
+                                        break;
+
                                     case 404:
+
                                         break;
                                     default:
                                         Toast.makeText(DetalleEventoActivity.this, "error: " + response.code(), Toast.LENGTH_SHORT).show();

@@ -13,6 +13,7 @@
     <style name="textViewFont" parent="android:Widget.TextView">
         <item name="fontFamily">@font/trebuchetms</item>
         <item name="android:textSize">@dimen/sizeCharacters</item>
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
     <style name="estiloSpinner" parent="android:Widget.Spinner">
         <item name="fontFamily">@font/trebuchetms</item>
@@ -46,7 +47,7 @@
         <item name="android:textSize">@dimen/sizeCharacters</item>
     </style>
 
-    <dimen name="sizeCharacters">25sp</dimen>
+    <dimen name="sizeCharacters">20sp</dimen>
     <dimen name="sizeCharacters2">20sp</dimen>
     <dimen name="sizeButtonPrimary">30sp</dimen>
     <dimen name="sizeButtonPrimary2">20sp</dimen>

@@ -81,7 +81,7 @@
         android:orientation="horizontal">
     <Button
         android:id="@+id/btnValorar"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/btnLoginWidth"
         android:layout_height="70dp"
         android:background="@drawable/accentbutton"
         android:padding="@dimen/marginTopLogo"

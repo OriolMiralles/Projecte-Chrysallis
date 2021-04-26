@@ -133,7 +133,7 @@ namespace Chrysallis_Eventos
                 }
 
             }
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 4)
             {
                 esdeveniments _esdev = (esdeveniments)dataGridViewEvents.Rows[e.RowIndex].DataBoundItem;
                 if(_esdev != null)

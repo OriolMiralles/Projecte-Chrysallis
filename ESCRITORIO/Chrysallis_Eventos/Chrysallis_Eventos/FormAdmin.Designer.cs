@@ -93,7 +93,7 @@
             // toolStripButtonPass
             // 
             this.toolStripButtonPass.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonPass.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonPass.Image")));
+            this.toolStripButtonPass.Image = global::Chrysallis_Eventos.Properties.Resources.pass;
             this.toolStripButtonPass.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonPass.Name = "toolStripButtonPass";
             this.toolStripButtonPass.Size = new System.Drawing.Size(29, 24);

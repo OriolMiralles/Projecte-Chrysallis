@@ -191,6 +191,7 @@ namespace API_CHRYSALLIS.Controllers
             }
             else
             {
+                
                 String missatge = "";
                 if (id != esdeveniments.id)
                 {

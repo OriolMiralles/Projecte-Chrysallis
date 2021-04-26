@@ -13,15 +13,32 @@ namespace Chrysallis_Eventos
     public partial class FormResetPass : Form
     {
         usuaris _user;
+        socis _soci;
+        Boolean modificarUser;
         public FormResetPass(usuaris _user)
         {
             InitializeComponent();
             this._user = _user;
+            modificarUser = true;
+        }
+        public FormResetPass(socis soci)
+        {
+            InitializeComponent();
+            this._soci = soci;
+            modificarUser = false;
         }
 
         private void FormResetPass_Load(object sender, EventArgs e)
         {
-            labelNombre.Text = _user.username.ToString();
+            if (modificarUser)
+            {
+                labelNombre.Text = _user.username.ToString();
+            }
+            else
+            {
+                labelNombre.Text = _soci.nom.ToString();
+            }
+            
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
@@ -48,18 +65,39 @@ namespace Chrysallis_Eventos
                     if (comprobarContrasenya())
                     {
                         String password = textBoxNew.Text;
-                        String passCryp = BCrypt.Net.BCrypt.EnhancedHashPassword(password, BCrypt.Net.HashType.SHA512);
-                        _user.contrasenya = passCryp;
-                        String missatge = AdminOrm.Update(_user);
-                        if (missatge.Equals(""))
+                       
+                        String missatge="";
+                        if (modificarUser)
                         {
-                            MessageBox.Show("Contraseña modificada correctamente");
-                            this.Close();
+                            String passCryp = BCrypt.Net.BCrypt.EnhancedHashPassword(password, BCrypt.Net.HashType.SHA512);
+                            _user.contrasenya = passCryp;
+                            missatge = AdminOrm.Update(_user);
+                            if (missatge.Equals(""))
+                            {
+                                MessageBox.Show("Contraseña modificada correctamente");
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            String passCryp = BCrypt.Net.BCrypt.HashPassword(password);
+                            _soci.contrasenya = passCryp;
+                            missatge = UsuarioOrm.Update(ref missatge, _soci);
+                            if (missatge.Equals(""))
+                            {
+                                MessageBox.Show("Contraseña modificada correctamente");
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
+                        
                     }
                 }
             }
