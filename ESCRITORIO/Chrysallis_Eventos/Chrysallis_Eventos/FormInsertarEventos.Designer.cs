@@ -30,9 +30,6 @@ namespace Chrysallis_Eventos
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.labelTituloEvento = new System.Windows.Forms.Label();
-            this.labelFechaEvento = new System.Windows.Forms.Label();
-            this.labelTipoEvento = new System.Windows.Forms.Label();
             this.groupBoxUbicacionEvento = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxCiudadesBuscadas = new System.Windows.Forms.ComboBox();
@@ -48,13 +45,7 @@ namespace Chrysallis_Eventos
             this.labelComunidadEvento = new System.Windows.Forms.Label();
             this.labelDescripcionEvento = new System.Windows.Forms.Label();
             this.richTextBoxDescripcionEvento = new System.Windows.Forms.RichTextBox();
-            this.textBoxTituloEvento = new System.Windows.Forms.TextBox();
-            this.comboBoxTipoEvento = new System.Windows.Forms.ComboBox();
             this.bindingSourceTipoEventos = new System.Windows.Forms.BindingSource(this.components);
-            this.dateTimePickerEvento = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePickerHora = new System.Windows.Forms.DateTimePicker();
-            this.checkBoxEstatal = new System.Windows.Forms.CheckBox();
             this.labelNumeroEvento = new System.Windows.Forms.Label();
             this.buttonInsertarEvento = new System.Windows.Forms.Button();
             this.groupBoxParticipantesEvento = new System.Windows.Forms.GroupBox();
@@ -68,46 +59,24 @@ namespace Chrysallis_Eventos
             this.checkBoxActividadPagoEvento = new System.Windows.Forms.CheckBox();
             this.textBoxPrecioPersonaEvento = new System.Windows.Forms.TextBox();
             this.labelPrecioPersonaEvento = new System.Windows.Forms.Label();
+            this.groupBoxDatosGenerales = new System.Windows.Forms.GroupBox();
+            this.checkBoxEstatal = new System.Windows.Forms.CheckBox();
+            this.dateTimePickerHora = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateTimePickerEvento = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxTipoEvento = new System.Windows.Forms.ComboBox();
+            this.textBoxTituloEvento = new System.Windows.Forms.TextBox();
+            this.labelTipoEvento = new System.Windows.Forms.Label();
+            this.labelFechaEvento = new System.Windows.Forms.Label();
+            this.labelTituloEvento = new System.Windows.Forms.Label();
             this.groupBoxUbicacionEvento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCiutats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProvincies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTipoEventos)).BeginInit();
             this.groupBoxParticipantesEvento.SuspendLayout();
             this.groupBoxCosteEvento.SuspendLayout();
+            this.groupBoxDatosGenerales.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // labelTituloEvento
-            // 
-            this.labelTituloEvento.AutoSize = true;
-            this.labelTituloEvento.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTituloEvento.Location = new System.Drawing.Point(49, 26);
-            this.labelTituloEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelTituloEvento.Name = "labelTituloEvento";
-            this.labelTituloEvento.Size = new System.Drawing.Size(60, 23);
-            this.labelTituloEvento.TabIndex = 0;
-            this.labelTituloEvento.Text = "Titulo:";
-            // 
-            // labelFechaEvento
-            // 
-            this.labelFechaEvento.AutoSize = true;
-            this.labelFechaEvento.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFechaEvento.Location = new System.Drawing.Point(49, 70);
-            this.labelFechaEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelFechaEvento.Name = "labelFechaEvento";
-            this.labelFechaEvento.Size = new System.Drawing.Size(54, 23);
-            this.labelFechaEvento.TabIndex = 1;
-            this.labelFechaEvento.Text = "Fecha";
-            // 
-            // labelTipoEvento
-            // 
-            this.labelTipoEvento.AutoSize = true;
-            this.labelTipoEvento.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTipoEvento.Location = new System.Drawing.Point(49, 160);
-            this.labelTipoEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelTipoEvento.Name = "labelTipoEvento";
-            this.labelTipoEvento.Size = new System.Drawing.Size(128, 23);
-            this.labelTipoEvento.TabIndex = 2;
-            this.labelTipoEvento.Text = "Tipo de Evento:";
             // 
             // groupBoxUbicacionEvento
             // 
@@ -122,12 +91,12 @@ namespace Chrysallis_Eventos
             this.groupBoxUbicacionEvento.Controls.Add(this.textBoxComunidadEvento);
             this.groupBoxUbicacionEvento.Controls.Add(this.labelComunidadEvento);
             this.groupBoxUbicacionEvento.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxUbicacionEvento.Location = new System.Drawing.Point(53, 204);
+            this.groupBoxUbicacionEvento.Location = new System.Drawing.Point(53, 275);
             this.groupBoxUbicacionEvento.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxUbicacionEvento.Name = "groupBoxUbicacionEvento";
             this.groupBoxUbicacionEvento.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBoxUbicacionEvento.Size = new System.Drawing.Size(707, 229);
-            this.groupBoxUbicacionEvento.TabIndex = 13;
+            this.groupBoxUbicacionEvento.Size = new System.Drawing.Size(742, 229);
+            this.groupBoxUbicacionEvento.TabIndex = 9;
             this.groupBoxUbicacionEvento.TabStop = false;
             this.groupBoxUbicacionEvento.Text = "Ubicación";
             // 
@@ -139,7 +108,7 @@ namespace Chrysallis_Eventos
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 23);
-            this.label1.TabIndex = 28;
+            this.label1.TabIndex = 6;
             this.label1.Text = "Ciudad:";
             // 
             // comboBoxCiudadesBuscadas
@@ -151,7 +120,7 @@ namespace Chrysallis_Eventos
             this.comboBoxCiudadesBuscadas.Location = new System.Drawing.Point(164, 147);
             this.comboBoxCiudadesBuscadas.Name = "comboBoxCiudadesBuscadas";
             this.comboBoxCiudadesBuscadas.Size = new System.Drawing.Size(499, 34);
-            this.comboBoxCiudadesBuscadas.TabIndex = 27;
+            this.comboBoxCiudadesBuscadas.TabIndex = 7;
             this.comboBoxCiudadesBuscadas.ValueMember = "id";
             // 
             // bindingSourceCiutats
@@ -167,7 +136,7 @@ namespace Chrysallis_Eventos
             this.comboBoxProvincias.Location = new System.Drawing.Point(164, 68);
             this.comboBoxProvincias.Name = "comboBoxProvincias";
             this.comboBoxProvincias.Size = new System.Drawing.Size(499, 34);
-            this.comboBoxProvincias.TabIndex = 26;
+            this.comboBoxProvincias.TabIndex = 3;
             this.comboBoxProvincias.ValueMember = "id_comunitat";
             this.comboBoxProvincias.SelectedIndexChanged += new System.EventHandler(this.comboBoxProvincias_SelectedIndexChanged);
             // 
@@ -194,7 +163,7 @@ namespace Chrysallis_Eventos
             this.labelCiudadEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCiudadEvento.Name = "labelCiudadEvento";
             this.labelCiudadEvento.Size = new System.Drawing.Size(121, 23);
-            this.labelCiudadEvento.TabIndex = 23;
+            this.labelCiudadEvento.TabIndex = 4;
             this.labelCiudadEvento.Text = "Buscar ciudad:";
             // 
             // textBoxDireccionEvento
@@ -203,7 +172,7 @@ namespace Chrysallis_Eventos
             this.textBoxDireccionEvento.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDireccionEvento.Name = "textBoxDireccionEvento";
             this.textBoxDireccionEvento.Size = new System.Drawing.Size(499, 31);
-            this.textBoxDireccionEvento.TabIndex = 21;
+            this.textBoxDireccionEvento.TabIndex = 9;
             // 
             // textBoxCiudadEvento
             // 
@@ -211,7 +180,7 @@ namespace Chrysallis_Eventos
             this.textBoxCiudadEvento.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCiudadEvento.Name = "textBoxCiudadEvento";
             this.textBoxCiudadEvento.Size = new System.Drawing.Size(499, 31);
-            this.textBoxCiudadEvento.TabIndex = 20;
+            this.textBoxCiudadEvento.TabIndex = 5;
             this.textBoxCiudadEvento.TextChanged += new System.EventHandler(this.textBoxCiudadEvento_TextChanged);
             // 
             // labelProvinciaEvento
@@ -222,7 +191,7 @@ namespace Chrysallis_Eventos
             this.labelProvinciaEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelProvinciaEvento.Name = "labelProvinciaEvento";
             this.labelProvinciaEvento.Size = new System.Drawing.Size(85, 23);
-            this.labelProvinciaEvento.TabIndex = 18;
+            this.labelProvinciaEvento.TabIndex = 2;
             this.labelProvinciaEvento.Text = "Província:";
             // 
             // textBoxComunidadEvento
@@ -232,7 +201,7 @@ namespace Chrysallis_Eventos
             this.textBoxComunidadEvento.Name = "textBoxComunidadEvento";
             this.textBoxComunidadEvento.ReadOnly = true;
             this.textBoxComunidadEvento.Size = new System.Drawing.Size(499, 31);
-            this.textBoxComunidadEvento.TabIndex = 17;
+            this.textBoxComunidadEvento.TabIndex = 1;
             // 
             // labelComunidadEvento
             // 
@@ -242,14 +211,14 @@ namespace Chrysallis_Eventos
             this.labelComunidadEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelComunidadEvento.Name = "labelComunidadEvento";
             this.labelComunidadEvento.Size = new System.Drawing.Size(99, 23);
-            this.labelComunidadEvento.TabIndex = 17;
+            this.labelComunidadEvento.TabIndex = 0;
             this.labelComunidadEvento.Text = "Comunidad:";
             // 
             // labelDescripcionEvento
             // 
             this.labelDescripcionEvento.AutoSize = true;
             this.labelDescripcionEvento.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDescripcionEvento.Location = new System.Drawing.Point(49, 447);
+            this.labelDescripcionEvento.Location = new System.Drawing.Point(49, 518);
             this.labelDescripcionEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelDescripcionEvento.Name = "labelDescripcionEvento";
             this.labelDescripcionEvento.Size = new System.Drawing.Size(108, 23);
@@ -258,84 +227,22 @@ namespace Chrysallis_Eventos
             // 
             // richTextBoxDescripcionEvento
             // 
-            this.richTextBoxDescripcionEvento.Location = new System.Drawing.Point(219, 448);
+            this.richTextBoxDescripcionEvento.Location = new System.Drawing.Point(219, 519);
             this.richTextBoxDescripcionEvento.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBoxDescripcionEvento.Name = "richTextBoxDescripcionEvento";
-            this.richTextBoxDescripcionEvento.Size = new System.Drawing.Size(541, 117);
-            this.richTextBoxDescripcionEvento.TabIndex = 15;
+            this.richTextBoxDescripcionEvento.Size = new System.Drawing.Size(576, 117);
+            this.richTextBoxDescripcionEvento.TabIndex = 11;
             this.richTextBoxDescripcionEvento.Text = "";
-            // 
-            // textBoxTituloEvento
-            // 
-            this.textBoxTituloEvento.Location = new System.Drawing.Point(215, 26);
-            this.textBoxTituloEvento.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxTituloEvento.Name = "textBoxTituloEvento";
-            this.textBoxTituloEvento.Size = new System.Drawing.Size(541, 22);
-            this.textBoxTituloEvento.TabIndex = 27;
-            this.textBoxTituloEvento.TextChanged += new System.EventHandler(this.textBoxTituloEvento_TextChanged);
-            // 
-            // comboBoxTipoEvento
-            // 
-            this.comboBoxTipoEvento.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.comboBoxTipoEvento.DataSource = this.bindingSourceTipoEventos;
-            this.comboBoxTipoEvento.DisplayMember = "nom";
-            this.comboBoxTipoEvento.FormattingEnabled = true;
-            this.comboBoxTipoEvento.Location = new System.Drawing.Point(215, 161);
-            this.comboBoxTipoEvento.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBoxTipoEvento.Name = "comboBoxTipoEvento";
-            this.comboBoxTipoEvento.Size = new System.Drawing.Size(294, 24);
-            this.comboBoxTipoEvento.TabIndex = 29;
-            this.comboBoxTipoEvento.ValueMember = "idTipus";
-            this.comboBoxTipoEvento.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipoEvento_SelectedIndexChanged);
             // 
             // bindingSourceTipoEventos
             // 
             this.bindingSourceTipoEventos.DataSource = typeof(Chrysallis_Eventos.MODELOS.tipus_events);
             // 
-            // dateTimePickerEvento
-            // 
-            this.dateTimePickerEvento.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerEvento.Location = new System.Drawing.Point(215, 66);
-            this.dateTimePickerEvento.Name = "dateTimePickerEvento";
-            this.dateTimePickerEvento.Size = new System.Drawing.Size(351, 27);
-            this.dateTimePickerEvento.TabIndex = 34;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(49, 113);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 23);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "Hora";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // dateTimePickerHora
-            // 
-            this.dateTimePickerHora.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerHora.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePickerHora.Location = new System.Drawing.Point(215, 113);
-            this.dateTimePickerHora.Name = "dateTimePickerHora";
-            this.dateTimePickerHora.Size = new System.Drawing.Size(147, 27);
-            this.dateTimePickerHora.TabIndex = 36;
-            // 
-            // checkBoxEstatal
-            // 
-            this.checkBoxEstatal.AutoSize = true;
-            this.checkBoxEstatal.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxEstatal.Location = new System.Drawing.Point(615, 66);
-            this.checkBoxEstatal.Name = "checkBoxEstatal";
-            this.checkBoxEstatal.Size = new System.Drawing.Size(143, 27);
-            this.checkBoxEstatal.TabIndex = 37;
-            this.checkBoxEstatal.Text = "Evento estatal";
-            this.checkBoxEstatal.UseVisualStyleBackColor = true;
-            // 
             // labelNumeroEvento
             // 
             this.labelNumeroEvento.AutoSize = true;
             this.labelNumeroEvento.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNumeroEvento.Location = new System.Drawing.Point(823, 572);
+            this.labelNumeroEvento.Location = new System.Drawing.Point(823, 614);
             this.labelNumeroEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelNumeroEvento.Name = "labelNumeroEvento";
             this.labelNumeroEvento.Size = new System.Drawing.Size(22, 18);
@@ -349,7 +256,7 @@ namespace Chrysallis_Eventos
             this.buttonInsertarEvento.FlatAppearance.BorderSize = 2;
             this.buttonInsertarEvento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInsertarEvento.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonInsertarEvento.Location = new System.Drawing.Point(1316, 559);
+            this.buttonInsertarEvento.Location = new System.Drawing.Point(1316, 601);
             this.buttonInsertarEvento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonInsertarEvento.Name = "buttonInsertarEvento";
             this.buttonInsertarEvento.Size = new System.Drawing.Size(172, 42);
@@ -366,7 +273,7 @@ namespace Chrysallis_Eventos
             this.groupBoxParticipantesEvento.Controls.Add(this.textBoxMinimoAsistentesEvento);
             this.groupBoxParticipantesEvento.Controls.Add(this.labelMinimoAsistentesEvento);
             this.groupBoxParticipantesEvento.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxParticipantesEvento.Location = new System.Drawing.Point(802, 158);
+            this.groupBoxParticipantesEvento.Location = new System.Drawing.Point(826, 158);
             this.groupBoxParticipantesEvento.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxParticipantesEvento.Name = "groupBoxParticipantesEvento";
             this.groupBoxParticipantesEvento.Padding = new System.Windows.Forms.Padding(4);
@@ -383,8 +290,8 @@ namespace Chrysallis_Eventos
             this.labelTotalparticipantesEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTotalparticipantesEvento.Name = "labelTotalparticipantesEvento";
             this.labelTotalparticipantesEvento.Size = new System.Drawing.Size(243, 23);
-            this.labelTotalparticipantesEvento.TabIndex = 23;
-            this.labelTotalparticipantesEvento.Text = "Total participantes apuntados:";
+            this.labelTotalparticipantesEvento.TabIndex = 4;
+            this.labelTotalparticipantesEvento.Text = "Total participantes apuntades:";
             // 
             // textBoxTotalparticipantesEvento
             // 
@@ -393,7 +300,7 @@ namespace Chrysallis_Eventos
             this.textBoxTotalparticipantesEvento.Name = "textBoxTotalparticipantesEvento";
             this.textBoxTotalparticipantesEvento.ReadOnly = true;
             this.textBoxTotalparticipantesEvento.Size = new System.Drawing.Size(216, 31);
-            this.textBoxTotalparticipantesEvento.TabIndex = 20;
+            this.textBoxTotalparticipantesEvento.TabIndex = 5;
             // 
             // textBoxMaximoasistentesEvento
             // 
@@ -401,7 +308,7 @@ namespace Chrysallis_Eventos
             this.textBoxMaximoasistentesEvento.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxMaximoasistentesEvento.Name = "textBoxMaximoasistentesEvento";
             this.textBoxMaximoasistentesEvento.Size = new System.Drawing.Size(216, 31);
-            this.textBoxMaximoasistentesEvento.TabIndex = 19;
+            this.textBoxMaximoasistentesEvento.TabIndex = 3;
             // 
             // labelMaximoasistentesEvento
             // 
@@ -411,7 +318,7 @@ namespace Chrysallis_Eventos
             this.labelMaximoasistentesEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMaximoasistentesEvento.Name = "labelMaximoasistentesEvento";
             this.labelMaximoasistentesEvento.Size = new System.Drawing.Size(359, 23);
-            this.labelMaximoasistentesEvento.TabIndex = 18;
+            this.labelMaximoasistentesEvento.TabIndex = 2;
             this.labelMaximoasistentesEvento.Text = "Máximo de asistentes para realizar actividad:";
             // 
             // textBoxMinimoAsistentesEvento
@@ -420,7 +327,7 @@ namespace Chrysallis_Eventos
             this.textBoxMinimoAsistentesEvento.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxMinimoAsistentesEvento.Name = "textBoxMinimoAsistentesEvento";
             this.textBoxMinimoAsistentesEvento.Size = new System.Drawing.Size(216, 31);
-            this.textBoxMinimoAsistentesEvento.TabIndex = 17;
+            this.textBoxMinimoAsistentesEvento.TabIndex = 1;
             // 
             // labelMinimoAsistentesEvento
             // 
@@ -430,7 +337,7 @@ namespace Chrysallis_Eventos
             this.labelMinimoAsistentesEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMinimoAsistentesEvento.Name = "labelMinimoAsistentesEvento";
             this.labelMinimoAsistentesEvento.Size = new System.Drawing.Size(355, 23);
-            this.labelMinimoAsistentesEvento.TabIndex = 17;
+            this.labelMinimoAsistentesEvento.TabIndex = 0;
             this.labelMinimoAsistentesEvento.Text = "Mínimo de asistentes para realizar actividad:";
             // 
             // groupBoxCosteEvento
@@ -439,7 +346,7 @@ namespace Chrysallis_Eventos
             this.groupBoxCosteEvento.Controls.Add(this.textBoxPrecioPersonaEvento);
             this.groupBoxCosteEvento.Controls.Add(this.labelPrecioPersonaEvento);
             this.groupBoxCosteEvento.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxCosteEvento.Location = new System.Drawing.Point(802, 26);
+            this.groupBoxCosteEvento.Location = new System.Drawing.Point(826, 26);
             this.groupBoxCosteEvento.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxCosteEvento.Name = "groupBoxCosteEvento";
             this.groupBoxCosteEvento.Padding = new System.Windows.Forms.Padding(4);
@@ -482,32 +389,135 @@ namespace Chrysallis_Eventos
             this.labelPrecioPersonaEvento.TabIndex = 17;
             this.labelPrecioPersonaEvento.Text = "Precio por Persona:";
             // 
+            // groupBoxDatosGenerales
+            // 
+            this.groupBoxDatosGenerales.Controls.Add(this.checkBoxEstatal);
+            this.groupBoxDatosGenerales.Controls.Add(this.dateTimePickerHora);
+            this.groupBoxDatosGenerales.Controls.Add(this.label2);
+            this.groupBoxDatosGenerales.Controls.Add(this.dateTimePickerEvento);
+            this.groupBoxDatosGenerales.Controls.Add(this.comboBoxTipoEvento);
+            this.groupBoxDatosGenerales.Controls.Add(this.textBoxTituloEvento);
+            this.groupBoxDatosGenerales.Controls.Add(this.labelTipoEvento);
+            this.groupBoxDatosGenerales.Controls.Add(this.labelFechaEvento);
+            this.groupBoxDatosGenerales.Controls.Add(this.labelTituloEvento);
+            this.groupBoxDatosGenerales.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxDatosGenerales.Location = new System.Drawing.Point(53, 26);
+            this.groupBoxDatosGenerales.Name = "groupBoxDatosGenerales";
+            this.groupBoxDatosGenerales.Size = new System.Drawing.Size(742, 217);
+            this.groupBoxDatosGenerales.TabIndex = 42;
+            this.groupBoxDatosGenerales.TabStop = false;
+            this.groupBoxDatosGenerales.Text = "Datos Generales";
+            // 
+            // checkBoxEstatal
+            // 
+            this.checkBoxEstatal.AutoSize = true;
+            this.checkBoxEstatal.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxEstatal.Location = new System.Drawing.Point(579, 176);
+            this.checkBoxEstatal.Name = "checkBoxEstatal";
+            this.checkBoxEstatal.Size = new System.Drawing.Size(143, 27);
+            this.checkBoxEstatal.TabIndex = 46;
+            this.checkBoxEstatal.Text = "Evento estatal";
+            this.checkBoxEstatal.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePickerHora
+            // 
+            this.dateTimePickerHora.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerHora.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerHora.Location = new System.Drawing.Point(186, 123);
+            this.dateTimePickerHora.Name = "dateTimePickerHora";
+            this.dateTimePickerHora.Size = new System.Drawing.Size(147, 27);
+            this.dateTimePickerHora.TabIndex = 45;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(20, 123);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 23);
+            this.label2.TabIndex = 44;
+            this.label2.Text = "Hora";
+            // 
+            // dateTimePickerEvento
+            // 
+            this.dateTimePickerEvento.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerEvento.Location = new System.Drawing.Point(186, 76);
+            this.dateTimePickerEvento.Name = "dateTimePickerEvento";
+            this.dateTimePickerEvento.Size = new System.Drawing.Size(351, 27);
+            this.dateTimePickerEvento.TabIndex = 43;
+            // 
+            // comboBoxTipoEvento
+            // 
+            this.comboBoxTipoEvento.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.comboBoxTipoEvento.DataSource = this.bindingSourceTipoEventos;
+            this.comboBoxTipoEvento.DisplayMember = "nom";
+            this.comboBoxTipoEvento.FormattingEnabled = true;
+            this.comboBoxTipoEvento.Location = new System.Drawing.Point(186, 171);
+            this.comboBoxTipoEvento.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxTipoEvento.Name = "comboBoxTipoEvento";
+            this.comboBoxTipoEvento.Size = new System.Drawing.Size(294, 34);
+            this.comboBoxTipoEvento.TabIndex = 42;
+            this.comboBoxTipoEvento.ValueMember = "idTipus";
+            // 
+            // textBoxTituloEvento
+            // 
+            this.textBoxTituloEvento.Location = new System.Drawing.Point(186, 36);
+            this.textBoxTituloEvento.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxTituloEvento.Name = "textBoxTituloEvento";
+            this.textBoxTituloEvento.Size = new System.Drawing.Size(541, 31);
+            this.textBoxTituloEvento.TabIndex = 41;
+            // 
+            // labelTipoEvento
+            // 
+            this.labelTipoEvento.AutoSize = true;
+            this.labelTipoEvento.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTipoEvento.Location = new System.Drawing.Point(20, 170);
+            this.labelTipoEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTipoEvento.Name = "labelTipoEvento";
+            this.labelTipoEvento.Size = new System.Drawing.Size(128, 23);
+            this.labelTipoEvento.TabIndex = 40;
+            this.labelTipoEvento.Text = "Tipo de evento:";
+            // 
+            // labelFechaEvento
+            // 
+            this.labelFechaEvento.AutoSize = true;
+            this.labelFechaEvento.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFechaEvento.Location = new System.Drawing.Point(20, 80);
+            this.labelFechaEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelFechaEvento.Name = "labelFechaEvento";
+            this.labelFechaEvento.Size = new System.Drawing.Size(54, 23);
+            this.labelFechaEvento.TabIndex = 39;
+            this.labelFechaEvento.Text = "Fecha";
+            // 
+            // labelTituloEvento
+            // 
+            this.labelTituloEvento.AutoSize = true;
+            this.labelTituloEvento.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTituloEvento.Location = new System.Drawing.Point(20, 36);
+            this.labelTituloEvento.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelTituloEvento.Name = "labelTituloEvento";
+            this.labelTituloEvento.Size = new System.Drawing.Size(60, 23);
+            this.labelTituloEvento.TabIndex = 38;
+            this.labelTituloEvento.Text = "Titulo:";
+            // 
             // FormInsertarEventos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1500, 612);
+            this.ClientSize = new System.Drawing.Size(1532, 654);
+            this.Controls.Add(this.groupBoxDatosGenerales);
             this.Controls.Add(this.labelNumeroEvento);
             this.Controls.Add(this.buttonInsertarEvento);
             this.Controls.Add(this.groupBoxParticipantesEvento);
             this.Controls.Add(this.groupBoxCosteEvento);
-            this.Controls.Add(this.checkBoxEstatal);
-            this.Controls.Add(this.dateTimePickerHora);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.dateTimePickerEvento);
-            this.Controls.Add(this.comboBoxTipoEvento);
-            this.Controls.Add(this.textBoxTituloEvento);
             this.Controls.Add(this.richTextBoxDescripcionEvento);
             this.Controls.Add(this.labelDescripcionEvento);
             this.Controls.Add(this.groupBoxUbicacionEvento);
-            this.Controls.Add(this.labelTipoEvento);
-            this.Controls.Add(this.labelFechaEvento);
-            this.Controls.Add(this.labelTituloEvento);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormInsertarEventos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Insertar Eventos";
+            this.Text = "Insertar eventos";
             this.Load += new System.EventHandler(this.FormInsertarEventos_Load);
             this.groupBoxUbicacionEvento.ResumeLayout(false);
             this.groupBoxUbicacionEvento.PerformLayout();
@@ -518,16 +528,14 @@ namespace Chrysallis_Eventos
             this.groupBoxParticipantesEvento.PerformLayout();
             this.groupBoxCosteEvento.ResumeLayout(false);
             this.groupBoxCosteEvento.PerformLayout();
+            this.groupBoxDatosGenerales.ResumeLayout(false);
+            this.groupBoxDatosGenerales.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelTituloEvento;
-        private System.Windows.Forms.Label labelFechaEvento;
-        private System.Windows.Forms.Label labelTipoEvento;
         private System.Windows.Forms.GroupBox groupBoxUbicacionEvento;
         private System.Windows.Forms.Label labelDireccionEvento;
         private System.Windows.Forms.Label labelCiudadEvento;
@@ -538,18 +546,12 @@ namespace Chrysallis_Eventos
         private System.Windows.Forms.Label labelComunidadEvento;
         private System.Windows.Forms.Label labelDescripcionEvento;
         private System.Windows.Forms.RichTextBox richTextBoxDescripcionEvento;
-        private System.Windows.Forms.TextBox textBoxTituloEvento;
-        private System.Windows.Forms.ComboBox comboBoxTipoEvento;
         private System.Windows.Forms.ComboBox comboBoxProvincias;
         private System.Windows.Forms.BindingSource bindingSourceProvincies;
         private System.Windows.Forms.BindingSource bindingSourceTipoEventos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxCiudadesBuscadas;
-        private System.Windows.Forms.DateTimePicker dateTimePickerEvento;
         private System.Windows.Forms.BindingSource bindingSourceCiutats;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dateTimePickerHora;
-        private System.Windows.Forms.CheckBox checkBoxEstatal;
         private System.Windows.Forms.Label labelNumeroEvento;
         private System.Windows.Forms.Button buttonInsertarEvento;
         private System.Windows.Forms.GroupBox groupBoxParticipantesEvento;
@@ -563,5 +565,15 @@ namespace Chrysallis_Eventos
         private System.Windows.Forms.CheckBox checkBoxActividadPagoEvento;
         private System.Windows.Forms.TextBox textBoxPrecioPersonaEvento;
         private System.Windows.Forms.Label labelPrecioPersonaEvento;
+        private System.Windows.Forms.GroupBox groupBoxDatosGenerales;
+        private System.Windows.Forms.CheckBox checkBoxEstatal;
+        private System.Windows.Forms.DateTimePicker dateTimePickerHora;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateTimePickerEvento;
+        private System.Windows.Forms.ComboBox comboBoxTipoEvento;
+        private System.Windows.Forms.TextBox textBoxTituloEvento;
+        private System.Windows.Forms.Label labelTipoEvento;
+        private System.Windows.Forms.Label labelFechaEvento;
+        private System.Windows.Forms.Label labelTituloEvento;
     }
 }

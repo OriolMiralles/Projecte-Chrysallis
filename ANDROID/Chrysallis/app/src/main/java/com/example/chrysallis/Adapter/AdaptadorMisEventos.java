@@ -84,6 +84,7 @@ public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEvento
             if(event.getData().getTime() < System.currentTimeMillis()){
                 //HA PASSAT
                 tvValorar.setText("VALORA EL EVENTO");
+                tvFecha.setVisibility(View.GONE);
             }else{
                 //NO HA PASSAT
                 tvFecha.setText(fecha);

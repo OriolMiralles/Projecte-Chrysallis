@@ -242,7 +242,12 @@ namespace Chrysallis_Eventos
             return correcto;
         }
 
-        private void buttonAnadir_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonAnadir_Click_1(object sender, EventArgs e)
         {
             if (comboBoxComunidades.SelectedIndex != -1)
             {
@@ -261,15 +266,8 @@ namespace Chrysallis_Eventos
                     dataGridViewComunidades.DataSource = null;
                     dataGridViewComunidades.DataSource = _comunitats;
                 }
-               
-            }
-            
-            
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            }
         }
     }
 

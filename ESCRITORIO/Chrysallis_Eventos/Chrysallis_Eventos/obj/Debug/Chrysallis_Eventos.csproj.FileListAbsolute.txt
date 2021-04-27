@@ -15,6 +15,7 @@ C:\Users\devin\Desktop\ProjecteChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysall
 C:\Users\devin\Desktop\ProjecteChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Memory.xml
 C:\Users\devin\Desktop\ProjecteChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\devin\Desktop\ProjecteChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\devin\Desktop\ProjecteChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csprojAssemblyReference.cache
 C:\Users\devin\Desktop\ProjecteChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormAdmin.resources
 C:\Users\devin\Desktop\ProjecteChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormCrearAdmin.resources
 C:\Users\devin\Desktop\ProjecteChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.FormEventos.resources
@@ -32,4 +33,3 @@ C:\Users\devin\Desktop\ProjecteChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysall
 C:\Users\devin\Desktop\ProjecteChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csproj.CopyComplete
 C:\Users\devin\Desktop\ProjecteChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.exe
 C:\Users\devin\Desktop\ProjecteChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.pdb
-C:\Users\devin\Desktop\ProjecteChrysallis\ESCRITORIO\Chrysallis_Eventos\Chrysallis_Eventos\obj\Debug\Chrysallis_Eventos.csprojAssemblyReference.cache

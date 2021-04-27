@@ -102,7 +102,7 @@
     <Button
         android:id="@+id/btnModificar"
         style="@style/buttonPrimary2"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/btnLoginWidth"
         android:layout_height="@dimen/btnApuntarseEventoHeight"
         android:layout_marginTop="15dp"
         android:layout_gravity="center"

@@ -22,10 +22,14 @@ namespace Chrysallis_Eventos
 
         private void FormVerParticipantes_Load(object sender, EventArgs e)
         {
-            String missatge = "";
-
             labelNumParticipants.Text = esdeveniment.cont_assitents.ToString();
-            bindingSourceParticipantes.DataSource = UsuarioOrm.SelectParticipants(ref missatge, esdeveniment.id);
+            var participants = AsistirOrm.Select(esdeveniment);
+            dataGridViewParticipantes.DataSource = participants;
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

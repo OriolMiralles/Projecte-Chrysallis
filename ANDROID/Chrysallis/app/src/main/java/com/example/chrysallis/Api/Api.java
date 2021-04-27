@@ -1,7 +1,10 @@
 package com.example.chrysallis.Api;
 
+import com.example.chrysallis.Models.MyDate;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import java.util.Date;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -21,7 +24,10 @@ public class Api {
                     .addConverterFactory(GsonConverterFactory.create(gson))
                     .build();
         }
-
+/*
+    GsonBuilder builder = new GsonBuilder();
+            builder.registerTypeAdapter(Date.class, new GsonDateDeSerializer());
+        Gson gson = builder.create();*/
 
         return retrofit;
     }

@@ -71,7 +71,7 @@
         android:id="@+id/btnRegistro"
         style="@style/buttonSecondary"
         android:text="@string/textRegistro"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/btnLoginWidth"
         android:layout_height="@dimen/btnRegistroHeight"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/marginTopRegistro"/>

@@ -525,6 +525,7 @@ namespace Chrysallis_Eventos
             this.Controls.Add(this.groupBoxBuscarEvent);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FormEventos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormEventos";
             this.Load += new System.EventHandler(this.FormEventos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvents)).EndInit();

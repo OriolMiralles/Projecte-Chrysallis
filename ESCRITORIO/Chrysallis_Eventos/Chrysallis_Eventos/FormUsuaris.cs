@@ -122,5 +122,18 @@ namespace Chrysallis_Eventos
         {
             cargarGrid();
         }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewUsers.SelectedRows.Count == 1)
+            {
+                FormResetPass fr = new FormResetPass((socis)dataGridViewUsers.SelectedRows[0].DataBoundItem);
+                fr.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Seleccionar un usuarie de la grid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
