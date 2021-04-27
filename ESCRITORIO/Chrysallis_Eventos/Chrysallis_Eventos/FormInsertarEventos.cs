@@ -104,11 +104,6 @@ namespace Chrysallis_Eventos
             }
         }
 
-        private void buttonInsertarUsuario_Click(object sender, EventArgs e)
-        {
-            FormVerParticipantes formVerParticipantes = new FormVerParticipantes();
-            formVerParticipantes.ShowDialog();
-        }
         private void comboBoxProvincias_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxProvincias.SelectedItem != null)
@@ -357,5 +352,7 @@ namespace Chrysallis_Eventos
             
             
         }
+
+
     }
 }

@@ -56,6 +56,27 @@ namespace Chrysallis_Eventos.MODELOS
             return _socis;
         }
 
+
+        public static List<socis> SelectParticipants(ref String missatge, int id)
+        {
+            List<socis> _soci = new List<socis>();
+            try
+            {
+                _soci = Orm.bd.socis.Include("esdeveniments").Join(Orm.bd.assistir,
+                    socis => socis.id,
+                    assistir => assistir.id_soci,
+                    (socis, assistir) => socis)
+                    .Where().ToList();
+            }
+            catch (SqlException ex)
+            {
+                missatge = Orm.missatgeError(ex);
+            }
+
+
+            return _soci;
+        }
+
         public static String Insert(ref String missatge, socis nouSocis)
         {
             Orm.bd.socis.Add(nouSocis);

@@ -179,5 +179,15 @@ namespace Chrysallis_Eventos
         {
 
         }
+
+        private void dataGridViewEvents_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewEvents.SelectedRows.Count == 1)
+            {
+                esdeveniments esdeveniment = (esdeveniments)dataGridViewEvents.SelectedRows[0].DataBoundItem;
+                FormVerParticipantes formVerParticipantes = new FormVerParticipantes(esdeveniment);
+                formVerParticipantes.ShowDialog();
+            }
+        }
     }
 }
