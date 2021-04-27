@@ -56,6 +56,9 @@ namespace Chrysallis_Eventos.MODELOS
             return _socis;
         }
 
+        
+        
+
         public static String Insert(ref String missatge, socis nouSocis)
         {
             Orm.bd.socis.Add(nouSocis);

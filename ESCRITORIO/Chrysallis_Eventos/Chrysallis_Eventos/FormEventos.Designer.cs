@@ -151,7 +151,8 @@ namespace Chrysallis_Eventos
             this.dataGridViewEvents.RowTemplate.Height = 24;
             this.dataGridViewEvents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewEvents.Size = new System.Drawing.Size(775, 304);
-            this.dataGridViewEvents.TabIndex = 4;
+            this.dataGridViewEvents.TabIndex = 5;
+            this.dataGridViewEvents.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEvents_CellDoubleClick);
             this.dataGridViewEvents.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewEvents_CellFormatting);
             // 
             // idDataGridViewTextBoxColumn
@@ -412,7 +413,7 @@ namespace Chrysallis_Eventos
             this.groupBoxBuscarEvent.Location = new System.Drawing.Point(13, 69);
             this.groupBoxBuscarEvent.Name = "groupBoxBuscarEvent";
             this.groupBoxBuscarEvent.Size = new System.Drawing.Size(776, 65);
-            this.groupBoxBuscarEvent.TabIndex = 3;
+            this.groupBoxBuscarEvent.TabIndex = 4;
             this.groupBoxBuscarEvent.TabStop = false;
             this.groupBoxBuscarEvent.Text = "Buscar por ciudad";
             // 
@@ -436,7 +437,7 @@ namespace Chrysallis_Eventos
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 27);
-            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
@@ -496,7 +497,7 @@ namespace Chrysallis_Eventos
             this.labelComunidad.Location = new System.Drawing.Point(26, 41);
             this.labelComunidad.Name = "labelComunidad";
             this.labelComunidad.Size = new System.Drawing.Size(78, 18);
-            this.labelComunidad.TabIndex = 1;
+            this.labelComunidad.TabIndex = 7;
             this.labelComunidad.Text = "Comunidad";
             // 
             // comboBoxComunidades
@@ -508,7 +509,7 @@ namespace Chrysallis_Eventos
             this.comboBoxComunidades.Location = new System.Drawing.Point(121, 39);
             this.comboBoxComunidades.Name = "comboBoxComunidades";
             this.comboBoxComunidades.Size = new System.Drawing.Size(510, 24);
-            this.comboBoxComunidades.TabIndex = 2;
+            this.comboBoxComunidades.TabIndex = 6;
             this.comboBoxComunidades.ValueMember = "id";
             this.comboBoxComunidades.SelectedIndexChanged += new System.EventHandler(this.comboBoxComunidades_SelectedIndexChanged);
             // 
@@ -524,6 +525,7 @@ namespace Chrysallis_Eventos
             this.Controls.Add(this.groupBoxBuscarEvent);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FormEventos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormEventos";
             this.Load += new System.EventHandler(this.FormEventos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvents)).EndInit();

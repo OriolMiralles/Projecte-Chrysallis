@@ -138,6 +138,7 @@
       <DependentUpon>FormVerParticipantes.cs</DependentUpon>
     </Compile>
     <Compile Include="MODELOS\AdminOrm.cs" />
+    <Compile Include="MODELOS\AsistirOrm.cs" />
     <Compile Include="MODELOS\assistir.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
