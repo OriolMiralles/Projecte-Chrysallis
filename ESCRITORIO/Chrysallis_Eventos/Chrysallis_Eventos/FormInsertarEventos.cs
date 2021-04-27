@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Windows.Forms;
 using Chrysallis_Eventos.MODELOS;
 
@@ -13,6 +15,9 @@ namespace Chrysallis_Eventos
         public esdeveniments esdeveniment;
         public Boolean modificar = false;
         public List<localitats> _localitats = null;
+        public bool adjunt = false;
+        public String arxiu;
+        public documents document;
          
 
         public FormInsertarEventos(comunitats comunitat)
@@ -22,6 +27,7 @@ namespace Chrysallis_Eventos
             labelNumeroEvento.Visible = false;
             this.esdeveniment = new esdeveniments();
             _localitats = new List<localitats>();
+            this.document = new documents();
         }
 
         public FormInsertarEventos(esdeveniments esdeveniment, comunitats comunitat)
@@ -32,6 +38,11 @@ namespace Chrysallis_Eventos
             this.comunitat = comunitat;
             labelNumeroEvento.Visible = true;
             buttonInsertarEvento.Text = "Modificar";
+            if (esdeveniment.documents.Count > 0)
+            {
+                document = esdeveniment.documents.ElementAt(0);
+            }
+            
         }
 
         private void FormInsertarEventos_Load(object sender, EventArgs e)
@@ -79,7 +90,10 @@ namespace Chrysallis_Eventos
                 {
                     comboBoxProvincias.SelectedItem = esdeveniment.localitats.provincies;
                 }
-                
+                if(esdeveniment.documents.Count > 0)
+                {
+                    adjunt = true;
+                }
                 bindingSourceCiutats.DataSource = CiutatsOrm.Select(ref missatge, (provincies)comboBoxProvincias.SelectedItem);
                 textBoxDireccionEvento.Text = esdeveniment.adreca;
                 richTextBoxDescripcionEvento.Text = esdeveniment.descripcio;
@@ -151,6 +165,23 @@ namespace Chrysallis_Eventos
                     EventosOrm.Insert(ref missatge, esdeveniment);
                     if (missatge.Equals(""))
                     {
+                        if (!textBoxAdjunto.Text.Equals(""))
+                        {
+                            String missatgeInsert = "";
+                           
+                            String pathMostrar = "abp-politecnics.com/2021/dam2a02/documentos/";
+                            List<esdeveniments> listaEvent = EventosOrm.Select(ref missatge, esdeveniment.titol);
+                            esdeveniments _esdev = listaEvent[listaEvent.Count - 1];
+                            documents docu = new documents();
+                            FileInfo fi = new FileInfo(arxiu);
+                            docu.id_esdeveniment = _esdev.id;
+                            docu.nom = fi.Name;
+                            docu.ruta = pathMostrar + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString() + "_" + fi.Name;
+                            DocumentsOrm.Insert(ref missatgeInsert, docu);
+                            subirArchivos();
+                            //ftp.onwindows - es.setupdns.net / documentos /
+                            //docu.nom = 
+                        }
                         MessageBox.Show("Se ha insertado el evento correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
@@ -187,6 +218,7 @@ namespace Chrysallis_Eventos
             {
                 esdeveniment.id_localitat = ((localitats)comboBoxCiudadesBuscadas.SelectedItem).id;
             }
+            
         }
 
         private Boolean comprobarDatos()
@@ -353,6 +385,81 @@ namespace Chrysallis_Eventos
             
         }
 
+        private void richTextBoxDescripcionEvento_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void labelDescripcionEvento_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCargar_Click(object sender, EventArgs e)
+        {
+            if(adjunt == false)
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Archivos pdf|*.pdf";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    arxiu = ofd.FileName;
+                    FileInfo fi = new FileInfo(arxiu);
+                    textBoxAdjunto.Text = fi.Name;
+                    document.nom = fi.Name;
+                    adjunt = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Solo se permite un archivo adjunto");
+            }
+            
+        }
+        private void subirArchivos()
+        {
+            String usuario = "dam2a02@abp-politecnics.com";
+            String contrasena = "Informatica_2021";
+       
+            try
+            {
+                /*
+                FileInfo fi = new FileInfo(arxiu);
+                String nombreFicher = DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString() + "_" + fi.Name;
+                String path = rutaDestino + nombreFicher;*/
+                String pathSubida = "ftp.onwindows-es.setupdns.net/documentos/";
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(pathSubida);
+                request.Credentials = new NetworkCredential(usuario, contrasena);
+
+                request.Method = WebRequestMethods.Ftp.UploadFile;
+
+                request.UsePassive = true;
+                request.UseBinary = true;
+                request.KeepAlive = false;
+
+                FileStream fileStream = File.OpenRead(arxiu);
+                Stream requestStream = request.GetRequestStream();
+                fileStream.CopyTo(requestStream);
+                requestStream.Close();
+
+                FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+
+                MessageBox.Show(response.StatusDescription);
+                response.Close();
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+            
+
+        }
+
+        private void buttonInsertarEvento_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
+
+    
 }
