@@ -15,9 +15,9 @@ namespace Chrysallis_Eventos
         public esdeveniments esdeveniment;
         public Boolean modificar = false;
         public List<localitats> _localitats = null;
-        public bool adjunt = false;
-        public String arxiu;
-        public documents document;
+        //public bool adjunt = false;
+        //public String arxiu;
+        //public documents document;
          
 
         public FormInsertarEventos(comunitats comunitat)
@@ -27,7 +27,7 @@ namespace Chrysallis_Eventos
             labelNumeroEvento.Visible = false;
             this.esdeveniment = new esdeveniments();
             _localitats = new List<localitats>();
-            this.document = new documents();
+            //this.document = new documents();
         }
 
         public FormInsertarEventos(esdeveniments esdeveniment, comunitats comunitat)
@@ -38,10 +38,10 @@ namespace Chrysallis_Eventos
             this.comunitat = comunitat;
             labelNumeroEvento.Visible = true;
             buttonInsertarEvento.Text = "Modificar";
-            if (esdeveniment.documents.Count > 0)
+           /* if (esdeveniment.documents.Count > 0)
             {
                 document = esdeveniment.documents.ElementAt(0);
-            }
+            }*/
             
         }
 
@@ -90,10 +90,10 @@ namespace Chrysallis_Eventos
                 {
                     comboBoxProvincias.SelectedItem = esdeveniment.localitats.provincies;
                 }
-                if(esdeveniment.documents.Count > 0)
+               /* if(esdeveniment.documents.Count > 0)
                 {
                     adjunt = true;
-                }
+                }*/
                 bindingSourceCiutats.DataSource = CiutatsOrm.Select(ref missatge, (provincies)comboBoxProvincias.SelectedItem);
                 textBoxDireccionEvento.Text = esdeveniment.adreca;
                 richTextBoxDescripcionEvento.Text = esdeveniment.descripcio;
@@ -165,7 +165,7 @@ namespace Chrysallis_Eventos
                     EventosOrm.Insert(ref missatge, esdeveniment);
                     if (missatge.Equals(""))
                     {
-                        if (!textBoxAdjunto.Text.Equals(""))
+                        /*if (!textBoxAdjunto.Text.Equals(""))
                         {
                             String missatgeInsert = "";
                            
@@ -181,7 +181,7 @@ namespace Chrysallis_Eventos
                             subirArchivos();
                             //ftp.onwindows - es.setupdns.net / documentos /
                             //docu.nom = 
-                        }
+                        }*/
                         MessageBox.Show("Se ha insertado el evento correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
@@ -395,7 +395,7 @@ namespace Chrysallis_Eventos
 
         }
 
-        private void buttonCargar_Click(object sender, EventArgs e)
+       /* private void buttonCargar_Click(object sender, EventArgs e)
         {
             if(adjunt == false)
             {
@@ -415,18 +415,18 @@ namespace Chrysallis_Eventos
                 MessageBox.Show("Solo se permite un archivo adjunto");
             }
             
-        }
-        private void subirArchivos()
+        }*/
+       /* private void subirArchivos()
         {
             String usuario = "dam2a02@abp-politecnics.com";
             String contrasena = "Informatica_2021";
        
             try
             {
-                /*
+                
                 FileInfo fi = new FileInfo(arxiu);
                 String nombreFicher = DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Millisecond.ToString() + "_" + fi.Name;
-                String path = rutaDestino + nombreFicher;*/
+                String path = rutaDestino + nombreFicher;
                 String pathSubida = "ftp.onwindows-es.setupdns.net/documentos/";
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(pathSubida);
                 request.Credentials = new NetworkCredential(usuario, contrasena);
@@ -453,7 +453,7 @@ namespace Chrysallis_Eventos
             
             
 
-        }
+        }*/
 
         private void buttonInsertarEvento_Click_1(object sender, EventArgs e)
         {

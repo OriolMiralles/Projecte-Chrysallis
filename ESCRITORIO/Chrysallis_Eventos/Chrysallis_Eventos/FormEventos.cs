@@ -105,6 +105,10 @@ namespace Chrysallis_Eventos
                         MessageBox.Show("Evento eliminade correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         refrescarGrid();
                     }
+                    else
+                    {
+                        MessageBox.Show(missatge, "Mensaje Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
 
             }

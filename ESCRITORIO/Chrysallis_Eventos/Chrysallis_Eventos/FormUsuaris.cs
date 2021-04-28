@@ -13,7 +13,7 @@ namespace Chrysallis_Eventos
 {
     public partial class FormUsuaris : Form
     {
-        public const int COMUNIDAD_POR_DEFECTO = 9;
+        public const int COMUNIDAD_POR_DEFECTO = 7;
         List<socis> _socis;
         public FormUsuaris()
         {
