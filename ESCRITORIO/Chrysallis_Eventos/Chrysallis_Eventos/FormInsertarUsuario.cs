@@ -73,8 +73,10 @@ namespace Chrysallis_Eventos
                 textBoxTelefono2Usuario.Text = soci.telefon2;
                 textBoxEmailUsuario.Text = soci.email;
                 textBoxComunidadUsuario.Text = soci.localitats.provincies.comunitats.nom;
-                bindingSourceCiutats.DataSource = CiutatsOrm.Select(ref missatge, (provincies)comboBoxProvinciasUsuario.SelectedItem);
                 comboBoxProvinciasUsuario.SelectedItem = soci.localitats.provincies;
+                _localitats = CiutatsOrm.Select(ref missatge, (provincies)comboBoxProvinciasUsuario.SelectedItem);
+                bindingSourceCiutats.DataSource = _localitats;
+                
                 comboBoxCiudadesBuscadasUsuario.SelectedItem = soci.localitats;
                 textBoxDireccionUsuario.Text = soci.adresa;
                 buttonInsertar.Text = "Modificar";
@@ -96,7 +98,11 @@ namespace Chrysallis_Eventos
         private void textBoxCiudadUsuario_TextChanged(object sender, EventArgs e)
         {
             BindingList<localitats> llistaFiltrada = null;
-            llistaFiltrada = new BindingList<localitats>(_localitats.Where(l => l.nom.ToLower().Contains(textBoxCiudadUsuario.Text.ToLower())).ToList());
+            if(_localitats != null)
+            {
+                llistaFiltrada = new BindingList<localitats>(_localitats.Where(l => l.nom.ToLower().Contains(textBoxCiudadUsuario.Text.ToLower())).ToList());
+            }
+            
             bindingSourceCiutats.DataSource = llistaFiltrada;
         }
 

@@ -178,65 +178,65 @@ namespace Chrysallis_Eventos
             // 
             // textBoxNombreUsuario
             // 
-            this.textBoxNombreUsuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNombreUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNombreUsuario.Location = new System.Drawing.Point(142, 77);
             this.textBoxNombreUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNombreUsuario.Name = "textBoxNombreUsuario";
-            this.textBoxNombreUsuario.Size = new System.Drawing.Size(458, 23);
+            this.textBoxNombreUsuario.Size = new System.Drawing.Size(458, 27);
             this.textBoxNombreUsuario.TabIndex = 4;
             // 
             // textBoxApellidoUsuario
             // 
-            this.textBoxApellidoUsuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxApellidoUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxApellidoUsuario.Location = new System.Drawing.Point(142, 117);
             this.textBoxApellidoUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxApellidoUsuario.Name = "textBoxApellidoUsuario";
-            this.textBoxApellidoUsuario.Size = new System.Drawing.Size(458, 23);
+            this.textBoxApellidoUsuario.Size = new System.Drawing.Size(458, 27);
             this.textBoxApellidoUsuario.TabIndex = 6;
             // 
             // textBoxDNIUsuario
             // 
-            this.textBoxDNIUsuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDNIUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDNIUsuario.Location = new System.Drawing.Point(142, 156);
             this.textBoxDNIUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDNIUsuario.Name = "textBoxDNIUsuario";
-            this.textBoxDNIUsuario.Size = new System.Drawing.Size(299, 23);
+            this.textBoxDNIUsuario.Size = new System.Drawing.Size(299, 27);
             this.textBoxDNIUsuario.TabIndex = 8;
             // 
             // textBoxPasswordUsuario
             // 
-            this.textBoxPasswordUsuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPasswordUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPasswordUsuario.Location = new System.Drawing.Point(142, 199);
             this.textBoxPasswordUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPasswordUsuario.Name = "textBoxPasswordUsuario";
-            this.textBoxPasswordUsuario.Size = new System.Drawing.Size(458, 23);
+            this.textBoxPasswordUsuario.Size = new System.Drawing.Size(458, 27);
             this.textBoxPasswordUsuario.TabIndex = 11;
             // 
             // textBoxTelefono1Usuario
             // 
-            this.textBoxTelefono1Usuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTelefono1Usuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTelefono1Usuario.Location = new System.Drawing.Point(142, 284);
             this.textBoxTelefono1Usuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTelefono1Usuario.Name = "textBoxTelefono1Usuario";
-            this.textBoxTelefono1Usuario.Size = new System.Drawing.Size(458, 23);
+            this.textBoxTelefono1Usuario.Size = new System.Drawing.Size(458, 27);
             this.textBoxTelefono1Usuario.TabIndex = 15;
             // 
             // textBoxTelefono2Usuario
             // 
-            this.textBoxTelefono2Usuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTelefono2Usuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTelefono2Usuario.Location = new System.Drawing.Point(142, 328);
             this.textBoxTelefono2Usuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTelefono2Usuario.Name = "textBoxTelefono2Usuario";
-            this.textBoxTelefono2Usuario.Size = new System.Drawing.Size(458, 23);
+            this.textBoxTelefono2Usuario.Size = new System.Drawing.Size(458, 27);
             this.textBoxTelefono2Usuario.TabIndex = 17;
             // 
             // textBoxEmailUsuario
             // 
-            this.textBoxEmailUsuario.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEmailUsuario.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxEmailUsuario.Location = new System.Drawing.Point(142, 371);
             this.textBoxEmailUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEmailUsuario.Name = "textBoxEmailUsuario";
-            this.textBoxEmailUsuario.Size = new System.Drawing.Size(458, 23);
+            this.textBoxEmailUsuario.Size = new System.Drawing.Size(458, 27);
             this.textBoxEmailUsuario.TabIndex = 19;
             // 
             // labelNumeroUsuario
@@ -430,11 +430,11 @@ namespace Chrysallis_Eventos
             // 
             // textBoxNumSocio
             // 
-            this.textBoxNumSocio.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNumSocio.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNumSocio.Location = new System.Drawing.Point(142, 34);
             this.textBoxNumSocio.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNumSocio.Name = "textBoxNumSocio";
-            this.textBoxNumSocio.Size = new System.Drawing.Size(312, 23);
+            this.textBoxNumSocio.Size = new System.Drawing.Size(312, 27);
             this.textBoxNumSocio.TabIndex = 1;
             // 
             // checkBoxPermiso
