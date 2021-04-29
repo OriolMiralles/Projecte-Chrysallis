@@ -21,10 +21,10 @@ public interface SociService {
     @GET("api/socis")
     Call<List<Soci>>getSocis();
 
-    @PUT("api/socis/{id}")
+    @POST("api/socis/update/{id}")
     Call<Soci>updateSoci(@Path("id")int id, @Body Soci soci);
 
-    @PUT("api/socis/comunitats/{id}/{id_com}")
+    @POST("api/socis/comunitats/{id}/{id_com}")
     Call<Soci>updateComunitat(@Path("id")int id, @Path("id_com")int id_com, @Body Soci soci);
 
     @DELETE("api/socis/comunitats/{id}")

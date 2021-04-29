@@ -9,6 +9,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
@@ -22,7 +23,7 @@ public interface EsdevenimentService {
     @GET("api/esdeveniments")
     Call<List<Esdeveniment>> getEsdeveniments();
 
-    @PUT("api/esdeveniments/{id}")
+    @POST("api/esdeveniments/update/{id}")
     Call<Esdeveniment>updateEsdeveniment(@Path("id")int id, @Body Esdeveniment esdeveniment);
 
     @GET("api/esdeveniments/comunitat/{nomComunitat}/{nomCiutat}/{idTipo}/{dateMin}/{dateMax}")

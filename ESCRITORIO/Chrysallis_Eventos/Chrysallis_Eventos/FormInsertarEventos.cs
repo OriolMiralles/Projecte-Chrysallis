@@ -249,12 +249,24 @@ namespace Chrysallis_Eventos
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 richTextBoxDescripcionEvento.Focus();
             }
-            else if(((tipus_events)comboBoxTipoEvento.SelectedItem).nom != "Online")
+            else if (!comprobarEntero(textBoxMaximoasistentesEvento.Text))
+            {
+                MessageBox.Show("Debe introducir un numero entero en Maximo Asistentes", "Advertencia",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxMaximoasistentesEvento.Focus();
+            }
+            else if (!comprobarEntero(textBoxMinimoAsistentesEvento.Text))
+            {
+                MessageBox.Show("Debe introducir un numero entero en Mínimo Asistentes", "Advertencia",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxMinimoAsistentesEvento.Focus();
+            }
+            else if (((tipus_events)comboBoxTipoEvento.SelectedItem).nom != "Online")
             {
                 if (comboBoxProvincias.SelectedItem == null)
                 {
                     MessageBox.Show("Debe seleccionar una provincia", "Advertencia",
-                      MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     comboBoxProvincias.Focus();
                 }
                 else if (comboBoxCiudadesBuscadas.SelectedItem == null)
@@ -263,19 +275,7 @@ namespace Chrysallis_Eventos
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     comboBoxCiudadesBuscadas.Focus();
                 }
-                else if (!comprobarEntero(textBoxMaximoasistentesEvento.Text))
-                {
-                    MessageBox.Show("Debe introducir un numero entero en Maximo Asistentes", "Advertencia",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    textBoxMaximoasistentesEvento.Focus();
-                }
-                else if (!comprobarEntero(textBoxMinimoAsistentesEvento.Text))
-                {
-                    MessageBox.Show("Debe introducir un numero entero en Mínimo Asistentes", "Advertencia",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    textBoxMinimoAsistentesEvento.Focus();
-                }
-                
+               
                 if (checkBoxActividadPagoEvento.Checked)
                 {
                     if (textBoxPrecioPersonaEvento.Text.Length == 0)
@@ -300,12 +300,9 @@ namespace Chrysallis_Eventos
                 }
                 else
                 {
-
                     correcto = true;
-
                 }
             }
-            
             else
             {
                 if (checkBoxActividadPagoEvento.Checked)
@@ -313,21 +310,17 @@ namespace Chrysallis_Eventos
                     if(textBoxPrecioPersonaEvento.Text.Length == 0)
                     {
                         MessageBox.Show("Debe introducir un precio por persona", "Advertencia",
-                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         textBoxPrecioPersonaEvento.Focus();
                     }
                     else
-                    {
-                    
-                        correcto = true;
-                       
+                    {                    
+                        correcto = true;  
                     }
                 }
                 else
                 {
-                   
                     correcto = true;
-
                 }
             }
 
@@ -449,10 +442,7 @@ namespace Chrysallis_Eventos
 
         }*/
 
-        private void buttonInsertarEvento_Click_1(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 
     

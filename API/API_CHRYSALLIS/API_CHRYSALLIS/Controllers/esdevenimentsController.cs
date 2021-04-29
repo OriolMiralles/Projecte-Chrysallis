@@ -179,8 +179,8 @@ namespace API_CHRYSALLIS.Controllers
             return Ok(_esdeveniments);
         }
 
-
-        // PUT: api/esdeveniments/5
+        [HttpPost]
+        [Route("api/esdeveniments/update/{id}")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> Putesdeveniments(int id, esdeveniments esdeveniments)
         {

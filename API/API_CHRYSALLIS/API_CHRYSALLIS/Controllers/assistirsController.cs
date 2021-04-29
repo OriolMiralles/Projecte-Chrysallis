@@ -50,8 +50,9 @@ namespace API_CHRYSALLIS.Controllers
             return Ok(assistir);
         }
 
-        // PUT: api/assistirs/5
-        [ResponseType(typeof(void))]
+
+        [HttpPost]
+        [Route("api/assistirs/update/{id}")]
         public async Task<IHttpActionResult> Putassistir(int id, assistir assistir)
         {
             IHttpActionResult result;
@@ -100,6 +101,7 @@ namespace API_CHRYSALLIS.Controllers
             return result;
         }
 
+     
 
         // POST: api/assistirs
         [ResponseType(typeof(assistir))]
@@ -158,7 +160,7 @@ namespace API_CHRYSALLIS.Controllers
 
             return Ok(assistir);
         }
-        [HttpDelete]
+        [HttpPost]
         [Route("api/assistirs/{id_soci}/{id_esdeveniment}/")]
         public async Task<IHttpActionResult> DeleteAssistirUser(int id_soci, int id_esdeveniment)
         {

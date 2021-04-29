@@ -53,7 +53,8 @@ namespace API_CHRYSALLIS.Controllers
             return Ok(_soci);
         }
 
-        // PUT: api/socis/5
+        [HttpPost]
+        [Route("api/socis/update/{id}/")]
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> Putsocis(int id, socis socis)
         {
@@ -153,7 +154,7 @@ namespace API_CHRYSALLIS.Controllers
             return Ok(soci);
         }
 
-        [HttpPut]
+        [HttpPost]
         [Route("api/socis/comunitats/{id}/{id_com}")]
         public async Task<IHttpActionResult> updateComunitats(int id,int id_com, socis _soci)
         {
