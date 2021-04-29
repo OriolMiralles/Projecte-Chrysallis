@@ -91,7 +91,7 @@ public class AdaptadorLista extends RecyclerView.Adapter<AdaptadorLista.ViewHold
                 case (5):
                     imgTipoEvent.setImageResource(R.drawable.online);
                     tvTipoAct.setText("Online");
-                    tvCiudad.setTextSize(12);
+                  
                     if(event.isEventoEstatal()){
                         tvCiudad.setText("Evento Estatal");
                         tvCiudad.setTextColor(Color.parseColor("#E81A7C"));
