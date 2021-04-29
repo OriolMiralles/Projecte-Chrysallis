@@ -80,10 +80,12 @@ namespace Chrysallis_Eventos.MODELOS
         public static String Delete(usuaris user)
         {
             String missatge = "";
+            user.comunitats.Clear();
             Orm.bd.usuaris.Remove(user);
             missatge = Orm.mySaveChanges();
             return missatge;
         }
+        
     }
 
 }

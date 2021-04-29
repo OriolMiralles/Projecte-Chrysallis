@@ -93,7 +93,7 @@ namespace Chrysallis_Eventos
             }
             else
             {
-                MessageBox.Show("Seleccionar un usuarie de la grid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccionar une usuarie de la grid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -105,13 +105,14 @@ namespace Chrysallis_Eventos
                 usuaris user = (usuaris)dataGridViewUsuaris.SelectedRows[0].DataBoundItem;
                 if (user.username.Equals("sa"))
                 {
-                    MessageBox.Show("No se puede eliminar el usuarie sa", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No se puede eliminar le usuarie sa", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    DialogResult dg = MessageBox.Show("Estás seguro que quieres borrar el usuarie?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    DialogResult dg = MessageBox.Show("Estás seguro que quieres borrar le usuarie?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (dg == DialogResult.OK)
                     {
+                        missatge = 
                         missatge = AdminOrm.Delete((usuaris)dataGridViewUsuaris.SelectedRows[0].DataBoundItem);
                         if (missatge.Equals(""))
                         {

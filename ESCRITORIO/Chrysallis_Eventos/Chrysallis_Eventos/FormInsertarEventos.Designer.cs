@@ -465,6 +465,7 @@ namespace Chrysallis_Eventos
             this.comboBoxTipoEvento.Size = new System.Drawing.Size(294, 34);
             this.comboBoxTipoEvento.TabIndex = 42;
             this.comboBoxTipoEvento.ValueMember = "idTipus";
+            this.comboBoxTipoEvento.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipoEvento_SelectedIndexChanged);
             // 
             // textBoxTituloEvento
             // 
