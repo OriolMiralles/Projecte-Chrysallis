@@ -255,7 +255,7 @@ namespace Chrysallis_Eventos
             this.buttonInsertarEvento.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonInsertarEvento.FlatAppearance.BorderSize = 2;
             this.buttonInsertarEvento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInsertarEvento.Font = new System.Drawing.Font("Trebuchet MS", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInsertarEvento.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonInsertarEvento.Location = new System.Drawing.Point(1316, 601);
             this.buttonInsertarEvento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonInsertarEvento.Name = "buttonInsertarEvento";
