@@ -10,11 +10,7 @@ public class Esdeveniment implements Serializable {
     private int id;
     private String titol;
     private Date data;
-<<<<<<< HEAD
-    private Date hora;
-=======
     private String hora;
->>>>>>> d51faf5510bf380e9e80524e55161e14f9918c0a
     private Localitat localitats;
     private int id_tipus;
     private String descripcio;
@@ -39,20 +35,12 @@ public class Esdeveniment implements Serializable {
         this.descripcio = descripcio;
     }
 
-<<<<<<< HEAD
-    public Esdeveniment(int id, String titol, Date data, Date hora, Localitat localitats, int id_tipus, String descripcio, String tipoEvento, String adreca, List<Assistir> assistir, int quantitat_max, int cont_assitents, int id_comunitat, int quantitat_mínima, double preu, boolean pagament, Date data_max, int id_localitat, boolean eventoEstatal) {
-        this.id = id;
-        this.titol = titol;
-        this.data = data;
-        this.hora =hora;
-=======
     public Esdeveniment(int id, String titol, Date data, Localitat localitats, int id_tipus, String descripcio, String tipoEvento, String adreca, List<Assistir> assistir, int quantitat_max, int cont_assitents, int id_comunitat, int quantitat_mínima, double preu, boolean pagament, Date data_max, int id_localitat, boolean eventoEstatal, String hora) {
 
         this.id = id;
         this.titol = titol;
         this.data = data;
         this.hora = hora;
->>>>>>> d51faf5510bf380e9e80524e55161e14f9918c0a
         this.localitats = localitats;
         this.id_tipus = id_tipus;
         this.descripcio = descripcio;

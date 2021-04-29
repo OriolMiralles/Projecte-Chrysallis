@@ -165,6 +165,7 @@
     <Compile Include="MODELOS\documents.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>
+    <Compile Include="MODELOS\DocumentsOrm.cs" />
     <Compile Include="MODELOS\esdeveniments.cs">
       <DependentUpon>Chrysallis.tt</DependentUpon>
     </Compile>

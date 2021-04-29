@@ -25,6 +25,21 @@ namespace Chrysallis_Eventos.MODELOS
 
             return _esdeveniments;
         }
+        public static List<esdeveniments> Select(ref String missatge, String _titol)
+        {
+            List<esdeveniments> _esdeveniments = null;
+            try
+            {
+                _esdeveniments = Orm.bd.esdeveniments.Where(e => e.titol.Equals(_titol) ).OrderBy(e => e.id).ToList();
+            }
+            catch (SqlException ex)
+            {
+                missatge = Orm.missatgeError(ex);
+            }
+
+
+            return _esdeveniments;
+        }
 
         public static String Insert(ref String missatge, esdeveniments nouEsdeveniment)
         {

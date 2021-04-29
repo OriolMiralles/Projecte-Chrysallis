@@ -31,10 +31,11 @@
             android:id="@+id/tvNombre"
             android:layout_width="230dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginLeft="@dimen/marginLeftText"
             android:inputType="textEmailAddress"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/tamanoLetraPequenia" />
+            android:textSize="@dimen/tamanoLetraMedia" />
 
     </LinearLayout>
 
@@ -57,10 +58,11 @@
             android:id="@+id/tvApellido"
             android:layout_width="@dimen/editTextSize"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginLeft="@dimen/marginLeftText"
             android:inputType="textEmailAddress"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/tamanoLetraPequenia" />
+            android:textSize="@dimen/tamanoLetraMedia" />
 
     </LinearLayout>
     <LinearLayout
@@ -83,10 +85,11 @@
             android:id="@+id/tvEMAIL"
             android:layout_width="255dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginLeft="@dimen/marginLeftText"
             android:inputType="textEmailAddress"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/tamanoLetraPequenia" />
+            android:textSize="@dimen/tamanoLetraMedia" />
 
     </LinearLayout>
     <LinearLayout
