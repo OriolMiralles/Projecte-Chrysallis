@@ -10,17 +10,18 @@
         android:layout_height="50dp"
         android:layout_margin="@dimen/marginTopLogo"
         android:background="@drawable/ic_back"/>
+
     <ImageView
-        android:layout_width="@dimen/widthLogo"
-        android:layout_height="@dimen/heightLogo"
+        android:layout_width="181dp"
+        android:layout_height="183dp"
         android:layout_gravity="center"
-        android:background="@drawable/logosinfondo"/>
+        android:background="@drawable/logosinfondo" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center"
+        android:layout_marginLeft="80dp"
         android:layout_marginTop="@dimen/marginTopEmail">
 
         <TextView
@@ -43,8 +44,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
+        android:layout_marginLeft="82dp"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,21 +67,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center">
+        android:layout_marginLeft="52dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/tamanoLetraMedia"
             android:text="@string/textConfirPass"
-            android:textColor="@color/colorAccent"/>
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/tamanoLetraMedia" />
+
         <EditText
             android:id="@+id/etConfirPass"
             android:layout_width="@dimen/btnLoginHeight"
-            android:layout_marginLeft="@dimen/marginLeftText"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:inputType="textPassword"/>
+            android:layout_marginLeft="@dimen/marginLeftText"
+            android:inputType="textPassword"
+            android:textColor="@color/colorAccent" />
 
     </LinearLayout>
 

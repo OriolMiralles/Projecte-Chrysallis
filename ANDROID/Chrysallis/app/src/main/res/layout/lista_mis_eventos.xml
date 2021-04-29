@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="@dimen/tamanoLetraGrande"
+            android:layout_marginBottom="@dimen/margin6dp"
             android:layout_gravity="left"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/marginRightText"
@@ -46,6 +47,7 @@
                 android:layout_width="wrap_content"
                 android:textSize="@dimen/tamanoLetraMedia"
                 android:layout_gravity="right"
+                android:layout_marginBottom="@dimen/margin6dp"
                 android:layout_marginRight="@dimen/marginRightText"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -68,6 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
+                android:layout_marginBottom="@dimen/margin6dp"
                 android:layout_marginRight="@dimen/marginRightText"
                 android:textSize="@dimen/tamanoLetraMedia"/>
         </LinearLayout>
@@ -88,6 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
+                android:layout_marginBottom="@dimen/margin6dp"
                 android:layout_marginRight="@dimen/marginRightText"
                 android:textSize="@dimen/tamanoLetraMedia"
                 android:id="@+id/tvFecha"/>

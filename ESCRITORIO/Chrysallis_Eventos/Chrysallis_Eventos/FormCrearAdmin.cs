@@ -208,7 +208,7 @@ namespace Chrysallis_Eventos
                                         missatge = AdminOrm.Update(usuari);
                                         if (missatge.Equals(""))
                                         {
-                                            MessageBox.Show("Usuarie modificade correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information););
+                                            MessageBox.Show("Usuarie modificade correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                             this.Close();
                                         }
                                         else

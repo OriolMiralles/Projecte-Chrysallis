@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/marginTopImgEventoDetalle"
+        android:layout_marginTop="20dp"
         android:paddingLeft="15dp"
         >
         <ImageView
@@ -139,12 +139,12 @@
     <Button
         android:id="@+id/btnLogout"
         style="@style/buttonPrimary"
-        android:layout_width="250dp"
-        android:layout_height="@dimen/btnLoginHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="66dp"
         android:layout_gravity="center"
-        android:text="@string/textCerrar"
-        android:layout_marginTop="@dimen/marginTopImgEventoDetalle"/>
-
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:text="@string/textCerrar" />
 
 
 </LinearLayout>
