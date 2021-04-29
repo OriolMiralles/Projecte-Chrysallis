@@ -20,37 +20,55 @@
         android:layout_width="153dp"
         android:layout_height="151dp"
         android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/marginTopLogo"
         android:background="@drawable/colonias" />
+
+    <TextView
+        android:id="@+id/tvTituloDetalle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:text="Colonies Berguedà"/>
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="25dp"
     android:orientation="horizontal"
-    android:gravity="center"
-    >
+    android:gravity="center">
+
     <LinearLayout
         android:id="@+id/layoutInfo"
         android:layout_width="0dp"
         android:layout_weight="2"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        >
-
-            <TextView
-                android:id="@+id/tvTituloDetalle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="Colonies Berguedà"/>
+        android:gravity="left"
+        android:paddingLeft="@dimen/marginTopEmail"
+        android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvTipoEventoDetalle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="left"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/marginLeftText"
                 android:text="Quedada"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="left">
+
+            <ImageView
+                android:id="@+id/imgCalendar"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="@dimen/marginTopLogo"
+                android:src="@drawable/ic_eventos"/>
 
             <TextView
                 android:id="@+id/tvFechaDetalle"
@@ -59,14 +77,30 @@
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/marginLeftText"
                 android:text="8-6-2021"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="left">
+
+            <ImageView
+                android:id="@+id/imgLocation"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="@dimen/marginTopLogo"
+                android:src="@drawable/markerblack"/>
+
             <TextView
                 android:id="@+id/tvLoca"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/marginLeftText" />
-
-
+        </LinearLayout>
     </LinearLayout>
 
     <Button
@@ -128,6 +162,5 @@
         android:layout_marginTop="15dp"
         android:layout_gravity="center"
         android:text="@string/textApuntarse"/>
-
 
 </LinearLayout>

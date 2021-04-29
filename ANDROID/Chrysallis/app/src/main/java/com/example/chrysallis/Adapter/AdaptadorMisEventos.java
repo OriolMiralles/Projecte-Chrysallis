@@ -1,5 +1,7 @@
 package com.example.chrysallis.Adapter;
 
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +38,9 @@ public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEvento
         TextView tvCiudad;
         TextView tvFecha;
         TextView tvValorar;
+        ImageView imgCalendar;
+        ImageView imgLocation;
+        ImageView imgOnline;
         private Soci soci;
 
         public ViewHolder(@NonNull View item, Soci soci){
@@ -46,7 +51,13 @@ public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEvento
             tvCiudad = item.findViewById(R.id.tvCiudad);
             tvFecha = item.findViewById(R.id.tvFecha);
             tvValorar = item.findViewById(R.id.tvValorar);
+            imgCalendar = item.findViewById(R.id.imgCalendar);
+            imgLocation = item.findViewById(R.id.imgLocation);
+            imgOnline = item.findViewById(R.id.imgOnline);
+            imgOnline.setVisibility(View.GONE);
+
             this.soci = soci;
+
         }
         void bindEvento(Esdeveniment event){
             switch (event.getId_tipus()){
@@ -68,6 +79,8 @@ public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEvento
                     break;
                 case (5):
                     imgTipoEvent.setImageResource(R.drawable.online);
+
+                    imgLocation.setImageDrawable(imgOnline.getDrawable());
                     tvCiudad.setText(event.getAdreca());
                     break;
                 case (6):
@@ -84,6 +97,7 @@ public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEvento
             if(event.getData().getTime() < System.currentTimeMillis()){
                 //HA PASSAT
                 tvValorar.setText("VALORA EL EVENTO");
+                imgCalendar.setVisibility(View.GONE);
                 tvFecha.setVisibility(View.GONE);
             }else{
                 //NO HA PASSAT
@@ -91,7 +105,12 @@ public class AdaptadorMisEventos extends RecyclerView.Adapter<AdaptadorMisEvento
             }
             for(Assistir assistir : soci.getAssistirs()){
                 if(assistir.getId_esdeveniment()==event.getId()){
-                    tvNumPer.setText("NUM. PER: " + assistir.getQuantitat_persones());
+                    int maxParticipants = event.getQuantitat_max();
+                    if(maxParticipants > 0){
+                        tvNumPer.setText(" " + assistir.getQuantitat_persones() + "/" + maxParticipants);
+                    }else{
+                        tvNumPer.setText(" " + assistir.getQuantitat_persones());
+                    }
                 }
             }
 
