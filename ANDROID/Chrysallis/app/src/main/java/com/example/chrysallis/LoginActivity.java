@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                 String mail = etMail.getText().toString();
                 String pass = etPass.getText().toString();
                 if(mail.equals("")||pass.equals("")){
-                    Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Usuarie o contraseña incorrecta", Toast.LENGTH_LONG).show();
                 }else{
                     SociService sociServices = Api.getApi().create(SociService.class);
                     Call<Soci> callSoci = sociServices.getSociEmail(mail);
@@ -120,14 +120,14 @@ public class LoginActivity extends AppCompatActivity {
                                                 startActivity(intent);
                                                 finish();
                                             }else{
-                                                Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(LoginActivity.this, "Usuarie o contraseña incorrecta", Toast.LENGTH_SHORT).show();
 
                                             }
                                         }else{
-                                            Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(LoginActivity.this, "Usuarie o contraseña incorrecta", Toast.LENGTH_SHORT).show();
                                         }
                                     }else{
-                                        Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(LoginActivity.this, "Usuarie o contraseña incorrecta", Toast.LENGTH_SHORT).show();
                                     }
 
                                     break;
@@ -137,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(LoginActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
                                     break;
                                 case 404:
-                                    Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(LoginActivity.this, "Usuarie o contraseña incorrecta", Toast.LENGTH_LONG).show();
                                     break;
                                 default:
                                     Toast.makeText(LoginActivity.this, "error: " + response.code(), Toast.LENGTH_SHORT).show();
@@ -196,7 +196,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, missatge.getMessage(), Toast.LENGTH_SHORT).show();
                         break;
                     case 404:
-                        Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrecta", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "Usuarie o contraseña incorrecta", Toast.LENGTH_LONG).show();
                         break;
                     default:
                         Toast.makeText(LoginActivity.this, "error: " + response.code(), Toast.LENGTH_SHORT).show();

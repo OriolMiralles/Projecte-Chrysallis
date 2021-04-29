@@ -28,7 +28,7 @@
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="@dimen/editTextSize"
-        android:layout_marginLeft="@dimen/marginLeftText"
+        android:layout_marginLeft="@dimen/marginLeftTextEmail"
         android:layout_height="wrap_content"
         android:textColor="@color/colorAccent"
         android:inputType="textEmailAddress"/>

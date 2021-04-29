@@ -166,7 +166,7 @@ public class MenuActivity extends AppCompatActivity implements EsdevenimentListe
                                     fme.setEsdevenimentListener(MenuActivity.this);
                                     cargarFragments(fme);
                                 }else{
-                                    Toast.makeText(MenuActivity.this, "No tienes eventos donde estés apuntados", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MenuActivity.this, "No tienes eventos donde estés apuntade", Toast.LENGTH_SHORT).show();
                                 }
 
                                 break;
