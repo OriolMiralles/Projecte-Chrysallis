@@ -269,6 +269,11 @@ namespace Chrysallis_Eventos
 
             }
         }
+
+        private void comboBoxComunidades_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

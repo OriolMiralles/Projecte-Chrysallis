@@ -188,6 +188,7 @@
             this.comboBoxComunidades.Size = new System.Drawing.Size(383, 34);
             this.comboBoxComunidades.TabIndex = 8;
             this.comboBoxComunidades.ValueMember = "id";
+            this.comboBoxComunidades.SelectedIndexChanged += new System.EventHandler(this.comboBoxComunidades_SelectedIndexChanged);
             // 
             // bindingSourceComunitats
             // 

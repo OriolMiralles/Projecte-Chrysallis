@@ -225,16 +225,10 @@ namespace Chrysallis_Eventos
         {
             Boolean correcto = false;
 
-            if (textBoxTituloEvento.Text.Length == 0)
+            if (textBoxTituloEvento.Text.Length == 0 || textBoxTituloEvento.Text.Length > 20)
             {              
-                MessageBox.Show("Debe introducir un título de evento", "Advertencia",
+                MessageBox.Show("Debe introducir un título de evento de entre 1 y 20 caracteres", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBoxTituloEvento.Focus();
-            }
-            if(textBoxTituloEvento.Text.Length > 20)
-            {
-                MessageBox.Show("El título debe tener 20 caracteres máximo", "Advertencia",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBoxTituloEvento.Focus();
             }
             else if (comboBoxTipoEvento.SelectedItem == null)
@@ -243,15 +237,15 @@ namespace Chrysallis_Eventos
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 comboBoxTipoEvento.Focus();
             }
-            else if (textBoxDireccionEvento.Text.Length == 0)
+            else if (textBoxDireccionEvento.Text.Length == 0 || textBoxDireccionEvento.Text.Length > 140)
             {
-                MessageBox.Show("Debe introducir una dirección de evento", "Advertencia",
+                MessageBox.Show("Debe introducir una dirección de evento de entre 1 y 140 caracteres", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBoxDireccionEvento.Focus();
             }
-            else if (richTextBoxDescripcionEvento.Text.Length == 0)
+            else if (richTextBoxDescripcionEvento.Text.Length == 0 || richTextBoxDescripcionEvento.Text.Length > 250)
             {
-                MessageBox.Show("Debe introducir una descripción de evento", "Advertencia",
+                MessageBox.Show("Debe introducir una descripción de evento de entre 1 y 250 caracteres", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 richTextBoxDescripcionEvento.Focus();
             }
