@@ -286,7 +286,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
                                                     break;
                                                 case 404:
                                                     Toast.makeText(DetalleEventoActivity.this,
-                                                            "Error al actualizar el socio", Toast.LENGTH_LONG).show();
+                                                            "Error al actualizar el socie", Toast.LENGTH_LONG).show();
                                                     break;
                                                 default:
                                                     Toast.makeText(DetalleEventoActivity.this,
