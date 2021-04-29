@@ -65,7 +65,7 @@ namespace Chrysallis_Eventos
                 }
                 if (usuari.username.Equals("sa"))
                 {
-                    MessageBox.Show("No se puede modificar el usuario sa", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No se puede modificar le usuarie sa", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 
@@ -108,21 +108,21 @@ namespace Chrysallis_Eventos
         {
             if (textBoxUserName.Text.Equals(""))
             {
-                MessageBox.Show("Hay que escribir un nombre", "Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Hay que escribir un nombre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBoxUserName.Focus();
             }
             else
             {
                 if (textBoxEmail.Text.Equals(""))
                 {
-                    MessageBox.Show("Hay que escribir un email", "Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Hay que escribir un email", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     textBoxEmail.Focus();
                 }
                 else
                 {
                         if(comboBoxRol.SelectedIndex == -1)
                         {
-                            MessageBox.Show("Seleccionar un rol", "Rol", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Seleccionar un rol", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
@@ -146,12 +146,12 @@ namespace Chrysallis_Eventos
                                         missatge = AdminOrm.Insert(usuari);
                                         if (missatge.Equals(""))
                                         {
-                                            MessageBox.Show("Usuari introduit correctament");
+                                            MessageBox.Show("Usuare introducide correctamente.","Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                             this.Close();
                                         }
                                         else
                                         {
-                                            MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            MessageBox.Show(missatge, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         }
                                     }
                                     
@@ -161,12 +161,12 @@ namespace Chrysallis_Eventos
                                     missatge = AdminOrm.Update(usuari);
                                     if (missatge.Equals(""))
                                     {
-                                        MessageBox.Show("Usuari modificat correctament");
+                                        MessageBox.Show("Usuarie modificade correctamente", "Información" , MessageBoxButtons.OK, MessageBoxIcon.Information);
                                         this.Close();
                                     }
                                     else
                                     {
-                                        MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        MessageBox.Show(missatge, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                 }
                                 
@@ -175,7 +175,7 @@ namespace Chrysallis_Eventos
                             {
                                 if (_comunitats.Count == 0)
                                 {
-                                    MessageBox.Show("Hay que introducir almenos 1 comunidad");
+                                    MessageBox.Show("Hay que introducir almenos 1 comunidad", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 }
                                 else
                                 {
@@ -194,12 +194,12 @@ namespace Chrysallis_Eventos
                                             missatge = AdminOrm.Insert(usuari);
                                             if (missatge.Equals(""))
                                             {
-                                                MessageBox.Show("Usuari introduit correctament");
+                                                MessageBox.Show("Usuarie introducide correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                 this.Close();
                                             }
                                             else
                                             {
-                                                MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                MessageBox.Show(missatge, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                             }
                                         }
                                     }
@@ -208,12 +208,12 @@ namespace Chrysallis_Eventos
                                         missatge = AdminOrm.Update(usuari);
                                         if (missatge.Equals(""))
                                         {
-                                            MessageBox.Show("Usuari modificat correctament");
+                                            MessageBox.Show("Usuarie modificade correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information););
                                             this.Close();
                                         }
                                         else
                                         {
-                                            MessageBox.Show(missatge, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            MessageBox.Show(missatge, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         }
 
                                     }
@@ -231,7 +231,7 @@ namespace Chrysallis_Eventos
             bool correcto = false;
             if(textBoxPassword.Text.Length < 8)
             {
-                MessageBox.Show("La contraseña tiene que tener un mínimo de 8 caracteres", "Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("La contraseña tiene que tener un mínimo de 8 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
             else

@@ -157,31 +157,31 @@ namespace Chrysallis_Eventos
 
             if (textBoxNombreUsuario.Text.Length == 0)
             {
-                MessageBox.Show("Debe introducir un Nombre al usuario", "Advertencia",
+                MessageBox.Show("Debe introducir un nombre de usuarie", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBoxNombreUsuario.Focus();
             }
             else if (textBoxApellidoUsuario.Text.Length == 0)
             {
-                MessageBox.Show("Debe seleccionar un Apelllido al usuario", "Advertencia",
+                MessageBox.Show("Debe introducir un apelllido de usuarie", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBoxApellidoUsuario.Focus();
             }
             else if (textBoxDNIUsuario.Text.Length == 0)
             {
-                MessageBox.Show("Debe introducir un DNI al usuario", "Advertencia",
+                MessageBox.Show("Debe introducir un DNI", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBoxDNIUsuario.Focus();
             }
             else if (textBoxTelefono1Usuario.Text.Length == 0)
             {
-                MessageBox.Show("Debe introducir un Telefono al usuario", "Advertencia",
+                MessageBox.Show("Debe introducir un teléfono", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBoxPasswordUsuario.Focus();
             }
             else if (textBoxEmailUsuario.Text.Length == 0)
             {
-                MessageBox.Show("Debe introducir un Email al usuario", "Advertencia",
+                MessageBox.Show("Debe introducir un email de usuarie", "Advertencia",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBoxEmailUsuario.Focus();
             }
@@ -199,7 +199,7 @@ namespace Chrysallis_Eventos
             }
             else if (!comprobarEntero(textBoxNumSocio.Text))
             {
-                MessageBox.Show("Debe introducir un numero de socio correcto", "Advertencia",
+                MessageBox.Show("Debe introducir un numero de socie correcto", "Advertencia",
                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBoxNumSocio.Focus();
             }
@@ -211,7 +211,7 @@ namespace Chrysallis_Eventos
             {
                 if (textBoxPasswordUsuario.Text.Length == 0)
                 {
-                    MessageBox.Show("Debe introducir una Contraseña al usuario", "Advertencia",
+                    MessageBox.Show("Debe introducir una contraseña de usuarie", "Advertencia",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     textBoxPasswordUsuario.Focus();
                     correcto = false;
@@ -233,7 +233,7 @@ namespace Chrysallis_Eventos
                     UsuarioOrm.Update(ref missatge, soci);
                     if (missatge.Equals(""))
                     {
-                        MessageBox.Show("Se ha modificado el Usuario correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Se ha modificado le usuarie correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                     else
@@ -249,7 +249,7 @@ namespace Chrysallis_Eventos
                     UsuarioOrm.Insert(ref missatge, soci);
                     if (missatge.Equals(""))
                     {
-                        MessageBox.Show("Se ha insertado el Usuario correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Se ha insertado le usuarie correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         List<socis> _soci = UsuarioOrm.Select(ref missatge, soci.dni);
                         FormInsertarMenor fim = new FormInsertarMenor(_soci[0]);
                         fim.ShowDialog();
@@ -275,13 +275,13 @@ namespace Chrysallis_Eventos
             String missatge = "";
             if (dataGridViewMenors.SelectedRows.Count > 0)
             {
-                DialogResult dg = MessageBox.Show("Estás segure de borrar le menor?", "Pregunta", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult dg = MessageBox.Show("¿Estás segure de borrar le niñe?", "Pregunta", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dg == DialogResult.OK)
                 {
                     missatge = MenorOrm.Delete((menors_socis)dataGridViewMenors.SelectedRows[0].DataBoundItem);
                     if (missatge.Equals(""))
                     {
-                        MessageBox.Show("Menor borrado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Niñe borrade correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
