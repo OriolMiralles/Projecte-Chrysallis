@@ -6,10 +6,12 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,6 +54,8 @@ public class DetalleEventoActivity extends AppCompatActivity {
     private EditText etNumPersonasDetalle;
     private TextView txtNumPers;
     private TextView tvPlazas;
+    private ImageView imgLocation;
+    private TextView tvTituloDetalle;
     private boolean apuntado;
     private int numEstrellas;
 
@@ -76,7 +80,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
         int plazasLibres = quantMax - contAss;
 
         ImageView imgTipoEventDetalle      = findViewById(R.id.imgTipoEventDetalle);
-        TextView tvTituloDetalle           = findViewById(R.id.tvTituloDetalle);
+        tvTituloDetalle                    = findViewById(R.id.tvTituloDetalle);
         TextView tvTipoEventoDetalle       = findViewById(R.id.tvTipoEventoDetalle);
         TextView tvFechaDetalle            = findViewById(R.id.tvFechaDetalle);
         TextView tvLoca                    = findViewById(R.id.tvLoca);
@@ -87,6 +91,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
         btnLink                            = findViewById(R.id.btnLink);
         tvPlazas                           = findViewById(R.id.tvPlazas);
         txtNumPers                         = findViewById(R.id.txtViewNumPers);
+        imgLocation                        = findViewById(R.id.imgLocation);
 
         //setteamos los elementos
         loadImageEvent(imgTipoEventDetalle);
@@ -105,6 +110,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
         else{
             btnLink.setText("Link");
             tvLoca.setVisibility(View.GONE);
+            imgLocation.setVisibility(View.GONE);
         }
 
         if(apuntado && date.getTime() < System.currentTimeMillis()){
@@ -233,6 +239,7 @@ public class DetalleEventoActivity extends AppCompatActivity {
         Button btnModificarPersonas = dialog.findViewById(R.id.btnModificarPersonas);
         Button btnDesapuntarse = dialog.findViewById(R.id.btnDesapuntarse);
         Button btnCloseModificar = dialog.findViewById(R.id.btnCloseModificar);
+
         dialog.show();
 
         btnCloseModificar.setOnClickListener(new View.OnClickListener() {

@@ -10,6 +10,7 @@
         android:id="@+id/imgTipoEvent"
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:layout_marginRight="@dimen/marginTopLogo"
         />
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,42 +25,87 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="@dimen/tamanoLetraGrande"
-            android:layout_gravity="right"
+            android:layout_gravity="left"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/marginRightText"
             />
-        <TextView
-            android:id="@+id/tvNumPer"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:textSize="@dimen/tamanoLetraMedia"
-            android:layout_gravity="right"
-            android:layout_marginRight="@dimen/marginRightText"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="left">
 
-        <TextView
-            android:id="@+id/tvCiudad"
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="@dimen/marginTopLogo"
+                android:src="@drawable/ic_profile"/>
+
+            <TextView
+                android:id="@+id/tvNumPer"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/tamanoLetraMedia"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/marginRightText"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginRight="@dimen/marginRightText"
-            android:textSize="@dimen/tamanoLetraMedia"
-            />
-        <TextView
+            android:orientation="horizontal"
+            android:layout_gravity="left">
+
+            <ImageView
+                android:id="@+id/imgLocation"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="@dimen/marginTopLogo"
+                android:src="@drawable/markerblack"/>
+
+            <TextView
+                android:id="@+id/tvCiudad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/marginRightText"
+                android:textSize="@dimen/tamanoLetraMedia"/>
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginRight="@dimen/marginRightText"
-            android:textSize="@dimen/tamanoLetraMedia"
-            android:id="@+id/tvFecha"/>
+            android:orientation="horizontal"
+            android:layout_gravity="left">
+
+            <ImageView
+                android:id="@+id/imgCalendar"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="@dimen/marginTopLogo"
+                android:src="@drawable/ic_eventos"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/marginRightText"
+                android:textSize="@dimen/tamanoLetraMedia"
+                android:id="@+id/tvFecha"/>
+         </LinearLayout>
+
         <TextView
             android:id="@+id/tvValorar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginRight="@dimen/marginRightText"
+            android:layout_gravity="left"
             android:textSize="@dimen/tamanoLetraMedia"
             android:textColor="@color/alert"
             />
+        <ImageView
+            android:id="@+id/imgOnline"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/videocall"/>
 
     </LinearLayout>
 
