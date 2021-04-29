@@ -73,7 +73,7 @@ namespace Chrysallis_Eventos
             }
             else
             {
-                MessageBox.Show("Seleccionar un usuarie de la grid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccionar un usuarie de la grid", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -132,7 +132,7 @@ namespace Chrysallis_Eventos
             }
             else
             {
-                MessageBox.Show("Seleccionar un usuarie de la grid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccionar un usuarie de la grid", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

@@ -49,14 +49,16 @@ namespace Chrysallis_Eventos
         {
             if (textBoxNew.Text.Equals(""))
             {
-                MessageBox.Show("Introducir una contraseña");
+                MessageBox.Show("Introducir una contraseña", "Advertencia",
+                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBoxNew.Focus();
             }
             else
             {
                 if (textBoxConfirm.Text.Equals(""))
                 {
-                    MessageBox.Show("Confirmar la contraseña");
+                    MessageBox.Show("Confirmar la contraseña", "Advertencia",
+                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     textBoxNew.Focus();
                 }
                 else
@@ -73,7 +75,8 @@ namespace Chrysallis_Eventos
                             missatge = AdminOrm.Update(_user);
                             if (missatge.Equals(""))
                             {
-                                MessageBox.Show("Contraseña modificada correctamente");
+                                MessageBox.Show("Contraseña modificada correctamente", "Información",
+                  MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.Close();
                             }
                             else
@@ -88,7 +91,8 @@ namespace Chrysallis_Eventos
                             missatge = UsuarioOrm.Update(ref missatge, _soci);
                             if (missatge.Equals(""))
                             {
-                                MessageBox.Show("Contraseña modificada correctamente");
+                                MessageBox.Show("Contraseña modificada correctamente", "Información",
+                  MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.Close();
                             }
                             else
@@ -107,7 +111,8 @@ namespace Chrysallis_Eventos
             bool correcte = false;
             if (textBoxNew.Text.Length < 8 || textBoxConfirm.Text.Length < 8)
             {
-                MessageBox.Show("La contraseña debe tener almenos 8 caracteres");
+                MessageBox.Show("La contraseña debe tener almenos 8 caracteres", "Advertencia",
+                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -117,7 +122,8 @@ namespace Chrysallis_Eventos
                 }
                 else
                 {
-                    MessageBox.Show("Las contraseñas no coinciden");
+                    MessageBox.Show("Las contraseñas no coinciden", "Advertencia",
+                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             return correcte;

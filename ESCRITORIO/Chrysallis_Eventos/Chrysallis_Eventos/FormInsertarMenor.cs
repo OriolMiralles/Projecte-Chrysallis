@@ -36,7 +36,7 @@ namespace Chrysallis_Eventos
                 missatge = MenorOrm.Insert(menor_soci);
                 if (missatge.Equals(""))
                 {
-                    MessageBox.Show("Menor insertado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Niñe insertade correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     textBoxNombreMenorUsuario.Text="";
                     textBoxRelacionMenorUsuario.Text = "";
                 }
@@ -49,13 +49,13 @@ namespace Chrysallis_Eventos
             bool correcto = true;
             if (textBoxNombreMenorUsuario.Equals(""))
             {
-                MessageBox.Show("Hay que escribir un nombre de menor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hay que escribir un nombre de niñe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxNombreMenorUsuario.Focus();
                 correcto = false;
             }
             else if (textBoxRelacionMenorUsuario.Equals(""))
             {
-                MessageBox.Show("Hay que escribir una relación del menor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hay que escribir una relación con la niñe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxRelacionMenorUsuario.Focus();
                 correcto = false;
             }
@@ -68,7 +68,7 @@ namespace Chrysallis_Eventos
             List<menors_socis> menors = MenorOrm.Select(ref missatge, _soci);
             if (menors.Count == 0)
             {
-                MessageBox.Show("Hay que introducir al menos 1 menor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hay que introducir al menos une niñe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

@@ -34,7 +34,7 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="25dp"
+    android:layout_marginTop="15dp"
     android:orientation="horizontal"
     android:gravity="center">
 
@@ -115,9 +115,9 @@
     <TextView
         android:id="@+id/tvDescripcionDetalle"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/heightTxtDescrEvento"
-        android:layout_marginTop="20dp"
+        android:layout_height="120dp"
         android:layout_marginHorizontal="@dimen/marginHorTxtDescrEvento"
+        android:layout_marginTop="20dp"
         android:background="@drawable/textviewmargen"
         android:padding="@dimen/paddingTxtDescrEvento"
         android:text="@string/txtDescripcionEvento" />
@@ -134,7 +134,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -159,8 +159,8 @@
         style="@style/buttonPrimary2"
         android:layout_width="@dimen/btnLoginWidth"
         android:layout_height="@dimen/btnApuntarseEventoHeight"
-        android:layout_marginTop="15dp"
         android:layout_gravity="center"
+        android:layout_marginTop="5dp"
         android:text="@string/textApuntarse"/>
 
 </LinearLayout>

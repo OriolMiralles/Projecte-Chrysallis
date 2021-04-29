@@ -66,7 +66,7 @@ namespace Chrysallis_Eventos
             }
             else
             {
-                MessageBox.Show("Seleccionar un usuarie de la grid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccionar une usuarie de la grid", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             
         }
@@ -93,7 +93,7 @@ namespace Chrysallis_Eventos
             }
             else
             {
-                MessageBox.Show("Seleccionar une usuarie de la grid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccionar une usuarie de la grid", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -105,18 +105,18 @@ namespace Chrysallis_Eventos
                 usuaris user = (usuaris)dataGridViewUsuaris.SelectedRows[0].DataBoundItem;
                 if (user.username.Equals("sa"))
                 {
-                    MessageBox.Show("No se puede eliminar le usuarie sa", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No se puede eliminar le usuarie sa", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    DialogResult dg = MessageBox.Show("Estás seguro que quieres borrar le usuarie?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    DialogResult dg = MessageBox.Show("¿Estás segure que quieres borrar le usuarie?", "Pregunta", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                     if (dg == DialogResult.OK)
                     {
                         missatge = 
                         missatge = AdminOrm.Delete((usuaris)dataGridViewUsuaris.SelectedRows[0].DataBoundItem);
                         if (missatge.Equals(""))
                         {
-                            MessageBox.Show("Usuarie eliminade correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Usuarie eliminade correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             refrescarGrid();
                         }
                     }
@@ -125,7 +125,7 @@ namespace Chrysallis_Eventos
             }
             else
             {
-                MessageBox.Show("Seleccionar un usuarie de la grid", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccionar une usuarie de la grid", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

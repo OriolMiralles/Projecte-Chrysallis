@@ -288,7 +288,7 @@ namespace Chrysallis_Eventos
                     {
                         if (!comprobarFloat(textBoxPrecioPersonaEvento.Text))
                         {
-                            MessageBox.Show("Debe introducir un numero correcto en Precio por persona", "Advertencia",
+                            MessageBox.Show("Debe introducir un numero correcto en precio por persona", "Advertencia",
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             textBoxPrecioPersonaEvento.Focus();
                         }

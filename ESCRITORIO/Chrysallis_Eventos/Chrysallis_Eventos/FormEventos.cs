@@ -96,18 +96,18 @@ namespace Chrysallis_Eventos
                 String missatge = "";
                 esdeveniments esdev = (esdeveniments)dataGridViewEvents.SelectedRows[0].DataBoundItem;
                 
-                DialogResult dg = MessageBox.Show("Estás segure que quieres borrar el evento?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult dg = MessageBox.Show("¿Estás segure que quieres borrar el evento?", "Pregunta", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (dg == DialogResult.OK)
                 {
                     missatge = EventosOrm.Delete(ref missatge, (esdeveniments)dataGridViewEvents.SelectedRows[0].DataBoundItem);
                     if (missatge.Equals(""))
                     {
-                        MessageBox.Show("Evento eliminade correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Evento eliminado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         refrescarGrid();
                     }
                     else
                     {
-                        MessageBox.Show(missatge, "Mensaje Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(missatge, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
